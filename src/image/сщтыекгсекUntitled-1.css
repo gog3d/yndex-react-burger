@@ -1,0 +1,7297 @@
+/* constructor */
+
+position: relative;
+width: 1920px;
+height: 1000px;
+
+/* interface/bg */
+background: #131316;
+
+
+/* BurgerConstructor */
+
+position: absolute;
+width: 600px;
+height: 912px;
+left: 980px;
+top: 88px;
+
+
+
+/* info */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 568px;
+height: 64px;
+left: 16px;
+top: 796px;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 119px;
+height: 64px;
+right: 255px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 40px;
+
+
+/* 610 */
+
+position: static;
+width: 75px;
+left: calc(50% - 75px/2 - 22px);
+top: 21.88%;
+bottom: 21.88%;
+
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 36px;
+/* identical to box height, or 75% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 36px;
+height: 36px;
+left: 83px;
+top: 14px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: static;
+width: 215px;
+height: 64px;
+left: 353px;
+top: 0px;
+
+/* button/glow */
+box-shadow: 0px 0px 16px 8px rgba(51, 51, 255, 0.25), 0px 0px 8px 8px rgba(51, 51, 255, 0.25);
+filter: drop-shadow(0px 4px 32px rgba(51, 51, 255, 0.5));
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 40px;
+
+
+/* Base */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 20px 40px;
+
+position: static;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* button/normal */
+background: linear-gradient(63.18deg, #801AB3 0%, #4C4CFF 100%);
+border-radius: 64px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+
+/* Text */
+
+position: static;
+width: 135px;
+height: 24px;
+left: 40px;
+top: 20px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+
+/* burger components */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 568px;
+height: 656px;
+left: 16px;
+top: 100px;
+
+
+
+/* burger component/desktop */
+
+position: static;
+width: 568px;
+height: 80px;
+left: 0px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 16px 0px;
+
+
+/* ingredient */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 16px 32px 16px 24px;
+
+position: absolute;
+height: 80px;
+left: 32px;
+right: 0px;
+top: calc(50% - 80px/2);
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 88px 88px 40px 40px;
+
+
+/* illustration */
+
+position: static;
+width: 80px;
+height: 40px;
+left: 24px;
+top: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* bun-02 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(bun-02.png);
+
+
+/* name */
+
+position: static;
+width: 254px;
+height: 48px;
+left: 124px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Краторная булка N-200i (верх) */
+
+position: absolute;
+width: 254px;
+height: 48px;
+left: 0px;
+top: calc(50% - 48px/2);
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 398px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* 20 */
+
+position: static;
+width: 30px;
+height: 24px;
+right: 32px;
+top: calc(50% - 24px/2);
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 38px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 480px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 8.33%;
+right: 8.33%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/dark grey (secondary text) */
+background: #8585AD;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+visibility: hidden;
+width: 24px;
+height: 24px;
+left: 0px;
+top: calc(50% - 24px/2);
+
+
+
+/* burger component/desktop */
+
+position: static;
+width: 568px;
+height: 80px;
+left: 0px;
+top: 96px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 16px 0px;
+
+
+/* ingredient */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 16px 32px 16px 24px;
+
+position: absolute;
+height: 80px;
+left: 32px;
+right: 0px;
+top: calc(50% - 80px/2);
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+
+/* illustration */
+
+position: static;
+width: 80px;
+height: 40px;
+left: 24px;
+top: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* sauce-03 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(sauce-03.png);
+
+
+/* name */
+
+position: static;
+width: 254px;
+height: 48px;
+left: 124px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Соус традиционный галактический */
+
+position: absolute;
+width: 254px;
+height: 48px;
+left: 0px;
+top: calc(50% - 48px/2);
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 398px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* 30 */
+
+position: static;
+width: 30px;
+height: 24px;
+right: 32px;
+top: calc(50% - 24px/2);
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 38px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 480px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 8.33%;
+bottom: 8.33%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: calc(50% - 24px/2);
+
+
+
+/* Vector */
+
+position: absolute;
+left: 22.92%;
+right: 22.92%;
+top: 12.5%;
+bottom: 11.22%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* burger component/desktop */
+
+position: static;
+width: 568px;
+height: 80px;
+left: 0px;
+top: 192px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 16px 0px;
+
+
+/* ingredient */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 16px 32px 16px 24px;
+
+position: absolute;
+height: 80px;
+left: 32px;
+right: 0px;
+top: calc(50% - 80px/2);
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+
+/* illustration */
+
+position: static;
+width: 80px;
+height: 40px;
+left: 24px;
+top: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* meat-02 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(meat-02.png);
+
+
+/* name */
+
+position: static;
+width: 240px;
+height: 48px;
+left: 124px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Мясо бессмертных моллюсков Protostomia */
+
+position: absolute;
+width: 240px;
+height: 48px;
+left: 0px;
+top: calc(50% - 48px/2);
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 76px;
+height: 24px;
+left: 384px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* 300 */
+
+position: static;
+width: 44px;
+height: 24px;
+right: 32px;
+top: calc(50% - 24px/2);
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 52px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 480px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 8.33%;
+bottom: 8.33%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: calc(50% - 24px/2);
+
+
+
+/* Vector */
+
+position: absolute;
+left: 22.92%;
+right: 22.92%;
+top: 12.5%;
+bottom: 11.22%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* burger component/desktop */
+
+position: static;
+width: 568px;
+height: 80px;
+left: 0px;
+top: 288px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 16px 0px;
+
+
+/* ingredient */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 16px 32px 16px 24px;
+
+position: absolute;
+height: 80px;
+left: 32px;
+right: 0px;
+top: calc(50% - 80px/2);
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+
+/* illustration */
+
+position: static;
+width: 80px;
+height: 40px;
+left: 24px;
+top: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* sp 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(sp.png);
+
+
+/* name */
+
+position: static;
+width: 254px;
+height: 48px;
+left: 124px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Плоды Фалленианского дерева */
+
+position: absolute;
+width: 254px;
+height: 48px;
+left: 0px;
+top: calc(50% - 48px/2);
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 398px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+right: 32px;
+top: calc(50% - 24px/2);
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 38px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 480px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 8.33%;
+bottom: 8.33%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: calc(50% - 24px/2);
+
+
+
+/* Vector */
+
+position: absolute;
+left: 22.92%;
+right: 22.92%;
+top: 12.5%;
+bottom: 11.22%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* burger component/desktop */
+
+position: static;
+width: 568px;
+height: 80px;
+left: 0px;
+top: 384px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+margin: 16px 0px;
+
+
+/* ingredient */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 16px 32px 16px 24px;
+
+position: absolute;
+height: 80px;
+left: 32px;
+right: 0px;
+top: calc(50% - 80px/2);
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+
+/* illustration */
+
+position: static;
+width: 80px;
+height: 40px;
+left: 24px;
+top: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* mineral rings */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(mineral rings.png);
+
+
+/* name */
+
+position: static;
+width: 254px;
+height: 48px;
+left: 124px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Хрустящие минеральные кольца */
+
+position: absolute;
+width: 254px;
+height: 48px;
+left: 0px;
+top: calc(50% - 48px/2);
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 398px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+right: 32px;
+top: calc(50% - 24px/2);
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 38px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 480px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 8.33%;
+bottom: 8.33%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: calc(50% - 24px/2);
+
+
+
+/* Vector */
+
+position: absolute;
+left: 22.92%;
+right: 22.92%;
+top: 12.5%;
+bottom: 11.22%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* burger component/desktop */
+
+position: static;
+width: 568px;
+height: 80px;
+left: 0px;
+top: 480px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+flex-grow: 0;
+margin: 16px 0px;
+
+
+/* ingredient */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 16px 32px 16px 24px;
+
+position: absolute;
+height: 80px;
+left: 32px;
+right: 0px;
+top: calc(50% - 80px/2);
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+
+/* illustration */
+
+position: static;
+width: 80px;
+height: 40px;
+left: 24px;
+top: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* mineral rings */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(mineral rings.png);
+
+
+/* name */
+
+position: static;
+width: 254px;
+height: 48px;
+left: 124px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Хрустящие минеральные кольца */
+
+position: absolute;
+width: 254px;
+height: 48px;
+left: 0px;
+top: calc(50% - 48px/2);
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 398px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+right: 32px;
+top: calc(50% - 24px/2);
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 38px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 480px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 8.33%;
+bottom: 8.33%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 0px;
+top: calc(50% - 24px/2);
+
+
+
+/* Vector */
+
+position: absolute;
+left: 22.92%;
+right: 22.92%;
+top: 12.5%;
+bottom: 11.22%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* burger component/desktop */
+
+position: static;
+width: 568px;
+height: 80px;
+left: 0px;
+top: 576px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+flex-grow: 0;
+margin: 16px 0px;
+
+
+/* ingredient */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 16px 32px 16px 24px;
+
+position: absolute;
+height: 80px;
+left: 32px;
+right: 0px;
+top: calc(50% - 80px/2);
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px 40px 88px 88px;
+
+
+/* illustration */
+
+position: static;
+width: 80px;
+height: 40px;
+left: 24px;
+top: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* bun-02 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(bun-02.png);
+
+
+/* name */
+
+position: static;
+width: 254px;
+height: 48px;
+left: 124px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Краторная булка N-200i (низ) */
+
+position: absolute;
+width: 254px;
+height: 48px;
+left: 0px;
+top: calc(50% - 48px/2);
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 398px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* 20 */
+
+position: static;
+width: 30px;
+height: 24px;
+right: 32px;
+top: calc(50% - 24px/2);
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 38px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 480px;
+top: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 0px 20px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 8.33%;
+right: 8.33%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/dark grey (secondary text) */
+background: #8585AD;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+visibility: hidden;
+width: 24px;
+height: 24px;
+left: 0px;
+top: calc(50% - 24px/2);
+
+
+
+/* scrollbar */
+
+position: absolute;
+width: 8px;
+height: 464px;
+left: 592px;
+top: 196px;
+
+/* interface/input */
+background: #2F2F37;
+
+
+/* thumb */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 172px;
+
+/* text/dark grey (secondary text) */
+background: #8585AD;
+/* text/dark grey (secondary text) */
+border: 3px solid #8585AD;
+box-sizing: border-box;
+
+
+/* BurgerIngredients */
+
+position: absolute;
+width: 600px;
+height: 912px;
+left: 340px;
+top: 88px;
+
+/* interface/bg */
+background: #131316;
+
+
+/* Ingredients */
+
+position: absolute;
+width: 600px;
+height: 756px;
+left: 0px;
+top: 156px;
+overflow-y: scroll;
+
+border-radius: 0px;
+
+
+/* columns content */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px;
+
+position: absolute;
+width: 600px;
+height: 1184px;
+left: 0px;
+top: 962px;
+
+
+
+/* column 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 272px;
+height: 1168px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 24px;
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 82.19%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 272px;
+height: 208px;
+left: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* meat-03 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(meat-03.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 76px;
+height: 24px;
+left: 98px;
+top: 128px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 300 */
+
+position: static;
+width: 44px;
+height: 24px;
+left: calc(50% - 44px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 68.42%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Филе Люминесцентного тетраодонтимформа */
+
+position: absolute;
+height: 48px;
+left: 0%;
+right: 0%;
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 20.55%;
+bottom: 61.64%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* meat-04 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(meat-04.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 76px;
+height: 24px;
+left: 98px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 300 */
+
+position: static;
+width: 44px;
+height: 24px;
+left: calc(50% - 44px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 68.42%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Говяжий метеорит (отбивная) */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 41.1%;
+bottom: 41.1%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* sp 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(sp.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Плоды фалленианского дерева */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 61.64%;
+bottom: 20.55%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* mineral rings */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(mineral rings.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Хрустящие минеральные кольца */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 82.19%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* cheese */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(cheese.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Сыр с астероидной плесенью */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* column 4 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 272px;
+height: 1168px;
+left: 312px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+margin: 0px 24px;
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 82.19%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 272px;
+height: 208px;
+left: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* meat-02 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(meat-02.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 76px;
+height: 24px;
+left: 98px;
+top: 128px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 300 */
+
+position: static;
+width: 44px;
+height: 24px;
+left: calc(50% - 44px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 68.42%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Мясо бессмертных моллюсков Protostomia */
+
+position: absolute;
+width: 240px;
+height: 48px;
+left: calc(50% - 240px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 20.55%;
+bottom: 61.64%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* meat-01 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(meat-01.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 76px;
+height: 24px;
+left: 98px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 300 */
+
+position: static;
+width: 44px;
+height: 24px;
+left: calc(50% - 44px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 68.42%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Биокотлета из марсианской Магнолии */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 41.1%;
+bottom: 41.1%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* core */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(core.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Кристаллы марсианских альфа-сахаридов */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 61.64%;
+bottom: 20.55%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* salad */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(salad.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 80 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Мини-салат Экзо-Плантаго */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* Начинка */
+
+position: absolute;
+width: 600px;
+height: 30px;
+left: 0px;
+top: 908px;
+
+/* desktop/display small */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* columns sauses */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px;
+
+position: absolute;
+width: 600px;
+height: 472px;
+left: 0px;
+top: 396px;
+
+
+
+/* column 5 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 272px;
+height: 472px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 24px;
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 55.93%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* sauce-02 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(sauce-02.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 30 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Соус Spicy-X */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+visibility: hidden;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 50.85%;
+bottom: 5.08%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* sauce-03 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(sauce-03.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 30 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Соус традиционный галактический */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* column 6 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 272px;
+height: 472px;
+left: 312px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+margin: 0px 24px;
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 55.93%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* sauce-04 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(sauce-04.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 30 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Соус фирменный Space Sauce */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+visibility: hidden;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 50.85%;
+bottom: 5.08%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* sauce-01 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(sauce-01.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 30 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Соус с шипами Антарианского плоскоходца */
+
+position: absolute;
+width: 272px;
+height: 48px;
+left: calc(50% - 272px/2);
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+visibility: hidden;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* headline */
+
+position: absolute;
+width: 600px;
+height: 30px;
+left: 0px;
+top: 342px;
+
+/* interface/bg */
+background: #131316;
+
+
+/* Соусы */
+
+position: absolute;
+width: 600px;
+height: 30px;
+left: 0px;
+top: 0px;
+
+/* desktop/display small */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* columns puns */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px;
+
+position: absolute;
+width: 600px;
+height: 208px;
+left: 0px;
+top: 94px;
+
+
+
+/* column 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 272px;
+height: 208px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 24px;
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* bun-02 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(bun-02.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 20 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+margin: 8px 0px;
+
+
+/* Краторная булка N-200i */
+
+position: absolute;
+height: 48px;
+left: 0%;
+right: 0%;
+bottom: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* Rounded Rectangle */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+background: #4C4CFF;
+border-radius: 16px;
+
+
+/* 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* or 86% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* column 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 272px;
+height: 208px;
+left: 312px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+margin: 0px 24px;
+
+
+/* ingredient item/desktop */
+
+position: static;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 32px 0px;
+
+
+/* content */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 208px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* illustration */
+
+position: static;
+width: 240px;
+height: 120px;
+left: 16px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* img */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* #000000 */
+background: #000000;
+
+
+/* bun-01 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(bun-01.png);
+
+
+/* price */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 62px;
+height: 24px;
+left: 105px;
+top: 128px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* 20 */
+
+position: static;
+width: 30px;
+height: 24px;
+left: calc(50% - 30px/2 - 16px);
+bottom: 0px;
+
+/* desktop/digits small */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 24px;
+/* identical to box height, or 86% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+left: 61.29%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* name */
+
+position: static;
+width: 272px;
+height: 48px;
+left: 0px;
+top: 160px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Флюоресцентная булка R2-D3 */
+
+position: absolute;
+height: 24px;
+left: 0%;
+right: 0%;
+bottom: 24px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* counter */
+
+position: absolute;
+visibility: hidden;
+width: 32px;
+height: 32px;
+right: 0px;
+top: 0px;
+
+
+
+/* headline */
+
+position: absolute;
+width: 600px;
+height: 30px;
+left: 0px;
+top: 40px;
+
+/* interface/bg */
+background: #131316;
+
+
+/* Булки */
+
+position: absolute;
+width: 600px;
+height: 30px;
+left: 0px;
+top: 0px;
+
+/* desktop/display small */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* tabs */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+width: 600px;
+height: 56px;
+left: 0px;
+top: 100px;
+
+
+
+/* tab */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 200px;
+height: 56px;
+left: 0px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 0px;
+
+
+/* Base */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 16px 40px;
+
+position: static;
+width: 200px;
+left: calc(50% - 200px/2);
+top: 0%;
+bottom: 0%;
+
+/* interface/bg */
+background: #131316;
+/* tab/active */
+box-shadow: inset 0px -2px 0px #4C4CFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 0px;
+
+
+/* Text */
+
+position: static;
+width: 48px;
+height: 24px;
+left: 76px;
+top: 16px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+
+/* tab */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 200px;
+height: 56px;
+left: 200px;
+top: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+margin: 0px 0px;
+
+
+/* Base */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 16px 40px;
+
+position: static;
+width: 200px;
+left: calc(50% - 200px/2);
+top: 0%;
+bottom: 0%;
+
+/* interface/bg */
+background: #131316;
+/* tab/inactive */
+box-shadow: inset 0px -1px 0px #2F2F37;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 0px;
+
+
+/* Text */
+
+position: static;
+width: 48px;
+height: 24px;
+left: 76px;
+top: 16px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/dark grey (secondary text) */
+color: #8585AD;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+
+/* tab */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: static;
+width: 200px;
+height: 56px;
+left: 400px;
+top: 0px;
+
+/* interface/bg */
+background: #131316;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 1;
+margin: 0px 0px;
+
+
+/* Base */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 16px 40px;
+
+position: static;
+width: 200px;
+left: calc(50% - 200px/2);
+top: 0%;
+bottom: 0%;
+
+/* interface/bg */
+background: #131316;
+/* tab/inactive */
+box-shadow: inset 0px -1px 0px #2F2F37;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 0px;
+
+
+/* Text */
+
+position: static;
+width: 68px;
+height: 24px;
+left: 66px;
+top: 16px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+text-align: center;
+
+/* text/dark grey (secondary text) */
+color: #8585AD;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+
+
+/* title */
+
+position: absolute;
+width: 600px;
+height: 40px;
+left: 0px;
+top: 40px;
+
+/* interface/bg */
+background: #131316;
+
+
+/* Соберите бургер */
+
+position: absolute;
+width: 600px;
+height: 40px;
+left: 0px;
+top: 0px;
+
+/* desktop/display large */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 40px;
+/* identical to box height, or 111% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* scrollbar */
+
+position: absolute;
+width: 8px;
+height: 664px;
+left: 592px;
+top: 196px;
+
+/* interface/input */
+background: #2F2F37;
+
+
+/* thumb */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 172px;
+
+/* text/dark grey (secondary text) */
+background: #8585AD;
+/* text/dark grey (secondary text) */
+border: 3px solid #8585AD;
+box-sizing: border-box;
+
+
+/* navigation panel/desktop */
+
+position: absolute;
+height: 88px;
+left: 0%;
+right: 0%;
+top: 0px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+/* card/x-large */
+box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+
+
+/* content */
+
+position: absolute;
+width: 1280px;
+height: 56px;
+left: calc(50% - 1280px/2);
+top: calc(50% - 56px/2);
+
+
+
+/* navigation */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 383px;
+height: 56px;
+left: 0px;
+top: calc(50% - 56px/2);
+
+
+
+/* navigation link/active */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px 20px;
+
+position: static;
+width: 178px;
+height: 56px;
+left: 0px;
+top: 0px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 20px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Union */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* Vector */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 68.33%;
+bottom: 4.17%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 45.42%;
+bottom: 40.83%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 63.75%;
+
+background: #000000;
+
+
+/* name */
+
+position: static;
+width: 106px;
+height: 24px;
+left: 52px;
+top: 16px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+margin: 0px 8px;
+
+
+/* Конструктор */
+
+position: absolute;
+width: 106px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* navigation link/inactive */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px 20px;
+
+position: static;
+width: 197px;
+height: 56px;
+left: 186px;
+top: 0px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 20px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Subtract */
+
+position: absolute;
+left: 4.17%;
+right: 4.17%;
+top: 4.17%;
+bottom: 4.17%;
+
+/* text/dark grey (secondary text) */
+background: #8585AD;
+
+
+/* name */
+
+position: static;
+width: 125px;
+height: 24px;
+left: 52px;
+top: 16px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Лента заказов */
+
+position: absolute;
+width: 125px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+
+/* text/dark grey (secondary text) */
+color: #8585AD;
+
+
+
+/* navigation link/inactive */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px 20px;
+
+position: absolute;
+width: 207px;
+height: 56px;
+left: 1073px;
+top: 0px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+border-radius: 40px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: static;
+width: 24px;
+height: 24px;
+left: 20px;
+top: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Vector */
+
+position: absolute;
+width: 18px;
+height: 22px;
+left: calc(50% - 18px/2);
+top: calc(50% - 22px/2);
+
+/* text/dark grey (secondary text) */
+background: #8585AD;
+
+
+/* name */
+
+position: static;
+width: 135px;
+height: 24px;
+left: 52px;
+top: 16px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 8px;
+
+
+/* Личный кабинет */
+
+position: absolute;
+width: 135px;
+height: 24px;
+left: 0px;
+top: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+display: flex;
+align-items: center;
+
+/* text/dark grey (secondary text) */
+color: #8585AD;
+
+
+
+/* logo */
+
+position: absolute;
+width: 289.15px;
+height: 40px;
+left: 495px;
+top: 8px;
+
+
+
+/* logo */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* burger */
+
+position: absolute;
+left: 43.51%;
+right: 44.11%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+filter: blur(4px);
+
+
+/* burger */
+
+position: absolute;
+left: 43.51%;
+right: 44.11%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+filter: blur(4px);
+
+
+/* burger */
+
+position: absolute;
+left: 43.51%;
+right: 44.11%;
+top: 0%;
+bottom: 0%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+
+
+/* burger */
+
+position: absolute;
+left: 43.51%;
+right: 44.11%;
+top: 0%;
+bottom: 0%;
+
+border: 0.5px solid #FFFFFF;
+
+
+/* burger */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 48.75%;
+bottom: 31.1%;
+
+border: 1px solid #E33CD5;
+filter: blur(4px);
+border-radius: 2px;
+
+
+/* burger */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 48.75%;
+bottom: 31.1%;
+
+border: 1px solid #E33CD5;
+filter: blur(4px);
+border-radius: 2px;
+
+
+/* burger */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 48.75%;
+bottom: 31.1%;
+
+border: 1px solid #E33CD5;
+border-radius: 2px;
+
+
+/* burger */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 48.75%;
+bottom: 31.1%;
+
+border: 0.5px solid #FFFFFF;
+border-radius: 2px;
+
+
+/* path */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 35%;
+bottom: 57.5%;
+
+/* interface/success */
+border: 1px solid #00CCCC;
+filter: blur(4px);
+
+
+/* path */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 35%;
+bottom: 57.5%;
+
+/* interface/success */
+border: 1px solid #00CCCC;
+filter: blur(4px);
+
+
+/* path */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 35%;
+bottom: 57.5%;
+
+/* interface/success */
+border: 1px solid #00CCCC;
+
+
+/* path */
+
+position: absolute;
+left: 42.88%;
+right: 43.28%;
+top: 35%;
+bottom: 57.5%;
+
+border: 0.5px solid #FFFFFF;
+
+
+/* crators */
+
+position: absolute;
+left: 46.34%;
+right: 46.6%;
+top: 5%;
+bottom: 6.25%;
+
+filter: blur(4px);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 47.03%;
+right: 52.27%;
+top: 87.95%;
+bottom: 8.3%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(0.89, 0.46, 0.46, -0.89, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 52.4%;
+right: 46.56%;
+top: 12.5%;
+bottom: 82.5%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 51.66%;
+right: 47.64%;
+top: 89.92%;
+bottom: 6.33%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(0.97, -0.26, -0.26, -0.97, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.8%;
+right: 49.16%;
+top: 20%;
+bottom: 75%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(180deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 50.33%;
+right: 48.64%;
+top: 5%;
+bottom: 90%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.45%;
+right: 49.85%;
+top: 93.75%;
+bottom: 2.5%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(1, 0, 0, -1, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 46.34%;
+right: 52.62%;
+top: 13.49%;
+bottom: 81.51%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(-27.69deg);
+
+
+/* crators */
+
+position: absolute;
+left: 46.34%;
+right: 46.6%;
+top: 5%;
+bottom: 6.25%;
+
+filter: blur(4px);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 47.03%;
+right: 52.27%;
+top: 87.95%;
+bottom: 8.3%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(0.89, 0.46, 0.46, -0.89, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 52.4%;
+right: 46.56%;
+top: 12.5%;
+bottom: 82.5%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 51.66%;
+right: 47.64%;
+top: 89.92%;
+bottom: 6.33%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(0.97, -0.26, -0.26, -0.97, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.8%;
+right: 49.16%;
+top: 20%;
+bottom: 75%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(180deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 50.33%;
+right: 48.64%;
+top: 5%;
+bottom: 90%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.45%;
+right: 49.85%;
+top: 93.75%;
+bottom: 2.5%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(1, 0, 0, -1, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 46.34%;
+right: 52.62%;
+top: 13.49%;
+bottom: 81.51%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(-27.69deg);
+
+
+/* crators */
+
+position: absolute;
+left: 46.34%;
+right: 46.6%;
+top: 5%;
+bottom: 6.25%;
+
+
+
+/* Ellipse */
+
+position: absolute;
+left: 47.03%;
+right: 52.27%;
+top: 87.95%;
+bottom: 8.3%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(0.89, 0.46, 0.46, -0.89, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 52.4%;
+right: 46.56%;
+top: 12.5%;
+bottom: 82.5%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 51.66%;
+right: 47.64%;
+top: 89.92%;
+bottom: 6.33%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(0.97, -0.26, -0.26, -0.97, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.8%;
+right: 49.16%;
+top: 20%;
+bottom: 75%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(180deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 50.33%;
+right: 48.64%;
+top: 5%;
+bottom: 90%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.45%;
+right: 49.85%;
+top: 93.75%;
+bottom: 2.5%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: matrix(1, 0, 0, -1, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 46.34%;
+right: 52.62%;
+top: 13.49%;
+bottom: 81.51%;
+
+/* interface/accent */
+border: 1px solid #4C4CFF;
+transform: rotate(-27.69deg);
+
+
+/* crators */
+
+position: absolute;
+left: 46.34%;
+right: 46.6%;
+top: 5%;
+bottom: 6.25%;
+
+
+
+/* Ellipse */
+
+position: absolute;
+left: 47.03%;
+right: 52.27%;
+top: 87.95%;
+bottom: 8.3%;
+
+border: 0.5px solid #FFFFFF;
+transform: matrix(0.89, 0.46, 0.46, -0.89, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 52.4%;
+right: 46.56%;
+top: 12.5%;
+bottom: 82.5%;
+
+border: 0.5px solid #FFFFFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 51.66%;
+right: 47.64%;
+top: 89.92%;
+bottom: 6.33%;
+
+border: 0.5px solid #FFFFFF;
+transform: matrix(0.97, -0.26, -0.26, -0.97, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.8%;
+right: 49.16%;
+top: 20%;
+bottom: 75%;
+
+border: 0.5px solid #FFFFFF;
+transform: rotate(180deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 50.33%;
+right: 48.64%;
+top: 5%;
+bottom: 90%;
+
+border: 0.5px solid #FFFFFF;
+transform: rotate(15deg);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 49.45%;
+right: 49.85%;
+top: 93.75%;
+bottom: 2.5%;
+
+border: 0.5px solid #FFFFFF;
+transform: matrix(1, 0, 0, -1, 0, 0);
+
+
+/* Ellipse */
+
+position: absolute;
+left: 46.34%;
+right: 52.62%;
+top: 13.49%;
+bottom: 81.51%;
+
+border: 0.5px solid #FFFFFF;
+transform: rotate(-27.69deg);
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 28.88%;
+bottom: 28.54%;
+
+background: #FFFFFF;
+
+
+/* info */
+
+position: absolute;
+visibility: hidden;
+width: 1920px;
+height: 992px;
+left: 0px;
+top: 48px;
+
+
+
+/* info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px;
+
+position: absolute;
+width: 280px;
+height: 262px;
+left: 0px;
+top: 88px;
+
+/* interface/accent */
+background: #4C4CFF;
+/* interface/accent */
+border: 2px solid #4C4CFF;
+
+
+/* AppHeader */
+
+position: static;
+width: 248px;
+height: 30px;
+left: 16px;
+top: 16px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Из библиотеки берутся: •  иконки •  типографика •  логотип •  система отступов все остальное верстается в компоненте */
+
+position: static;
+width: 248px;
+height: 192px;
+left: 16px;
+top: 54px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px;
+
+position: absolute;
+width: 280px;
+height: 142px;
+left: 1640px;
+top: 493px;
+
+/* interface/accent */
+background: #4C4CFF;
+/* interface/accent */
+border: 2px solid #4C4CFF;
+
+
+/* AppHeader */
+
+position: static;
+width: 248px;
+height: 30px;
+left: 16px;
+top: 16px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Из библиотеки берутся: •  иконки •  типографика •  логотип •  система отступов все остальное верстается в компоненте */
+
+position: static;
+width: 248px;
+height: 72px;
+left: 16px;
+top: 54px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px;
+
+position: absolute;
+width: 280px;
+height: 190px;
+left: 0px;
+bottom: -40px;
+
+/* interface/accent */
+background: #4C4CFF;
+/* interface/accent */
+border: 2px solid #4C4CFF;
+
+
+/* AppHeader */
+
+position: static;
+width: 248px;
+height: 30px;
+left: 16px;
+top: 16px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Из библиотеки берутся: •  иконки •  типографика •  логотип •  система отступов все остальное верстается в компоненте */
+
+position: static;
+width: 248px;
+height: 120px;
+left: 16px;
+top: 54px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* or 150% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* <-> */
+
+position: absolute;
+width: 0px;
+height: 40px;
+left: 140px;
+top: 48px;
+
+/* interface/accent */
+border: 2px solid #4C4CFF;
+
+
+/* <-> */
+
+position: absolute;
+width: 0px;
+height: 60px;
+left: 1640px;
+top: 564px;
+
+/* interface/accent */
+border: 2px solid #4C4CFF;
+transform: rotate(90deg);
+
+
+/* <-> */
+
+position: absolute;
+width: 0px;
+height: 60px;
+left: 340px;
+top: 945px;
+
+/* interface/accent */
+border: 2px solid #4C4CFF;
+transform: rotate(90deg);

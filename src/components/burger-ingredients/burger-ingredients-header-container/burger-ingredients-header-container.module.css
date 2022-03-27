@@ -1,0 +1,5 @@
+.burger-ingredients-header-container {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+}

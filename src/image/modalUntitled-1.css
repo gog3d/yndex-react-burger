@@ -1,0 +1,431 @@
+/* order accpeted/popup */
+
+position: relative;
+width: 2000px;
+height: 1000px;
+
+background: rgba(0, 0, 0, 0.6);
+
+
+/* modal */
+
+position: absolute;
+width: 720px;
+height: 718px;
+left: 640px;
+top: 140px;
+
+
+
+/* card */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* interface/modal-bg */
+background: #1C1C21;
+/* /interface/modal edge */
+border: 1px solid rgba(76, 76, 255, 0.2);
+box-sizing: border-box;
+/* card/x-large */
+box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+border-radius: 40px;
+
+
+/* title+button */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+height: 64px;
+left: 40px;
+right: 40px;
+top: 40px;
+
+
+
+/* Заголовок */
+
+position: static;
+width: 580px;
+height: 64px;
+left: 0px;
+top: 0px;
+
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+margin: 0px 36px;
+
+
+/* icon */
+
+position: static;
+width: 24px;
+height: 24px;
+left: 616px;
+top: 20px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 36px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: calc(50% - 24px/2);
+top: calc(50% - 24px/2);
+
+
+
+/* Vector (Stroke) */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 12.5%;
+bottom: 12.5%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* text */
+
+position: absolute;
+width: 520px;
+height: 30px;
+left: 100px;
+top: 272px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+
+
+/* идентификатор заказа */
+
+position: absolute;
+height: 30px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+/* desktop/display small */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* order number */
+
+position: absolute;
+width: 520px;
+height: 120px;
+left: 100px;
+top: 120px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+
+
+/* 034536 */
+
+position: absolute;
+height: 120px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+/* desktop/digits large */
+font-family: 'Iceland';
+font-style: normal;
+font-weight: 400;
+font-size: 144px;
+line-height: 120px;
+/* identical to box height, or 83% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+/* button/glow */
+text-shadow: 0px 0px 16px rgba(51, 51, 255, 0.25), 0px 0px 8px rgba(51, 51, 255, 0.25), 0px 4px 32px rgba(51, 51, 255, 0.5);
+
+
+/* text */
+
+position: absolute;
+width: 520px;
+height: 24px;
+left: 100px;
+top: 542px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+
+
+/* Ваш заказ начали готовить */
+
+position: absolute;
+height: 24px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+text-align: center;
+
+/* text/primary-light (standart text) */
+color: #F2F2F3;
+
+
+
+/* text */
+
+position: absolute;
+width: 520px;
+height: 24px;
+left: 100px;
+top: 574px;
+
+/* interface/modal-bg */
+background: #1C1C21;
+
+
+/* Дождитесь готовности на орбитальной станции */
+
+position: absolute;
+height: 24px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+/* desktop/text */
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+text-align: center;
+
+/* text/dark grey (secondary text) */
+color: #8585AD;
+
+
+
+/* graphics */
+
+position: absolute;
+width: 107px;
+height: 102px;
+left: 307px;
+top: 372px;
+
+
+
+/* Vector 3 */
+
+position: absolute;
+left: 3.74%;
+right: 4.67%;
+top: 0%;
+bottom: 0%;
+
+background: radial-gradient(50% 50% at 50% 50%, rgba(128, 26, 179, 0) 0%, rgba(76, 76, 255, 0.25) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+border-radius: 40px;
+
+
+/* Vector 2 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0.98%;
+bottom: 0.98%;
+
+background: radial-gradient(50% 50% at 50% 50%, rgba(128, 26, 179, 0) 0%, rgba(76, 76, 255, 0.25) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+border-radius: 40px;
+
+
+/* Vector 1 */
+
+position: absolute;
+left: 17.76%;
+right: 18.69%;
+top: 17.65%;
+bottom: 18.3%;
+
+background: radial-gradient(50% 50% at 50% 50%, rgba(128, 26, 179, 0) 0%, rgba(76, 76, 255, 0.125) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+border-radius: 40px;
+
+
+/* icon 24x24
+
+Interface icons 24x24
+*/
+
+position: absolute;
+left: 28.04%;
+right: 27.1%;
+top: 26.47%;
+bottom: 26.47%;
+
+
+
+/* Vector (Stroke) */
+
+position: absolute;
+left: 8.33%;
+right: 8.33%;
+top: 20.83%;
+bottom: 20.83%;
+
+/* text/primary-light (standart text) */
+background: #F2F2F3;
+
+
+/* info */
+
+position: absolute;
+visibility: hidden;
+width: 400px;
+height: 94px;
+left: 240px;
+top: 453px;
+
+
+
+/* info */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 16px;
+
+position: absolute;
+width: 360px;
+height: 94px;
+left: 240px;
+top: 453px;
+
+/* interface/accent */
+background: #4C4CFF;
+/* interface/accent */
+border: 2px solid #4C4CFF;
+
+
+/* AppHeader */
+
+position: static;
+width: 328px;
+height: 30px;
+left: 16px;
+top: 16px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height, or 125% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* Из библиотеки берутся: •  иконки •  типографика •  логотип •  система отступов все остальное верстается в компоненте */
+
+position: static;
+width: 328px;
+height: 24px;
+left: 16px;
+top: 54px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+
+/* main/white */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+margin: 8px 0px;
+
+
+/* <-> */
+
+position: absolute;
+width: 0px;
+height: 40px;
+left: 640px;
+top: 500px;
+
+/* interface/accent */
+border: 2px solid #4C4CFF;
+transform: rotate(90deg);
+
+
+/* done */
+
+position: absolute;
+width: 120px;
+height: 120px;
+left: 940px;
+top: 502px;
+
+background: url(.png);

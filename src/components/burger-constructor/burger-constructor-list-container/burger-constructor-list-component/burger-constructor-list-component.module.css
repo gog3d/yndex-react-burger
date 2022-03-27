@@ -1,9 +1,11 @@
 .burger-constructor-list-component {
   display: flex;
   flex-direction: row;
-  padding: 5px;
   align-items: center;
+  width: 500px;
+  height: 80px;
+
 }
 .dragon-icon {
-  padding: 5px;
+  padding: 0px;
 }

@@ -35,15 +35,25 @@ const App = () => {
         <AppHeader />
       </header>
       <main className={styles["main"]}>
-        {isLoading && 'Загрузка...'}
-        {hasError && 'Произошла ошибка'}
-        {
-          !isLoading &&
-          !hasError &&
-          obj.data.length &&
-          <BurgerConstructor state={state} />
-        }
-        <BurgerIngredients />
+        <span className={styles["main-span"]}>Собери бургер</span>
+        <div className={styles["main-constructor-container"]}>
+          {isLoading && 'Загрузка...'}
+          {hasError && 'Произошла ошибка'}
+          {
+            !isLoading &&
+            !hasError &&
+            obj.data.length &&
+            <BurgerIngredients state={state} />
+          }
+          {isLoading && 'Загрузка...'}
+          {hasError && 'Произошла ошибка'}
+          {
+            !isLoading &&
+            !hasError &&
+            obj.data.length &&
+            <BurgerConstructor state={state} />
+          }
+        </div>
       </main>
     </div>
   );

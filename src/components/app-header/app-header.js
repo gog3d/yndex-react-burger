@@ -1,7 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styles from './app-header.module.css';
 import {Logo, BurgerIcon, ListIcon, ProfileIcon, Tab} from '@ya.praktikum/react-developer-burger-ui-components';
-
 const AppHeader = () => {
   const [current, setCurrent] = React.useState('Конструктор');
   return (

@@ -6,17 +6,16 @@ import BurgerConstructorListComponent from './burger-constructor-list-component/
 
 const BurgerConstructorListContainer = (props) => {
   const { state } = props;
-  const { obj, isLoading, hasError } = state;;
+  const { obj } = state;
   const { data } = obj;
-  console.log(props.callBack);
   return (
     <div className={styles["burger-constructor-list-container"]}>
       {
         data.map((item, index)=>{
           const endElement = data.length - 1;
           return (
+          <Tab value={item.name} key={item.name}>
               <BurgerConstructorListComponent
-                
                 countSpanElement={props.countSpanElement}
                 key={index}
                 changeCountUp={props.changeCountUp}
@@ -28,6 +27,7 @@ const BurgerConstructorListContainer = (props) => {
                   index === 0 ? 'top' : index === endElement ? 'bottom' : ''
                 }
               />
+           </Tab>
           )
         })
       }

@@ -1,5 +1,9 @@
 .app-header {
   display: flex;
   flex-direction: row;
-  width: max-content;
+  justify-content: center;
 }
+
+
+
+
