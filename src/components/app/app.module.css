@@ -1,0 +1,11 @@
+.app {
+  background-color:black;
+}
+.header {
+  background-color: black;
+}
+.main {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+}

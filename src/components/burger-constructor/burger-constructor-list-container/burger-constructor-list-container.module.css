@@ -1,0 +1,14 @@
+.burger-constructor-list-container {
+  border: none;
+  padding: 5px;
+  width: auto;
+  height: 500px;
+  overflow-y: auto;
+}
+/*
+.burger-constructor-list-container {
+  scrollbar-width: auto;;
+}
+.burger-constructor-list-container::-webkit-scrollbar-track {
+  background: orange;
+}*/
