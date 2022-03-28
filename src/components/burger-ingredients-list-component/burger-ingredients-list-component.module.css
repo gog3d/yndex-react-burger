@@ -1,0 +1,5 @@
+.burger-ingredients-list-component {
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

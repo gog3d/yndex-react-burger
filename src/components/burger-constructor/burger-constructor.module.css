@@ -1,5 +1,6 @@
 .burger-constructor {
-  /*position: relative;*/
+  position: relative;
   width: 600px;
   height: 912px;
+  overflow: hidden;
 }

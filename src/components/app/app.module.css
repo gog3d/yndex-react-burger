@@ -3,6 +3,7 @@
   position: relative;
   width: 1920px;
   height: 1000px;
+ 
 
 }
 .header {
@@ -19,10 +20,23 @@
 
 .main-span {
   background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 1920px;
-  height: 88px;
-
+  height: 40px;
 }
+
+.first-span {
+  background-color: black;
+  width: 600px;
+}
+
+.second-span {
+  background-color: black;
+  width: 600px;
+}
+
 
 .main-constructor-container {
   background-color: black;
@@ -31,4 +45,5 @@
   justify-content: center;
   width: 1920px;
   height: 1000px;
+  overflow: hidden;
 }

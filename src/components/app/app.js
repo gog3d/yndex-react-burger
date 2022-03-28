@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './app.module.css';
 import AppHeader from '../app-header/app-header.js';
 import BurgerConstructor from '../burger-constructor/burger-constructor.js';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
-
 const URL = 'https://norma.nomoreparties.space/api/ingredients';
 
 const App = () => {
@@ -15,6 +14,8 @@ const App = () => {
       success: false,
     },
   });
+  const modalRef = useRef(null);
+  
   useEffect(()=>{
     const getData = async () => {
       try {
@@ -35,15 +36,20 @@ const App = () => {
         <AppHeader />
       </header>
       <main className={styles["main"]}>
-        <span className={styles["main-span"]}>Собери бургер</span>
-        <div className={styles["main-constructor-container"]}>
+      <div className={styles["main-span"]}>
+        <span className={styles["first-span"]}>
+          <span className="text text_type_main-large">Собери бургер</span>
+        </span>
+        <span className={styles["second-span"]}></span>
+      </div>
+        <div className={styles["main-constructor-container"]} ref={modalRef}>
           {isLoading && 'Загрузка...'}
           {hasError && 'Произошла ошибка'}
           {
             !isLoading &&
             !hasError &&
             obj.data.length &&
-            <BurgerIngredients state={state} />
+            <BurgerIngredients state={state} modalRef={modalRef}/>
           }
           {isLoading && 'Загрузка...'}
           {hasError && 'Произошла ошибка'}
@@ -51,7 +57,7 @@ const App = () => {
             !isLoading &&
             !hasError &&
             obj.data.length &&
-            <BurgerConstructor state={state} />
+            <BurgerConstructor state={state} modalRef={modalRef}/>
           }
         </div>
       </main>
