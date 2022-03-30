@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import styles from './burger-constructor.module.css';
 import {Button, CurrencyIcon} from '@ya.praktikum/react-developer-burger-ui-components';
 import PropTypes from 'prop-types';
-
+import types from '../../utils/types.js';
 import BurgerConstructorListContainer from '../burger-constructor-list-container/burger-constructor-list-container.js';
 import BurgerConstructorButtonContainer from '../burger-constructor-button-container/burger-constructor-button-container.js';
 
@@ -25,21 +25,6 @@ const BurgerConstructor = (props) => {
   );
 }
 
-BurgerConstructor.propTypes = {
-  state: PropTypes.shape({
-       "_id": PropTypes.string,
-       "name": PropTypes.string,
-       "type": PropTypes.string,
-       "proteins": PropTypes.number,
-       "fat": PropTypes.number,
-       "carbohydrates": PropTypes.number,
-       "calories": PropTypes.number,
-       "price": PropTypes.number,
-       "image": PropTypes.string,
-       "image_mobile": PropTypes.string,
-       "image_large": PropTypes.string,
-       "__v": PropTypes.number
-  })
-};
+BurgerConstructor.propTypes = types(PropTypes);
 
 export default BurgerConstructor;

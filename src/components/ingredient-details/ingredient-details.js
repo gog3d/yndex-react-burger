@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import styles from './ingredient-details.module.css';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import types from '../../utils/types.js';
 
 const IngredientDetails = (props) => {
   const { item } = props;
@@ -12,15 +14,12 @@ const IngredientDetails = (props) => {
         </span>
       </p>
       <img src={item.image} className={styles['ingredient-details-img']} />
-      
       <p className={styles['ingredient-details-identificator']}>
         <span className="text text_type_main-medium">
           {item.name}
         </span>
       </p>
-      
       <div className={styles['ingredient-details-text']}>
-        
         <p className={styles['ingredient-details-text1']}>
           <span className="text text_type_main-default text_color_inactive">
             Каллории, ккал
@@ -29,7 +28,6 @@ const IngredientDetails = (props) => {
             {item.calories}
           </span>
         </p>
-        
         <p className={styles['ingredient-details-text2']}>
           <span className="text text_type_main-default text_color_inactive">
             Белки, г
@@ -59,4 +57,7 @@ const IngredientDetails = (props) => {
   )
 }
 
+IngredientDetails.propTypes = types(PropTypes);
+
 export default IngredientDetails;
+

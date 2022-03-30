@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list-component.module.css';
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
-
+import types from '../../utils/types.js';
 import BurgerIngredientsListComponentItem from '../burger-ingredients-list-component-item/burger-ingredients-list-component-item.js';
 
 const BurgerIngredientsListComponent = (props) => {
@@ -25,21 +25,6 @@ const BurgerIngredientsListComponent = (props) => {
   );
 };
 
-BurgerIngredientsListComponent.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-       "_id": PropTypes.string,
-       "name": PropTypes.string,
-       "type": PropTypes.string,
-       "proteins": PropTypes.number,
-       "fat": PropTypes.number,
-       "carbohydrates": PropTypes.number,
-       "calories": PropTypes.number,
-       "price": PropTypes.number,
-       "image": PropTypes.string,
-       "image_mobile": PropTypes.string,
-       "image_large": PropTypes.string,
-       "__v": PropTypes.number
-  })),
-};
+BurgerIngredientsListComponent.propTypes = types(PropTypes);
 
 export default BurgerIngredientsListComponent;

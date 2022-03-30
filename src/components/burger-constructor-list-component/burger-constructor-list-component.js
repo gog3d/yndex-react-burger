@@ -5,10 +5,9 @@ import styles from './burger-constructor-list-component.module.css';
 import {DragIcon, ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
 
 const BurgerConstructorListComponent = (props) => {
-  const {name, price, img, constructorElementType} = props;
+  const {name, price, img} = props;
   const [locked, setIsLocked] =useState(false);
   const [type, setType] = useState('primary')
-  const [position, setPosition] = useState('static');
   const changeCountUp=props.changeCountUp;
   const changeCountDown=props.changeCountDown;
   
@@ -20,12 +19,10 @@ const BurgerConstructorListComponent = (props) => {
   return (
     <div
       className={styles["burger-constructor-list-component"]}
-      style={{position: position}}
       onClick={onClickBurgerConstructorListComponent}
       >
       <DragIcon className={styles['dragon-icon']} type={type} />
       <ConstructorElement
-        type={constructorElementType}
         isLocked={locked}
         text={name}
         price={price}
@@ -36,10 +33,11 @@ const BurgerConstructorListComponent = (props) => {
 }
 
 BurgerConstructorListComponent.propTypes = {
-  name: PropTypes.string,
-  price: PropTypes.number,
-  img: PropTypes.string,
-  constructorElementType: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+  changeCountUp: PropTypes.func,
+  changeCountDown: PropTypes.func,
 };
 
 export default BurgerConstructorListComponent;

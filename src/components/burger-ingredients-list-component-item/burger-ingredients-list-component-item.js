@@ -4,7 +4,7 @@ import styles from './burger-ingredients-list-component-item.module.css';
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
-
+import types from '../../utils/types.js';
 const BurgerIngredientsListComponentItem = (props) => {
   
   const [open, setOpen] = useState(false);
@@ -41,21 +41,6 @@ const BurgerIngredientsListComponentItem = (props) => {
    </>
   );
 };
-BurgerIngredientsListComponentItem.propTypes = {
-  item: PropTypes.shape({
-    "_id": PropTypes.string,
-    "name": PropTypes.string,
-    "type": PropTypes.string,
-    "proteins": PropTypes.number,
-    "fat": PropTypes.number,
-    "carbohydrates": PropTypes.number,
-    "calories": PropTypes.number,
-    "price": PropTypes.number,
-    "image": PropTypes.string,
-    "image_mobile": PropTypes.string,
-    "image_large": PropTypes.string,
-    "__v": PropTypes.number
-  })
-};
+BurgerIngredientsListComponentItem.propTypes = types(PropTypes);
 
 export default BurgerIngredientsListComponentItem;

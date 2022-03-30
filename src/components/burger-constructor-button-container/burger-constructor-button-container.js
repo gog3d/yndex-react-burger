@@ -31,7 +31,7 @@ const BurgerConstructorButtonContainer = (props) => {
 }
 
 BurgerConstructorButtonContainer.propTypes = {
-  count: PropTypes.number,
+  count: PropTypes.number.isRequired,
 };
 
 export default BurgerConstructorButtonContainer;

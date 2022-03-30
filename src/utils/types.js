@@ -1,5 +1,6 @@
-const types = {
-  state: PropTypes.shape({
+const types = (PropTypes) => {
+  return  {
+    state: PropTypes.shape({
        "_id": PropTypes.string,
        "name": PropTypes.string,
        "type": PropTypes.string,
@@ -12,6 +13,7 @@ const types = {
        "image_mobile": PropTypes.string,
        "image_large": PropTypes.string,
        "__v": PropTypes.number
-  })
+    })
+  };
 };
 export default types;
