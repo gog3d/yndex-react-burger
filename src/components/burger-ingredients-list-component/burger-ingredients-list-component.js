@@ -16,7 +16,6 @@ const BurgerIngredientsListComponent = (props) => {
             <BurgerIngredientsListComponentItem 
               key={index}
               item = {item}
-              modalRef={props.modalRef}
             />
            </Tab>
           )

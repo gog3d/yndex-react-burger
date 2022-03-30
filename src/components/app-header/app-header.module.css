@@ -3,6 +3,12 @@
   flex-direction: row;
   justify-content: center;
 }
+.header {
+  background-color: transparent;
+  width: 1920px;
+  height: 88px;
+
+}
 
 
 

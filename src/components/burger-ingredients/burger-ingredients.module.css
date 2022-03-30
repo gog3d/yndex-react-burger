@@ -1,6 +1,7 @@
 .burger-ingredients {
-  background-color: black;
+  background-color: transparent;
   position: relative;
   width: 600px;
   height: 912px;
+  overflow: hidden;
 }

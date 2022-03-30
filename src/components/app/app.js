@@ -14,7 +14,6 @@ const App = () => {
       success: false,
     },
   });
-  const modalRef = useRef(null);
   
   useEffect(()=>{
     const getData = async () => {
@@ -31,10 +30,8 @@ const App = () => {
   }, []);
   const { obj, isLoading, hasError } = state;
   return (
-    <div className={styles["app"]}>
-      <header className={styles["header"]}>
-        <AppHeader />
-      </header>
+    <div className={styles["page__content"]}>
+      <AppHeader />
       <main className={styles["main"]}>
       <div className={styles["main-span"]}>
         <span className={styles["first-span"]}>
@@ -42,14 +39,14 @@ const App = () => {
         </span>
         <span className={styles["second-span"]}></span>
       </div>
-        <div className={styles["main-constructor-container"]} ref={modalRef}>
+        <div className={styles["main-constructor-container"]}>
           {isLoading && 'Загрузка...'}
           {hasError && 'Произошла ошибка'}
           {
             !isLoading &&
             !hasError &&
             obj.data.length &&
-            <BurgerIngredients state={state} modalRef={modalRef}/>
+            <BurgerIngredients state={state}/>
           }
           {isLoading && 'Загрузка...'}
           {hasError && 'Произошла ошибка'}
@@ -57,7 +54,7 @@ const App = () => {
             !isLoading &&
             !hasError &&
             obj.data.length &&
-            <BurgerConstructor state={state} modalRef={modalRef}/>
+            <BurgerConstructor state={state}/>
           }
         </div>
       </main>

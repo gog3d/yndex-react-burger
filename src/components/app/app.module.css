@@ -1,49 +1,46 @@
+.page__content {
+  margin: 0 auto;
+  max-width: 1280px;
+}
 .app {
-  background-color:black;
+  background-color: transparent;
   position: relative;
   width: 1920px;
   height: 1000px;
- 
-
 }
-.header {
-  background-color: black;
-  width: 1920px;
-  height: 88px;
 
-}
 .main {
-  background-color: black;
+  background-color: transparent;
   width: 1920px;
   height: 1000px;
 }
 
 .main-span {
-  background-color: black;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 1920px;
   height: 40px;
+  overflow: hidden;
 }
 
 .first-span {
-  background-color: black;
+  background-color: transparent;
   width: 600px;
 }
 
 .second-span {
-  background-color: black;
+  background-color: transparent;
   width: 600px;
 }
 
 
 .main-constructor-container {
-  background-color: black;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 1920px;
   height: 1000px;
-  overflow: hidden;
 }

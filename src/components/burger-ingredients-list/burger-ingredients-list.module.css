@@ -1,9 +1,9 @@
 .burger-ingredients-list {
-  background-color: black;
+  background-color: transparent;
   overflow-y: scroll;
   width: 600px;
   height: 756px;
 }
 .burger-ingredients-list-span {
-  background-color: black;
+  background-color: transparent;
 }

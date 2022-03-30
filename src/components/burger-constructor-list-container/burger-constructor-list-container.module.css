@@ -1,8 +1,19 @@
+.burger-constructor-list {
+  width: 600px;
+  height: 732px;
+  position: static;
+  background-color: transparent;
+  overflow: hidden;
+}
 .burger-constructor-list-container {
   width: 600px;
-  height: 656px;
+  height: 496px;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
+  background-color: transparent;
+  
 }
+
 
 

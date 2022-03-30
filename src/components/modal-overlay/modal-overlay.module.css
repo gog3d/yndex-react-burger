@@ -1,0 +1,12 @@
+.modal-overlay {
+  background-color: traparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  border-radius: 40px
+}
+
+
+
+

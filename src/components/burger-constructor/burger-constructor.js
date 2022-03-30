@@ -8,7 +8,6 @@ import BurgerConstructorButtonContainer from '../burger-constructor-button-conta
 
 const BurgerConstructor = (props) => {
   const { state } = props;
-
   const [count, setCount] = useState(0);
   const changeCountUp = (num) => setCount(prev => prev + num);
   const changeCountDown = (num) => setCount(prev => prev - num);
@@ -16,18 +15,16 @@ const BurgerConstructor = (props) => {
     <div className={styles["burger-constructor"]} >
       <BurgerConstructorListContainer
          state ={state}
-
          changeCountUp={changeCountUp}
          changeCountDown={changeCountDown}
       />
       <BurgerConstructorButtonContainer
         count={count}
-
-        modalRef={props.modalRef}
       />
     </div>
   );
 }
+
 BurgerConstructor.propTypes = {
   state: PropTypes.shape({
        "_id": PropTypes.string,

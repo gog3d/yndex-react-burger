@@ -1,6 +1,7 @@
 .burger-ingredients-header {
-  background-color: black;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   width: max-content;
+  overflow: hidden;
 }

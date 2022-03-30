@@ -8,8 +8,9 @@ import BurgerIngredientsListComponent from '../burger-ingredients-list-component
 const BurgerIngredientsListContainer = (props) => {
   const { state } = props;
   const { obj } = state;
+ 
   const { data } = obj;
-  
+  //console.log(obj);
   const buns = [];
   const mains = [];
   const sauces = [];
@@ -30,7 +31,6 @@ const BurgerIngredientsListContainer = (props) => {
         </span>
         <BurgerIngredientsListComponent
           items={buns}
-          modalRef={props.modalRef}
          />
 
         <span className={styles["burger-ingredients-list-span"]}>
@@ -38,7 +38,6 @@ const BurgerIngredientsListContainer = (props) => {
         </span>
         <BurgerIngredientsListComponent
           items={sauces}
-          modalRef={props.modalRef}
          />
 
         <span className={styles["burger-ingredients-list-span"]}>
@@ -46,7 +45,6 @@ const BurgerIngredientsListContainer = (props) => {
         </span>
         <BurgerIngredientsListComponent
           items={mains}
-          modalRef={props.modalRef}
          />
 
     </div>

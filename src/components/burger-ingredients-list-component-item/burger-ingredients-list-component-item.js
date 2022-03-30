@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list-component-item.module.css';
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal.js';
+import IngredientDetails from '../ingredient-details/ingredient-details.js';
 
 const BurgerIngredientsListComponentItem = (props) => {
   
@@ -15,7 +16,9 @@ const BurgerIngredientsListComponentItem = (props) => {
   const {item} = props;
   return (
     <>
-      <Modal message={item.name} isOpen={open} onClose={()=>setOpen(false)} el={props.modalRef} />
+      <Modal message={item.name} isOpen={open} onClose={()=>setOpen(false)}>
+        <IngredientDetails item={item}/>
+      </Modal>
       <div key={item.name} className={styles['burger-ingredients-list-component-item']}
         onClick={onClickItem}
       >

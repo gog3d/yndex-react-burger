@@ -11,7 +11,7 @@ const BurgerIngredients = (props) => {
   return (
     <div className={styles['burger-ingredients']}>
        <BurgerIngredientsHeader />
-       <BurgerIngredientsList state={state} modalRef={props.modalRef}/>
+       <BurgerIngredientsList state={state}/>
     </div>
   );
 };

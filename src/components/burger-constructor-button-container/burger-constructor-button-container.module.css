@@ -5,7 +5,9 @@
   padding: 20px;
   align-items: center;
   row-gap: 40px;
- 
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 .burger-constructor-button {
@@ -13,7 +15,7 @@
 }
 
 .burger-constructor-button-container-span {
-  background-color: black;
+  background-color: transparent;
   padding: 20px;
-  overflow:hidden;
+  /*overflow:hidden;*/
 }
