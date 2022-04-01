@@ -32,7 +32,7 @@ const BurgerIngredientsListComponentItem = (props) => {
           <CurrencyIcon type="primary" />
           </div>
           { item.name &&
-            <Counter count={num} style={{position: 'static'}}/>
+            <Counter count={num} />
           }
           <span className={styles['burger-ingredients-list-component-item-name']}>
             {item.name}
