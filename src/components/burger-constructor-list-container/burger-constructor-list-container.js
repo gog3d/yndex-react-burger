@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types'
 import styles from './burger-constructor-list-container.module.css';
 import {Tab, ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
-import types from '../../utils/types.js';
+import {stateTypes} from '../../utils/dataTypes.js';
 import BurgerConstructorListComponent from '../burger-constructor-list-component/burger-constructor-list-component.js';
 
 const BurgerConstructorListContainer = (props) => {
@@ -58,6 +58,6 @@ const BurgerConstructorListContainer = (props) => {
   );
 }
 
-BurgerConstructorListContainer.propTypes = types(PropTypes);
+BurgerConstructorListContainer.propTypes = stateTypes;
 
 export default BurgerConstructorListContainer;

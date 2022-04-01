@@ -8,12 +8,14 @@ import ModalOverlay from '../modal-overlay/modal-overlay.js'
 const Modal = (props) => {
   const  { isOpen, onClose, children } = props;
   useEffect(() => {
-    window.addEventListener('keydown', function (e) {
+    const closeByEscape = (e) => {
       if(e.key === 'Escape') {
-        onClose()
+        onClose();
       }
-    });
-  },[]);
+    };
+    document.addEventListener('keydown', closeByEscape)
+    return () => document.removeEventListener('keydown', closeByEscape);
+  }, []);
 
   if(!isOpen) return null;
   return ReactDOM.createPortal (
@@ -26,7 +28,7 @@ const Modal = (props) => {
     </div>
     , document.getElementById('modals'));
 }
-////
+
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,

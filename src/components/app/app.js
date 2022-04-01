@@ -14,7 +14,7 @@ const App = () => {
       success: false,
     },
   });
-  
+
   useEffect(()=>{
     const getData = async () => {
       try {
@@ -28,7 +28,9 @@ const App = () => {
     };
     getData();
   }, []);
+
   const { obj, isLoading, hasError } = state;
+
   return (
     <div className={styles["page__content"]}>
       <AppHeader />
@@ -46,7 +48,7 @@ const App = () => {
             !isLoading &&
             !hasError &&
             obj.data.length &&
-            <BurgerIngredients state={state}/>
+            <BurgerIngredients state={ state }/>
           }
           {isLoading && 'Загрузка...'}
           {hasError && 'Произошла ошибка'}
@@ -54,7 +56,7 @@ const App = () => {
             !isLoading &&
             !hasError &&
             obj.data.length &&
-            <BurgerConstructor state={state}/>
+            <BurgerConstructor state={ state }/>
           }
         </div>
       </main>

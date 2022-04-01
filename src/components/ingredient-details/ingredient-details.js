@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './ingredient-details.module.css';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import types from '../../utils/types.js';
+import {itemTypes} from '../../utils/dataTypes.js';
 
 const IngredientDetails = (props) => {
   const { item } = props;
@@ -56,8 +56,7 @@ const IngredientDetails = (props) => {
     </div>
   )
 }
-/////
-IngredientDetails.propTypes = types(PropTypes);
+IngredientDetails.propTypes = itemTypes;
 
 export default IngredientDetails;
 

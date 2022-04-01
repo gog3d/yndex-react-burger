@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list.module.css';
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
-import types from '../../utils/types.js';
+import {stateTypes} from '../../utils/dataTypes.js';
 import BurgerIngredientsListComponent from '../burger-ingredients-list-component/burger-ingredients-list-component.js';
 
 const BurgerIngredientsListContainer = (props) => {
@@ -49,6 +49,6 @@ const BurgerIngredientsListContainer = (props) => {
   );
 };
 
-BurgerIngredientsListContainer.propTypes = types(PropTypes);
+BurgerIngredientsListContainer.propTypes = stateTypes;
 
 export default BurgerIngredientsListContainer;

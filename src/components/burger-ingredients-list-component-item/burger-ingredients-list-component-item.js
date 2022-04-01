@@ -4,9 +4,10 @@ import styles from './burger-ingredients-list-component-item.module.css';
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
-import types from '../../utils/types.js';
+import {itemTypes} from '../../utils/dataTypes.js';
+
 const BurgerIngredientsListComponentItem = (props) => {
-  
+
   const [open, setOpen] = useState(false);
   const [num, setNum] = useState(0);
   const onClickItem = () => {
@@ -41,6 +42,6 @@ const BurgerIngredientsListComponentItem = (props) => {
    </>
   );
 };
-BurgerIngredientsListComponentItem.propTypes = types(PropTypes);
+BurgerIngredientsListComponentItem.propTypes = itemTypes;
 
 export default BurgerIngredientsListComponentItem;
