@@ -5,7 +5,7 @@ const AppHeader = () => {
   const [current, setCurrent] = React.useState('Конструктор');
   return (
     <header className={styles["header"]}>
-      <nav className={styles["app-header"]}>
+      <nav className={styles["nav-bar"]}>
         <Tab value="Конструктор" active={current === "Конструктор"} onClick={setCurrent}>
           <BurgerIcon type={current === "Конструктор" ? "primary" : "secondary"}/>
           <span className="text text_type_main-default">Конструктор</span>

@@ -19,7 +19,7 @@ const BurgerIngredientsListComponentItem = (props) => {
       <Modal message={item.name} isOpen={open} onClose={()=>setOpen(false)}>
         <IngredientDetails item={item}/>
       </Modal>
-      <div key={item.name} className={styles['burger-ingredients-list-component-item']}
+      <div key={item._id} className={styles['burger-ingredients-list-component-item']}
         onClick={onClickItem}
       >
         <img

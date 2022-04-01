@@ -1,15 +1,27 @@
-.app-header {
+.nav-bar {
+  /*display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 1200px;
+  padding: 0;
+  margin: 0;*/
+  align-items: center;
+  display: grid;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: max-content max-content 1fr max-content;
+  width: 1280px;
+
+}
+.header {
+  background-color: transparent;
+  width: 1280px;
+  height: 88px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.header {
-  background-color: transparent;
-  width: 1920px;
-  height: 88px;
-
-}
-
 
 
 

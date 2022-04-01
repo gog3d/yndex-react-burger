@@ -12,9 +12,9 @@ const BurgerIngredientsListComponent = (props) => {
       {
         items.map((item, index)=>{
           return (
-          <Tab value={item.name} key={item.name}>
+          <Tab value={item.name} key={item._id}>
             <BurgerIngredientsListComponentItem 
-              key={index}
+              key={item._id}
               item = {item}
             />
            </Tab>

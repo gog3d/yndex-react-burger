@@ -56,7 +56,7 @@ const IngredientDetails = (props) => {
     </div>
   )
 }
-
+/////
 IngredientDetails.propTypes = types(PropTypes);
 
 export default IngredientDetails;

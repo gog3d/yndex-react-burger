@@ -3,6 +3,7 @@
   overflow-y: scroll;
   width: 600px;
   height: 756px;
+  overflow-x: hidden;
 }
 .burger-ingredients-list-span {
   background-color: transparent;
