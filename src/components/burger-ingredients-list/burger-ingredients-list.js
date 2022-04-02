@@ -1,7 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list.module.css';
-import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
 import {stateTypes} from '../../utils/dataTypes.js';
 import BurgerIngredientsListComponent from '../burger-ingredients-list-component/burger-ingredients-list-component.js';
 
@@ -23,24 +22,23 @@ const BurgerIngredientsListContainer = (props) => {
   }
     return (
     <div className={styles["burger-ingredients-list"]}>
-
-        <span className={styles["burger-ingredients-list-span"]}>
+        <div className={styles["burger-ingredients-list-type"]}>
            <span className="text text_type_main-medium">Булки</span>
-        </span>
+        </div>
         <BurgerIngredientsListComponent
           items={buns}
          />
 
-        <span className={styles["burger-ingredients-list-span"]}>
+        <div className={styles["burger-ingredients-list-type"]}>
           <span className="text text_type_main-medium">Соусы</span>
-        </span>
+        </div>
         <BurgerIngredientsListComponent
           items={sauces}
          />
 
-        <span className={styles["burger-ingredients-list-span"]}>
+        <div className={styles["burger-ingredients-list-type"]}>
           <span className="text text_type_main-medium">Компоненты</span>
-        </span>
+        </div>
         <BurgerIngredientsListComponent
           items={mains}
          />

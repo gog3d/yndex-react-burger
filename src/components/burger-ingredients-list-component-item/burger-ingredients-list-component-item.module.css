@@ -2,13 +2,16 @@
   background-color: transparent;
   display: flex;
   flex-direction: column;
-  width: 240px;
-  height: 220px;
+  align-items: center;
+  width: 272px;
+  height: 100%;
   position: relative;
   margin: 0px;
 }
 .burger-ingredients-list-component-item-img {
   background-color: transparent;
+  width: 240px;
+  height: 120px;
 }
 
 .burger-ingredients-list-component-item-price {
@@ -23,5 +26,19 @@
   background-color: transparent;
 }
 .burger-ingredients-list-component-item-counter {
-  background-color: red;
+  background-color: trasparent;
+}
+
+.burger-ingredients-list-component-item-name {
+  width: 272px;
+  height: 48px;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 0px;
+}
+
+.burger-ingredients-list-component-item-counter {
+  margin: 0px;
+  visibility: visible;
 }

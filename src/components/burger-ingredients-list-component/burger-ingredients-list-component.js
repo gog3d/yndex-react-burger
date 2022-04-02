@@ -12,12 +12,12 @@ const BurgerIngredientsListComponent = (props) => {
       {
         items.map((item, index)=>{
           return (
-          <Tab value={item.name} key={item._id}>
-            <BurgerIngredientsListComponentItem 
-              key={item._id}
-              item = {item}
-            />
-           </Tab>
+            <div className={styles['burger-ingredients-list-component-items']} key={item._id}>
+              <BurgerIngredientsListComponentItem 
+                key={item._id}
+                item = {item}
+              />
+            </div>
           )
         })
       }

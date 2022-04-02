@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styles from './modal.module.css';
@@ -20,7 +20,7 @@ const Modal = (props) => {
   if(!isOpen) return null;
   return ReactDOM.createPortal (
     <div className={styles['modal']}>
-      <ModalOverlay />
+      <ModalOverlay onClick={onClose} />
       <div className={styles['modal-icon']} >
         <CloseIcon onClick={()=>onClose()}/>
       </div>

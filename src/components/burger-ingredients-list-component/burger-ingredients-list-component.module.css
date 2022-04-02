@@ -2,4 +2,12 @@
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  width: 600px;
+  margin: 0px;
+  justify-content: start;
+}
+
+.burger-ingredients-list-component-items {
+  width: 100%;
+  margin: 0px;
 }

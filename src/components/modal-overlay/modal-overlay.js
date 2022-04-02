@@ -1,14 +1,17 @@
-import React, {useState} from 'react';
 import styles from './modal-overlay.module.css';
-import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-
-const ModalOverlay = () => {
+import PropTypes from 'prop-types';
+const ModalOverlay = (props) => {
+  const { onClick } = props;
   return (
     <div 
       className={styles['modal-overlay']}
+      onClick = {onClick}
     >
     </div>
   )
 }
 
+ModalOverlay.propTypes={
+  onClick: PropTypes.func,
+};
 export default ModalOverlay;

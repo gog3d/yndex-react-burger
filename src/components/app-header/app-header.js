@@ -7,19 +7,19 @@ const AppHeader = () => {
   return (
     <header className={styles["header"]}>
       <nav className={styles["nav-bar"]}>
-        <Tab value="Конструктор" active={current === "Конструктор"} onClick={setCurrent}>
+        <div href="#" className={styles['nav-bar-constructor']}>
           <BurgerIcon type={current === "Конструктор" ? "primary" : "secondary"}/>
           <span className="text text_type_main-default">Конструктор</span>
-        </Tab>
-        <Tab value="Лента заказа" active={current === 'Лента заказа'} onClick={setCurrent}>
+        </div>
+        <div className={styles['nav-bar-orders']}>
           <ListIcon type={current === "Лента заказа" ? "primary" : "secondary"}/>
-          <span className="text text_type_main-default">Лента заказа</span>
-        </Tab>
+          <span className="text text_type_main-default text_color_inactive">Лента заказа</span>
+        </div>
         <Logo />
-        <Tab value="Личный кабинет" active={current === "Личный кабинет"} onClick={setCurrent}>
+        <div className={styles['nav-bar-personal-area']}>
           <ProfileIcon type={current === "Личный кабинет" ? "primary" : "secondary"}/>
-          <span className="text text_type_main-default">Личный кабинет</span>
-        </Tab>
+          <span className="text text_type_main-default text_color_inactive">Личный кабинет</span>
+        </div>
       </nav>
     </header>
   );

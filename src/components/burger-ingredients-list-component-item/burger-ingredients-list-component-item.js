@@ -25,19 +25,26 @@ const BurgerIngredientsListComponentItem = (props) => {
       >
         <img
           className={styles['burger-ingredients-list-component-item-img']}
-          src={item.image}/>
+          src={item.image}
+        />
         <div className={styles['burger-ingredients-list-component-item-price']}>
-          <span className={styles['burger-ingredients-list-component-item-price-span']}>
-           {item.price}
-          </span>
-          <CurrencyIcon type="primary" />
+          <div className={styles['burger-ingredients-list-component-item-price-span']}>
+            <span className="text text_type_main-default">
+              {item.price}
+            </span>
           </div>
+          <CurrencyIcon type="primary" />
+        </div>
+        <div className={styles['burger-ingredients-list-component-item-counter']} >
           { item.name &&
             <Counter count={num} />
           }
-          <span className={styles['burger-ingredients-list-component-item-name']}>
-            {item.name}
-          </span>
+        </div>
+          <div className={styles['burger-ingredients-list-component-item-name']} >
+            <span className="text text_type_main-default text-center">
+              {item.name}
+            </span>
+          </div>
       </div>
    </>
   );

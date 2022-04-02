@@ -1,10 +1,18 @@
 .burger-ingredients-list {
+  disply: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0px;
+/*  align-items: top;*/
   background-color: transparent;
-  overflow-y: scroll;
+  overflow-y: auto;
+  scrollbar-width: thin;
   width: 600px;
   height: 756px;
   overflow-x: hidden;
 }
-.burger-ingredients-list-span {
+.burger-ingredients-list-type {
   background-color: transparent;
+  width: 600px;
+  height: 30px;
 }
