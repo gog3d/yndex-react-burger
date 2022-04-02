@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list.module.css';
-import {stateTypes} from '../../utils/dataTypes.js';
+import {IngredientType} from '../../utils/dataTypes.js';
 import BurgerIngredientsListComponent from '../burger-ingredients-list-component/burger-ingredients-list-component.js';
 
 const BurgerIngredientsListContainer = (props) => {
@@ -47,6 +47,8 @@ const BurgerIngredientsListContainer = (props) => {
   );
 };
 
-BurgerIngredientsListContainer.propTypes = stateTypes;
+BurgerIngredientsListContainer.propTypes = {
+  data: IngredientType,
+};
 
 export default BurgerIngredientsListContainer;

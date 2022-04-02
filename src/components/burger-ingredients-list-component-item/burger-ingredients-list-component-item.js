@@ -4,7 +4,7 @@ import styles from './burger-ingredients-list-component-item.module.css';
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
-import {itemTypes} from '../../utils/dataTypes.js';
+import {IngredientType} from '../../utils/dataTypes.js';
 
 const BurgerIngredientsListComponentItem = (props) => {
 
@@ -49,6 +49,8 @@ const BurgerIngredientsListComponentItem = (props) => {
    </>
   );
 };
-BurgerIngredientsListComponentItem.propTypes = itemTypes;
+BurgerIngredientsListComponentItem.propTypes = {
+  item: IngredientType,
+};
 
 export default BurgerIngredientsListComponentItem;
