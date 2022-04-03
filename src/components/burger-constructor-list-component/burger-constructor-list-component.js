@@ -35,8 +35,8 @@ BurgerConstructorListComponent.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
-  changeCountUp: PropTypes.func,
-  changeCountDown: PropTypes.func,
+  changeCountUp: PropTypes.func.isRequired,
+  changeCountDown: PropTypes.func.isRequired,
 };
 
 export default BurgerConstructorListComponent;

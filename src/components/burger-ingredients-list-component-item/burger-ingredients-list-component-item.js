@@ -7,7 +7,6 @@ import IngredientDetails from '../ingredient-details/ingredient-details.js';
 import {IngredientType} from '../../utils/dataTypes.js';
 
 const BurgerIngredientsListComponentItem = (props) => {
-
   const [open, setOpen] = useState(false);
   const [num, setNum] = useState(0);
   const onClickItem = () => {

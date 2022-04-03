@@ -6,8 +6,8 @@ import BurgerIngredientsListComponent from '../burger-ingredients-list-component
 
 const BurgerIngredientsListContainer = (props) => {
   const { state } = props;
-  const { obj } = state;
-  const { data } = obj;
+//  const { obj } = state;
+  const { data } = state.obj;
   const buns = [];
   const mains = [];
   const sauces = [];
@@ -48,6 +48,7 @@ const BurgerIngredientsListContainer = (props) => {
 };
 
 BurgerIngredientsListContainer.propTypes = {
+  state: PropTypes.object.isRequired,
   data: IngredientType,
 };
 
