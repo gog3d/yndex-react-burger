@@ -19,13 +19,19 @@ const Modal = (props) => {
 
   if(!isOpen) return null;
   return ReactDOM.createPortal (
-    <div className={styles['modal']}>
-      <ModalOverlay onClick={onClose} />
-      <div className={styles['modal-icon']} >
-        <CloseIcon onClick={()=>onClose()}/>
+    <>
+      <div className={styles['modal-overlay']}>
+        <ModalOverlay onClick={onClose} />
       </div>
-      {children}
-    </div>
+      <div className={styles['modal']}>
+        <div className={styles['modal-icon']} >
+          <CloseIcon onClick={()=>onClose()}/>
+        </div>
+        <div className={styles['modal-children']}>
+          {children}
+        </div>
+      </div>
+    </>
     , document.getElementById('modals'));
 }
 
