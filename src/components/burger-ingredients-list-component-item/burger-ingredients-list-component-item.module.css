@@ -41,4 +41,8 @@
 .burger-ingredients-list-component-item-counter {
   margin: 0px;
   visibility: visible;
+  position: absolute;
+  top: 5px;
+  right: 40px;
+
 }

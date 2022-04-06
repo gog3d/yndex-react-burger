@@ -4,14 +4,18 @@ import styles from './burger-constructor-list-container.module.css';
 import {ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
 import {IngredientType} from '../../utils/dataTypes.js';
 import BurgerConstructorListComponent from '../burger-constructor-list-component/burger-constructor-list-component.js';
+import { ConstructorContext } from '../../services/constructor-context.js';
 
 const BurgerConstructorListContainer = (props) => {
-  const { state } = props;
-  //const { obj } = state;
-  const { data } = state.obj;
+  //const state = React.useContext(ConstructorContext);
+  
+  //const { data } = state.obj;
+  const data = React.useContext(ConstructorContext);
+  
   const bunNum = 0;
   const dataBun = data[bunNum];
   const startIndex = 0;
+  
   return (
     <div className={styles["burger-constructor-list"]}>
       <div className={styles["burger-constructor-list-component-top"]} key={`${dataBun._id}_top`}>
@@ -57,7 +61,7 @@ const BurgerConstructorListContainer = (props) => {
 
 
 BurgerConstructorListContainer.propTypes = {
-  state: PropTypes.object.isRequired,
+//  state: PropTypes.object.isRequired,
   data: IngredientType,
 };
 

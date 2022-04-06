@@ -13,7 +13,6 @@ const BurgerConstructor = (props) => {
   return (
     <div className={styles["burger-constructor"]} >
       <BurgerConstructorListContainer
-         state ={state}
          changeCountUp={changeCountUp}
          changeCountDown={changeCountDown}
       />
