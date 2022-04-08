@@ -6,37 +6,45 @@ import {IngredientType} from '../../utils/dataTypes.js';
 import BurgerConstructorListComponent from '../burger-constructor-list-component/burger-constructor-list-component.js';
 import { ConstructorContext } from '../../services/constructor-context.js';
 
-const BurgerConstructorListContainer = (props) => {
-  //const state = React.useContext(ConstructorContext);
-  
-  //const { data } = state.obj;
-  const data = React.useContext(ConstructorContext);
-  
-  const bunNum = 0;
-  const dataBun = data[bunNum];
-  const startIndex = 0;
-  
+const BurgerConstructorListContainer = () => {
+
+  const [constructorState, constructorDispatcher] = React.useContext(ConstructorContext);
+
+  const dataBun = React.useMemo(
+    () => {
+      return constructorState.components.length === 0 ? false : constructorState.components.find((comp)=>comp.type === 'bun');
+    }, [constructorState]
+  );
+
+  const data = React.useMemo(
+    () => {
+      return constructorState.components.length === 0 ? false : constructorState.components;
+    }, [constructorState]
+  );
+
   return (
     <div className={styles["burger-constructor-list"]}>
       <div className={styles["burger-constructor-list-component-top"]} key={`${dataBun._id}_top`}>
+        {
+        dataBun &&
         <ConstructorElement
-
           type={'top'}
           isLocked={true}
           text={`${dataBun.name} (верх)`}
-          price={dataBun.price}
-          thumbnail={dataBun.image}
+          price={constructorState.components.find((comp)=>comp.type === 'bun').price}
+          thumbnail={constructorState.components.find((comp)=>comp.type === 'bun').image}
         />
-        </div>
+        }
+       </div>
       <div className={styles["burger-constructor-list-container"]} >
+        {data &&
+        <>
         {
           data.map((item, index)=>{
             const endElement = data.length - 1;
             if(item.type !== 'bun') return (
             <div className={styles["burger-constructor-list-component-midle"]} key={`${item._id}_midle`}>
               <BurgerConstructorListComponent
-                changeCountUp={props.changeCountUp}
-                changeCountDown={props.changeCountDown}
                 price={item.price}
                 name={item.name}
                 img={item.image}
@@ -45,24 +53,23 @@ const BurgerConstructorListContainer = (props) => {
             )
           })
         }
+        </>
+        }
       </div>
       <div className={styles["burger-constructor-list-component-bottom"]}  key={`${dataBun._id}_bottom`}>
+        {
+         dataBun &&
         <ConstructorElement
           type={'bottom'}
           isLocked={true}
           text={`${dataBun.name} (низ)`}
-          price={dataBun.price}
-          thumbnail={dataBun.image}
+          price={constructorState.components.find((comp)=>comp.type === 'bun').price}
+          thumbnail={constructorState.components.find((comp)=>comp.type === 'bun').image}
         />
+        }
       </div>
     </div>
   );
 }
-
-
-BurgerConstructorListContainer.propTypes = {
-//  state: PropTypes.object.isRequired,
-  data: IngredientType,
-};
 
 export default BurgerConstructorListContainer;

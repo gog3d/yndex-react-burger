@@ -5,26 +5,15 @@ import PropTypes from 'prop-types';
 import BurgerConstructorListContainer from '../burger-constructor-list-container/burger-constructor-list-container.js';
 import BurgerConstructorButtonContainer from '../burger-constructor-button-container/burger-constructor-button-container.js';
 
+import { ConstructorContext } from '../../services/constructor-context.js';
+
 const BurgerConstructor = (props) => {
-  const { state } = props;
-  const [count, setCount] = useState(0);
-  const changeCountUp = (num) => setCount(prev => prev + num);
-  const changeCountDown = (num) => setCount(prev => prev - num);
   return (
     <div className={styles["burger-constructor"]} >
-      <BurgerConstructorListContainer
-         changeCountUp={changeCountUp}
-         changeCountDown={changeCountDown}
-      />
-      <BurgerConstructorButtonContainer
-        count={count}
-      />
+      <BurgerConstructorListContainer />
+      <BurgerConstructorButtonContainer />
     </div>
   );
 }
-
-BurgerConstructor.propTypes = {
-  state: PropTypes.object.isRequired,
-};
 
 export default BurgerConstructor;

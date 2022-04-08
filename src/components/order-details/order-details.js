@@ -2,13 +2,18 @@ import React, {useState} from 'react';
 import styles from './order-details.module.css';
 import image from '../../image/7d9fa34b16200edb585c8855f1699057.gif';
 import { Typography } from '@ya.praktikum/react-developer-burger-ui-components';
+import { OrderDetailsContext } from '../../services/constructor-context.js';
+
 
 const OrderDetails = () => {
+
+  const { orderDetails } = React.useContext(OrderDetailsContext);
+
   return (
     <div className={styles['order-details']} >
       <p className={styles['order-details-number']}>
         <span className="text text_type_digits-large">
-          034536
+          {orderDetails.order.number}
         </span>
       </p>
       <p className={styles['order-details-identificator']}>
