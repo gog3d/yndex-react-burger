@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import styles from './order-details.module.css';
 import image from '../../image/7d9fa34b16200edb585c8855f1699057.gif';
 import { Typography } from '@ya.praktikum/react-developer-burger-ui-components';
-import { OrderDetailsContext } from '../../services/constructor-context.js';
 
+const OrderDetails = (props) => {
 
-const OrderDetails = () => {
-
-  const { orderDetails } = React.useContext(OrderDetailsContext);
+  const orderDetails = props.orderDetails;
 
   return (
     <div className={styles['order-details']} >
@@ -35,5 +34,10 @@ const OrderDetails = () => {
     </div>
   )
 }
+
+
+OrderDetails.propTypes = {
+  orderDetails: PropTypes.object,
+};
 
 export default OrderDetails;

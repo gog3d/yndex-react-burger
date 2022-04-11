@@ -4,9 +4,7 @@ import AppHeader from '../app-header/app-header.js';
 import BurgerConstructor from '../burger-constructor/burger-constructor.js';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
 import { ConstructorContext } from '../../services/constructor-context.js';
-import data from '../../data/data.js';
-
-const URL = 'https://norma.nomoreparties.space/api/ingredients';
+import { baseURL }  from '../../utils/config.js';
 
 const App = () => {
   const [state, setState] = useState({
@@ -43,7 +41,7 @@ const App = () => {
     const getData = async () => {
       try {
         setState({ ...state, hasError: false, isLoading: true });
-        const res = await fetch(URL);
+        const res = await fetch(baseURL + 'ingredients');
         const obj = await res.json();
         setState({ ...state, obj, isLoading: false });
         constructorDispatcher({type: 'reset', payload: obj.data});

@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: flex-end;
   margin: 0px;
-/*  align-items: top;*/
   background-color: transparent;
   overflow-y: auto;
   scrollbar-width: thin;
+  scrollbar-color: rgba(133, 133, 173, 1) rgba(47, 47, 55, 1);
   width: 600px;
   height: 756px;
   overflow-x: hidden;
