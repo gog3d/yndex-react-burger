@@ -34,10 +34,14 @@ const BurgerConstructorButtonContainer = (props) => {
     return obj;
   };
   const onClickButton = async (components) => {
-    const URL = baseURL + 'orders';
-    const obj = await orderDetailsFetch(URL, components);
-    setOrderDetails(obj);
-    setOpen(true);
+    try {
+      const URL = baseURL + 'orders';
+      const obj = await orderDetailsFetch(URL, components);
+      setOrderDetails(obj);
+      setOpen(true);
+    } catch (error) {
+      setOpen(false);
+    }
   };
 
   return (
