@@ -5,8 +5,14 @@ import BurgerConstructor from '../burger-constructor/burger-constructor.js';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
 import { ConstructorContext } from '../../services/constructor-context.js';
 import { baseURL }  from '../../utils/config.js';
+import { useSelector } from 'react-redux';
+
 
 const App = () => {
+//
+//useSelector(store => console.log(store.ingredients));
+
+//
   const [state, setState] = useState({
     isLoading: false,
     hasError: false,
