@@ -1,3 +1,5 @@
+import { baseURL }  from '../../utils/config.js';
+
 export const ADD_CONSTRUCTOR_INGREDIENT='ADD_CONSTRUCTOR_INGREDIENT';
 export const DELETE_CONSTRUCTOR_INGREDIENT='DELETE_CONSTRUCTOR_INGREDIENT';
 
@@ -16,10 +18,18 @@ export const GET_ORDERDETAILS_REQUEST = 'GET_ORDERDETAILS_REQUEST';
 export const GET_ORDERDETAILS_SUCCESS = 'GET_ORDERDETAILS_SUCCESS';
 export const GET_ORDERDETAILS_FAILED = 'GET_ORDERDETAILS_FAILED';
 
-const getIngredients = async () => {
-
+export const getIngredients =  () => (dispatch) => {
+  dispatch({ type: GET_INGREDIENTS_REQUEST });
+  fetch(baseURL + 'ingredients').then(res => res.json()).then(obj => {
+    if (obj && obj.success) {
+      dispatch({ type: GET_INGREDIENTS_SUCCESS, burgerIngredients: obj.data });
+    } else {
+      dispatch({ type: GET_INGREDIENTS_FAILED });
+    }
+  })
 };
 
-const getOrderDetails = async () => {
+
+export const getOrderDetails = async () => {
 
 };

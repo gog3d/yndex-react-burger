@@ -1,18 +1,29 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef, useContext, useMemo } from 'react';
 import styles from './app.module.css';
 import AppHeader from '../app-header/app-header.js';
 import BurgerConstructor from '../burger-constructor/burger-constructor.js';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
+//
 import { ConstructorContext } from '../../services/constructor-context.js';
+//
 import { baseURL }  from '../../utils/config.js';
-import { useSelector } from 'react-redux';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { getIngredients } from '../../services/actions/ingredients.js';
 
 const App = () => {
-//
-//useSelector(store => console.log(store.ingredients));
 
-//
+  const { 
+    burgerIngredients, 
+    burgerIngredientsRequest, 
+    burgerIngredientsFailed 
+    } = useSelector(store => store.ingredients);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {dispatch(getIngredients())}, [dispatch]);
+  
+
   const [state, setState] = useState({
     isLoading: false,
     hasError: false,
@@ -38,7 +49,6 @@ const App = () => {
     } else {
       return state;
     }
-
   };
 
   const [constructorState, constructorDispatcher] = React.useReducer(constructorReducer,  { components: [] });
@@ -61,6 +71,26 @@ const App = () => {
   const { obj, isLoading, hasError } = state;
   const constructorData = obj.data;
   
+  
+  const burgerIngredientsStatus = useMemo(
+    () => {
+      return burgerIngredientsFailed ? (
+        <p className={styles.text}>Произошла ошибка при получении данных</p>
+      ) : burgerIngredientsRequest ? (
+        <p className={styles.text}>Загрузка...</p>
+      ) : burgerIngredients ? (
+       ''
+       // <>
+       //   <BurgerIngredients state={ state }/>
+       //   <BurgerConstructor state={ state }/>
+       // </>
+      ) : (
+        <p className={styles.text}>Произошла ошибка при получении данных</p>
+      );
+    },
+    [burgerIngredientsRequest, burgerIngredients, burgerIngredientsFailed]
+  );
+  
    return (
     <div className={styles["page__content"]}>
       <AppHeader />
@@ -71,22 +101,16 @@ const App = () => {
           </span>
           <span className={styles["second-span"]}></span>
         </div>
+        {burgerIngredientsStatus}
         <ConstructorContext.Provider value={ [constructorState, constructorDispatcher] }>
           <div className={styles["main-constructor-container"]}>
-            {isLoading && 'Загрузка...'}
-            {hasError && 'Произошла ошибка'}
             {
-              !isLoading &&
-              !hasError &&
-              obj.data.length &&
+              !burgerIngredientsRequest && 
               <BurgerIngredients state={ state }/>
             }
-            {isLoading && 'Загрузка...'}
-            {hasError && 'Произошла ошибка'}
             {
-              !isLoading &&
-              !hasError &&
-              <BurgerConstructor state={ state }/>//
+              !burgerIngredientsRequest &&
+              <BurgerConstructor state={ state }/>
             }
           </div>
         </ConstructorContext.Provider>
