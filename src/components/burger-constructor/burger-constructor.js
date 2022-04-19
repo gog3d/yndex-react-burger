@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import BurgerConstructorListContainer from '../burger-constructor-list-container/burger-constructor-list-container.js';
 import BurgerConstructorButtonContainer from '../burger-constructor-button-container/burger-constructor-button-container.js';
 
-import { ConstructorContext } from '../../services/constructor-context.js';
-
-const BurgerConstructor = (props) => {
+const BurgerConstructor = () => {
   return (
     <div className={styles["burger-constructor"]} >
       <BurgerConstructorListContainer />

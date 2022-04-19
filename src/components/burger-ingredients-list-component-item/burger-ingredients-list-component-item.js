@@ -1,25 +1,47 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list-component-item.module.css';
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
 import {IngredientType} from '../../utils/dataTypes.js';
+import { useDrag } from "react-dnd";
+import { useDispatch, useSelector } from 'react-redux';
 
 const BurgerIngredientsListComponentItem = (props) => {
+  const data = useSelector(store => store.ingredients.constructorIngredients);
+
   const [open, setOpen] = useState(false);
-  const [num, setNum] = useState(0);
   const onClickItem = () => {
-    setNum(prev => prev + 1);
     setOpen(true);
   };
+  
   const {item} = props;
+
+  const num = useMemo(
+    () => {
+      return data.reduce((sum, comp) => comp._id === item._id ? ++sum : sum, 0)
+    }, [data]
+  );
+
+  const {id} = item;
+  const [{isDrag}, dragRef] = useDrag({
+    type: "ingredients",
+    item: item,
+    collect: monitor => ({
+      isDrag: monitor.isDragging()
+    })
+  });
+
   return (
     <>
       <Modal message={item.name} isOpen={open} onClose={()=>setOpen(false)}>
         <IngredientDetails item={item}/>
       </Modal>
-      <div key={item._id} className={styles['burger-ingredients-list-component-item']}
+      <div 
+        ref={dragRef}
+        key={item._id}
+        className={styles['burger-ingredients-list-component-item']}
         onClick={onClickItem}
       >
         <img

@@ -5,18 +5,14 @@ import {DragIcon, ConstructorElement} from '@ya.praktikum/react-developer-burger
 import BurgerIngredientsList from '../burger-ingredients-list/burger-ingredients-list.js';
 import BurgerIngredientsHeader from '../burger-ingredients-header/burger-ingredients-header.js';
 
-const BurgerIngredients = (props) => {
-  const { state } = props;
+const BurgerIngredients = () => {
+  
   return (
     <div className={styles['burger-ingredients']}>
        <BurgerIngredientsHeader />
-       <BurgerIngredientsList state={state}/>
+       <BurgerIngredientsList />
     </div>
   );
-};
-
-BurgerIngredients.propTypes = {
-  state: PropTypes.object.isRequired,
 };
 
 export default BurgerIngredients;

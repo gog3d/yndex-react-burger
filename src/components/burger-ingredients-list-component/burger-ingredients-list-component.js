@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list-component.module.css';
 import BurgerIngredientsListComponentItem from '../burger-ingredients-list-component-item/burger-ingredients-list-component-item.js';
 
+
 const BurgerIngredientsListComponent = (props) => {
   const { items } = props;
+  
   return (
     <div className={styles['burger-ingredients-list-component']}>
       {

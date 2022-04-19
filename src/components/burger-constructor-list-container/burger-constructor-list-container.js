@@ -1,53 +1,79 @@
-import React, {useState, useRef, useEffect} from 'react';
-import PropTypes from 'prop-types'
+import React, {useState, useRef, useEffect, useMemo} from 'react';
 import styles from './burger-constructor-list-container.module.css';
 import {ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
-import {IngredientType} from '../../utils/dataTypes.js';
+
 import BurgerConstructorListComponent from '../burger-constructor-list-component/burger-constructor-list-component.js';
-import { ConstructorContext } from '../../services/constructor-context.js';
+
+import { useDispatch, useSelector } from 'react-redux';
+import {useDrop} from 'react-dnd';
+
+import {
+  ADD_CONSTRUCTOR_INGREDIENT,
+  DELETE_CONSTRUCTOR_INGREDIENT,
+  GET_CONSTRUCTOR_INGREDIENTS,
+  ADD_MODAL_INGREDIENT,
+  DELETE_MODAL_INGREDIENTS,
+  REFRESH_ORDERDETAILS,
+  GET_INGREDIENTS_REQUEST,
+  GET_INGREDIENTS_SUCCESS,
+  GET_INGREDIENTS_FAILED,
+  GET_ORDERDETAILS_REQUEST,
+  GET_ORDERDETAILS_SUCCESS,
+  GET_ORDERDETAILS_FAILED,
+} from '../../services/actions/ingredients.js';
 
 const BurgerConstructorListContainer = () => {
+  const dispatch = useDispatch();
+  const data = useSelector(store => store.ingredients.constructorIngredients);
 
-  const [constructorState, constructorDispatcher] = React.useContext(ConstructorContext);
-
-  const dataBun = React.useMemo(
+  const bun = useMemo(
     () => {
-      return constructorState.components.length === 0 ? false : constructorState.components.find((comp)=>comp.type === 'bun');
-    }, [constructorState]
+      return data.length === 0 ? false : data.find((comp)=>comp.type === 'bun');
+    }, [data]
   );
 
-  const data = React.useMemo(
+  const ingredients = useMemo(
     () => {
-      return constructorState.components.length === 0 ? false : constructorState.components;
-    }, [constructorState]
+      return data.length === 0 ? false : data;
+    }, [data]
   );
+    const [, dropTarget] = useDrop({
+      accept: "ingredients",
+      drop(item) {
+        dispatch({ type: ADD_CONSTRUCTOR_INGREDIENT, constructorIngredient: item });
+      },
+    });
 
+    const addClick = () => {
+      dispatch({ type: ADD_CONSTRUCTOR_INGREDIENT, constructorIngredient: data[0] });
+      
+    };
+    let keyValue = 0;
   return (
-    <div className={styles["burger-constructor-list"]}>
-      <div className={styles["burger-constructor-list-component-top"]} key={`${dataBun._id}_top`}>
+    <div ref={dropTarget} className={styles["burger-constructor-list"]}>
+      <div className={styles["burger-constructor-list-component-top"]} key={`${bun._id}_top`} onClick ={addClick}>
         {
-        dataBun &&
+        bun &&
         <ConstructorElement
           type={'top'}
           isLocked={true}
-          text={`${dataBun.name} (верх)`}
-          price={constructorState.components.find((comp)=>comp.type === 'bun').price}
-          thumbnail={constructorState.components.find((comp)=>comp.type === 'bun').image}
+          text={`${bun.name} (верх)`}
+          price={data.find((comp)=>comp.type === 'bun').price}
+          thumbnail={data.find((comp)=>comp.type === 'bun').image}
         />
         }
        </div>
       <div className={styles["burger-constructor-list-container"]} >
-        {data &&
+        {ingredients &&
         <>
         {
-          data.map((item, index)=>{
+          ingredients.map((item, index)=>{
             const endElement = data.length - 1;
             if(item.type !== 'bun') return (
-            <div className={styles["burger-constructor-list-component-midle"]} key={`${item._id}_midle`}>
+            <div className={styles["burger-constructor-list-component-midle"]} key={`${item._id}${keyValue++}_midle`}>
               <BurgerConstructorListComponent
-                price={item.price}
-                name={item.name}
-                img={item.image}
+                item={item}
+                index={index}
               />
             </div>
             )
@@ -56,15 +82,15 @@ const BurgerConstructorListContainer = () => {
         </>
         }
       </div>
-      <div className={styles["burger-constructor-list-component-bottom"]}  key={`${dataBun._id}_bottom`}>
+      <div className={styles["burger-constructor-list-component-bottom"]}  key={`${bun._id}_bottom`}>
         {
-         dataBun &&
+         bun &&
         <ConstructorElement
           type={'bottom'}
           isLocked={true}
-          text={`${dataBun.name} (низ)`}
-          price={constructorState.components.find((comp)=>comp.type === 'bun').price}
-          thumbnail={constructorState.components.find((comp)=>comp.type === 'bun').image}
+          text={`${bun.name} (низ)`}
+          price={data.find((comp)=>comp.type === 'bun').price}
+          thumbnail={data.find((comp)=>comp.type === 'bun').image}
         />
         }
       </div>

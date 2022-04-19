@@ -1,20 +1,23 @@
-import React, {useState, useRef, useEffect} from 'react';
-import PropTypes from 'prop-types';
+import React, {useState, useRef, useEffect, useMemo} from 'react';
 import styles from './burger-constructor-button-container.module.css';
 import {CurrencyIcon, Button} from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal.js';
 import OrderDetails from '../order-details/order-details.js';
 import { baseURL }  from '../../utils/config.js';
-import { ConstructorContext } from '../../services/constructor-context.js';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 const BurgerConstructorButtonContainer = (props) => {
-  const [open, setOpen] = useState(false);
+  const data = useSelector(store => store.ingredients.constructorIngredients);
 
+  const [open, setOpen] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null)
 
-  const [constructorState, constructorDispatcher] = React.useContext(ConstructorContext);
-
-  const count = constructorState.components.reduce((sum, comp) => sum + comp.price, 0)
+  const count = useMemo(
+    () => {
+      return data.reduce((sum, comp) => sum + comp.price, 0)
+    }, [data]
+  );
 
   const orderDetailsFetch = async (URL, components) => {
     const idsComponents = {ingredients: components.map((comp)=>comp._id)};
@@ -33,6 +36,7 @@ const BurgerConstructorButtonContainer = (props) => {
     const obj = await res.json();
     return obj;
   };
+
   const onClickButton = async (components) => {
     try {
       const URL = baseURL + 'orders';
@@ -58,7 +62,7 @@ const BurgerConstructorButtonContainer = (props) => {
       </Modal>
       <Button 
         className={styles['burger-constructor-button']}
-        onClick={()=> onClickButton(constructorState.components)}
+        onClick={()=> onClickButton(data)}
       > Оформить заказ</Button>
     </div>
   );

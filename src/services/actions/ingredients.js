@@ -1,4 +1,5 @@
 import { baseURL }  from '../../utils/config.js';
+import { getItemsRequest } from '../fakeApi';
 
 export const ADD_CONSTRUCTOR_INGREDIENT='ADD_CONSTRUCTOR_INGREDIENT';
 export const DELETE_CONSTRUCTOR_INGREDIENT='DELETE_CONSTRUCTOR_INGREDIENT';
@@ -23,6 +24,12 @@ export const getIngredients =  () => (dispatch) => {
   fetch(baseURL + 'ingredients').then(res => res.json()).then(obj => {
     if (obj && obj.success) {
       dispatch({ type: GET_INGREDIENTS_SUCCESS, burgerIngredients: obj.data });
+      const constructorIngredients = [
+        obj.data.find((element) => element.type === 'bun'), 
+        obj.data.find((element) => element.type === 'main'), 
+        obj.data.find((element) => element.type === 'sauce')
+      ];
+      dispatch({ type: GET_CONSTRUCTOR_INGREDIENTS, constructorIngredients: constructorIngredients});
     } else {
       dispatch({ type: GET_INGREDIENTS_FAILED });
     }
@@ -30,6 +37,6 @@ export const getIngredients =  () => (dispatch) => {
 };
 
 
-export const getOrderDetails = async () => {
+export const getOrderDetails = async () => (dispatch) => {
 
 };

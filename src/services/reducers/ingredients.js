@@ -63,6 +63,32 @@ export const ingredientsReducer = (state = initialState, action) => {
         orderDetailsFailed: true, 
         orderDetailsRequest: false};
     }
+    case GET_CONSTRUCTOR_INGREDIENTS: {
+      return {
+        ...state, 
+        constructorIngredients: action.constructorIngredients, 
+      }
+    }
+    case ADD_CONSTRUCTOR_INGREDIENT: {
+      return action.constructorIngredient.type === 'bun' ? {
+        ...state,
+        constructorIngredients: [
+          ...state.constructorIngredients.filter((el)=> el.type !== 'bun'), 
+          action.constructorIngredient,
+        ],
+      } : {
+        ...state,
+        constructorIngredients: [
+          ...state.constructorIngredients, 
+          action.constructorIngredient],
+        }
+    }
+    case DELETE_CONSTRUCTOR_INGREDIENT: {
+       state.constructorIngredients.splice(action.index, 1);
+       return {
+       ...state, constructorIngredients: [...state.constructorIngredients],
+       }
+    }
     default: {
       return state;
     }

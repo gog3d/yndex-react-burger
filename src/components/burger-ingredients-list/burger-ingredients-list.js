@@ -1,25 +1,15 @@
-import React, {useState, useRef, useEffect} from 'react';
-import PropTypes from 'prop-types';
+import React, {useState, useRef, useEffect, useMemo} from 'react';
 import styles from './burger-ingredients-list.module.css';
-import {IngredientType} from '../../utils/dataTypes.js';
 import BurgerIngredientsListComponent from '../burger-ingredients-list-component/burger-ingredients-list-component.js';
+import { useDispatch, useSelector } from 'react-redux';
 
-const BurgerIngredientsListContainer = (props) => {
-  const { state } = props;
-//  const { obj } = state;
-  const { data } = state.obj;
-  const buns = [];
-  const mains = [];
-  const sauces = [];
-  
-  const ingredients = {
-    bun: (item) => buns.push(item),
-    main: (item) => mains.push(item),
-    sauce: (item) => sauces.push(item),
-  };
-  for(const dt of data) {
-    ingredients[dt.type](dt);
-  }
+const BurgerIngredientsListContainer = () => {
+  const data = useSelector(store => store.ingredients.burgerIngredients);
+
+  const buns = useMemo(()=> data.filter((element)=> element.type === 'bun'), [data]);
+  const mains = useMemo(()=> data.filter((element)=> element.type === 'main'), [data]);
+  const sauces = useMemo(()=> data.filter((element)=> element.type === 'sauce'), [data]);
+
     return (
     <div className={styles["burger-ingredients-list"]}>
         <div className={styles["burger-ingredients-list-type"]}>
@@ -42,14 +32,8 @@ const BurgerIngredientsListContainer = (props) => {
         <BurgerIngredientsListComponent
           items={mains}
          />
-
     </div>
   );
-};
-
-BurgerIngredientsListContainer.propTypes = {
-  state: PropTypes.object.isRequired,
-  data: IngredientType,
 };
 
 export default BurgerIngredientsListContainer;

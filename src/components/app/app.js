@@ -3,10 +3,10 @@ import styles from './app.module.css';
 import AppHeader from '../app-header/app-header.js';
 import BurgerConstructor from '../burger-constructor/burger-constructor.js';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
-//
-import { ConstructorContext } from '../../services/constructor-context.js';
-//
+
 import { baseURL }  from '../../utils/config.js';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getIngredients } from '../../services/actions/ingredients.js';
@@ -21,56 +21,9 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {dispatch(getIngredients())}, [dispatch]);
-  
-
-  const [state, setState] = useState({
-    isLoading: false,
-    hasError: false,
-    obj: {
-      data: [],
-      success: false,
-    },
-  });
-
-  const constructorReducer = (state, action) => {
-    if (action.type === 'add') {
-      if (action.payload.type === 'bun') {
-        return { ...state, components:[...state.components.filter((comp)=>comp.type !== 'bun'), action.payload] };
-      } else {
-       return { ...state, components:[...state.components, action.payload] };
-      }
-    } else if (action.type == 'delete') {
-        return { ...state, components:[...state.components.filter((comp)=>comp._id !== action._id), ...action.payload] };
-    } else if (action.type == 'reset') {
-       const bunComp = action.payload.find((comp)=>comp.type === 'bun');
-       const comps = action.payload.filter((comp)=>comp.type !== 'bun');
-       return { components: [bunComp, ...comps] };
-    } else {
-      return state;
-    }
-  };
-
-  const [constructorState, constructorDispatcher] = React.useReducer(constructorReducer,  { components: [] });
-
-  useEffect(()=>{
-    const getData = async () => {
-      try {
-        setState({ ...state, hasError: false, isLoading: true });
-        const res = await fetch(baseURL + 'ingredients');
-        const obj = await res.json();
-        setState({ ...state, obj, isLoading: false });
-        constructorDispatcher({type: 'reset', payload: obj.data});
-      } catch (error) {
-        setState({ ...state, hasError: true, isLoading: false });
-      }
-    };
-    getData();
-  }, []);
-
-  const { obj, isLoading, hasError } = state;
-  const constructorData = obj.data;
-  
+  useEffect(() => {
+    dispatch(getIngredients());
+  }, [dispatch]);
   
   const burgerIngredientsStatus = useMemo(
     () => {
@@ -102,18 +55,18 @@ const App = () => {
           <span className={styles["second-span"]}></span>
         </div>
         {burgerIngredientsStatus}
-        <ConstructorContext.Provider value={ [constructorState, constructorDispatcher] }>
+        <DndProvider backend={HTML5Backend}>
           <div className={styles["main-constructor-container"]}>
             {
               !burgerIngredientsRequest && 
-              <BurgerIngredients state={ state }/>
+              <BurgerIngredients />
             }
             {
               !burgerIngredientsRequest &&
-              <BurgerConstructor state={ state }/>
+              <BurgerConstructor />
             }
           </div>
-        </ConstructorContext.Provider>
+        </DndProvider>
       </main>
     </div>
   );
