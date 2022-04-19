@@ -2,7 +2,7 @@ import {
   ADD_CONSTRUCTOR_INGREDIENT,
   DELETE_CONSTRUCTOR_INGREDIENT,
   GET_CONSTRUCTOR_INGREDIENTS,
-  ADD_MODAL_INGREDIENT,
+  ADD_MODAL_INGREDIENTS,
   DELETE_MODAL_INGREDIENTS,
   REFRESH_ORDERDETAILS,
   GET_INGREDIENTS_REQUEST,
@@ -22,7 +22,7 @@ const initialState = {
     
     constructorIngredients: [],
     currentIngredient: {},
-    
+    modalIngredient: {},
     orderDetails: {},
     orderDetailsRequest: false,
     orderDetailsFailed: false,
@@ -89,6 +89,17 @@ export const ingredientsReducer = (state = initialState, action) => {
        ...state, constructorIngredients: [...state.constructorIngredients],
        }
     }
+    case  DELETE_MODAL_INGREDIENTS: {
+       return {
+       ...state, modalIngredients: {},
+       }
+    }
+    case ADD_MODAL_INGREDIENTS: {
+       return {
+       ...state, modalIngredients: action.item,
+       }
+    }
+
     default: {
       return state;
     }

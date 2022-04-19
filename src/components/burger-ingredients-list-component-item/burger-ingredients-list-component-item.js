@@ -7,17 +7,36 @@ import IngredientDetails from '../ingredient-details/ingredient-details.js';
 import {IngredientType} from '../../utils/dataTypes.js';
 import { useDrag } from "react-dnd";
 import { useDispatch, useSelector } from 'react-redux';
-
+import {
+  ADD_CONSTRUCTOR_INGREDIENT,
+  DELETE_CONSTRUCTOR_INGREDIENT,
+  GET_CONSTRUCTOR_INGREDIENTS,
+  ADD_MODAL_INGREDIENTS,
+  DELETE_MODAL_INGREDIENTS,
+  REFRESH_ORDERDETAILS,
+  GET_INGREDIENTS_REQUEST,
+  GET_INGREDIENTS_SUCCESS,
+  GET_INGREDIENTS_FAILED,
+  GET_ORDERDETAILS_REQUEST,
+  GET_ORDERDETAILS_SUCCESS,
+  GET_ORDERDETAILS_FAILED,
+} from '../../services/actions/ingredients.js';
 const BurgerIngredientsListComponentItem = (props) => {
   const data = useSelector(store => store.ingredients.constructorIngredients);
-
+  
+  const dispatch = useDispatch();
+  
   const [open, setOpen] = useState(false);
+  const {item} = props;
   const onClickItem = () => {
     setOpen(true);
+    dispatch({ type: ADD_MODAL_INGREDIENTS, item: item });
+  };
+  const onClose = () => {
+    setOpen(false);
+    dispatch({ type: DELETE_MODAL_INGREDIENTS, item: item });
   };
   
-  const {item} = props;
-
   const num = useMemo(
     () => {
       return data.reduce((sum, comp) => comp._id === item._id ? ++sum : sum, 0)
@@ -35,7 +54,7 @@ const BurgerIngredientsListComponentItem = (props) => {
 
   return (
     <>
-      <Modal message={item.name} isOpen={open} onClose={()=>setOpen(false)}>
+      <Modal message={item.name} isOpen={open} onClose={onClose}>
         <IngredientDetails item={item}/>
       </Modal>
       <div 
