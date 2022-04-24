@@ -1,55 +1,98 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './burger-constructor-list-component.module.css';
-import {DragIcon, ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
+import { DragIcon, ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
+import { DELETE_CONSTRUCTOR_INGREDIENT } from '../../services/actions/ingredients.js';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  ADD_CONSTRUCTOR_INGREDIENT,
-  DELETE_CONSTRUCTOR_INGREDIENT,
-  GET_CONSTRUCTOR_INGREDIENTS,
-  ADD_MODAL_INGREDIENT,
-  DELETE_MODAL_INGREDIENTS,
-  REFRESH_ORDERDETAILS,
-  GET_INGREDIENTS_REQUEST,
-  GET_INGREDIENTS_SUCCESS,
-  GET_INGREDIENTS_FAILED,
-  GET_ORDERDETAILS_REQUEST,
-  GET_ORDERDETAILS_SUCCESS,
-  GET_ORDERDETAILS_FAILED,
-} from '../../services/actions/ingredients.js';
+import { useDrop, useDrag } from 'react-dnd';
+import { ADD_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../services/actions/ingredients.js';
 
 
 const BurgerConstructorListComponent = (props) => {
   const dispatch = useDispatch();
-
   const { item, index } = props;
+
+  const ingredients = useSelector(store => store.ingredients.constructorIngredients.ingredients);
+
   const [locked, setIsLocked] =useState(false);
   const [type, setType] = useState('primary')
 
   const onClickBurgerConstructorListComponent = () => {
-    setIsLocked(locked === true ? false : true);
-    setType(type === 'primary' ? 'secondary' : 'primary');
     dispatch({ type: DELETE_CONSTRUCTOR_INGREDIENT, index: index });
   };
-  return (
-    <div
-      className={styles["burger-constructor-list-component"]}
 
-      >
-      <DragIcon className={styles['dragon-icon']} type={type} />
-      <ConstructorElement
-        handleClose={onClickBurgerConstructorListComponent}
-        isLocked={locked}
-        text={item.name}
-        price={item.price}
-        thumbnail={item.image}
-        />
-    </div>
+  const moveIngredients = useCallback(
+      (dragIndex, hoverIndex) => {
+      const dragItem = ingredients[dragIndex]
+      const hoverItem = ingredients[hoverIndex]
+      const updatedIngredients = [...ingredients]
+      updatedIngredients[dragIndex] = hoverItem
+      updatedIngredients[hoverIndex] = dragItem
+      dispatch({ type: UPDATE_CONSTRUCTOR_INGREDIENTS, ingredients: updatedIngredients});
+    },
+    [ingredients]
+  )
+
+  const [{ isDragging }, dragRef] = useDrag({
+    type: 'item',
+    item: { index },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+
+  const [spec, dropRef] = useDrop({
+    accept: 'item',
+    hover: (item, monitor) => {
+      const dragIndex = item.index
+      const hoverIndex = index
+      const hoverBoundingRect = ref.current?.getBoundingClientRect()
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
+      const hoverActualY = monitor.getClientOffset().y - hoverBoundingRect.top
+        if (dragIndex < hoverIndex && hoverActualY < hoverMiddleY) return
+        if (dragIndex > hoverIndex && hoverActualY > hoverMiddleY) return
+          moveIngredients(dragIndex, hoverIndex)
+            item.index = hoverIndex
+    },
+  })
+
+  const ref = useRef(null)
+  const dragDropRef = dragRef(dropRef(ref))
+  const opacity = isDragging ? 0 : 1
+
+  return (
+    <>
+      {
+        item.type === 'bun' ? 
+          <div className={styles["burger-constructor-list-component"]} style={{opacity}} >
+            <DragIcon className={styles['dragon-icon']} type={type} />
+            <ConstructorElement
+              handleClose={onClickBurgerConstructorListComponent}
+              isLocked={locked}
+              text={item.name}
+              price={item.price}
+              thumbnail={item.image}
+            />
+          </div> 
+          : 
+          <div ref={dragDropRef} className={styles["burger-constructor-list-component"]} style={{opacity}} >
+            <DragIcon className={styles['dragon-icon']} type={type} />
+            <ConstructorElement
+              handleClose={onClickBurgerConstructorListComponent}
+              isLocked={locked}
+              text={item.name}
+              price={item.price}
+              thumbnail={item.image}
+            />
+          </div>
+      }
+    </>
   );
 }
 
 BurgerConstructorListComponent.propTypes = {
   item: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default BurgerConstructorListComponent;

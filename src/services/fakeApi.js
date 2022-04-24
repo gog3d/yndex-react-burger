@@ -219,3 +219,16 @@ export const getItemsRequest = async () => {
     }, 1500)
   );
 };
+export const getOrderDetailsRequest = async () => {
+   return await new Promise(resolve =>
+     setTimeout(() => {
+       resolve({
+         success: true,
+         order: 
+           {
+              number: 22223,
+           }
+       });
+     }, 1500)
+   );
+ };

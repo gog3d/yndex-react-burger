@@ -5,12 +5,13 @@
   margin: 0;
   padding: 0;
   grid-template-columns: max-content max-content 2fr max-content;
-  width: 1280px;
+  width: auto;
+ 
 
 }
 .header {
   background-color: transparent;
-  width: 1280px;
+  width: auto;
   height: 88px;
   display: flex;
   flex-direction: row;

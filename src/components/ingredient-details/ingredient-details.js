@@ -1,8 +1,5 @@
-import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './ingredient-details.module.css';
-import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import {IngredientType} from '../../utils/dataTypes.js';
 
 const IngredientDetails = (props) => {
   const { item } = props;
@@ -57,7 +54,7 @@ const IngredientDetails = (props) => {
   )
 }
 IngredientDetails.propTypes = {
-  item: IngredientType,
+  item: PropTypes.object.isRequired,
 };
 
 export default IngredientDetails;

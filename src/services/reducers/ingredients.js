@@ -2,15 +2,19 @@ import {
   ADD_CONSTRUCTOR_INGREDIENT,
   DELETE_CONSTRUCTOR_INGREDIENT,
   GET_CONSTRUCTOR_INGREDIENTS,
+  UPDATE_CONSTRUCTOR_INGREDIENTS,
   ADD_MODAL_INGREDIENTS,
   DELETE_MODAL_INGREDIENTS,
-  REFRESH_ORDERDETAILS,
+  REFRESH_ORDERDETAILS_ITEMS,
   GET_INGREDIENTS_REQUEST,
   GET_INGREDIENTS_SUCCESS,
   GET_INGREDIENTS_FAILED,
   GET_ORDERDETAILS_REQUEST,
   GET_ORDERDETAILS_SUCCESS,
   GET_ORDERDETAILS_FAILED,
+  REFRESH_BUNS_SCROLL,
+  REFRESH_SAUCES_SCROLL,
+  REFRESH_MAINS_SCROLL,
 } from '../actions/ingredients.js';
 
 
@@ -20,13 +24,21 @@ const initialState = {
     burgerIngredientsRequest: false,
     burgerIngredientsFailed: false,
     
-    constructorIngredients: [],
+    constructorIngredients: {
+      bun: {},
+      ingredients: [],
+    },
     currentIngredient: {},
     modalIngredient: {},
-    orderDetails: {},
+    
+    orderDetailsItems: null,
+    orderDetails: null,
     orderDetailsRequest: false,
     orderDetailsFailed: false,
 
+    bunsScroll: true,
+    saucesScroll: false,
+    mainsScroll: false,
   };
 
 export const ingredientsReducer = (state = initialState, action) => {
@@ -63,6 +75,12 @@ export const ingredientsReducer = (state = initialState, action) => {
         orderDetailsFailed: true, 
         orderDetailsRequest: false};
     }
+    case REFRESH_ORDERDETAILS_ITEMS: {
+      return {
+        ...state, 
+        orderDetailsItems: action.orderDetailsItems,
+      };
+    }
     case GET_CONSTRUCTOR_INGREDIENTS: {
       return {
         ...state, 
@@ -72,22 +90,32 @@ export const ingredientsReducer = (state = initialState, action) => {
     case ADD_CONSTRUCTOR_INGREDIENT: {
       return action.constructorIngredient.type === 'bun' ? {
         ...state,
-        constructorIngredients: [
-          ...state.constructorIngredients.filter((el)=> el.type !== 'bun'), 
-          action.constructorIngredient,
-        ],
+        constructorIngredients: {...state.constructorIngredients, bun: action.constructorIngredient}
       } : {
         ...state,
-        constructorIngredients: [
+        constructorIngredients: {
+          ...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients, action.constructorIngredient]
+          },
+        }
+    }
+    case UPDATE_CONSTRUCTOR_INGREDIENTS: {
+      return {
+        ...state,
+        constructorIngredients: {
           ...state.constructorIngredients, 
-          action.constructorIngredient],
+            ingredients: [...action.ingredients]
+          },
         }
     }
     case DELETE_CONSTRUCTOR_INGREDIENT: {
-       state.constructorIngredients.splice(action.index, 1);
+       state.constructorIngredients.ingredients.splice(action.index, 1);
        return {
-       ...state, constructorIngredients: [...state.constructorIngredients],
-       }
+        ...state, constructorIngredients: {
+          ...state.constructorIngredients, ingredients: [
+            ...state.constructorIngredients.ingredients
+            ]
+        },
+      }
     }
     case  DELETE_MODAL_INGREDIENTS: {
        return {
@@ -99,7 +127,24 @@ export const ingredientsReducer = (state = initialState, action) => {
        ...state, modalIngredients: action.item,
        }
     }
-
+    case REFRESH_BUNS_SCROLL: {
+      return {
+        ...state, 
+        bunsScroll: true, saucesScroll: false, mainsScroll: false,
+        };
+    }
+    case REFRESH_SAUCES_SCROLL: {
+      return {
+        ...state, 
+        bunsScroll: false, saucesScroll: true, mainsScroll: false,
+        };
+    }
+    case REFRESH_MAINS_SCROLL: {
+      return {
+        ...state, 
+        bunsScroll: false, saucesScroll: false, mainsScroll: true,
+        };
+    }
     default: {
       return state;
     }
