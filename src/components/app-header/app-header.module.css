@@ -1,16 +1,14 @@
 .nav-bar {
   align-items: center;
-  display: grid;
-  list-style: none;
+  display: flex;
+  flex-grow: 1 1 6 1;
+  justify-content: center;;
   margin: 0;
   padding: 0;
-  grid-template-columns: max-content max-content 2fr max-content;
-  width: auto;
- 
-
+  width: 1280px;
 }
 .header {
-  background-color: transparent;
+  background-color: rgba(28, 28, 33, 1);
   width: auto;
   height: 88px;
   display: flex;
@@ -18,23 +16,39 @@
   justify-content: center;
 }
 .nav-bar-constructor {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   align-items: felx-end;
+  justify-content: flex-start;
   gap: 10px;
   margin: 40px;
 }
 .nav-bar-orders {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   align-items: felx-end;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 40px;
+}
+
+.nav-bar-logo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
   margin: 40px;
 }
 .nav-bar-personal-area {
+  flex-grow: 80;
   display: flex;
   flex-direction: row;
   align-items: felx-end;
+  justify-content: flex-end;
   gap: 10px;
   margin: 40px;
 }

@@ -2,10 +2,9 @@ import React, { useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './burger-constructor-list-component.module.css';
 import { DragIcon, ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
-import { DELETE_CONSTRUCTOR_INGREDIENT } from '../../services/actions/ingredients.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrop, useDrag } from 'react-dnd';
-import { ADD_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../services/actions/ingredients.js';
+import {  DELETE_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../services/actions/ingredients.js';
 
 
 const BurgerConstructorListComponent = (props) => {
@@ -23,12 +22,12 @@ const BurgerConstructorListComponent = (props) => {
 
   const moveIngredients = useCallback(
       (dragIndex, hoverIndex) => {
-      const dragItem = ingredients[dragIndex]
-      const hoverItem = ingredients[hoverIndex]
-      const updatedIngredients = [...ingredients]
-      updatedIngredients[dragIndex] = hoverItem
-      updatedIngredients[hoverIndex] = dragItem
-      dispatch({ type: UPDATE_CONSTRUCTOR_INGREDIENTS, ingredients: updatedIngredients});
+      const dragItem = ingredients[dragIndex];
+      const hoverItem = ingredients[hoverIndex];
+      const updatedIngredients = [...ingredients];
+      updatedIngredients[dragIndex] = hoverItem;
+      updatedIngredients[hoverIndex] = dragItem;
+      dispatch({ type: UPDATE_CONSTRUCTOR_INGREDIENTS, ingredients: updatedIngredients });
     },
     [ingredients]
   )
@@ -41,7 +40,7 @@ const BurgerConstructorListComponent = (props) => {
     }),
   });
 
-  const [spec, dropRef] = useDrop({
+  const [, dropRef] = useDrop({
     accept: 'item',
     hover: (item, monitor) => {
       const dragIndex = item.index
@@ -64,7 +63,7 @@ const BurgerConstructorListComponent = (props) => {
     <>
       {
         item.type === 'bun' ? 
-          <div className={styles["burger-constructor-list-component"]} style={{opacity}} >
+          <div className={styles["burger-constructor-list-component"]} style={{opacity}} id={`${item._id}_${index}`}  key={`${item._id}_${index}`}>
             <DragIcon className={styles['dragon-icon']} type={type} />
             <ConstructorElement
               handleClose={onClickBurgerConstructorListComponent}
@@ -75,7 +74,7 @@ const BurgerConstructorListComponent = (props) => {
             />
           </div> 
           : 
-          <div ref={dragDropRef} className={styles["burger-constructor-list-component"]} style={{opacity}} >
+          <div ref={dragDropRef} className={styles["burger-constructor-list-component"]} style={{opacity}} id={`${item._id}_${index}`}  key={`${item._id}_${index}`}>
             <DragIcon className={styles['dragon-icon']} type={type} />
             <ConstructorElement
               handleClose={onClickBurgerConstructorListComponent}
