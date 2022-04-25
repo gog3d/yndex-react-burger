@@ -43,15 +43,15 @@ const BurgerConstructorListComponent = (props) => {
   const [, dropRef] = useDrop({
     accept: 'item',
     hover: (item, monitor) => {
-      const dragIndex = item.index
-      const hoverIndex = index
-      const hoverBoundingRect = ref.current?.getBoundingClientRect()
-      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
-      const hoverActualY = monitor.getClientOffset().y - hoverBoundingRect.top
-        if (dragIndex < hoverIndex && hoverActualY < hoverMiddleY) return
-        if (dragIndex > hoverIndex && hoverActualY > hoverMiddleY) return
-          moveIngredients(dragIndex, hoverIndex)
-            item.index = hoverIndex
+      const dragIndex = item.index;
+      const hoverIndex = index;
+      const hoverBoundingRect = ref.current.getBoundingClientRect();
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const hoverActualY = monitor.getClientOffset().y - hoverBoundingRect.top;
+        if (dragIndex < hoverIndex && hoverActualY < hoverMiddleY) return;
+        if (dragIndex > hoverIndex && hoverActualY > hoverMiddleY) return;
+          moveIngredients(dragIndex, hoverIndex);
+            item.index = hoverIndex;
     },
   })
 
@@ -60,21 +60,11 @@ const BurgerConstructorListComponent = (props) => {
   const opacity = isDragging ? 0 : 1
 
   return (
-    <>
-      {
-        item.type === 'bun' ? 
-          <div className={styles["burger-constructor-list-component"]} style={{opacity}} id={`${item._id}_${index}`}  key={`${item._id}_${index}`}>
-            <DragIcon className={styles['dragon-icon']} type={type} />
-            <ConstructorElement
-              handleClose={onClickBurgerConstructorListComponent}
-              isLocked={locked}
-              text={item.name}
-              price={item.price}
-              thumbnail={item.image}
-            />
-          </div> 
-          : 
-          <div ref={dragDropRef} className={styles["burger-constructor-list-component"]} style={{opacity}} id={`${item._id}_${index}`}  key={`${item._id}_${index}`}>
+          <div 
+            ref={dragDropRef} 
+            className={styles["burger-constructor-list-component"]} 
+            style={{opacity}} 
+            >
             <DragIcon className={styles['dragon-icon']} type={type} />
             <ConstructorElement
               handleClose={onClickBurgerConstructorListComponent}
@@ -84,8 +74,6 @@ const BurgerConstructorListComponent = (props) => {
               thumbnail={item.image}
             />
           </div>
-      }
-    </>
   );
 }
 

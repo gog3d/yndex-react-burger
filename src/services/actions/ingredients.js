@@ -30,13 +30,6 @@ export const getIngredients =  () => (dispatch) => {
     //getItemsRequest().then(obj => {
     if (obj && obj.success) {
       dispatch({ type: GET_INGREDIENTS_SUCCESS, burgerIngredients: obj.data });
-     // const constructorIngredients = [
-     //   obj.data.find((element) => element.type === 'bun'), 
-     //   obj.data.find((element) => element.type === 'main'), 
-     //   obj.data.find((element) => element.type === 'sauce')
-     // ];
-    
-//      dispatch({ type: GET_CONSTRUCTOR_INGREDIENTS, constructorIngredients: constructorIngredients});
     dispatch({ 
       type: ADD_CONSTRUCTOR_INGREDIENT, 
       constructorIngredient: obj.data.find((element) => element.type === 'bun')

@@ -47,23 +47,17 @@ const BurgerConstructorListContainer = () => {
         />
         }
        </div>
-      <div className={styles["burger-constructor-list-container"]} >
+      <div className={styles["burger-constructor-list-container"]} key={'midle'}>
         {ingredients &&
-        <>
-        {
           ingredients.map((item, index)=>{
             if(item.type !== 'bun') return (
-            <div className={styles["burger-constructor-list-component-midle"]} key={`${item._id}_${index}_midle`}>
               <BurgerConstructorListComponent
                 item={item}
                 index={index}
-                dropRef={dropTarget}
+                key={item.uuid}
               />
-            </div>
             )
           })
-        }
-        </>
         }
       </div>
       <div className={styles["burger-constructor-list-component-bottom"]}  key={`${bun._id}_bottom`}>

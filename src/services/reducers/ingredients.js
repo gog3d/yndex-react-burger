@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import {
   ADD_CONSTRUCTOR_INGREDIENT,
   DELETE_CONSTRUCTOR_INGREDIENT,
@@ -94,7 +95,7 @@ export const ingredientsReducer = (state = initialState, action) => {
       } : {
         ...state,
         constructorIngredients: {
-          ...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients, action.constructorIngredient]
+          ...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients, {...action.constructorIngredient, uuid: uuidv4()}]
           },
         }
     }
