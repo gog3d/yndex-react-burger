@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   ADD_CONSTRUCTOR_INGREDIENT,
   DELETE_CONSTRUCTOR_INGREDIENT,
-  GET_CONSTRUCTOR_INGREDIENTS,
   UPDATE_CONSTRUCTOR_INGREDIENTS,
   ADD_MODAL_INGREDIENTS,
   DELETE_MODAL_INGREDIENTS,
@@ -80,12 +79,6 @@ export const ingredientsReducer = (state = initialState, action) => {
         ...state, 
         orderDetailsItems: action.orderDetailsItems,
       };
-    }
-    case GET_CONSTRUCTOR_INGREDIENTS: {
-      return {
-        ...state, 
-        constructorIngredients: action.constructorIngredients, 
-      }
     }
     case ADD_CONSTRUCTOR_INGREDIENT: {
       return action.constructorIngredient.type === 'bun' ? {

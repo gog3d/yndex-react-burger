@@ -35,7 +35,7 @@ const BurgerConstructorListContainer = () => {
 
   return (
     <div ref={dropTarget} className={styles["burger-constructor-list"]}>
-      <div className={styles["burger-constructor-list-component-top"]} key={`${bun._id}_top`}>
+      <div className={styles["burger-constructor-list-component-top"]}>
         {
         bun &&
         <ConstructorElement
@@ -47,20 +47,25 @@ const BurgerConstructorListContainer = () => {
         />
         }
        </div>
-      <div className={styles["burger-constructor-list-container"]} key={'midle'}>
-        {ingredients &&
+      <div className={styles["burger-constructor-list-container"]}>
+        {
+          ingredients &&
           ingredients.map((item, index)=>{
-            if(item.type !== 'bun') return (
-              <BurgerConstructorListComponent
-                item={item}
-                index={index}
+            return (
+              <div 
+                className={styles["burger-constructor-list-component-midle"]} 
                 key={item.uuid}
-              />
+               >
+                <BurgerConstructorListComponent
+                  item={item}
+                  index={index}
+                 />
+              </div>
             )
           })
         }
       </div>
-      <div className={styles["burger-constructor-list-component-bottom"]}  key={`${bun._id}_bottom`}>
+      <div className={styles["burger-constructor-list-component-bottom"]}>
         {
          bun &&
         <ConstructorElement
