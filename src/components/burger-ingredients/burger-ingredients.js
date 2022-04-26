@@ -15,7 +15,6 @@ const BurgerIngredients = () => {
   const saucesRef = useRef(null);
   const mainsRef = useRef(null);
   const listRef = useRef(null);
-//  const [pos, setPos] = useState(0);
 
   const scrollEvent = (e) => {
     if(bunsRef.current && saucesRef.current && mainsRef.current && listRef.current) {

@@ -8,10 +8,7 @@ import { baseURL }  from '../../utils/config.js';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useSelector, useDispatch } from 'react-redux';
-import { getIngredients } from '../../services/actions/ingredients.js';
-import {
-  REFRESH_ORDERDETAILS_ITEMS,
-} from '../../services/actions/ingredients.js';
+import { getIngredients, REFRESH_ORDERDETAILS_ITEMS, } from '../../services/actions/ingredients.js';
 
 const App = () => {
 

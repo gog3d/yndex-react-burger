@@ -4,7 +4,6 @@ import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useSelector } from 'react-redux';
 
 const BurgerIngredientsHeaderContainer = () => {
-  //const [current, setCurrent] = useState('Булки');
 
   const { bunsScroll, saucesScroll, mainsScroll } = useSelector(store => store.ingredients);
  

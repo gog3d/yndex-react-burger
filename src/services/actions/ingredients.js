@@ -53,9 +53,6 @@ export const getIngredients =  () => (dispatch) => {
 
   export const getOrderDetails = (body = null) => (dispatch) => {
     const idsComponents = {ingredients: body.map((comp)=>comp._id)};
-//
-    console.log(idsComponents);
-//
     dispatch({ type: GET_ORDERDETAILS_REQUEST });
     fetch(baseURL + 'orders', {
       method: 'POST',

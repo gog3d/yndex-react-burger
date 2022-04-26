@@ -29,7 +29,6 @@ const initialState = {
       bun: {},
       ingredients: [],
     },
-    currentIngredient: {},
     modalIngredient: {},
     
     orderDetailsItems: null,
