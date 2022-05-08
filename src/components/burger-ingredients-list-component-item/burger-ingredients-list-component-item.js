@@ -13,6 +13,7 @@ const BurgerIngredientsListComponentItem = (props) => {
   const constructorIngredients = useSelector(store => store.ingredients.constructorIngredients);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  
   const onClickItem = () => {
     setOpen(true);
     dispatch({ type: ADD_MODAL_INGREDIENTS, item: item });

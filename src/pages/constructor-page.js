@@ -1,24 +1,20 @@
 import React, { useState, useEffect, useRef, useContext, useMemo } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import styles from './app.module.css';
-import AppHeader from '../app-header/app-header.js';
-import BurgerConstructor from '../burger-constructor/burger-constructor.js';
-import BurgerIngredients from '../burger-ingredients/burger-ingredients.js';
-
-import { baseURL }  from '../../utils/config.js';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useSelector, useDispatch } from 'react-redux';
-import { getIngredients, REFRESH_ORDERDETAILS_ITEMS, } from '../../services/actions/ingredients.js';
 
-const App = () => {
+import styles from './constructor-page.module.css';
+import AppHeader from '../components/app-header/app-header.js';
+import BurgerConstructor from '../components/burger-constructor/burger-constructor.js';
+import BurgerIngredients from '../components/burger-ingredients/burger-ingredients.js';
+import { getIngredients, REFRESH_ORDERDETAILS_ITEMS, } from '../services/actions/ingredients.js';
 
-  const { 
+export const ConstructorPage = () => {
+  const {
     constructorIngredients,
-    burgerIngredients, 
-    burgerIngredientsRequest, 
-    burgerIngredientsFailed 
+    burgerIngredients,
+    burgerIngredientsRequest,
+    burgerIngredientsFailed
     } = useSelector(store => store.ingredients);
 
   const dispatch = useDispatch();
@@ -50,7 +46,6 @@ const App = () => {
   
    return (
    <>
-    <AppHeader />
     <div className={styles["page__content"]}>
       <main className={styles["main"]}>
         <div className={styles["main-span"]}>
@@ -76,7 +71,4 @@ const App = () => {
     </div>
   </>
   );
-}
-
-
-export default App;
+};

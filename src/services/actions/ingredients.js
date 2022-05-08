@@ -49,26 +49,26 @@ export const getIngredients =  () => (dispatch) => {
 };
 
 
-  export const getOrderDetails = (body = null) => (dispatch) => {
-    const idsComponents = {ingredients: body.map((comp)=>comp._id)};
-    dispatch({ type: GET_ORDERDETAILS_REQUEST });
-    fetch(baseURL + 'orders', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify(idsComponents),
-    }).then(res => res.json()).then(obj => {
-    if (obj) {
-      dispatch({ type: GET_ORDERDETAILS_SUCCESS, orderDetails: obj.order.number});
-    } else {
-      dispatch({ type: GET_ORDERDETAILS_FAILED });
-    }
+export const getOrderDetails = (body = null) => (dispatch) => {
+  const idsComponents = {ingredients: body.map((comp)=>comp._id)};
+  dispatch({ type: GET_ORDERDETAILS_REQUEST });
+  fetch(baseURL + 'orders', {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: JSON.stringify(idsComponents),
+  }).then(res => res.json()).then(obj => {
+  if (obj) {
+    dispatch({ type: GET_ORDERDETAILS_SUCCESS, orderDetails: obj.order.number});
+  } else {
+    dispatch({ type: GET_ORDERDETAILS_FAILED });
+  }
   }).catch((error) => {
     dispatch({ type: GET_ORDERDETAILS_FAILED });
   });

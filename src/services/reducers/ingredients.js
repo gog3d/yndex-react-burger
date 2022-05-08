@@ -15,29 +15,31 @@ import {
   REFRESH_BUNS_SCROLL,
   REFRESH_SAUCES_SCROLL,
   REFRESH_MAINS_SCROLL,
+  GET_RESTORE_PASSWORD_REQUEST,
+  GET_RESTORE_PASSWORD_SUCCESS,
+  GET_RESTORE_PASSWORD_FAILED,
 } from '../actions/ingredients.js';
-
-
 
 const initialState = {
     burgerIngredients: [],
     burgerIngredientsRequest: false,
     burgerIngredientsFailed: false,
-    
     constructorIngredients: {
       bun: {},
       ingredients: [],
     },
     modalIngredient: {},
-    
     orderDetailsItems: null,
     orderDetails: null,
     orderDetailsRequest: false,
     orderDetailsFailed: false,
-
     bunsScroll: true,
     saucesScroll: false,
     mainsScroll: false,
+    
+    restorePassword: {},
+    restorePasswordRequest: false,
+    restorePasswordFailed: false,
   };
 
 export const ingredientsReducer = (state = initialState, action) => {
