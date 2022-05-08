@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, useContext, useMemo } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ConstructorPage, LoginPage, RegisterPage, ForgotPasswordPage, ResetPasswordPage, ProfilePage, IngredientPage, NotFound404 } from './pages';
+import { ProtectedRoute } from './components/protected-route.js';
+
 import AppHeader from './components/app-header/app-header.js';
 const App = () => {
   return (
@@ -22,9 +24,9 @@ const App = () => {
           <Route path='/reset-password' exact={true}>
             <ResetPasswordPage />
           </Route>
-          <Route path='/profile' exact={true}>
+          < ProtectedRoute path='/profile' exact={true}>
             <ProfilePage />
-          </Route>
+          </ ProtectedRoute>
           <Route path={'/ingredients/:ingredientId'} exact={true}>
             <IngredientPage />
           </Route>
