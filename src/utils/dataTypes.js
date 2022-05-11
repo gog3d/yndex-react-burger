@@ -15,3 +15,34 @@ export const IngredientType = PropTypes.shape({
     "__v": PropTypes.number.isRequired
   });
 
+/*
+
+BurgerConstructorListComponent.propTypes = {
+  item: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+
+BurgerIngredientsListComponent.propTypes = {
+  items: PropTypes.array.isRequired,
+};
+
+
+BurgerIngredientsListComponentItem.propTypes = {
+  item: PropTypes.object.isRequired,
+};
+
+
+IngredientDetails.propTypes = {
+  item:  PropTypes.shape({
+    "name": PropTypes.string.isRequired,
+    "proteins": PropTypes.number.isRequired,
+    "fat": PropTypes.number.isRequired,
+    "carbohydrates": PropTypes.number.isRequired,
+    "calories": PropTypes.number.isRequired,
+    "image": PropTypes.string.isRequired,
+  }),
+};
+
+
+*/
