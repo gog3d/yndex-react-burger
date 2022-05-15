@@ -1,9 +1,19 @@
-import PropTypes from 'prop-types';
 import styles from './ingredient-details.module.css';
-import { IngredientType } from '../../utils/dataTypes.js';
+import { useSelector } from 'react-redux';
+import {
+  useHistory,
+  useLocation,
+  useParams
+} from "react-router-dom";
 
-const IngredientDetails = (props) => {
-  const { item } = props;
+const IngredientDetails = () => {
+  const items = useSelector(store => store.ingredients.burgerIngredients);
+  const { ingredientId } = useParams();
+
+  const item = items.find(e => e._id === ingredientId);
+
+  if (!item) return null;
+
   return (
     <div className={styles['ingredient-details']} >
       <p className={styles['ingredient-details-header']}>
@@ -54,9 +64,6 @@ const IngredientDetails = (props) => {
     </div>
   )
 }
-IngredientDetails.propTypes = {
-  item: IngredientType,
-};
 
 export default IngredientDetails;
 

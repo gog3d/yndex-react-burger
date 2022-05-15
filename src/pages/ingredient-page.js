@@ -1,21 +1,26 @@
 import styles from './ingredient-page.module.css';
 import image from '../image/7d9fa34b16200edb585c8855f1699057.gif';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+  useLocation,
+  useParams
+} from "react-router-dom";
 
 export const IngredientPage = () => {
-  const { burgerIngredients } = useSelector(store => store.ingredients);
-  const { orderDetails } = useSelector(store => store.ingredients);
+  const items = useSelector(store => store.ingredients.burgerIngredients);
   const { ingredientId } = useParams();
 
-//  console.log(burgerIngredients, ingredientId);
+  const item = items.find(e => e._id === ingredientId);
 
-  const item = burgerIngredients[ingredientId];
+  if (!item) return null;
+
   return (
     <div className={styles['ingredient-details']} >
-    {
-    item &&
-     <>
       <p className={styles['ingredient-details-header']}>
         <span className="text text_type_main-large">
           Детали ингредиента
@@ -61,9 +66,6 @@ export const IngredientPage = () => {
           </span>
         </p>
       </div>
-      </>
-      }
     </div>
-    
   )
 }

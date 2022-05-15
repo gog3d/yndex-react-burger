@@ -20,10 +20,6 @@ export const ConstructorPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getIngredients());
-  }, [dispatch]);
-  
-  useEffect(() => {
     const items = [...constructorIngredients.ingredients, constructorIngredients.bun];
     dispatch({ type: REFRESH_ORDERDETAILS_ITEMS, orderDetailsItems: items });
   }, [constructorIngredients.bun, constructorIngredients.ingredients]);
@@ -41,7 +37,6 @@ export const ConstructorPage = () => {
       );
     },
     [burgerIngredientsRequest, burgerIngredients, burgerIngredientsFailed]
-  
     );
   
    return (

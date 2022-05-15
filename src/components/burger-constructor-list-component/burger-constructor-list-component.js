@@ -5,7 +5,7 @@ import { DragIcon, ConstructorElement } from '@ya.praktikum/react-developer-burg
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrop, useDrag } from 'react-dnd';
 import {  DELETE_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../services/actions/ingredients.js';
-import { IngredientType } from '../../utils/dataTypes.js';
+
 
 const BurgerConstructorListComponent = (props) => {
   const dispatch = useDispatch();
@@ -78,7 +78,7 @@ const BurgerConstructorListComponent = (props) => {
 }
 
 BurgerConstructorListComponent.propTypes = {
-  item: IngredientType,
+  item: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
 };
 

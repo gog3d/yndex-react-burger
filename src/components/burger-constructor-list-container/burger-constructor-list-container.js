@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import styles from './burger-constructor-list-container.module.css';
-import {ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
+import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import BurgerConstructorListComponent from '../burger-constructor-list-component/burger-constructor-list-component.js';
 
@@ -16,7 +16,7 @@ const BurgerConstructorListContainer = () => {
 
   const bun = useMemo(
     () => {
-      return constructorIngredients.bun ? constructorIngredients.bun : false;
+      return  Object.keys(constructorIngredients.bun).length === 0 ? false : constructorIngredients.bun;
     }, [constructorIngredients.bun]
   );
 
@@ -37,44 +37,68 @@ const BurgerConstructorListContainer = () => {
     <div ref={dropTarget} className={styles["burger-constructor-list"]}>
       <div className={styles["burger-constructor-list-component-top"]}>
         {
-        bun &&
-        <ConstructorElement
-          type={'top'}
-          isLocked={true}
-          text={`${bun.name} (верх)`}
-          price={bun.price}
-          thumbnail={bun.image}
-        />
+          bun ? ( 
+            <ConstructorElement
+              type={'top'}
+              isLocked={true}
+              text={`${bun.name} (верх)`}
+              price={bun.price}
+              thumbnail={bun.image}
+            />
+            ) : (
+            <ConstructorElement
+              type={'top'}
+              isLocked={true}
+              text={`добавьте булку`}
+              thumbnail={'dgd'}
+            />
+            )
         }
        </div>
       <div className={styles["burger-constructor-list-container"]}>
         {
-          ingredients &&
-          ingredients.map((item, index)=>{
-            return (
-              <div 
-                className={styles["burger-constructor-list-component-midle"]} 
-                key={item.uuid}
-               >
-                <BurgerConstructorListComponent
-                  item={item}
-                  index={index}
+          ingredients ? (
+            ingredients.map((item, index)=>{
+              return (
+                <div 
+                  className={styles["burger-constructor-list-component-midle"]} 
+                  key={item.uuid}
+                >
+                  <BurgerConstructorListComponent
+                    item={item}
+                    index={index}
                  />
-              </div>
-            )
-          })
+                </div>
+              )
+            })
+          ) : (
+            <div className={styles["burger-constructor-list-component-midle"]}>
+                <ConstructorElement
+                type={'midle'}
+                isLocked={true}
+                text={`добавьте ингредиент`}
+              />
+            </div>
+          )
         }
       </div>
       <div className={styles["burger-constructor-list-component-bottom"]}>
         {
-         bun &&
-        <ConstructorElement
-          type={'bottom'}
-          isLocked={true}
-          text={`${bun.name} (низ)`}
-          price={bun.price}
-          thumbnail={bun.image}
-        />
+         bun ? (
+          <ConstructorElement
+            type={'bottom'}
+            isLocked={true}
+            text={`${bun.name} (низ)`}
+            price={bun.price}
+            thumbnail={bun.image}
+          />
+        ) : (
+          <ConstructorElement
+            type={'bottom'}
+            isLocked={true}
+            text={`добавьте булку`}
+          />
+        )
         }
       </div>
     </div>
