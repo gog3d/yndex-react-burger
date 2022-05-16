@@ -6,6 +6,7 @@ import Modal from '../modal/modal.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
 import { useDrag } from "react-dnd";
 import { useDispatch, useSelector } from 'react-redux';
+import { IngredientType } from '../../utils/dataTypes.js';
 
 const BurgerIngredientsListComponentItem = (props) => {
   const { item } = props;
@@ -64,7 +65,7 @@ const BurgerIngredientsListComponentItem = (props) => {
 };
 
 BurgerIngredientsListComponentItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: IngredientType,
 };
 
 export default BurgerIngredientsListComponentItem;
