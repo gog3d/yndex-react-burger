@@ -7,7 +7,7 @@ import { getRestorePassword } from '../services/actions/restore-password.js';
 import styles from './fogot-password.module.css';
 
 export const  ForgotPasswordPage = () => {
-  const [emailInputValue, setEmailInputValue] = useState('');
+  const [email, setEmail] = useState('');
 
   const {
     restorePassword,
@@ -17,9 +17,8 @@ export const  ForgotPasswordPage = () => {
 
   const dispatch = useDispatch();
 
-  const onClickButton =  (email) => {
+  const onSubmit = () => {
     dispatch(getRestorePassword({ 'email': email }));
-    console.log(email, restorePassword);
   };
 
   if(restorePassword.success) {
@@ -33,7 +32,7 @@ export const  ForgotPasswordPage = () => {
    }
 
   return (
-    <div className={styles['fogot-container']}>
+    <form onSubmit={onSubmit} className={styles['fogot-container']}>
       <Logo />
       <div className={styles['main-container']}>
         <div className={styles['first-container']}>
@@ -42,13 +41,13 @@ export const  ForgotPasswordPage = () => {
           </span>
           <Input 
             type={'email'}
-            value={emailInputValue}
+            value={email}
             placeholder={'E-mail'}
-            onChange={e => setEmailInputValue(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             size={'small'}
           />
           <Button 
-            onClick={() => onClickButton(emailInputValue)}
+            onClick={onSubmit}
           >
             Восстановить
           </Button>
@@ -66,6 +65,6 @@ export const  ForgotPasswordPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   )
 }

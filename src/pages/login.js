@@ -21,9 +21,8 @@ export const  LoginPage = () => {
 
   const dispatch = useDispatch();
 
-  const onClickButton =  (email, password) => {
+  const onSubmit =  () => {
     dispatch(getLogin({ 'email': email, 'password': password}));
-    console.log(login);
   };
 
   if(login.success) {
@@ -38,7 +37,7 @@ export const  LoginPage = () => {
    }
 
   return (
-    <div className={styles['login-container']}>
+    <form onSubmit={onSubmit} className={styles['login-container']}>
       <Logo />
       <div className={styles['main-container']}>
         <div className={styles['first-container']}>
@@ -60,7 +59,7 @@ export const  LoginPage = () => {
             icon={'ShowIcon'}
             size={'small'}
           />
-          <Button onClick={()=>onClickButton(email, password)}>
+          <Button onClick={onSubmit}>
             Войти
           </Button>
         </div>
@@ -87,6 +86,6 @@ export const  LoginPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   )
 }

@@ -8,8 +8,8 @@ import styles from './reset-password.module.css';
 
 export const  ResetPasswordPage = () => {
 
-  const [tokenValue, setTokenValue] = useState('');
-  const [passwordValue, setPasswordValue] = useState('');
+  const [token, setToken] = useState('');
+  const [password, setPassword] = useState('');
 
   const {
     newPassword,
@@ -19,9 +19,8 @@ export const  ResetPasswordPage = () => {
 
   const dispatch = useDispatch();
 
-  const onClickButton =  (password, token) => {
+  const onSubmit =  () => {
     dispatch(getNewPassword({ 'password': password, 'token': token }));
-//    console.log(newPassword);
   };
 
   if(newPassword.success) {
@@ -35,7 +34,7 @@ export const  ResetPasswordPage = () => {
    }
 
   return (
-    <div className={styles['reset-container']}>
+    <form onSubmit={onSubmit} className={styles['reset-container']}>
       <Logo />
       <div className={styles['main-container']}>
         <div className={styles['first-container']}>
@@ -45,19 +44,19 @@ export const  ResetPasswordPage = () => {
           <Input 
             type={'password'}
             placeholder={'Введите новый'}
-            value={passwordValue}
-            onChange={e => setPasswordValue(e.target.value)}
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             icon={'ShowIcon'}
             size={'small'}
           />
           <Input 
             type={'text'}
-            value={tokenValue}
+            value={token}
             placeholder={'Введите код из письма'}
-            onChange={e => setTokenValue(e.target.value)}
+            onChange={e => setToken(e.target.value)}
             size={'small'}
           />
-          <Button onClick={()=>onClickButton(passwordValue, tokenValue)}>
+          <Button onClick={onSubmit}>
             Сохранить
           </Button>
         </div>
@@ -74,6 +73,6 @@ export const  ResetPasswordPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   )
 }

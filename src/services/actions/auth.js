@@ -16,6 +16,13 @@ export const GET_TOKEN_REQUEST = 'GET_TOKE_REQUEST';
 export const GET_TOKEN_SUCCESS = 'GET_TOKE_SUCCESS';
 export const GET_TOKEN_FAILED = 'GET_TOKE_FAILED';
 
+const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json;
+  } else {
+    return Promise.reject(`Ошибка ${res.status}`);
+  }
+};
 
 export const getLogin = (body = null) => (dispatch) => {
   dispatch({ type: GET_LOGIN_REQUEST });
@@ -30,7 +37,7 @@ export const getLogin = (body = null) => (dispatch) => {
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(body),
-  }).then(res => res.json()).then(obj => {
+  }).then(checkResponse).then(obj => {
   if (obj) {
     dispatch({ type: GET_LOGIN_SUCCESS, login: obj});
   } else {
@@ -55,7 +62,7 @@ export const getRegister = (body = null) => (dispatch) => {
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(body),
-  }).then(res => res.json()).then(obj => {
+  }).then(checkResponse).then(obj => {
   if (obj) {
     dispatch({ type: GET_REGISTER_SUCCESS, register: obj});
   } else {

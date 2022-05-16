@@ -10,9 +10,9 @@ import {Logo, Button, Input} from '@ya.praktikum/react-developer-burger-ui-compo
 import styles from './profile.module.css';
 
 export const  ProfilePage = () => {
-  const [nameValue, setNameValue] = useState('');
-  const [loginValue, setLoginValue] = useState('');
-  const [passwordValue, setPasswordValue] = useState('');
+  const [nameInput, setNameInput] = useState('');
+  const [loginInput, setLoginInput] = useState('');
+  const [passwordInput, setPasswordInput] = useState('');
   const [current, setCurrent] = useState('Профиль');
   const history = useHistory(); 
   
@@ -24,8 +24,6 @@ export const  ProfilePage = () => {
   } = useSelector(store => store.auth);
 
   const dispatch = useDispatch();
-
-  
 
   const profileOnClick = useCallback(
     () => {
@@ -75,9 +73,9 @@ export const  ProfilePage = () => {
            </span>
           <Input 
             type={'text'}
-            value={nameValue}
+            value={nameInput}
             placeholder={'Имя'}
-            onChange={e => setNameValue(e.target.value)}
+            onChange={e => setNameInput(e.target.value)}
             icon={'EditIcon'}
             size={'small'}
           />
@@ -95,9 +93,9 @@ export const  ProfilePage = () => {
            </span>
           <Input 
             type={'text'}
-            value={loginValue}
+            value={loginInput}
             placeholder={'Логин'}
-            onChange={e => setLoginValue(e.target.value)}
+            onChange={e => setLoginInput(e.target.value)}
             icon={'EditIcon'}
             size={'small'}
           />
@@ -115,9 +113,9 @@ export const  ProfilePage = () => {
            </span>
           <Input 
             type={'text'}
-            value={passwordValue}
+            value={passwordInput}
             placeholder={'Пароль'}
-            onChange={e => setPasswordValue(e.target.value)}
+            onChange={e => setPasswordInput(e.target.value)}
             icon={'EditIcon'}
             size={'small'}
           />

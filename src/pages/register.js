@@ -22,9 +22,8 @@ export const  RegisterPage = () => {
 
   const dispatch = useDispatch();
 
-  const onClickButton =  (email, password, name) => {
+  const onSubmit =  () => {
     dispatch(getRegister({ 'email': email, 'password': password, 'name': name }));
-    console.log(register);
   };
 
   if(register.success) {
@@ -39,7 +38,7 @@ export const  RegisterPage = () => {
    }
 
   return (
-    <div className={styles['register-container']}>
+    <form onSubmit={onSubmit} className={styles['register-container']}>
       <Logo />
       <div className={styles['register-main-container']}>
         <div className={styles['register-first-container']}>
@@ -68,7 +67,7 @@ export const  RegisterPage = () => {
             icon={'ShowIcon'}
             size={'small'}
           />
-          <Button onClick={()=>onClickButton(email, password, name)}>
+          <Button onClick={onSubmit}>
             Зарегистрироваться
           </Button>
         </div>
@@ -81,6 +80,6 @@ export const  RegisterPage = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </form>
   )
 };
