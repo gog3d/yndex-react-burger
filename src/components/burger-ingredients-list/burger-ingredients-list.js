@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useMemo, useRef, useEffect } from 'react';
 import styles from './burger-ingredients-list.module.css';
 import BurgerIngredientsListComponent from '../burger-ingredients-list-component/burger-ingredients-list-component.js';
@@ -36,5 +37,14 @@ const BurgerIngredientsList = (props) => {
       </div>
   );
 };
+
+BurgerIngredientsList.propTypes = {
+  scrollEvent: PropTypes.func.isRequired,
+  listRef: PropTypes.object.isRequired,
+  bunsRef: PropTypes.object.isRequired,
+  saucesRef: PropTypes.object.isRequired,
+  mainsRef: PropTypes.object.isRequired,
+};
+
 
 export default BurgerIngredientsList;
