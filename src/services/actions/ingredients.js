@@ -1,4 +1,5 @@
 import { baseURL }  from '../../utils/config.js';
+import { checkResponse }  from '../utils.js';
 //import { getItemsRequest, getOrderDetailsRequest } from '../fakeApi';
 
 export const ADD_CONSTRUCTOR_INGREDIENT='ADD_CONSTRUCTOR_INGREDIENT';
@@ -24,8 +25,8 @@ export const REFRESH_MAINS_SCROLL = 'REFRESH_MAINS_SCROLL';
 
 export const getIngredients =  () => (dispatch) => {
   dispatch({ type: GET_INGREDIENTS_REQUEST });
-  fetch(baseURL + 'ingredients').then(res => res.json()).then(obj => {
-   // getItemsRequest().then(obj => {
+  fetch(baseURL + 'ingredients').then(checkResponse).then(obj => {
+//    getItemsRequest().then(obj => {
     if (obj && obj.success) {
       dispatch({ type: GET_INGREDIENTS_SUCCESS, burgerIngredients: obj.data });
 
@@ -52,7 +53,7 @@ export const getOrderDetails = (body = null) => (dispatch) => {
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(idsComponents),
-  }).then(res => res.json()).then(obj => {
+  }).then(checkResponse).then(obj => {
     if (obj) {
       dispatch({ type: GET_ORDERDETAILS_SUCCESS, orderDetails: obj.order.number});
     } else {

@@ -11,7 +11,7 @@ import {
 } from '../../pages';
 
 import ModalIngredient from '../modal-ingredient/modal-ingredient.js';
-import BurgerIngredientsListComponentItem from '../burger-ingredients-list-component-item/burger-ingredients-list-component-item.js';
+//import BurgerIngredientsListComponentItem from '../burger-ingredients-list-component-item/burger-ingredients-list-component-item.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
 
 import { ProtectedRoute } from '../protected-route.js';

@@ -1,3 +1,4 @@
+//import img  from '../../utils/config.js';
 import React, { useMemo } from 'react';
 import styles from './burger-constructor-list-container.module.css';
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
@@ -13,6 +14,7 @@ const BurgerConstructorListContainer = () => {
   const dispatch = useDispatch();
 
   const constructorIngredients = useSelector(store => store.ingredients.constructorIngredients);
+//  console.log(constructorIngredients)
 
   const bun = useMemo(
     () => {
@@ -49,8 +51,8 @@ const BurgerConstructorListContainer = () => {
             <ConstructorElement
               type={'top'}
               isLocked={true}
-              text={`добавьте булку`}
-              thumbnail={'dgd'}
+              text={'добавьте булку'}
+              thumbnail={''}
             />
             )
         }
@@ -60,10 +62,7 @@ const BurgerConstructorListContainer = () => {
           ingredients ? (
             ingredients.map((item, index)=>{
               return (
-                <div 
-                  className={styles["burger-constructor-list-component-midle"]} 
-                  key={item.uuid}
-                >
+                <div key={item.uuid} >
                   <BurgerConstructorListComponent
                     item={item}
                     index={index}
@@ -73,6 +72,7 @@ const BurgerConstructorListContainer = () => {
             })
           ) : (
             <div className={styles["burger-constructor-list-component-midle"]}>
+                <DragIcon className={styles['dragon-icon']} type={'secondary'} />
                 <ConstructorElement
                 type={'midle'}
                 isLocked={true}

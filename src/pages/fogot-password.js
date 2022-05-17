@@ -18,6 +18,7 @@ export const  ForgotPasswordPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = () => {
+    console.log(email);
     dispatch(getRestorePassword({ 'email': email }));
   };
 

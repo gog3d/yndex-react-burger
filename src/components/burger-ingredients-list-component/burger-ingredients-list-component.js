@@ -12,12 +12,14 @@ import {
   useParams
 } from "react-router-dom";
 
-const BurgerIngredientsListComponent = () => {
+const BurgerIngredientsListComponent = (props) => {
+  const { type } = props;
   const dispatch = useDispatch();
   const location = useLocation();
 
- const history = useHistory();
-  const items = useSelector(store => store.ingredients.burgerIngredients);
+  const history = useHistory();
+  const items = useSelector(store => store.ingredients.burgerIngredients).
+    filter((item) => item.type === type);
   const onClickItem = (item) => {
     history.push({
       pathname: `/ingredients/${item._id}`,
@@ -47,5 +49,9 @@ const BurgerIngredientsListComponent = () => {
     </div>
   );
 };
+
+BurgerIngredientsListComponent.propTypes = {
+  type: PropTypes.string.isRequired,
+}
 
 export default BurgerIngredientsListComponent;

@@ -1,4 +1,14 @@
 import React, {useState, useMemo} from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+  useLocation,
+  useParams
+} from "react-router-dom";
+
 import styles from './burger-constructor-button-container.module.css';
 import {CurrencyIcon, Button} from '@ya.praktikum/react-developer-burger-ui-components';
 import Modal from '../modal/modal.js';
@@ -15,6 +25,12 @@ const BurgerConstructorButtonContainer = () => {
     orderDetailsRequest,
     orderDetailsFailed,
     } = useSelector(store => store.ingredients);
+    
+  const {
+    login,
+  } = useSelector(store => store.auth);
+
+  const history = useHistory();
 
   const constructorIngredients = useSelector(store => store.ingredients.constructorIngredients);
   const dispatch = useDispatch();
@@ -29,8 +45,16 @@ const BurgerConstructorButtonContainer = () => {
   );
   
   const onClickButton =  () => {
-    setOpen(true);
-    dispatch(getOrderDetails(orderDetailsItems));
+    if (orderDetailsItems.find(item => item.type === 'bun')) {
+      if(login.user) {
+        setOpen(true);
+        dispatch(getOrderDetails(orderDetailsItems));
+      } else {
+        history.push({
+          pathname: '/login',
+        });
+      }
+    }
   };
   
   const orderDetailsStatus = useMemo(

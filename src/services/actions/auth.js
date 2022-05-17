@@ -1,5 +1,5 @@
 import { baseURL }  from '../../utils/config.js';
-
+import { checkResponse }  from '../utils.js';
 export const GET_LOGIN_REQUEST = 'GET_LOGIN_REQUEST';
 export const GET_LOGIN_SUCCESS = 'GET_LOGIN_SUCCESS';
 export const GET_LOGIN_FAILED = 'GET_LOGIN_FAILED';
@@ -15,14 +15,6 @@ export const GET_LOGOUT_FAILED = 'GET_LOGOUT_FAILED';
 export const GET_TOKEN_REQUEST = 'GET_TOKE_REQUEST';
 export const GET_TOKEN_SUCCESS = 'GET_TOKE_SUCCESS';
 export const GET_TOKEN_FAILED = 'GET_TOKE_FAILED';
-
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json;
-  } else {
-    return Promise.reject(`Ошибка ${res.status}`);
-  }
-};
 
 export const getLogin = (body = null) => (dispatch) => {
   dispatch({ type: GET_LOGIN_REQUEST });
@@ -86,7 +78,7 @@ export const getLogout = (body = null) => (dispatch) => {
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(body),
-  }).then(res => res.json()).then(obj => {
+  }).then(checkResponse).then(obj => {
   if (obj) {
     dispatch({ type: GET_LOGOUT_SUCCESS, logout: obj});
   } else {
@@ -110,7 +102,7 @@ export const getToken = (body = null) => (dispatch) => {
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(body),
-  }).then(res => res.json()).then(obj => {
+  }).then(checkResponse).then(obj => {
   if (obj) {
     dispatch({ type: GET_TOKEN_SUCCESS, token: obj});
   } else {
