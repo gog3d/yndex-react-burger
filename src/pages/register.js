@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { Redirect } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRegister } from '../services/actions/auth.js';
 import { setCookie } from '../services/utils.js';
 
-import {Logo, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
+import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './register.module.css';
 
 export const  RegisterPage = () => {
@@ -15,6 +15,7 @@ export const  RegisterPage = () => {
   const [password, setPassword] = useState('');
   
   const {
+    login,
     register,
     registerRequest,
     registerFailed,
@@ -22,9 +23,23 @@ export const  RegisterPage = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit =  () => {
-    dispatch(getRegister({ 'email': email, 'password': password, 'name': name }));
-  };
+    const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      dispatch(getRegister({ 'email': email, 'password': password, 'name': name }));
+      
+    }, [email, password, name]
+  ) 
+
+  useEffect(()=>{
+    console.dir(
+      {
+        register,
+        registerRequest,
+        registerFailed,
+      });
+  }, [register, registerRequest, registerFailed, login]);
+
 
   if(register.success) {
     setCookie('token', register.refreshToken);
@@ -52,22 +67,19 @@ export const  RegisterPage = () => {
               onChange={e => setName(e.target.value)}
               size={'small'}
             />
-          <Input 
-            type={'email'}
+          <EmailInput
             value={email}
-            placeholder={'E-mail'}
+            name={'E-mail'}
             onChange={e => setEmail(e.target.value)}
             size={'small'}
           />
-          <Input 
-            type={'password'}
-            placeholder={'Пароль'}
+          <PasswordInput 
+            name={'Пароль'}
             value={password}
             onChange={e => setPassword(e.target.value)}
-            icon={'ShowIcon'}
             size={'small'}
           />
-          <Button onClick={onSubmit}>
+          <Button>
             Зарегистрироваться
           </Button>
         </div>

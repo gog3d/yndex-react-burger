@@ -2,13 +2,18 @@ import { Redirect, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-export function ProtectedRoute({ children, ...rest }) {
+import {
+  useHistory,
+  useLocation,
+  useParams
+} from "react-router-dom";
 
+export function ProtectedRoute({ children, ...rest }) {
   const {
     login,
   } = useSelector(store => store.auth);
 
-  return (
+/*  return (
     <Route
       {...rest}
       render={({ location }) =>
@@ -23,6 +28,13 @@ export function ProtectedRoute({ children, ...rest }) {
           />
         )
       }
+    />
+  );
+  */
+  return (
+    <Route
+      {...rest}
+      render={() => children }
     />
   );
 }

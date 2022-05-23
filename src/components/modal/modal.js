@@ -11,8 +11,6 @@ const Modal = (props) => {
   const  { isOpen, onClose, children } = props;
 
   const items = useSelector(store => store.ingredients.burgerIngredients);
-  const { ingredientId } = useParams();
-  const item = items.find(e => e._id === ingredientId);
 
   useEffect(() => {
     const closeByEscape = (e) => {

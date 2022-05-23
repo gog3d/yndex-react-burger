@@ -14,6 +14,15 @@ import {
   GET_TOKEN_REQUEST,
   GET_TOKEN_SUCCESS,
   GET_TOKEN_FAILED,
+
+  GET_USER_REQUEST,
+  GET_USER_SUCCESS,
+  GET_USER_FAILED,
+  
+  GET_REFRESH_USER_REQUEST,
+  GET_REFRESH_USER_SUCCESS,
+  GET_REFRESH_USER_FAILED,
+
 } from '../actions/auth.js';
 
 const authState = {
@@ -32,6 +41,15 @@ const authState = {
     token: {},
     tokenRequest: false,
     tokenFailed: false,
+
+    user: {},
+    userRequest: false,
+    userFailed: false,
+
+    refreshUser: {},
+    refreshUserequest: false,
+    refreshUserFailed: false,
+
   };
   
 export const authReducer = (state = authState, action) => {
@@ -62,7 +80,6 @@ export const authReducer = (state = authState, action) => {
         ...state, 
         registerFailed: false, 
         register: action.register, 
-        login: action.register, 
         registerRequest: false};
     }
     case GET_REGISTER_FAILED: {
@@ -104,6 +121,42 @@ export const authReducer = (state = authState, action) => {
         ...state, 
         tokenFailed: true, 
         tokenRequest: false};
+    }
+
+
+    case GET_USER_REQUEST: {
+      return {...state, userRequest: true};
+    }
+    case GET_USER_SUCCESS: {
+      return {
+        ...state, 
+        userFailed: false, 
+        user: action.user, 
+        userRequest: false};
+    }
+    case GET_USER_FAILED: {
+      return {
+        ...state, 
+        userFailed: true, 
+        userRequest: false};
+    }
+    case GET_REFRESH_USER_REQUEST: {
+      return {...state, refreshUserRequest: true};
+    }
+    case GET_REFRESH_USER_SUCCESS: {
+      return {
+        ...state, 
+        refreshUserFailed: false, 
+        refreshUser: action.refreshUser, 
+        refreshUserRequest: false,
+        login: {...state.login.user, user: action.refreshUser}
+      };
+    }
+    case GET_REFRESH_USER_FAILED: {
+      return {
+        ...state, 
+        refreshUserFailed: true, 
+        refreshUserRequest: false};
     }
     default: {
       return state;

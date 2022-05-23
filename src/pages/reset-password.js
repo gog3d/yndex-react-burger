@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Link, useHistory } from 'react-router-dom';
-import {Logo, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
+import {Logo, PasswordInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { getNewPassword } from '../services/actions/new-password.js';
+import { getResetPassword } from '../services/actions/reset-password.js';
 import styles from './reset-password.module.css';
 
 export const  ResetPasswordPage = () => {
@@ -12,18 +12,31 @@ export const  ResetPasswordPage = () => {
   const [password, setPassword] = useState('');
 
   const {
-    newPassword,
-    newPasswordRequest,
-    newPasswordFailed,
-  } = useSelector(store => store.newPassword);
+    resetPassword,
+    resetPasswordRequest,
+    resetPasswordFailed,
+  } = useSelector(store => store.resetPassword);
 
   const dispatch = useDispatch();
 
-  const onSubmit =  () => {
-    dispatch(getNewPassword({ 'password': password, 'token': token }));
-  };
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+//      console.dir({ password, token });
+      dispatch(getResetPassword({ 'password': password, 'token': token }));
+    }, [password, token]
+  ) 
 
-  if(newPassword.success) {
+useEffect(()=>{
+  console.dir(
+    {
+      resetPassword,
+      resetPasswordRequest,
+      resetPasswordFailed,
+    });
+}, [ resetPassword, resetPasswordRequest, resetPasswordFailed,]);
+
+  if(resetPassword.success) {
     return (
       <Redirect
         to={{
@@ -41,12 +54,10 @@ export const  ResetPasswordPage = () => {
           <span className={styles['first-span']}>
             <span className="text text_type_main-medium">Восстановление пароля</span>
           </span>
-          <Input 
-            type={'password'}
-            placeholder={'Введите новый'}
+          <PasswordInput 
+            name={'Введите новый'}
             value={password}
             onChange={e => setPassword(e.target.value)}
-            icon={'ShowIcon'}
             size={'small'}
           />
           <Input 
@@ -56,7 +67,7 @@ export const  ResetPasswordPage = () => {
             onChange={e => setToken(e.target.value)}
             size={'small'}
           />
-          <Button onClick={onSubmit}>
+          <Button >
             Сохранить
           </Button>
         </div>

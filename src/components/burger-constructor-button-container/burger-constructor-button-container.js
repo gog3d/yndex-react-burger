@@ -46,7 +46,8 @@ const BurgerConstructorButtonContainer = () => {
   
   const onClickButton =  () => {
     if (orderDetailsItems.find(item => item.type === 'bun')) {
-      if(login.user) {
+   //   if(login.user) {
+    if(login) {
         setOpen(true);
         dispatch(getOrderDetails(orderDetailsItems));
       } else {

@@ -1,6 +1,6 @@
 import { baseURL }  from '../../utils/config.js';
 import { checkResponse }  from '../utils.js';
-//import { getItemsRequest, getOrderDetailsRequest } from '../fakeApi';
+import { getItemsRequest, getOrderDetailsRequest } from '../fakeApi';
 
 export const ADD_CONSTRUCTOR_INGREDIENT='ADD_CONSTRUCTOR_INGREDIENT';
 export const DELETE_CONSTRUCTOR_INGREDIENT='DELETE_CONSTRUCTOR_INGREDIENT';
@@ -26,7 +26,7 @@ export const REFRESH_MAINS_SCROLL = 'REFRESH_MAINS_SCROLL';
 export const getIngredients =  () => (dispatch) => {
   dispatch({ type: GET_INGREDIENTS_REQUEST });
   fetch(baseURL + 'ingredients').then(checkResponse).then(obj => {
-//    getItemsRequest().then(obj => {
+  //getItemsRequest().then(obj => {
     if (obj && obj.success) {
       dispatch({ type: GET_INGREDIENTS_SUCCESS, burgerIngredients: obj.data });
 

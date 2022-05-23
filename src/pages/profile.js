@@ -1,29 +1,74 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLogout } from '../services/actions/auth.js';
-import { getCookie, deleteCookie } from '../services/utils.js';
+import { getLogout, getUser, getRefreshUser, getToken } from '../services/actions/auth.js';
+import { getCookie, deleteCookie, getRefreshToken } from '../services/utils.js';
 
-import {Logo, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
+import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './profile.module.css';
 
 export const  ProfilePage = () => {
-  const [nameInput, setNameInput] = useState('');
-  const [loginInput, setLoginInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
-  const [current, setCurrent] = useState('Профиль');
+
   const history = useHistory(); 
+  const dispatch = useDispatch();
   
   const {
-    login,
-    logout,
-    logoutRequest,
-    logoutFailed,
+    user, 
+    userRequest,
+    userFailed,
+    refreshUser,
+    token
   } = useSelector(store => store.auth);
 
-  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [current, setCurrent] = useState('Профиль');
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
+  useEffect(()=>{
+    setName(user.user ? user.user.name : '');
+    setEmail(user.user ? user.user.email : '');
+  }, [user]);
+
+  const onSave =  useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log( getCookie('accessToken'));
+      dispatch(getRefreshUser({ 
+        'autorization': getCookie('accessToken'),
+        'email': email,
+        'password': password }));
+    }, [email, password]
+  );
+
+  const onCancel =  useCallback(
+    (e) => {
+      e.preventDefault();
+      setName(user.user ? user.user.name : '');
+      setEmail(user.user ? user.user.email : '');
+      setPassword('');
+    }, [email, password, name]
+  );
+
+
+  useEffect(() => {
+    console.dir({
+      user, 
+      userRequest,
+      userFailed,
+      refreshUser,
+    });
+    }, [ user, 
+      userRequest,
+      userFailed,
+      refreshUser,
+  ]);
 
   const profileOnClick = useCallback(
     () => {
@@ -32,6 +77,7 @@ export const  ProfilePage = () => {
     },
     [history]
   );
+
   const orderOnClick = useCallback(
     () => {
       setCurrent('История заказов');
@@ -39,26 +85,35 @@ export const  ProfilePage = () => {
     },
     [history]
   );
-  const outOnClick = () => {
-    const refreshToken = getCookie(login.user.name);
-    dispatch(getLogout({refreshToken}));
-//    console.log(register);
-  };
-  
-  if(logout.success) {
-    deleteCookie(login.user.name);
-    return (
-      <Redirect
-        to={{
-          pathname: '/login'
-        }}
-      />
-     )
-   }
+
+  const outOnClick = useCallback(
+    () => {
+      setCurrent('История заказов');
+      history.replace({ pathname: '/' });
+    },
+    [history]
+  );
+
+
+const userStatus = useMemo(
+  () => {
+    return userFailed ? (
+      <p className={styles.text}>Произошла ошибка при получении данных</p>
+    ) : userRequest ? (
+      <p className={styles.text}>Получение данных пользователя...</p>
+    ) : user ? (
+     ''
+    ) : (
+      <p className={styles.text}>Произошла ошибка при получении данных</p>
+    );
+  },
+  [userRequest, user, userFailed]
+  );
 
   return (
-    <div className={styles['profile-container']}>
 
+    <div className={styles['profile-container']}>
+      {userStatus}
       <div className={styles['top-container']}>
         <div className={styles['input-container']}>
           <span 
@@ -73,9 +128,9 @@ export const  ProfilePage = () => {
            </span>
           <Input 
             type={'text'}
-            value={nameInput}
+            value={name}
             placeholder={'Имя'}
-            onChange={e => setNameInput(e.target.value)}
+            onChange={e => setName(e.target.value)}
             icon={'EditIcon'}
             size={'small'}
           />
@@ -91,12 +146,10 @@ export const  ProfilePage = () => {
            >
               История заказов
            </span>
-          <Input 
-            type={'text'}
-            value={loginInput}
-            placeholder={'Логин'}
-            onChange={e => setLoginInput(e.target.value)}
-            icon={'EditIcon'}
+          <EmailInput
+            value={email}
+            name={'Логин'}
+            onChange={e => setEmail(e.target.value)}
             size={'small'}
           />
         </div>
@@ -111,17 +164,22 @@ export const  ProfilePage = () => {
            >
               Выход
            </span>
-          <Input 
-            type={'text'}
-            value={passwordInput}
-            placeholder={'Пароль'}
-            onChange={e => setPasswordInput(e.target.value)}
-            icon={'EditIcon'}
+          <PasswordInput 
+            value={password}
+            name={'Пароль'}
+            onChange={e => setPassword(e.target.value)}
             size={'small'}
           />
         </div>
+        <div className={styles['input-container']}>
+        <Button onClick={onSave}>
+            Сохранить
+          </Button>
+          <Button onClick={onCancel}>
+            Отмена
+          </Button>
+        </div>
       </div>
-
       <div className={styles['bottom-container']}>
         <div className={styles['input-container']}>
           <span className={'text text_type_main-small text_color_inactive'}>
@@ -134,8 +192,6 @@ export const  ProfilePage = () => {
           </span>
         </div>
       </div>
-      
     </div>
-   
   )
 }
