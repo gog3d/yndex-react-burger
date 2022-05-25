@@ -1,5 +1,11 @@
-import React from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import React, { useEffect }from 'react';
+//import { Route, Switch, useLocation } from 'react-router-dom';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { getUser, getToken } from '../../services/actions/auth.js';
+import { Route, Switch, useLocation, Link, useHistory, Redirect } from 'react-router-dom';
+import { setCookie, getCookie, getRefreshToken } from '../../services/utils.js';
+
 import {
   ConstructorPage, 
   LoginPage, RegisterPage, 
@@ -14,33 +20,41 @@ import ModalIngredient from '../modal-ingredient/modal-ingredient.js';
 //import BurgerIngredientsListComponentItem from '../burger-ingredients-list-component-item/burger-ingredients-list-component-item.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
 
-import { ProtectedRoute } from '../protected-route.js';
+import ProtectedRoute from '../protected-route.js';
 
 const AppConstructor = () => {
+
+ const {
+    auth,
+    authRequest,
+    authFailed,
+  } = useSelector(store => store.auth);
+
+
   const location = useLocation();
   const background = location.state && location.state.background;
 
   return (
       <div>
         <Switch location={background || location}>
-          <Route path='/' exact={true}>
+          <ProtectedRoute path='/' needAuth={true}  exact={true}>
             <ConstructorPage />
-          </Route>
-          <Route path='/login' exact={true}>
+          </ProtectedRoute>
+          <ProtectedRoute path='/login' needAuth={false} exact={true}>
             <LoginPage />
-          </Route>
-          <Route path='/register' exact={true}>
+          </ProtectedRoute>
+          <ProtectedRoute path='/register' needAuth={false} exact={true}>
             <RegisterPage />
-          </Route>
-          <Route path='/forgot-password' exact={true}>
+          </ProtectedRoute>
+          <ProtectedRoute path='/forgot-password' needAuth={false} exact={true}>
             <ForgotPasswordPage />
-          </Route>
-          <Route path='/reset-password' exact={true}>
+          </ProtectedRoute>
+          <ProtectedRoute path='/reset-password' needAuth={true} exact={true}>
             <ResetPasswordPage />
-          </Route>
-          < ProtectedRoute path='/profile' exact={true}>
+          </ProtectedRoute>
+          <ProtectedRoute path='/profile' needAuth={true} exact={true}>
             <ProfilePage />
-          </ ProtectedRoute>
+          </ProtectedRoute>
           <Route path="/ingredients/:ingredientId">
             <IngredientPage />
           </Route>

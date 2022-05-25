@@ -23,6 +23,11 @@ import {
   GET_REFRESH_USER_SUCCESS,
   GET_REFRESH_USER_FAILED,
 
+  GET_AUTH_REQUEST,
+  GET_AUTH_SUCCESS,
+  GET_AUTH_FAILED,
+
+
 } from '../actions/auth.js';
 
 const authState = {
@@ -47,8 +52,13 @@ const authState = {
     userFailed: false,
 
     refreshUser: {},
-    refreshUserequest: false,
+    refreshUserRequest: false,
     refreshUserFailed: false,
+    
+    auth: {},
+    authRequest: false,
+    authFailed: false
+    
 
   };
   
@@ -132,6 +142,7 @@ export const authReducer = (state = authState, action) => {
         ...state, 
         userFailed: false, 
         user: action.user, 
+        login: action.user,
         userRequest: false};
     }
     case GET_USER_FAILED: {
@@ -157,6 +168,24 @@ export const authReducer = (state = authState, action) => {
         ...state, 
         refreshUserFailed: true, 
         refreshUserRequest: false};
+    }
+    case GET_AUTH_REQUEST: {
+      return {...state, authRequest: true};
+    }
+    case GET_AUTH_SUCCESS: {
+      return {
+        ...state, 
+        authFailed: false, 
+        auth: action.auth, 
+        authRequest: false,
+//        login: {...state.login.user, user: action.refreshUser}
+      };
+    }
+    case GET_AUTH_FAILED: {
+      return {
+        ...state, 
+        authFailed: true, 
+        authRequest: false};
     }
     default: {
       return state;

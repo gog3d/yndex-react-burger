@@ -8,29 +8,46 @@ import {
   useParams
 } from "react-router-dom";
 
-export function ProtectedRoute({ children, ...rest }) {
-  const {
-    login,
-  } = useSelector(store => store.auth);
 
-/*  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        login.user ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: location }
-            }}
-          />
-        )
-      }
-    />
-  );
-  */
+const ProtectedRoute = (props) => {
+  const { children, rest, needAuth } = props;
+  const {
+    auth,
+    authRequest,
+    authFailed,
+    user,
+  } = useSelector(store => store.auth);
+  
+  const location = useLocation();
+
+  if(authFailed && needAuth) {
+    return (
+      <Route {...rest}>
+        <Redirect
+          to={{
+            pathname: '/login',
+            state: { from: location }
+          }}
+        />
+      </Route>
+    )
+  }
+
+  if(!authFailed && !needAuth) {
+    return (
+      <Route {...rest}>
+        <Redirect
+          to={{
+            pathname: '/',
+            state: { from: location }
+          }}
+        />
+      </Route>
+    )
+  }
+
+
+
   return (
     <Route
       {...rest}
@@ -38,3 +55,5 @@ export function ProtectedRoute({ children, ...rest }) {
     />
   );
 }
+
+export default ProtectedRoute;

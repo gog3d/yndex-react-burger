@@ -17,6 +17,7 @@ export const  LoginPage = () => {
     login,
     loginRequest,
     loginFailed,
+    authFailed,
   } = useSelector(store => store.auth);
 
   const dispatch = useDispatch();
@@ -25,26 +26,24 @@ export const  LoginPage = () => {
     (e) => {
       e.preventDefault();
       dispatch(getLogin({ 'email': email, 'password': password}));
-    }, [email, password]
+    }, [email, password, authFailed]
   );
+  
   useEffect(()=>{
     console.dir(
       {
         login,
         loginRequest,
         loginFailed,
+        authFailed,
       });
-  }, [login, loginRequest, loginFailed,]);
+  }, [     login,
+        loginRequest,
+        loginFailed,
+        authFailed,
+  ]);
 
-  if(login.success) {
-    return (
-      <Redirect
-        to={{
-          pathname: '/'
-        }}
-      />
-     )
-   }
+
   return (
     <form onSubmit={onSubmit} className={styles['login-container']}>
       <Logo />

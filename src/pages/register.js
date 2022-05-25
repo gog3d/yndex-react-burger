@@ -27,7 +27,6 @@ export const  RegisterPage = () => {
     (e) => {
       e.preventDefault();
       dispatch(getRegister({ 'email': email, 'password': password, 'name': name }));
-      
     }, [email, password, name]
   ) 
 
@@ -46,7 +45,7 @@ export const  RegisterPage = () => {
     return (
       <Redirect
         to={{
-          pathname: '/'
+          pathname: '/login'
         }}
       />
      )

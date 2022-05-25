@@ -41,7 +41,6 @@ export const  ProfilePage = () => {
       e.preventDefault();
       console.log( getCookie('accessToken'));
       dispatch(getRefreshUser({ 
-        'autorization': getCookie('accessToken'),
         'email': email,
         'password': password }));
     }, [email, password]
@@ -89,7 +88,8 @@ export const  ProfilePage = () => {
   const outOnClick = useCallback(
     () => {
       setCurrent('История заказов');
-      history.replace({ pathname: '/' });
+      dispatch(getLogout());
+      history.replace({ pathname: '/login' });
     },
     [history]
   );

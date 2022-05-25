@@ -7,8 +7,10 @@ export function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-export function setCookie(name, value, props) {
-  props = props || {};
+export function setCookie(name, value, props = {}) {
+  props = {
+    path: '/', ...props
+  };
   let exp = props.expires;
   if (typeof exp == 'number' && exp) {
     const d = new Date();
@@ -31,11 +33,11 @@ export function setCookie(name, value, props) {
 }
 
 export function deleteCookie(name) {
+  console.log(name)
   setCookie(name, null, { expires: -1 });
 }
 
 export function checkResponse(res) {
-//  console.dir(res);
   if (res.ok) {
     return res.json();
   } else {
@@ -43,34 +45,57 @@ export function checkResponse(res) {
   }
 };
 
-export const getRefreshToken =  async () => {
-  return await new Promise(resolve => {
-    const refreshToken = getCookie('refreshToken');
-    fetch(baseURL + 'auth/token', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify({ 'token' : refreshToken }),
-    }).then(checkResponse).then(obj => {
-      if (obj) {
-        const  accessToken = obj.accessToken.split('Bearer ')[1];
-        const  refreshToken = obj.refreshToken;
-        if (refreshToken) {
-          setCookie('refreshToken', refreshToken);
-        }
-        if (accessToken) {
-          setCookie('accessToken', accessToken);
-        }
-        resolve(accessToken);
-      } else {
-      console.log('object error')
-      }
-    });
-  });
+export const fetchRequest = {
+  post: async (path = '', body = null) => {
+    const header = {token: 'token'};
+    const headers = {'Content-Type': 'application/json', ...header};
+    return new Promise((resolve, reject) => {
+      fetch(baseURL + path, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers:  {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(body),
+      }).then(res => resolve(res)).catch((err) => reject(err));
+    })
+  },
+  get: async (path = '', headers = {}) => {
+    return new Promise((resolve, reject) => {
+      fetch(baseURL + path, {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers:  {
+          'Content-Type': 'application/json', 
+          ...headers
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+      }).then(res => resolve(res)).catch((err) => reject(err));
+    })
+  },
+  patch: async (path = '', body=null, headers = {}) => {
+    return new Promise((resolve, reject) => {
+      fetch(baseURL + path, {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers:  {
+          'Content-Type': 'application/json', 
+          ...headers
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(body),
+      }).then(res => resolve(res)).catch((err) => reject(err));
+    })
+  },
+
 };
