@@ -1,0 +1,48 @@
+.page__content {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.app {
+  background-color: transparent;
+  position: relative;
+  width: 1280px;
+  height: 1000px;
+}
+.header {
+  background-color: transparent;
+}
+.main {
+  background-color: transparent;
+  width: 1280px;
+  height: 1000px;
+}
+
+.main-span {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 1280px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.first-span {
+  background-color: transparent;
+  width: 600px;
+}
+
+.second-span {
+  background-color: transparent;
+  width: 600px;
+}
+
+
+.main-constructor-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 1280px;
+  height: 1000px;
+}
