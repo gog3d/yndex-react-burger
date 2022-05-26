@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +9,9 @@ import { setCookie } from '../services/utils.js';
 import {Logo, EmailInput, PasswordInput,  Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './login.module.css';
 
-export const  LoginPage = () => {
+export const  LoginPage = ({ state }) => {
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: '/' }};
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,20 +30,14 @@ export const  LoginPage = () => {
       dispatch(getLogin({ 'email': email, 'password': password}));
     }, [email, password, authFailed]
   );
-  
-  useEffect(()=>{
-    console.dir(
-      {
-        login,
-        loginRequest,
-        loginFailed,
-        authFailed,
-      });
-  }, [     login,
-        loginRequest,
-        loginFailed,
-        authFailed,
-  ]);
+
+  if (!authFailed) {
+    return (
+      <Redirect
+        to={ from }
+      />
+    );
+  }
 
 
   return (

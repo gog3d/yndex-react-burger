@@ -1,6 +1,4 @@
 import React, { useEffect }from 'react';
-//import { Route, Switch, useLocation } from 'react-router-dom';
-
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser, getToken } from '../../services/actions/auth.js';
 import { Route, Switch, useLocation, Link, useHistory, Redirect } from 'react-router-dom';
@@ -17,7 +15,6 @@ import {
 } from '../../pages';
 
 import ModalIngredient from '../modal-ingredient/modal-ingredient.js';
-//import BurgerIngredientsListComponentItem from '../burger-ingredients-list-component-item/burger-ingredients-list-component-item.js';
 import IngredientDetails from '../ingredient-details/ingredient-details.js';
 
 import ProtectedRoute from '../protected-route.js';
@@ -37,22 +34,22 @@ const AppConstructor = () => {
   return (
       <div>
         <Switch location={background || location}>
-          <ProtectedRoute path='/' needAuth={true}  exact={true}>
+          <Route path='/'  exact={true}>
             <ConstructorPage />
-          </ProtectedRoute>
-          <ProtectedRoute path='/login' needAuth={false} exact={true}>
+          </Route>
+          <Route path='/login' exact={true}>
             <LoginPage />
-          </ProtectedRoute>
-          <ProtectedRoute path='/register' needAuth={false} exact={true}>
+          </Route>
+          <Route path='/register' exact={true}>
             <RegisterPage />
-          </ProtectedRoute>
-          <ProtectedRoute path='/forgot-password' needAuth={false} exact={true}>
+          </Route>
+          <Route path='/forgot-password' exact={true}>
             <ForgotPasswordPage />
-          </ProtectedRoute>
-          <ProtectedRoute path='/reset-password' needAuth={true} exact={true}>
+          </Route>
+          <Route path='/reset-password' exact={true}>
             <ResetPasswordPage />
-          </ProtectedRoute>
-          <ProtectedRoute path='/profile' needAuth={true} exact={true}>
+          </Route>
+          <ProtectedRoute path='/profile'>
             <ProfilePage />
           </ProtectedRoute>
           <Route path="/ingredients/:ingredientId">

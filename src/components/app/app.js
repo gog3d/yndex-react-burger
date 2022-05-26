@@ -21,27 +21,13 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getIngredients());
-//    dispatch(getAuth());
   }, [dispatch]);
 
   useEffect(() => {
-//    dispatch(getIngredients());
     dispatch(getAuth());
   }, []);
 
 
-  useEffect(() => {
-    console.dir({
-      auth,
-      authRequest,
-      authFailed,
-    });
-  },[
-    auth,
-    authRequest,
-    authFailed,
-  ]);
-  
   return (
       <Router>
        <AppHeader />

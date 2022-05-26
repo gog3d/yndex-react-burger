@@ -6,45 +6,51 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getResetPassword } from '../services/actions/reset-password.js';
 import styles from './reset-password.module.css';
 
-export const  ResetPasswordPage = () => {
+export const  ResetPasswordPage = ({ state }) => {
 
   const [token, setToken] = useState('');
   const [password, setPassword] = useState('');
 
   const {
+    authFailed,
     resetPassword,
     resetPasswordRequest,
     resetPasswordFailed,
   } = useSelector(store => store.resetPassword);
+
+  const {
+    forgotPassword,
+    forgotPasswordRequest,
+    forgotPasswordFailed
+  } = useSelector(store => store.forgotPassword);
+
 
   const dispatch = useDispatch();
 
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-//      console.dir({ password, token });
       dispatch(getResetPassword({ 'password': password, 'token': token }));
     }, [password, token]
-  ) 
+  )
 
-useEffect(()=>{
-  console.dir(
-    {
-      resetPassword,
-      resetPasswordRequest,
-      resetPasswordFailed,
-    });
-}, [ resetPassword, resetPasswordRequest, resetPasswordFailed,]);
-
-  if(resetPassword.success) {
-    return (
-      <Redirect
-        to={{
-          pathname: '/login'
-        }}
-      />
-     )
-   }
+    if(forgotPassword.success) {
+      if(resetPassword.success) {
+        return (
+          <Redirect
+            to={{
+              pathname: '/login'
+            }}
+          />
+        )
+      }
+    } else {
+     return (
+       <Redirect
+         to={ state?.from || '/' }
+        />
+      )
+    }
 
   return (
     <form onSubmit={onSubmit} className={styles['reset-container']}>

@@ -10,50 +10,28 @@ import {
 
 
 const ProtectedRoute = (props) => {
-  const { children, rest, needAuth } = props;
+  const { children, rest } = props;
   const {
-    auth,
-    authRequest,
     authFailed,
-    user,
   } = useSelector(store => store.auth);
   
   const location = useLocation();
 
-  if(authFailed && needAuth) {
-    return (
-      <Route {...rest}>
-        <Redirect
-          to={{
-            pathname: '/login',
-            state: { from: location }
-          }}
-        />
-      </Route>
-    )
-  }
-
-  if(!authFailed && !needAuth) {
-    return (
-      <Route {...rest}>
-        <Redirect
-          to={{
-            pathname: '/',
-            state: { from: location }
-          }}
-        />
-      </Route>
-    )
-  }
-
-
-
   return (
-    <Route
-      {...rest}
-      render={() => children }
+    <Route {...rest} render={
+      ({ location }) =>
+        authFailed ? (
+              <Redirect to={{
+                pathname: '/login',
+                state: { from: location }
+              }}/>
+        ) : (
+              children
+            )
+      }
     />
   );
+
 }
 
 export default ProtectedRoute;

@@ -27,7 +27,7 @@ const BurgerConstructorButtonContainer = () => {
     } = useSelector(store => store.ingredients);
     
   const {
-    login,
+    authFailed,
   } = useSelector(store => store.auth);
 
   const history = useHistory();
@@ -47,7 +47,7 @@ const BurgerConstructorButtonContainer = () => {
   const onClickButton =  () => {
     if (orderDetailsItems.find(item => item.type === 'bun')) {
    //   if(login.user) {
-    if(login) {
+    if(!authFailed) {
         setOpen(true);
         dispatch(getOrderDetails(orderDetailsItems));
       } else {

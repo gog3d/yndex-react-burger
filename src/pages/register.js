@@ -9,13 +9,13 @@ import { setCookie } from '../services/utils.js';
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './register.module.css';
 
-export const  RegisterPage = () => {
+export const  RegisterPage = ({ state }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
   const {
-    login,
+    authFailed,
     register,
     registerRequest,
     registerFailed,
@@ -23,25 +23,22 @@ export const  RegisterPage = () => {
 
   const dispatch = useDispatch();
 
-    const onSubmit = useCallback(
+  const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
       dispatch(getRegister({ 'email': email, 'password': password, 'name': name }));
     }, [email, password, name]
-  ) 
+  )
 
-  useEffect(()=>{
-    console.dir(
-      {
-        register,
-        registerRequest,
-        registerFailed,
-      });
-  }, [register, registerRequest, registerFailed, login]);
-
+  if (!authFailed) {
+    return (
+      <Redirect
+        to={ state?.from || '/' }
+      />
+    );
+  }
 
   if(register.success) {
-    setCookie('token', register.refreshToken);
     return (
       <Redirect
         to={{
@@ -49,7 +46,7 @@ export const  RegisterPage = () => {
         }}
       />
      )
-   }
+  }
 
   return (
     <form onSubmit={onSubmit} className={styles['register-container']}>

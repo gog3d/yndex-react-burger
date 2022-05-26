@@ -33,7 +33,7 @@ export function setCookie(name, value, props = {}) {
 }
 
 export function deleteCookie(name) {
-  console.log(name)
+//  console.log(name)
   setCookie(name, null, { expires: -1 });
 }
 

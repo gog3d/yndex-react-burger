@@ -79,11 +79,11 @@ export const getAuth = () => async (dispatch) => {
           const  accessToken = obj.accessToken.split('Bearer ')[1];
           const  refreshToken = obj.refreshToken;
           if (refreshToken) {
-            console.log(refreshToken);
+//            console.log(refreshToken);
             setCookie('refreshToken', refreshToken);
           }
           if (accessToken) {
-            console.log(accessToken);
+//            console.log(accessToken);
             setCookie('accessToken', accessToken);
           }
         } else {

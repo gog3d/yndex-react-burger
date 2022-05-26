@@ -6,8 +6,6 @@ import {Logo, EmailInput, Button, Input} from '@ya.praktikum/react-developer-bur
 import { getForgotPassword } from '../services/actions/forgot-password.js';
 import styles from './forgot-password.module.css';
 
-
-
 export const  ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
 
@@ -22,19 +20,9 @@ export const  ForgotPasswordPage = () => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(email);
       dispatch(getForgotPassword({ 'email': email }));
     }, [email]
   ) 
-
-useEffect(()=>{
-  console.dir(
-    {
-      forgotPassword,
-      forgotPasswordRequest,
-      forgotPasswordFailed
-    });
-}, [forgotPassword, forgotPasswordRequest, forgotPasswordFailed]);
 
   if(forgotPassword.success) {
     return (

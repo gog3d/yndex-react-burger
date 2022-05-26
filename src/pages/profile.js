@@ -13,7 +13,6 @@ export const  ProfilePage = () => {
 
   const history = useHistory(); 
   const dispatch = useDispatch();
-  
   const {
     user, 
     userRequest,
@@ -54,20 +53,6 @@ export const  ProfilePage = () => {
       setPassword('');
     }, [email, password, name]
   );
-
-
-  useEffect(() => {
-    console.dir({
-      user, 
-      userRequest,
-      userFailed,
-      refreshUser,
-    });
-    }, [ user, 
-      userRequest,
-      userFailed,
-      refreshUser,
-  ]);
 
   const profileOnClick = useCallback(
     () => {
