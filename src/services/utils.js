@@ -1,4 +1,4 @@
-import { baseURL }  from '../utils/config.js';
+import { baseURL }  from '../utils/config';
 
 export function getCookie(name) {
   const matches = document.cookie.match(

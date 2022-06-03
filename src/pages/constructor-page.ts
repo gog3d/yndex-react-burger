@@ -4,14 +4,14 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './constructor-page.module.css';
-import AppHeader from '../components/app-header/app-header.js';
-import BurgerConstructor from '../components/burger-constructor/burger-constructor.js';
-import BurgerIngredients from '../components/burger-ingredients/burger-ingredients.js';
-import { getIngredients, REFRESH_ORDERDETAILS_ITEMS, } from '../services/actions/ingredients.js';
+import AppHeader from '../components/app-header/app-header';
+import BurgerConstructor from '../components/burger-constructor/burger-constructor';
+import BurgerIngredients from '../components/burger-ingredients/burger-ingredients';
+import { getIngredients, REFRESH_ORDERDETAILS_ITEMS, } from '../services/actions/ingredients';
 
 import { Redirect } from 'react-router-dom';
-import { getLogout, getUser, getRefreshUser, getToken } from '../services/actions/auth.js';
-import { getCookie, deleteCookie, getRefreshToken } from '../services/utils.js';
+import { getLogout, getUser, getRefreshUser, getToken } from '../services/actions/auth';
+import { getCookie, deleteCookie, getRefreshToken } from '../services/utils';
 
 export const ConstructorPage = () => {
   const {

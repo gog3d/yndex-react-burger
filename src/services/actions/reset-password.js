@@ -1,6 +1,6 @@
-import { baseURL }  from '../../utils/config.js';
-import { checkResponse }  from '../utils.js';
-import { getResetPasswordRequest } from '../fakeApiAuth.js';
+import { baseURL }  from '../../utils/config';
+import { checkResponse }  from '../utils';
+import { getResetPasswordRequest } from '../fakeApiAuth';
 
 export const GET_RESET_PASSWORD_REQUEST = 'GET_RESET_PASSWORD_REQUEST';
 export const GET_RESET_PASSWORD_SUCCESS = 'GET_RESET_PASSWORD_SUCCESS';

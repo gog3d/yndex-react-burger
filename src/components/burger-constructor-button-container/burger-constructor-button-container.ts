@@ -11,11 +11,11 @@ import {
 
 import styles from './burger-constructor-button-container.module.css';
 import {CurrencyIcon, Button} from '@ya.praktikum/react-developer-burger-ui-components';
-import Modal from '../modal/modal.js';
-import OrderDetails from '../order-details/order-details.js';
-import { baseURL }  from '../../utils/config.js';
+import Modal from '../modal/modal';
+import OrderDetails from '../order-details/order-details';
+import { baseURL }  from '../../utils/config';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrderDetails } from '../../services/actions/ingredients.js';
+import { getOrderDetails } from '../../services/actions/ingredients';
 
 
 const BurgerConstructorButtonContainer = () => {

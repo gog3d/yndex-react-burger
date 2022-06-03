@@ -1,13 +1,13 @@
 import { useRef, useEffect, useState } from 'react';
 import styles from './burger-ingredients.module.css';
-import BurgerIngredientsList from '../burger-ingredients-list/burger-ingredients-list.js';
-import BurgerIngredientsHeader from '../burger-ingredients-header/burger-ingredients-header.js';
+import BurgerIngredientsList from '../burger-ingredients-list/burger-ingredients-list';
+import BurgerIngredientsHeader from '../burger-ingredients-header/burger-ingredients-header';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   REFRESH_BUNS_SCROLL,
   REFRESH_SAUCES_SCROLL,
   REFRESH_MAINS_SCROLL,
-} from '../../services/actions/ingredients.js';
+} from '../../services/actions/ingredients';
 
 const BurgerIngredients = () => {
   const dispatch = useDispatch();

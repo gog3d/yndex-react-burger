@@ -2,7 +2,7 @@ import React, { useEffect }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser, getToken } from '../../services/actions/auth.js';
 import { Route, Switch, useLocation, Link, useHistory, Redirect } from 'react-router-dom';
-import { setCookie, getCookie, getRefreshToken } from '../../services/utils.js';
+import { setCookie, getCookie, getRefreshToken } from '../../services/utils';
 
 import {
   ConstructorPage, 
@@ -14,10 +14,10 @@ import {
   NotFound404 
 } from '../../pages';
 
-import ModalIngredient from '../modal-ingredient/modal-ingredient.js';
-import IngredientDetails from '../ingredient-details/ingredient-details.js';
+import ModalIngredient from '../modal-ingredient/modal-ingredient';
+import IngredientDetails from '../ingredient-details/ingredient-details';
 
-import ProtectedRoute from '../protected-route.js';
+import ProtectedRoute from '../protected-route';
 
 const AppConstructor = () => {
 

@@ -1,6 +1,6 @@
-import { baseURL }  from '../../utils/config.js';
-import { checkResponse }  from '../utils.js';
-import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils.js';
+import { baseURL }  from '../../utils/config';
+import { checkResponse }  from '../utils';
+import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
 
 import { 
   getLoginRequest,  

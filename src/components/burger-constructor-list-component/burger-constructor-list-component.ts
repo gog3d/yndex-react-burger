@@ -4,8 +4,8 @@ import styles from './burger-constructor-list-component.module.css';
 import { DragIcon, ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrop, useDrag } from 'react-dnd';
-import {  DELETE_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../services/actions/ingredients.js';
-import { IngredientType } from '../../utils/dataTypes.js';
+import {  DELETE_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../services/actions/ingredients';
+import { IngredientType } from '../../utils/dataTypes';
 
 const BurgerConstructorListComponent = (props) => {
   const dispatch = useDispatch();

@@ -3,8 +3,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLogin } from '../services/actions/auth.js';
-import { setCookie } from '../services/utils.js';
+import { getLogin } from '../services/actions/auth';
+import { setCookie } from '../services/utils';
 
 import {Logo, EmailInput, PasswordInput,  Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './login.module.css';

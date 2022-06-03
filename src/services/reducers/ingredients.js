@@ -18,7 +18,7 @@ import {
   GET_RESTORE_PASSWORD_REQUEST,
   GET_RESTORE_PASSWORD_SUCCESS,
   GET_RESTORE_PASSWORD_FAILED,
-} from '../actions/ingredients.js';
+} from '../actions/ingredients';
 
 const initialState = {
     burgerIngredients: [],

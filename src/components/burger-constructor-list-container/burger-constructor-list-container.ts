@@ -8,7 +8,7 @@ import BurgerConstructorListComponent from '../burger-constructor-list-component
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrop } from 'react-dnd';
 
-import { ADD_CONSTRUCTOR_INGREDIENT } from '../../services/actions/ingredients.js';
+import { ADD_CONSTRUCTOR_INGREDIENT } from '../../services/actions/ingredients';
 
 const BurgerConstructorListContainer = () => {
   const dispatch = useDispatch();

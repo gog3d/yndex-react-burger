@@ -1,5 +1,5 @@
-import { baseURL }  from '../../utils/config.js';
-import { checkResponse }  from '../utils.js';
+import { baseURL }  from '../../utils/config';
+import { checkResponse }  from '../utils';
 import { getItemsRequest, getOrderDetailsRequest } from '../fakeApi';
 
 export const ADD_CONSTRUCTOR_INGREDIENT='ADD_CONSTRUCTOR_INGREDIENT';

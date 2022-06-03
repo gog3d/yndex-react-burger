@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { Link, useHistory } from 'react-router-dom';
 import {Logo, PasswordInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { getResetPassword } from '../services/actions/reset-password.js';
+import { getResetPassword } from '../services/actions/reset-password';
 import styles from './reset-password.module.css';
 
 export const  ResetPasswordPage = ({ state }) => {

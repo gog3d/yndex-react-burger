@@ -1,5 +1,5 @@
-import { baseURL }  from '../../utils/config.js';
-import { checkResponse }  from '../utils.js';
+import { baseURL }  from '../../utils/config';
+import { checkResponse }  from '../utils';
 import { getForgotPasswordRequest } from '../fakeApiAuth';
 
 export const GET_FORGOT_PASSWORD_REQUEST = 'GET_FORGOT_PASSWORD_REQUEST';
