@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
-import { Redirect } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLogout, getUser, getRefreshUser, getToken } from '../services/actions/auth';
-import { getCookie, deleteCookie, getRefreshToken } from '../services/utils';
+import { getLogout, getUser, getRefreshUser } from '../services/actions/auth';
+import { getCookie } from '../services/utils';
 
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './profile.module.css';
@@ -39,7 +38,7 @@ export const  ProfilePage = () => {
   }, [user]);
 
   const onSave =  useCallback(
-    (e: any): void => {
+    (e: React.FormEvent): void => {
       e.preventDefault();
       console.log( getCookie('accessToken'));
       dispatch(getRefreshUser({ 
@@ -49,7 +48,7 @@ export const  ProfilePage = () => {
   );
 
   const onCancel =  useCallback(
-    (e: any) :void => {
+    (e: React.FormEvent) :void => {
       e.preventDefault();
       setName(user.user ? user.user.name : '');
       setEmail(user.user ? user.user.email : '');

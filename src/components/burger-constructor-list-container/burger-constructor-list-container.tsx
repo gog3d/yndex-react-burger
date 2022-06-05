@@ -17,14 +17,14 @@ const BurgerConstructorListContainer = () => {
   const constructorIngredients = useSelector((store: StateType) => store.ingredients.constructorIngredients);
 //  console.log(constructorIngredients)
 
-  const bun = useMemo(
-    (): void => {
+  const bun = useMemo<boolean | IngredientType>(
+    () => {
       return  Object.keys(constructorIngredients.bun).length === 0 ? false : constructorIngredients.bun;
     }, [constructorIngredients.bun]
   );
 
-  const ingredients = useMemo(
-    (): void => {
+  const ingredients = useMemo<boolean | Array<IngredientType>>(
+    () => {
       return constructorIngredients.ingredients.length === 0 ? false : constructorIngredients.ingredients;
     }, [constructorIngredients.ingredients]
   );
@@ -61,7 +61,7 @@ const BurgerConstructorListContainer = () => {
       <div className={styles["burger-constructor-list-container"]}>
         {
           ingredients ? (
-            ingredients.map((item, index)=>{
+            ingredients.map((item, index) =>{
               return (
                 <div key={item.uuid} >
                   <BurgerConstructorListComponent

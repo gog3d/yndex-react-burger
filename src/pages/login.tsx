@@ -30,7 +30,7 @@ export const  LoginPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit =  useCallback(
-    (e: any): void => {
+    (e: React.FormEvent): void => {
       e.preventDefault();
       dispatch(getLogin({ 'email': email, 'password': password}));
     }, [email, password, authFailed]

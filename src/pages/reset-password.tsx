@@ -36,7 +36,7 @@ export const  ResetPasswordPage: React.FC<{state: LocationState}> = ({ state }) 
   const dispatch = useDispatch();
 
   const onSubmit = useCallback(
-    (e: any): void => {
+    (e: React.FormEvent): void => {
       e.preventDefault();
       dispatch(getResetPassword({ 'password': password, 'token': token }));
     }, [password, token]

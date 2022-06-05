@@ -1,10 +1,8 @@
 import React, {useEffect } from 'react';
 import ReactDOM from 'react-dom';
-//import PropTypes from 'prop-types';
 import styles from './modal.module.css';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import ModalOverlay from '../modal-overlay/modal-overlay'
-//import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { IngredientType, StateType } from '../../services/types/data';
@@ -21,7 +19,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const items = useSelector((store: StateType) => store.ingredients.burgerIngredients);
 
   useEffect(() => {
-    const closeByEscape: (e: {key: string})=> void = (e) => {
+    const closeByEscape: (e: KeyboardEvent)=> void = (e) => {
       if(e.key === 'Escape') {
         onClose();
       }

@@ -32,7 +32,7 @@ export const  RegisterPage: React.FC<{state: LocationState}> = ({ state }) => {
   const dispatch = useDispatch();
 
   const onSubmit = useCallback(
-    (e: any) => {
+    (e: React.FormEvent) => {
       e.preventDefault();
       dispatch(getRegister({ 'email': email, 'password': password, 'name': name }));
     }, [email, password, name]

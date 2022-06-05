@@ -20,7 +20,7 @@ export const  ForgotPasswordPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = useCallback(
-    (e: any): void => {
+    (e: React.FormEvent): void => {
       e.preventDefault();
       dispatch(getForgotPassword({ 'email': email }));
     }, [email]

@@ -7,7 +7,7 @@ export function getCookie(name: string): string | undefined {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-export function setCookie(name: string, value: string | number | boolean, props: object = {}) {
+export function setCookie(name: string, value: string | number | boolean | null, props: object = {}) {
   props = {
     path: '/', ...props
   };
@@ -52,7 +52,7 @@ interface CustomResponse<T> extends CustomBody<T> {
   readonly url: string;
 }
 
-export function checkResponse(res: CustomResponse<any>) {
+export function checkResponse(res: Response) {
   if (res.ok) {
     return res.json();
   } else {

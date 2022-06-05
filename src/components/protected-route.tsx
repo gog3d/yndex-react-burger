@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,13 +10,13 @@ import {
 
 import { IngredientType, StateType } from '../services/types/data';
 
-interface ProtectedRouteProps {
+interface ProtectedRouteProps extends  RouteComponentProps {
   children: React.ReactNode;
-  rest: Array<React.ReactNode>
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = (props) => {
-  const { children, rest } = props;
+//const ProtectedRoute: React.FC<ProtectedRouteProps> = (props) => {
+  const { children, ...rest } = props;
   const {
     authFailed,
   } = useSelector((store: StateType) => store.auth);
