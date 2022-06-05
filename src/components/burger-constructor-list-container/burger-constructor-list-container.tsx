@@ -18,13 +18,13 @@ const BurgerConstructorListContainer = () => {
 //  console.log(constructorIngredients)
 
   const bun = useMemo(
-    () => {
+    (): void => {
       return  Object.keys(constructorIngredients.bun).length === 0 ? false : constructorIngredients.bun;
     }, [constructorIngredients.bun]
   );
 
   const ingredients = useMemo(
-    () => {
+    (): void => {
       return constructorIngredients.ingredients.length === 0 ? false : constructorIngredients.ingredients;
     }, [constructorIngredients.ingredients]
   );
