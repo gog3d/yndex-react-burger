@@ -123,62 +123,47 @@ const userStatus = useMemo(
   );
 
   return (
-
-<div className={styles["page__content"]}>
+    <div className={styles["page__content"]}>
       {userStatus}
-  <main className={styles["main"]}>
-
-    <div className={styles['profile-container']}>
-
-      <div className={styles['top-container']}>
-        <div className={styles['input-container']}>
-          <span 
-            className={current === 'Профиль' ? 
-              'text text_type_main-default' 
-               : 
-              'text text_type_main-default text_color_inactive'
-              } 
-              onClick={profileOnClick}
-           >
-              Профиль
-           </span>
-        </div>
-        <div className={styles['input-container']}>
-          <span 
-            className={current === 'История заказов' ? 
-              'text text_type_main-default' 
-               : 
-              'text text_type_main-default text_color_inactive'
-              } 
-              onClick={orderOnClick}
-           >
-              История заказов
-           </span>
-        </div>
-
-        <div className={styles['input-container']}>
-          <span 
-            className={current === 'Выход' ? 
-              'text text_type_main-default' 
-               : 
-              'text text_type_main-default text_color_inactive'
-              } 
-              onClick={outOnClick}
-           >
-              Выход
-           </span>
-        </div>
-        <div className={styles['bottom-container']}>
-          <span className={'text text_type_main-small text_color_inactive'}>
-            В этом разделе вы можете
-          </span>
-        </div>
-        <div className={styles['input-container']}>
-          <span className={'text text_type_main-small text_color_inactive'}>
-            изменить свои персональные данные
-          </span>
-        </div>
-
+      <main className={styles["main"]}>
+        <div className={styles['profile-container']}>
+          <div className={styles['profile-menu-container']}>
+            <div className={styles['input-container']}>
+              <span className={current === 'Профиль' ? 
+                'text text_type_main-default' : 
+                'text text_type_main-default text_color_inactive'} 
+                onClick={profileOnClick}>
+                Профиль
+              </span>
+            </div>
+            <div className={styles['input-container']}>
+              <span className={current === 'История заказов' ? 
+                'text text_type_main-default' : 
+                'text text_type_main-default text_color_inactive'} 
+                onClick={orderOnClick}>
+                История заказов
+              </span>
+            </div>
+            <div className={styles['input-container']}>
+              <span className={current === 'Выход' ? 
+                'text text_type_main-default' : 
+                'text text_type_main-default text_color_inactive'}
+                onClick={outOnClick}>
+                Выход
+              </span>
+            </div>
+          <div className={styles['bottom-text-container']}>
+            <p className={styles['orders-text']}>
+              <span className={'text text_type_main-small text_color_inactive'}>
+                В этом разделе вы можете
+              </span>
+            </p>
+            <p className={styles['orders-text']}>
+              <span className={'text text_type_main-small text_color_inactive'}>
+                изменить свои персональные данные
+              </span>
+            </p>
+          </div>
 
       </div>
       

@@ -15,6 +15,10 @@ const AppHeader = () => {
         setCurrent('Конструктор');
       } else if (pathname === '/profile') {
         setCurrent('Личный кабинет');
+      } else if (pathname === '/profile/orders') {
+        setCurrent('Личный кабинет');
+      } else if(pathname === '/feed') {
+        setCurrent('Лента заказов')
       } else {
         setCurrent('');
       }
@@ -34,6 +38,12 @@ const AppHeader = () => {
     },
     [history]
   );
+  const feedOnClick = useCallback(
+    () => {
+      history.replace({ pathname: '/feed' });
+    },
+    [history]
+  );
 
   return (
     <header className={styles['header']}>
@@ -48,13 +58,14 @@ const AppHeader = () => {
             }/>
           <span className = {current === 'Конструктор' ? 'text text_type_main-default' : 'text text_type_main-default text_color_inactive'} >Конструктор</span>
         </div>
-        <div className={styles['nav-bar-orders']}>
-          <ListIcon type={current === 'Лента заказа' ? 'primary' : 'secondary'}/>
-          <span className= {current === 'Лента заказа' ? 'text text_type_main-default' : 'text text_type_main-default text_color_inactive'}>Лента заказа</span>
+        <div className={styles['nav-bar-orders']} onClick={feedOnClick}>
+          <ListIcon type={current === 'Лента заказов' ? 'primary' : 'secondary'}/>
+          <span className= {current === 'Лента заказов' ? 'text text_type_main-default' : 'text text_type_main-default text_color_inactive'}>Лента заказов</span>
         </div>
         <div className={styles['nav-bar-logo']}>
           <Logo />
         </div>
+
         <div className={styles['nav-bar-personal-area']} onClick={personalOnClick}>
           <ProfileIcon type={current === 'Личный кабинет' ? 'primary' : 'secondary'} />
           <span className= {current === 'Личный кабинет' ? 'text text_type_main-default' : 'text text_type_main-default text_color_inactive'} >Личный кабинет</span>

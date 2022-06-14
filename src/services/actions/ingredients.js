@@ -26,7 +26,7 @@ export const REFRESH_MAINS_SCROLL = 'REFRESH_MAINS_SCROLL';
 export const getIngredients =  () => (dispatch) => {
   dispatch({ type: GET_INGREDIENTS_REQUEST });
   fetch(baseURL + 'ingredients').then(checkResponse).then(obj => {
-  //getItemsRequest().then(obj => {
+//  getItemsRequest().then(obj => {
     if (obj && obj.success) {
       dispatch({ type: GET_INGREDIENTS_SUCCESS, burgerIngredients: obj.data });
 

@@ -45,6 +45,7 @@ export const getLogin = (body = null) => async (dispatch) => {
   try {
     const res = await fetchRequest.post('auth/login', body);
     const obj = await checkResponse(res);
+  //  const obj = await getLoginRequest({});
       if (obj) {
         dispatch({ type: GET_LOGIN_SUCCESS, login: obj});
         dispatch({ type: GET_USER_SUCCESS, user: obj});
@@ -73,6 +74,7 @@ export const getAuth = () => async (dispatch) => {
     try {
       const res = await fetchRequest.post('auth/token', { 'token' : refreshToken });
       const obj = await checkResponse(res);
+   //   const obj = await getLoginRequest(body);
         if (obj) {
         //  console.log(obj);
           dispatch({ type: GET_AUTH_SUCCESS, auth: obj});
@@ -106,6 +108,7 @@ export const getUser =  () => async (dispatch) => {
     try {
       const res = await fetchRequest.get('auth/user', { 'Authorization': 'Token '+ accessToken });
       const obj = await checkResponse(res);
+      //const obj = await getLoginRequest({});
       if (obj) {
         dispatch({ type: GET_USER_SUCCESS, user: obj});
       } else {
@@ -151,6 +154,7 @@ export const getLogout = () => async (dispatch) => {
     try {
     const res = await fetchRequest.post('auth/logout', { 'token' : refreshToken });
     const obj = await checkResponse(res);
+    //const obj = await getLogoutRequest();
       if (obj) {
         dispatch({ type: GET_LOGOUT_SUCCESS, logout: obj});
         dispatch({ type: GET_USER_SUCCESS, user: {}});
