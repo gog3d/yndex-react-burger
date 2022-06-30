@@ -19,7 +19,7 @@ const BurgerConstructorButtonContainer = () => {
     orderDetailsRequest,
     orderDetailsFailed,
     } = useSelector((store: RootState) => store.ingredients);
-    
+
   const {
     authFailed,
   } = useSelector((store: RootState) => store.auth);
@@ -32,7 +32,7 @@ const BurgerConstructorButtonContainer = () => {
 
   const count = useMemo(
     () => {
-      const bunPrice = constructorIngredients.bun.price ? constructorIngredients.bun.price : 0;
+      const bunPrice = constructorIngredients.bun === null ? 0 : constructorIngredients.bun.price ? constructorIngredients.bun.price : 0;
       const ingredientsPrice = constructorIngredients.ingredients.reduce((sum, comp) => sum + comp.price, 0);
       return bunPrice + ingredientsPrice;
     }, [constructorIngredients.ingredients, constructorIngredients.bun]
@@ -40,7 +40,6 @@ const BurgerConstructorButtonContainer = () => {
   
   const onClickButton =  () => {
     if (orderDetailsItems.find(item => item.type === 'bun')) {
-   //   if(login.user) {
     if(!authFailed) {
         setOpen(true);
         dispatch(getOrderDetails(orderDetailsItems));

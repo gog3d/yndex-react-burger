@@ -18,7 +18,7 @@ const BurgerIngredientsListComponentItem: React.FC<BurgerIngredientsListComponen
   const num = useMemo(
     () => {
       if (item.type === 'bun') {
-        return constructorIngredients.bun._id === item._id ? 1 : 0;
+        return constructorIngredients.bun === null ? 0 : constructorIngredients.bun._id === item._id ? 1 : 0;
       } else {
         return constructorIngredients.ingredients.reduce((sum, comp) => comp._id === item._id ? ++sum : sum, 0)
       }

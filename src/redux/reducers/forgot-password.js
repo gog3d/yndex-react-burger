@@ -2,20 +2,15 @@ import {
   GET_FORGOT_PASSWORD_REQUEST,
   GET_FORGOT_PASSWORD_SUCCESS,
   GET_FORGOT_PASSWORD_FAILED,
-  TForgotPasswordActions,
 } from '../actions/forgot-password';
-import { TForgotPasswordState } from '../action-types/data';
 
-const forgotPasswordState: TForgotPasswordState = {
-  forgotPassword: null,
+const forgotPasswordState = {
+  forgotPassword: {},
   forgotPasswordRequest: false,
   forgotPasswordFailed: false,
   };
   
-export const forgotPasswordReducer = (
-  state = forgotPasswordState, 
-  action: TForgotPasswordActions
-  ) => {
+export const forgotPasswordReducer = (state = forgotPasswordState, action) => {
   switch (action.type) {
     case GET_FORGOT_PASSWORD_REQUEST: {
       return {...state, forgotPasswordRequest: true};

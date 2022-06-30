@@ -15,20 +15,20 @@ import {
   REFRESH_BUNS_SCROLL,
   REFRESH_SAUCES_SCROLL,
   REFRESH_MAINS_SCROLL,
-  TIngredientsActions,
+  GET_RESTORE_PASSWORD_REQUEST,
+  GET_RESTORE_PASSWORD_SUCCESS,
+  GET_RESTORE_PASSWORD_FAILED,
 } from '../actions/ingredients';
 
-import { TIngredientsState } from '../action-types/data';
-
-const initialState: TIngredientsState = {
+const initialState = {
     burgerIngredients: [],
     burgerIngredientsRequest: false,
     burgerIngredientsFailed: false,
     constructorIngredients: {
-      bun: null,
+      bun: {},
       ingredients: [],
     },
-    modalIngredient: null,
+    modalIngredient: {},
     orderDetailsItems: null,
     orderDetails: null,
     orderDetailsRequest: false,
@@ -36,12 +36,13 @@ const initialState: TIngredientsState = {
     bunsScroll: true,
     saucesScroll: false,
     mainsScroll: false,
+    
+    restorePassword: {},
+    restorePasswordRequest: false,
+    restorePasswordFailed: false,
   };
 
-export const ingredientsReducer = (
-  state = initialState, 
-  action: TIngredientsActions
-): TIngredientsState => {
+export const ingredientsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_INGREDIENTS_REQUEST: {
       return {...state, burgerIngredientsRequest: true};
@@ -113,12 +114,12 @@ export const ingredientsReducer = (
     }
     case  DELETE_MODAL_INGREDIENTS: {
        return {
-       ...state, modalIngredient: null,
+       ...state, modalIngredients: {},
        }
     }
     case ADD_MODAL_INGREDIENTS: {
        return {
-       ...state, modalIngredient: action.item,
+       ...state, modalIngredients: action.item,
        }
     }
     case REFRESH_BUNS_SCROLL: {

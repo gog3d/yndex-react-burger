@@ -17,7 +17,7 @@ const BurgerConstructorListContainer: React.FC = () => {
 
   const bun = useMemo(
     () => {
-      return  Object.keys(constructorIngredients.bun).length === 0 ? false : constructorIngredients.bun;
+      return constructorIngredients.bun === null ? false : Object.keys(constructorIngredients.bun).length === 0 ? false : constructorIngredients.bun;
     }, [constructorIngredients.bun]
   );
 

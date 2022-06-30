@@ -26,42 +26,43 @@ import {
   GET_AUTH_REQUEST,
   GET_AUTH_SUCCESS,
   GET_AUTH_FAILED,
-  TAuthActions,
+
+
 } from '../actions/auth';
 
-import { TAuthState } from '../action-types/data';
-
-const authState: TAuthState = {
-    login: null,
+const authState = {
+    login: {},
     loginRequest: false,
     loginFailed: false,
     
-    register: null,
+    register: {},
     registerRequest: false,
     registerFailed: false,
     
-    logout: null,
+    logout: {},
     logoutRequest: false,
     logoutFailed: false,
     
-    token: null,
+    token: {},
     tokenRequest: false,
     tokenFailed: false,
 
-    user: null,
+    user: {},
     userRequest: false,
     userFailed: false,
 
-    refreshUser: null,
+    refreshUser: {},
     refreshUserRequest: false,
     refreshUserFailed: false,
     
-    auth: null,
+    auth: {},
     authRequest: false,
     authFailed: false
+    
+
   };
   
-export const authReducer = (state = authState, action: TAuthActions): TAuthState => {
+export const authReducer = (state = authState, action) => {
   switch (action.type) {
     case GET_LOGIN_REQUEST: {
       return {...state, loginRequest: true};
@@ -159,8 +160,7 @@ export const authReducer = (state = authState, action: TAuthActions): TAuthState
         refreshUserFailed: false, 
         refreshUser: action.refreshUser, 
         refreshUserRequest: false,
-//         login: {...state.login.user, user: action.refreshUser}
-        login: action.refreshUser, 
+        login: {...state.login.user, user: action.refreshUser}
       };
     }
     case GET_REFRESH_USER_FAILED: {

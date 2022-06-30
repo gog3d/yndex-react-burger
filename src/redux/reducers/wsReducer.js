@@ -7,22 +7,20 @@ import {
   WS_USER_CONNECTION_SUCCESS,
   WS_USER_CONNECTION_ERROR,
   WS_USER_CONNECTION_CLOSED,
-  WS_USER_GET_MESSAGE,
-  TWsActions
+  WS_USER_GET_MESSAGE
 } from '../action-types';
-import { TWsState } from '../action-types/wsActionTypes';
 
-const initialState: TWsState = {
+const initialState = {
   error: undefined,
   wsConnected: false, 
-  orders: null,
+  orders: [],
   
   userError: undefined,
   userWsConnected: false, 
-  userOrders: null,
+  userOrders: [],
 };
 
-export const wsReducer = (state = initialState, action: TWsActions) => {
+export const wsReducer = (state = initialState, action) => {
   switch (action.type) {
     case WS_CONNECTION_SUCCESS:
       return {

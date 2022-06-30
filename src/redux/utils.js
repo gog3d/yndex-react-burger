@@ -1,13 +1,13 @@
 import { baseURL }  from '../utils/config';
 
-export function getCookie(name: string): string | undefined {
+export function getCookie(name) {
   const matches = document.cookie.match(
     new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)')
   );
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-export function setCookie(name: string, value: string, props: any = {}) {
+export function setCookie(name, value, props = {}) {
   props = {
     path: '/', ...props
   };
@@ -32,12 +32,12 @@ export function setCookie(name: string, value: string, props: any = {}) {
   document.cookie = updatedCookie;
 }
 
-export function deleteCookie(name: string) {
-  //setCookie(name, null, { expires: -1 });
-  setCookie(name, '', { expires: -1 });
+export function deleteCookie(name) {
+//  console.log(name)
+  setCookie(name, null, { expires: -1 });
 }
 
-export function checkResponse(res: any) {
+export function checkResponse(res) {
   if (res.ok) {
     return res.json();
   } else {
@@ -46,7 +46,7 @@ export function checkResponse(res: any) {
 };
 
 export const fetchRequest = {
-  post: async (path: string = '', body: any = null) => {
+  post: async (path = '', body = null) => {
     const header = {token: 'token'};
     const headers = {'Content-Type': 'application/json', ...header};
     return new Promise((resolve, reject) => {
@@ -64,7 +64,7 @@ export const fetchRequest = {
       }).then(res => resolve(res)).catch((err) => reject(err));
     })
   },
-  get: async (path: string = '', headers: any = {}) => {
+  get: async (path = '', headers = {}) => {
     return new Promise((resolve, reject) => {
       fetch(baseURL + path, {
         method: 'GET',
@@ -80,7 +80,7 @@ export const fetchRequest = {
       }).then(res => resolve(res)).catch((err) => reject(err));
     })
   },
-  patch: async (path: string = '', body: any = null, headers: any = {}) => {
+  patch: async (path = '', body=null, headers = {}) => {
     return new Promise((resolve, reject) => {
       fetch(baseURL + path, {
         method: 'GET',

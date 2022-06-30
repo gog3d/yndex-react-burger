@@ -1,20 +1,20 @@
 import { getCookie } from '../utils';
-import { Middleware } from "redux";
-import { AppDispatch, AppThunk, RootState } from '../action-types';
 
-export const createSocketMiddleware = (wsUrl: string):  Middleware => {
- const socketMiddleware: Middleware<{}, RootState> = (store) => {
-    let socket: WebSocket | null = null;
-    let userSocket: WebSocket | null  = null;
+export const socketMiddleware = (wsUrl) => {
+  return store => {
+    let socket = null;
+    let userSocket = null;
     return next => (action) => {
-      const { dispatch } = store;
+      const { dispatch, getState } = store;
       const { type, payload } = action;
       if (type === 'WS_CONNECTION_START') {
         socket = new WebSocket(`${wsUrl}/all`);
       }
       if (type === 'WS_USER_CONNECTION_START') {
         const accessToken = getCookie('accessToken')
+//        const userWsUrl= wsUrl + `?token=${accessToken}`
         userSocket = new WebSocket(`${wsUrl}?token=${accessToken}`);
+//        console.log(userSocket)
       }
       if (socket) {
         socket.onopen = event => {
@@ -25,6 +25,7 @@ export const createSocketMiddleware = (wsUrl: string):  Middleware => {
         };
         socket.onmessage = event => {
           const { data } = event;
+//          console.log(JSON.parse(data));
           dispatch({type: 'WS_GET_MESSAGE', payload: JSON.parse(data)});
         };
         socket.close = event => {
@@ -44,6 +45,7 @@ export const createSocketMiddleware = (wsUrl: string):  Middleware => {
         };
         userSocket.onmessage = event => {
           const { data } = event;
+//          console.log(JSON.parse(data));
           dispatch({type: 'WS_USER_GET_MESSAGE', payload: JSON.parse(data)});
         };
         userSocket.close = event => {
@@ -57,7 +59,6 @@ export const createSocketMiddleware = (wsUrl: string):  Middleware => {
       next(action);
     }
   };
-  return socketMiddleware;
 };
 
 
