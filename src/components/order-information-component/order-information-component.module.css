@@ -1,0 +1,92 @@
+.order-informations-component {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 720px;
+  height: 600px;
+}
+
+.order-number-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-informations-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+.order-number {
+  padding-top: 16px;
+  margin: 0px;
+}
+
+.order-burger-name {
+  padding-top: 16px;
+  margin: 0px;
+}
+
+.order-state {
+  padding-top: 16px;
+  margin: 0px;
+}
+
+
+.order-burger-compound-text {
+  padding-top: 64px;
+  margin: 0px;
+}
+
+.order-date {
+  padding-top: 0px;
+  margin: 0px;
+}
+
+.order-total {
+  padding-top: 0px;
+  margin: 0px;
+}
+
+.order-information-img {
+  width: 480px;
+  height: 240px;
+  padding-top: 0px;
+  margin: 0px;
+}
+
+.order-burger-compound {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.order-footer {
+  width: 100%;
+  top: 0px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 20px;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order-total-container {
+  top: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}

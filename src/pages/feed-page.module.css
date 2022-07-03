@@ -1,0 +1,164 @@
+.page__content {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.main {
+  width: 1280px;
+  height: 1000px;
+}
+
+.feed-orders {
+  width: 1280px;
+  height: 900px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  
+}
+
+.feed-orders-sheet {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  width: 640px;
+  height: 100%;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(133, 133, 173, 1) rgba(47, 47, 55, 1);
+  overflow-x: hidden;
+
+}
+
+.feed-orders-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  
+  width: 640px;
+  height: 100%;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
+
+.feed-orders-orders-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  
+  width: 640px;
+  height: 30%;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
+
+.feed-orders-ready {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  width: 310px;
+  height: 100%;
+  background-color: transparent;
+  padding-left: 10px;
+  margin: 0px;
+  
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(133, 133, 173, 1) rgba(47, 47, 55, 1);
+  overflow-x: hidden;
+}
+
+.feed-orders-in-work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  
+  width: 310px;
+  height: 100%;
+  background-color: transparent;
+  padding-left: 10px;
+  margin: 0px;
+  
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(133, 133, 173, 1) rgba(47, 47, 55, 1);
+  overflow-x: hidden;
+}
+
+.feed-orders-orders-list-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+
+}
+.feed-orders-orders-text-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0px;
+  flex-wrap: wrap;
+  
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+.feed-orders-text {
+  padding: 0px;
+  margin: 0px;
+}
+
+.feed-orders-item {
+  width: 95%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.feed-orders-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  
+  width: 620px;
+  height: 35%;
+  background-color: transparent;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin: 0px;
+}
+
+
+
+
+
+
+
+
+
+
