@@ -7,7 +7,11 @@ import styles from './constructor-page.module.css';
 import BurgerConstructor from '../components/burger-constructor/burger-constructor';
 import BurgerIngredients from '../components/burger-ingredients/burger-ingredients';
 
-import { REFRESH_ORDERDETAILS_ITEMS, } from '../redux/actions/ingredients';
+//import { REFRESH_ORDERDETAILS_ITEMS, } from '../redux/actions/ingredients';
+
+import {
+  refreshOrderdetailsItems,
+} from '../redux/actions/ingredients';
 
 import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
 import { TIngredient}  from '../redux/action-types/data';
@@ -26,7 +30,7 @@ export const ConstructorPage: React.FC = () => {
 
   useEffect(() => {
     const items = [...constructorIngredients.ingredients, constructorIngredients.bun];
-    dispatch({ type: REFRESH_ORDERDETAILS_ITEMS, orderDetailsItems: items });
+    dispatch({ type: refreshOrderdetailsItems, orderDetailsItems: items });
   }, [constructorIngredients.bun, constructorIngredients.ingredients]);
 
   const burgerIngredientsStatus = useMemo(

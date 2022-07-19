@@ -80,10 +80,10 @@ export const fetchRequest = {
       }).then(res => resolve(res)).catch((err) => reject(err));
     })
   },
-  patch: async (path = '', body=null, headers = {}) => {
+  patch: async (path = '', body = null, headers = {}) => {
     return new Promise((resolve, reject) => {
       fetch(baseURL + path, {
-        method: 'GET',
+        method: 'PATCH',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',

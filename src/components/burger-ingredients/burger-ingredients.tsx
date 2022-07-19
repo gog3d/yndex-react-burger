@@ -3,11 +3,15 @@ import styles from './burger-ingredients.module.css';
 import BurgerIngredientsList from '../burger-ingredients-list/burger-ingredients-list';
 import BurgerIngredientsHeader from '../burger-ingredients-header/burger-ingredients-header';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
-  REFRESH_BUNS_SCROLL,
-  REFRESH_SAUCES_SCROLL,
-  REFRESH_MAINS_SCROLL,
+  
+  refreshBunsScroll,
+  refreshSaucesScroll,
+  refreshMainsScroll,
+
 } from '../../redux/actions/ingredients';
+
 import { RootState }  from '../../redux/action-types';
 
 const BurgerIngredients: React.FC = () => {
@@ -23,11 +27,11 @@ const BurgerIngredients: React.FC = () => {
       const saucesPos = saucesRef.current.getBoundingClientRect().y - listRef.current.getBoundingClientRect().y;
       const mainsPos = mainsRef.current.getBoundingClientRect().y - listRef.current.getBoundingClientRect().y;
       if (bunsPos <=0 && saucesPos > 0 &&  mainsPos > 0) {
-        dispatch({ type: REFRESH_BUNS_SCROLL });
+        dispatch({ type: refreshBunsScroll });
       } else if (bunsPos < 0 && saucesPos <= 0 &&  mainsPos > 0) {
-        dispatch({ type: REFRESH_SAUCES_SCROLL });
+        dispatch({ type: refreshSaucesScroll });
       } else if (bunsPos < 0 && saucesPos < 0 &&  mainsPos <= 0) {
-        dispatch({ type: REFRESH_MAINS_SCROLL });
+        dispatch({ type: refreshMainsScroll });
       }
     }
   };

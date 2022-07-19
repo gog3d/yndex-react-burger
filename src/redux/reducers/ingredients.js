@@ -1,23 +1,27 @@
+import { createReducer } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from 'uuid';
 import {
-  ADD_CONSTRUCTOR_INGREDIENT,
-  DELETE_CONSTRUCTOR_INGREDIENT,
-  UPDATE_CONSTRUCTOR_INGREDIENTS,
-  ADD_MODAL_INGREDIENTS,
-  DELETE_MODAL_INGREDIENTS,
-  REFRESH_ORDERDETAILS_ITEMS,
-  GET_INGREDIENTS_REQUEST,
-  GET_INGREDIENTS_SUCCESS,
-  GET_INGREDIENTS_FAILED,
-  GET_ORDERDETAILS_REQUEST,
-  GET_ORDERDETAILS_SUCCESS,
-  GET_ORDERDETAILS_FAILED,
-  REFRESH_BUNS_SCROLL,
-  REFRESH_SAUCES_SCROLL,
-  REFRESH_MAINS_SCROLL,
-  GET_RESTORE_PASSWORD_REQUEST,
-  GET_RESTORE_PASSWORD_SUCCESS,
-  GET_RESTORE_PASSWORD_FAILED,
+  addConstructorIngredient,
+  deleteConstructorIngredient,
+  updateConstructorIngredients,
+  
+  addModalIngredients,
+  deleteModalIngredients,
+  
+  getIngredientsRequest,
+  getIngredientsSuccess,
+  getIngredientsFailed,
+  
+  getOrderdetailsRequest,
+  getOrderdetailsSuccess,
+  getOrderdetailsFailed,
+  
+  refreshBunsScroll,
+  refreshSaucesScroll,
+  refreshMainsScroll,
+
+  refreshOrderdetailsItems,
+
 } from '../actions/ingredients';
 
 const initialState = {
@@ -42,106 +46,68 @@ const initialState = {
     restorePasswordFailed: false,
   };
 
-export const ingredientsReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case GET_INGREDIENTS_REQUEST: {
-      return {...state, burgerIngredientsRequest: true};
-    }
-    case GET_INGREDIENTS_SUCCESS: {
-      return {
-        ...state, 
-        burgerIngredientsFailed: false, 
-        burgerIngredients: action.burgerIngredients, 
-        burgerIngredientsRequest: false};
-    }
-    case GET_INGREDIENTS_FAILED: {
-      return {
-        ...state, 
-        burgerIngredientsFailed: true, 
-        burgerIngredientsRequest: false};
-    }
-    case GET_ORDERDETAILS_REQUEST: {
-      return {...state, orderDetailsRequest: true};
-    }
-    case GET_ORDERDETAILS_SUCCESS: {
-      return {
-        ...state, 
-        orderDetailsFailed: false, 
-        orderDetails: action.orderDetails, 
-        orderDetailsRequest: false};
-    }
-    case GET_ORDERDETAILS_FAILED: {
-      return {
-        ...state, 
-        orderDetailsFailed: true, 
-        orderDetailsRequest: false};
-    }
-    case REFRESH_ORDERDETAILS_ITEMS: {
-      return {
-        ...state, 
-        orderDetailsItems: action.orderDetailsItems,
-      };
-    }
-    case ADD_CONSTRUCTOR_INGREDIENT: {
-      return action.constructorIngredient.type === 'bun' ? {
-        ...state,
-        constructorIngredients: {...state.constructorIngredients, bun: action.constructorIngredient}
-      } : {
-        ...state,
-        constructorIngredients: {
-          ...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients, {...action.constructorIngredient, uuid: uuidv4()}]
-          },
-        }
-    }
-    case UPDATE_CONSTRUCTOR_INGREDIENTS: {
-      return {
-        ...state,
-        constructorIngredients: {
-          ...state.constructorIngredients, 
-            ingredients: [...action.ingredients]
-          },
-        }
-    }
-    case DELETE_CONSTRUCTOR_INGREDIENT: {
-       state.constructorIngredients.ingredients.splice(action.index, 1);
-       return {
-        ...state, constructorIngredients: {
-          ...state.constructorIngredients, ingredients: [
-            ...state.constructorIngredients.ingredients
-            ]
-        },
+export const ingredientsReducer = createReducer(initialState, (builder) => {
+  builder
+  .addCase(getIngredientsRequest, (state, action) => {
+    state.burgerIngredientsRequest = true;
+  })
+  .addCase(getIngredientsSuccess, (state, action) => {
+    state.burgerIngredientsFailed = false;
+    state.burgerIngredients = action.burgerIngredients;
+    state.burgerIngredientsRequest = false;
+  })
+    .addCase(getIngredientsFailed, (state, action) => {
+      state.burgerIngredientsFailed = true; 
+      state.burgerIngredientsRequest = false;
+    })
+    .addCase(getOrderdetailsRequest, (state, action) => {
+      state.orderDetailsRequest = true;
+    })
+    .addCase(getOrderdetailsSuccess, (state, action) => {
+      state.orderDetailsFailed = false; 
+      state.orderDetails = action.orderDetails;
+      state.orderDetailsRequest = false;
+    })
+    .addCase(getOrderdetailsFailed, (state, action) => {
+      state.orderDetailsFailed = true; 
+      state.orderDetailsRequest = false;
+    })
+    .addCase(refreshOrderdetailsItems, (state, action) => {
+      state.orderDetailsItems = action.orderDetailsItems;
+    })
+    .addCase(addConstructorIngredient, (state, action) => {
+      if (action.constructorIngredient.type === 'bun') {
+        state.constructorIngredients.bun = action.constructorIngredient;
+      } else {
+        state.constructorIngredients.ingredients.push({...action.constructorIngredient, uuid: uuidv4()});
       }
-    }
-    case  DELETE_MODAL_INGREDIENTS: {
-       return {
-       ...state, modalIngredients: {},
-       }
-    }
-    case ADD_MODAL_INGREDIENTS: {
-       return {
-       ...state, modalIngredients: action.item,
-       }
-    }
-    case REFRESH_BUNS_SCROLL: {
-      return {
-        ...state, 
-        bunsScroll: true, saucesScroll: false, mainsScroll: false,
-        };
-    }
-    case REFRESH_SAUCES_SCROLL: {
-      return {
-        ...state, 
-        bunsScroll: false, saucesScroll: true, mainsScroll: false,
-        };
-    }
-    case REFRESH_MAINS_SCROLL: {
-      return {
-        ...state, 
-        bunsScroll: false, saucesScroll: false, mainsScroll: true,
-        };
-    }
-    default: {
-      return state;
-    }
-  }
-};
+    })
+    .addCase(updateConstructorIngredients, (state, action) => {
+      state.constructorIngredients = [...action.ingredients];
+    })
+    .addCase(deleteConstructorIngredient, (state, action) => {
+      state.constructorIngredients.ingredients.splice(action.index, 1);
+      //...state, constructorIngredients: {...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients]
+    })
+    .addCase(deleteModalIngredients, (state, action) => {
+      state.modalIngredients = {};
+    })
+    .addCase(addModalIngredients, (state, action) => {
+      state.modalIngredients = action.item;
+    })
+    .addCase(refreshBunsScroll, (state, action) => {
+      state.bunsScroll = true;
+      state.saucesScroll = false;
+      state.mainsScroll = false;
+    })
+    .addCase(refreshSaucesScroll, (state, action) => {
+      state.bunsScroll = false;
+      state.saucesScroll = true;
+      state.mainsScroll = false;
+    })
+    .addCase(refreshMainsScroll, (state, action) => {
+      state.bunsScroll = false;
+      state.saucesScroll = false;
+      state.mainsScroll = true;
+    })
+});

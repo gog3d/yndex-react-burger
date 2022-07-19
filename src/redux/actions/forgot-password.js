@@ -1,13 +1,22 @@
+import { createAction } from "@reduxjs/toolkit";
 import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
-import { getForgotPasswordRequest } from '../fakeApiAuth';
+//import { getForgotPasswordRequestApi } from '../fakeApiAuth';
 
-export const GET_FORGOT_PASSWORD_REQUEST = 'GET_FORGOT_PASSWORD_REQUEST';
-export const GET_FORGOT_PASSWORD_SUCCESS = 'GET_FORGOT_PASSWORD_SUCCESS';
-export const GET_FORGOT_PASSWORD_FAILED = 'GET_FORGOT_PASSWORD_FAILED';
+import {
+  
+  GET_FORGOT_PASSWORD_REQUEST,
+  GET_FORGOT_PASSWORD_SUCCESS,
+  GET_FORGOT_PASSWORD_FAILED,
+
+} from '../action-types';
+
+export const getForgotPasswordRequest = createAction(GET_FORGOT_PASSWORD_REQUEST);
+export const getForgotPasswordSuccess = createAction(GET_FORGOT_PASSWORD_SUCCESS);
+export const getForgotPasswordFailed = createAction(GET_FORGOT_PASSWORD_FAILED);
 
 export const getForgotPassword = (body = null) => (dispatch) => {
-  dispatch({ type: GET_FORGOT_PASSWORD_REQUEST });
+  dispatch({ type: getForgotPasswordRequest });
   fetch(baseURL + 'password-reset', {
     method: 'POST',
     mode: 'cors',
@@ -22,13 +31,14 @@ export const getForgotPassword = (body = null) => (dispatch) => {
   }).then(checkResponse).then(obj => {
 //    getForgotPasswordRequest(body).then(obj => {
   if (obj) {
-    dispatch({ type: GET_FORGOT_PASSWORD_SUCCESS, restorePassword: obj});
+    console.log(obj)
+    dispatch({ type: getForgotPasswordSuccess, restorePassword: obj});
   } else {
 //    console.log('fail');
-    dispatch({ type: GET_FORGOT_PASSWORD_FAILED });
+    dispatch({ type: getForgotPasswordFailed });
   }
   }).catch((error) => {
 //    console.log(error);
-    dispatch({ type: GET_FORGOT_PASSWORD_FAILED });
+    dispatch({ type: getForgotPasswordFailed });
   });
 };

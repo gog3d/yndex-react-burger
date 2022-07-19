@@ -29,6 +29,7 @@ export const  ForgotPasswordPage: React.FC = () => {
   ) 
 
   if(forgotPassword.success) {
+    //console.log(forgotPassword);
     return (
       <Redirect
         to={{

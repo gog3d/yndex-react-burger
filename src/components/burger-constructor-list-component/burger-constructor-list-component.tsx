@@ -4,7 +4,14 @@ import styles from './burger-constructor-list-component.module.css';
 import { DragIcon, ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrop, useDrag } from 'react-dnd';
-import {  DELETE_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../redux/actions/ingredients';
+//import {  DELETE_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../redux/actions/ingredients';
+import {
+ 
+  deleteConstructorIngredient,
+  updateConstructorIngredients,
+ 
+} from '../../redux/actions/ingredients';
+
 import { TIngredient } from '../../redux/action-types/data';
 import { RootState }  from '../../redux/action-types';
 
@@ -23,7 +30,7 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
   const [type, setType] = useState('primary')
 
   const onClickBurgerConstructorListComponent = () => {
-    dispatch({ type: DELETE_CONSTRUCTOR_INGREDIENT, index: index });
+    dispatch({ type: deleteConstructorIngredient, index: index });
   };
 
   const moveIngredients = useCallback(
@@ -33,7 +40,7 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
       const updatedIngredients = [...ingredients];
       updatedIngredients[dragIndex] = hoverItem;
       updatedIngredients[hoverIndex] = dragItem;
-      dispatch({ type: UPDATE_CONSTRUCTOR_INGREDIENTS, ingredients: updatedIngredients });
+      dispatch({ type: updateConstructorIngredients, ingredients: updatedIngredients });
     },
     [ingredients]
   )

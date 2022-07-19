@@ -17,9 +17,7 @@ interface LocationState {
   };
 }
 
-
 export const  ProfilePage: React.FC = () => {
-
   const history = useHistory(); 
   const dispatch = useDispatch();
   const {
@@ -45,7 +43,8 @@ export const  ProfilePage: React.FC = () => {
   const onSave =  useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      console.log( getCookie('accessToken'));
+//      console.log( getCookie('accessToken'));
+      //console.dir({email, password});
       dispatch(getRefreshUser({ 
         'email': email,
         'password': password }));

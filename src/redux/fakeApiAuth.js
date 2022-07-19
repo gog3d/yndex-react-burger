@@ -1,4 +1,4 @@
-export const getForgotPasswordRequest = async (body = null) => {
+export const getForgotPasswordRequestApi = async (body = null) => {
   if(body.email){
     return await new Promise(resolve =>
       setTimeout(() => {
@@ -21,7 +21,7 @@ export const getForgotPasswordRequest = async (body = null) => {
   }
 
 };
-export const getResetPasswordRequest = async (body = null) => {
+export const getResetPasswordRequestApi = async (body = null) => {
   if(body.password){
     return await new Promise(resolve =>
       setTimeout(() => {
@@ -44,7 +44,7 @@ export const getResetPasswordRequest = async (body = null) => {
   }
 };
 
-export const getRegisterRequest = async (body = null) => {
+export const getRegisterRequestApi = async (body = null) => {
   if(body.password){
     return await new Promise(resolve =>
       setTimeout(() => {
@@ -72,7 +72,7 @@ export const getRegisterRequest = async (body = null) => {
   }
 };
 
-export const getLoginRequest = async (body = null) => {
+export const getLoginRequestApi = async (body = null) => {
   if(body.password){
     return await new Promise(resolve =>
       setTimeout(() => {
@@ -99,7 +99,7 @@ export const getLoginRequest = async (body = null) => {
     );
   }
 };
-export const getLogoutRequest = async (body = null) => {
+export const getLogoutRequestApi = async (body = null) => {
   if(body){
     return await new Promise(resolve =>
       setTimeout(() => {
@@ -121,7 +121,7 @@ export const getLogoutRequest = async (body = null) => {
     );
   }
 }
-export const getTokenRequest = async (body = null) => {
+export const getTokenRequestApi = async (body = null) => {
   if(body.password){
     return await new Promise(resolve =>
       setTimeout(() => {
@@ -145,7 +145,7 @@ export const getTokenRequest = async (body = null) => {
   }
 }
 
-export const getUserRequest = async (body = null) => {
+export const getUserRequestApi = async (body = null) => {
   if(body){
     return await new Promise(resolve =>
       setTimeout(() => {
@@ -171,7 +171,7 @@ export const getUserRequest = async (body = null) => {
   }
 }
 
-export const getRefreshUserRequest = async (body = null) => {
+export const getRefreshUserRequestApi = async (body = null) => {
   if(body.email){
     return await new Promise(resolve =>
       setTimeout(() => {

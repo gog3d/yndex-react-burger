@@ -8,13 +8,8 @@ export const socketMiddleware = (wsUrl) => {
       const { dispatch, getState } = store;
       const { type, payload } = action;
       if (type === 'WS_CONNECTION_START') {
-        socket = new WebSocket(`${wsUrl}/all`);
-      }
-      if (type === 'WS_USER_CONNECTION_START') {
-        const accessToken = getCookie('accessToken')
-//        const userWsUrl= wsUrl + `?token=${accessToken}`
-        userSocket = new WebSocket(`${wsUrl}?token=${accessToken}`);
-//        console.log(userSocket)
+        //socket = new WebSocket(`${wsUrl}/all`);
+        socket = new WebSocket(`${wsUrl}`);
       }
       if (socket) {
         socket.onopen = event => {
@@ -34,26 +29,6 @@ export const socketMiddleware = (wsUrl) => {
         if (type === 'WS_SEND_MESSAGE') {
           const message = payload;
           socket.send(JSON.stringify(message));
-        }
-      }
-      if (userSocket) {
-        userSocket.onopen = event => {
-          dispatch({type: 'WS_USER_CONNECTION_SUCCESS', pyload: event});
-        };
-        userSocket.onerror = event => {
-          dispatch({type: 'WS_USER_CONNECTION_ERROR', payload: event});
-        };
-        userSocket.onmessage = event => {
-          const { data } = event;
-//          console.log(JSON.parse(data));
-          dispatch({type: 'WS_USER_GET_MESSAGE', payload: JSON.parse(data)});
-        };
-        userSocket.close = event => {
-           dispatch({type: 'WS_USER_CONNECTION_CLOSED', payload: event});
-        };
-        if (type === 'WS_USER_SEND_MESSAGE') {
-          const message = payload;
-          userSocket.send(JSON.stringify(message));
         }
       }
       next(action);

@@ -13,14 +13,12 @@ import AppConstructor from '../app-constructor/app-constructor';
 
 import { AppDispatch, AppThunk } from '../../redux/action-types';
 
+import { wsConnectionStart } from '../../redux/actions/wsAction';
+
 const App = () => {
+  
   const dispatch = useDispatch();
-/*  const {
-    auth,
-    authRequest,
-    authFailed,
-  } = useSelector(store => store.auth);
-*/
+
   useEffect(() => {
     dispatch(getIngredients());
   }, [dispatch]);
@@ -30,7 +28,8 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch({ type: WS_CONNECTION_START });
+//    dispatch({ type: wsConnectionStart, payload: ':3001' });
+    dispatch({ type: wsConnectionStart, payload: '/all' });
   }, [dispatch]);
 
   return (

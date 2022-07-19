@@ -8,19 +8,19 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogout, getUser } from '../redux/actions/auth';
 import styles from './orders-page.module.css';
-import  { WS_USER_CONNECTION_START, WS_USER_CONNECTION_CLOSED } from '../redux/action-types';
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
 import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
+import { wsUserConnectionStart } from '../redux/actions/wsUserAction';
+import { getCookie } from '../redux/utils';
+
 interface LocationState {
   from: {
     pathname: string;
   };
 }
-
-
 export const  OrdersPage: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation<Location & LocationState>();
@@ -45,17 +45,22 @@ export const  OrdersPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [current, setCurrent] = useState('История заказов');
 
-  const { success, orders, total, totalToday } = useSelector((store: TOrders) => store.orders.userOrders);
+  const { 
+    wsUserError, 
+    wsUserConnected, 
+    wsUserOrders, 
+    wsUserOrdersTotal, 
+    wsUserOrdersTotalToday 
+  } = useSelector((store: TOrders) => store.wsUserOrders);
+  
+  useEffect(() => {
+    const accessToken = getCookie('accessToken')
+    dispatch({ type: wsUserConnectionStart, payload: `?token=${accessToken}` });
+//    dispatch({ type: wsUserConnectionStart, payload: ':3002' });
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getUser());
-  }, [dispatch]);
-
-
-  useEffect(() => {
-    if(!userFailed) {
-      dispatch({ type: WS_USER_CONNECTION_START });
-    }
   }, [dispatch]);
 
   useEffect(()=>{
@@ -98,7 +103,7 @@ export const  OrdersPage: React.FC = () => {
     [history]
   );
 
-  if(!orders) {
+  if(!wsUserOrders) {
     return null
   }
 
@@ -146,7 +151,8 @@ export const  OrdersPage: React.FC = () => {
 
       </div>
       <div className={styles['sheet-container']}>
-        { orders.map((order: TOrders, index: number) => { return (
+        { wsUserOrders.map((order: TOrders, index: number) => { 
+          return (
           <div key={uuidv4()} className={styles['orders-item']} onClick={() => onClickItem(order, location)}>
             <OrderSheetComponent order={ order } />
           </div> )}) }

@@ -37,6 +37,7 @@ export const ResetPasswordPage: React.FC<{ state: LocationState }> = ({ state })
 
     if(forgotPassword.success) {
       if(resetPassword.success) {
+        //console.log(resetPassword);
         return (
           <Redirect
             to={{

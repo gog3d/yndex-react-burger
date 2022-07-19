@@ -8,7 +8,12 @@ import BurgerConstructorListComponent from '../burger-constructor-list-component
 import { useDispatch, useSelector } from 'react-redux';
 import { useDrop } from 'react-dnd';
 
-import { ADD_CONSTRUCTOR_INGREDIENT } from '../../redux/actions/ingredients';
+//import { ADD_CONSTRUCTOR_INGREDIENT } from '../../redux/actions/ingredients';
+
+import {
+  addConstructorIngredient,
+} from '../../redux/actions/ingredients';
+
 import { RootState }  from '../../redux/action-types';
 
 const BurgerConstructorListContainer: React.FC = () => {
@@ -30,7 +35,7 @@ const BurgerConstructorListContainer: React.FC = () => {
   const [, dropTarget] = useDrop({
     accept: "ingredients",
     drop(item) {
-      dispatch({ type: ADD_CONSTRUCTOR_INGREDIENT, constructorIngredient: item });
+      dispatch({ type: addConstructorIngredient, constructorIngredient: item });
     },
   });
 

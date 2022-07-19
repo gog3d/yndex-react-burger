@@ -47,9 +47,9 @@ const AppConstructor: React.FC = () => {
           <Route path='/forgot-password'  exact={true}>
             <ForgotPasswordPage />
           </Route>
-          <ProtectedRoute path='/reset-password'  exact={true}>
+          <Route path='/reset-password'  exact={true}>
             <ResetPasswordPage />
-          </ProtectedRoute>
+          </Route>
           <ProtectedRoute path='/profile'  exact={true}>
             <ProfilePage />
           </ProtectedRoute>
