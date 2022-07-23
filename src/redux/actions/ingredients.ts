@@ -1,7 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
 import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
-import { getItemsRequest, getOrderDetailsRequest } from '../fakeApi';
+//import { getItemsRequest, getOrderDetailsRequest } from '../fakeApi';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
 
 import {

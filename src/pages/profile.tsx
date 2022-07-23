@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import styles from './profile.module.css';
 
 import { getLogout, getUser, getRefreshUser } from '../redux/actions/auth';
@@ -11,6 +10,9 @@ import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/reac
 import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+
 interface LocationState {
   from: {
     pathname: string;
@@ -19,12 +21,12 @@ interface LocationState {
 
 export const  ProfilePage: React.FC = () => {
   const history = useHistory(); 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     user, 
     userRequest,
     userFailed,
-  } = useSelector((store: RootState) => store.auth);
+  } = useAppSelector((store: RootState) => store.auth);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

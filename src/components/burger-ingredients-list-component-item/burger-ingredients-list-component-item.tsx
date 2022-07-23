@@ -4,8 +4,10 @@ import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-com
 import { useDrag } from "react-dnd";
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
 import { TIngredient}  from '../../redux/action-types/data';
+
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 interface BurgerIngredientsListComponentItemProps {
   item: TIngredient;
@@ -13,7 +15,7 @@ interface BurgerIngredientsListComponentItemProps {
 
 const BurgerIngredientsListComponentItem: React.FC<BurgerIngredientsListComponentItemProps> = (props) => {
   const { item } = props;
-  const constructorIngredients = useSelector((store: RootState) => store.ingredients.constructorIngredients);
+  const constructorIngredients = useAppSelector((store: RootState) => store.ingredients.constructorIngredients);
 
   const num = useMemo(
     () => {

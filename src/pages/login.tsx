@@ -7,9 +7,12 @@ import { getLogin } from '../redux/actions/auth';
 //import { setCookie } from '../redux/utils.js';
 import { Logo, EmailInput, PasswordInput, Button, Input } from '@ya.praktikum/react-developer-burger-ui-components';
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { RootState }  from '../redux/store';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+
 interface LocationState {
   from: {
     pathname: string;
@@ -24,9 +27,9 @@ export const  LoginPage = () => {
 
  const {
     authFailed,
-  } = useSelector((store: RootState) => store.auth);
+  } = useAppSelector((store: RootState) => store.auth);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onSubmit =  useCallback(
     (e: React.FormEvent): void => {

@@ -11,6 +11,7 @@ import {
 
 
 import OrderInformationComponent from '../order-information-component/order-information-component';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const OrderInformation = () => {
   
@@ -20,7 +21,7 @@ const OrderInformation = () => {
     wsUserOrders, 
     wsUserOrdersTotal, 
     wsUserOrdersTotalToday 
-  } = useSelector((store) => store.wsUserOrders);
+  } = useAppSelector((store) => store.wsUserOrders);
 
   const { 
     wsError, 
@@ -28,7 +29,7 @@ const OrderInformation = () => {
     wsOrders, 
     wsOrdersTotal, 
     wsOrdersTotalToday 
-  } = useSelector((store) => store.wsOrders);
+  } = useAppSelector((store) => store.wsOrders);
 
   const { id } = useParams();
 

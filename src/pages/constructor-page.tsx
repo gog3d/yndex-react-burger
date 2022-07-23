@@ -6,17 +6,15 @@ import styles from './constructor-page.module.css';
 
 import BurgerConstructor from '../components/burger-constructor/burger-constructor';
 import BurgerIngredients from '../components/burger-ingredients/burger-ingredients';
-
-//import { REFRESH_ORDERDETAILS_ITEMS, } from '../redux/actions/ingredients';
-
 import {
   refreshOrderdetailsItems,
 } from '../redux/actions/ingredients';
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
 
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export const ConstructorPage: React.FC = () => {
   const {
@@ -24,9 +22,9 @@ export const ConstructorPage: React.FC = () => {
     burgerIngredients,
     burgerIngredientsRequest,
     burgerIngredientsFailed
-    } = useSelector((store: RootState) => store.ingredients);
+    } = useAppSelector((store: RootState) => store.ingredients);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const items = [...constructorIngredients.ingredients, constructorIngredients.bun];

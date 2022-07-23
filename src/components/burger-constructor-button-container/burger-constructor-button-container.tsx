@@ -10,7 +10,9 @@ import Modal from '../modal/modal';
 import OrderDetails from '../order-details/order-details';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrderDetails } from '../../redux/actions/ingredients';
-import { RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
+
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const BurgerConstructorButtonContainer = () => {
   const { 
@@ -18,16 +20,17 @@ const BurgerConstructorButtonContainer = () => {
     orderDetails,
     orderDetailsRequest,
     orderDetailsFailed,
-    } = useSelector((store: RootState) => store.ingredients);
+    } = useAppSelector((store: RootState) => store.ingredients);
 
   const {
     authFailed,
-  } = useSelector((store: RootState) => store.auth);
+  } = useAppSelector((store: RootState) => store.auth);
 
   const history = useHistory();
 
-  const constructorIngredients = useSelector((store: RootState) => store.ingredients.constructorIngredients);
-  const dispatch = useDispatch();
+  const constructorIngredients = useAppSelector((store: RootState) => store.ingredients.constructorIngredients);
+  
+  const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);
 
   const count = useMemo(

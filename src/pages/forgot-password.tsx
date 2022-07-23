@@ -6,9 +6,11 @@ import { Logo, EmailInput, Button, Input } from '@ya.praktikum/react-developer-b
 import styles from './forgot-password.module.css';
 import { getForgotPassword } from '../redux/actions/forgot-password';
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { RootState }  from '../redux/store';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export const  ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -17,9 +19,9 @@ export const  ForgotPasswordPage: React.FC = () => {
     forgotPassword,
     /*forgotPasswordRequest,
     forgotPasswordFailed,*/
-  } = useSelector((store: RootState)=> store.forgotPassword);
+  } = useAppSelector((store: RootState)=> store.forgotPassword);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onSubmit = useCallback(
     (e: React.FormEvent) => {

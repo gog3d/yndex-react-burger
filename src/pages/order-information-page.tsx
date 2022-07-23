@@ -1,5 +1,4 @@
 import styles from './order-information-page.module.css';
-import { useSelector, useDispatch } from 'react-redux';
 import { useMemo } from 'react'
 import React, { useState, useEffect, useCallback } from 'react';
 import {
@@ -9,13 +8,15 @@ import {
 } from "react-router-dom";
 
 import OrderInformationComponent from '../components/order-information-component/order-information-component';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
 
 import { wsUserConnectionStart } from '../redux/actions/wsUserAction';
+import { getCookie } from '../redux/utils';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export const OrderInformationPage: React.FC = () => {
-  const dispatch = useDispatch();
-  //const { orders } = useSelector((store: RootState) => store.orders.orders);
+  const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
 
   
@@ -25,7 +26,7 @@ export const OrderInformationPage: React.FC = () => {
     wsUserOrders, 
     wsUserOrdersTotal, 
     wsUserOrdersTotalToday 
-  } = useSelector((store: TOrders) => store.wsUserOrders);
+  } = useAppSelector((store: TOrders) => store.wsUserOrders);
 
   const { 
     wsError, 
@@ -33,11 +34,13 @@ export const OrderInformationPage: React.FC = () => {
     wsOrders, 
     wsOrdersTotal, 
     wsOrdersTotalToday 
-  } = useSelector((store: TOrders) => store.wsOrders);
+  } = useAppSelector((store: TOrders) => store.wsOrders);
 
 
   useEffect(() => {
-    dispatch({ type: wsUserConnectionStart, payload: ':3002' });
+    const accessToken = getCookie('accessToken')
+    dispatch({ type: wsUserConnectionStart, payload: `?token=${accessToken}` });
+    //dispatch({ type: wsUserConnectionStart, payload: ':3002' });
   }, [dispatch]);
   
   const order = useMemo(() => {

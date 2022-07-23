@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './register.module.css';
 
@@ -8,9 +7,12 @@ import { getRegister } from '../redux/actions/auth';
 //import { setCookie } from '../redux/utils.js';
 
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+
 interface LocationState {
   from: {
     pathname: string;
@@ -25,9 +27,9 @@ export const  RegisterPage: React.FC<{ state: LocationState }> = ({ state }) => 
   const {
     authFailed,
     register,
-  } = useSelector((store: RootState) => store.auth);
+  } = useAppSelector((store: RootState) => store.auth);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onSubmit = useCallback(
     (e: React.FormEvent) => {

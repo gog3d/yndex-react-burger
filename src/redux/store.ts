@@ -1,7 +1,6 @@
 
 import { configureStore, getDefaultMiddleware  } from '@reduxjs/toolkit';
 import { rootReducer } from './reducers';
-import { socketMiddleware } from './middleware';
 import { createWsMiddleware } from './middleware';
 import {  
   wsConnectionStart, 
@@ -20,8 +19,6 @@ import {
 } from './actions/wsUserAction';
 
 const url = 'wss://norma.nomoreparties.space/orders';
-//wss://norma.nomoreparties.space/orders/all
-//const wsUrl = 'ws://localhost:3001';
 //const url = 'ws://localhost';
 
 const wsUserActions = {
@@ -49,12 +46,8 @@ export const store = configureStore({
     return getDefaultMiddleware().concat(wsMiddleware, wsUserMiddleware);
   },
   devTools: process.env.NODE_ENV !=='production',
-
 });
 
-/*
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
-*/
+export type RootState = ReturnType<typeof rootReducer>;
+
+export type AppDispatch = typeof store.dispatch;

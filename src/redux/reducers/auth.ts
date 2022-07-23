@@ -30,7 +30,7 @@ import {
   
 } from '../actions/auth';
 
-import { getTokenRequestApi } from '../fakeApiAuth';
+//import { getTokenRequestApi } from '../fakeApiAuth';
 
 const authState = {
     login: {},
@@ -103,7 +103,7 @@ export const authReducer = createReducer(authState, (builder) => {
       state.logoutFailed = true;
       state.logoutRequest = false;
     })
-    .addCase(getTokenRequestApi, (state, action)=>{
+    .addCase(getTokenRequest, (state, action)=>{
       state.tokenRequest = true;
     })
     .addCase(getTokenSuccess, (state, action)=>{

@@ -6,12 +6,14 @@ import {
   useParams
 } from "react-router-dom";
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { RootState }  from '../redux/store';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
 
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+
 export const IngredientPage = () => {
-  const items = useSelector((store: RootState) => store.ingredients.burgerIngredients);
+  const items = useAppSelector((store: RootState) => store.ingredients.burgerIngredients);
   const { ingredientId } = useParams<{ ingredientId: string }>();
 
   const item = items.find(e => e._id === ingredientId);

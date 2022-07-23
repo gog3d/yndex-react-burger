@@ -1,7 +1,6 @@
 import styles from './feed-page.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   useHistory,
@@ -9,6 +8,8 @@ import {
 } from "react-router-dom";
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 ///!!!!
 //import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
 
@@ -27,7 +28,7 @@ export const FeedPage = () => {
     wsOrders, 
     wsOrdersTotal, 
     wsOrdersTotalToday 
-  } = useSelector((store) => store.wsOrders);
+  } = useAppSelector((store) => store.wsOrders);
 
   const doneOrders = useMemo(() => {
     if(wsOrders) {

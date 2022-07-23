@@ -1,12 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 import styles from './order-sheet-component.module.css';
-import { useSelector} from 'react-redux';
 
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
 import { TIngredient}  from '../../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 export interface TTotal {
   bun: TIngredient | null,
@@ -17,7 +18,7 @@ export interface TTotal {
 const OrderSheetComponent: React.FC<{ order: TOrders }> = ({ order }) => {
   const {
     burgerIngredients,
-  } = useSelector((store: RootState) => store.ingredients);
+  } = useAppSelector((store: RootState) => store.ingredients);
 
   const today = new Date();
   const orderDate = new Date(order.createdAt);

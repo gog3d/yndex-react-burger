@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styles from './burger-ingredients-header.module.css';
 import {Tab} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useSelector } from 'react-redux';
-import { RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const BurgerIngredientsHeaderContainer: React.FC = () => {
 
-  const { bunsScroll, saucesScroll, mainsScroll } = useSelector((store: RootState) => store.ingredients);
+  const { bunsScroll, saucesScroll, mainsScroll } = useAppSelector((store: RootState) => store.ingredients);
  
   return (
     <div className={styles['burger-ingredients-header']}>

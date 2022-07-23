@@ -1,13 +1,14 @@
 import React, { useState, useCallback } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import styles from './reset-password.module.css';
 
 import {Logo, PasswordInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { getResetPassword } from '../redux/actions/reset-password';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 interface LocationState {
   from: {
     pathname: string;
@@ -20,13 +21,13 @@ export const ResetPasswordPage: React.FC<{ state: LocationState }> = ({ state })
 
   const {
     resetPassword,
-  } = useSelector((store: RootState) => store.resetPassword);
+  } = useAppSelector((store: RootState) => store.resetPassword);
 
   const {
     forgotPassword,
-  } = useSelector((store: RootState) => store.forgotPassword);
+  } = useAppSelector((store: RootState) => store.forgotPassword);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onSubmit = useCallback(
     (e) => {

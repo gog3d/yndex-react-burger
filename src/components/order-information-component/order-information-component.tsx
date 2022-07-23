@@ -6,9 +6,11 @@ import { useSelector } from 'react-redux';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import OrderInformationComponentItem from '../order-information-component-item/order-information-component-item';
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
 import { TIngredient}  from '../../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 export interface TTotal {
   bun: TIngredient | null,
@@ -19,7 +21,7 @@ const OrderInformationComponent: React.FC<{ order: TOrders}> = (props) => {
   const { order } = props;
   const {
     burgerIngredients,
-  } = useSelector((store: RootState) => store.ingredients);
+  } = useAppSelector((store: RootState) => store.ingredients);
 
   if(!order) return null;
 

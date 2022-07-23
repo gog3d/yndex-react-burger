@@ -2,7 +2,7 @@ import { createAction } from "@reduxjs/toolkit";
 //import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
-
+/*
 import { 
   getLoginRequestApi,  
   getLogoutRequestApi, 
@@ -10,8 +10,8 @@ import {
   getRegisterRequestApi, 
   getUserRequestApi, 
   getRefreshUserRequestApi
-  } from '../fakeApiAuth.js';
-
+  } from '../fakeApiAuth';
+*/
 
 import {
   GET_LOGIN_REQUEST,
@@ -76,7 +76,7 @@ export const getLogin = (body = null) => async (dispatch) => {
   try {
     const res = await fetchRequest.post('auth/login', body);
     const obj = await checkResponse(res);
-  //  const obj = await getLoginRequestApi({});
+   // const obj = await getLoginRequestApi({});
       if (obj) {
         dispatch({ type: getLoginSuccess, login: obj});
         dispatch({ type: getUserSuccess, user: obj});
@@ -182,7 +182,7 @@ export const getLogout = () => async (dispatch) => {
     try {
     const res = await fetchRequest.post('auth/logout', { 'token' : refreshToken });
     const obj = await checkResponse(res);
-   // const obj = await getLogoutRequestApi();
+    //const obj = await getLogoutRequestApi();
       if (obj) {
         dispatch({ type: getLogoutSuccess, logout: obj});
         dispatch({ type: getUserSuccess, user: {}});

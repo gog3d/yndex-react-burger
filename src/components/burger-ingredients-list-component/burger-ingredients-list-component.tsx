@@ -7,9 +7,11 @@ import {
   useHistory,
   useLocation,
 } from "react-router-dom";
-import { RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
 import { TIngredient}  from '../../redux/action-types/data';
 import { Location } from 'history';
+
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 interface BurgerIngredientsListComponentProps {
   type: string,
@@ -20,7 +22,7 @@ const BurgerIngredientsListComponent: React.FC<BurgerIngredientsListComponentPro
   const location = useLocation<Location>();
 
   const history = useHistory();
-  const items = useSelector((store: RootState) => store.ingredients.burgerIngredients).
+  const items = useAppSelector((store: RootState) => store.ingredients.burgerIngredients).
     filter((item) => item.type === type);
   const onClickItem = (
     item: TIngredient, location: Location

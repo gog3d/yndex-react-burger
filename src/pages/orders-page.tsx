@@ -5,16 +5,17 @@ import {
   useHistory,
   useLocation,
   } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
 import { getLogout, getUser } from '../redux/actions/auth';
 import styles from './orders-page.module.css';
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
 import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
 import { wsUserConnectionStart } from '../redux/actions/wsUserAction';
 import { getCookie } from '../redux/utils';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 interface LocationState {
   from: {
@@ -22,7 +23,7 @@ interface LocationState {
   };
 }
 export const  OrdersPage: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const location = useLocation<Location & LocationState>();
 
   const history = useHistory();
@@ -38,7 +39,7 @@ export const  OrdersPage: React.FC = () => {
     user, 
     userRequest,
     userFailed,
-  } = useSelector((store: RootState) => store.auth);
+  } = useAppSelector((store: RootState) => store.auth);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -51,12 +52,12 @@ export const  OrdersPage: React.FC = () => {
     wsUserOrders, 
     wsUserOrdersTotal, 
     wsUserOrdersTotalToday 
-  } = useSelector((store: TOrders) => store.wsUserOrders);
+  } = useAppSelector((store: TOrders) => store.wsUserOrders);
   
   useEffect(() => {
     const accessToken = getCookie('accessToken')
     dispatch({ type: wsUserConnectionStart, payload: `?token=${accessToken}` });
-//    dispatch({ type: wsUserConnectionStart, payload: ':3002' });
+    //dispatch({ type: wsUserConnectionStart, payload: ':3002' });
   }, [dispatch]);
 
   useEffect(() => {
@@ -97,7 +98,7 @@ export const  OrdersPage: React.FC = () => {
     () => {
       setCurrent('История заказов');
       dispatch(getLogout());
-      dispatch({ type: WS_USER_CONNECTION_CLOSED });
+      //dispatch({ type: WS_USER_CONNECTION_CLOSED });
       history.replace({ pathname: '/login' });
     },
     [history]

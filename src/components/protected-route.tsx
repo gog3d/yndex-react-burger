@@ -1,18 +1,17 @@
 import { Redirect, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
 import {
   useLocation,
 } from "react-router-dom";
-import { RootState } from '../redux/action-types';
+import { RootState } from '../redux/store';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 
 const ProtectedRoute: React.FC<{ children:React.ReactNode, rest: any}> = (props) => {
   const { children, rest } = props;
   const {
     authFailed,
-  } = useSelector((store: RootState) => store.auth);
+  } = useAppSelector((store: RootState) => store.auth);
   
   const location = useLocation();
 
