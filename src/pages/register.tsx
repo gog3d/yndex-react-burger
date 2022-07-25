@@ -7,9 +7,7 @@ import { getRegister } from '../redux/actions/auth';
 //import { setCookie } from '../redux/utils.js';
 
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
-import { TIngredient}  from '../redux/action-types/data';
-import { Location } from 'history';
+import { RootState }  from '../redux/store';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 

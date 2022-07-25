@@ -4,9 +4,7 @@ import styles from './reset-password.module.css';
 
 import {Logo, PasswordInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { getResetPassword } from '../redux/actions/reset-password';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
-import { TIngredient}  from '../redux/action-types/data';
-import { Location } from 'history';
+import { RootState }  from '../redux/store';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 interface LocationState {

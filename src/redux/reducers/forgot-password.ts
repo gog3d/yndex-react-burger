@@ -6,7 +6,9 @@ import {
   getForgotPasswordFailed,
 } from '../actions/forgot-password';
 
-const forgotPasswordState = {
+import { TForgotPasswordState } from '../../types/data';
+
+const forgotPasswordState: TForgotPasswordState = {
   forgotPassword: {},
   forgotPasswordRequest: false,
   forgotPasswordFailed: false,

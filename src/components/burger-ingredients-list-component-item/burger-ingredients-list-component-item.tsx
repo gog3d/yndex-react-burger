@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import styles from './burger-ingredients-list-component-item.module.css';
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDrag } from "react-dnd";
-import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState }  from '../../redux/store';
 import { TIngredient}  from '../../redux/action-types/data';
@@ -22,7 +21,7 @@ const BurgerIngredientsListComponentItem: React.FC<BurgerIngredientsListComponen
       if (item.type === 'bun') {
         return constructorIngredients.bun === null ? 0 : constructorIngredients.bun._id === item._id ? 1 : 0;
       } else {
-        return constructorIngredients.ingredients.reduce((sum, comp) => comp._id === item._id ? ++sum : sum, 0)
+        return constructorIngredients.ingredients.reduce((sum: number, comp: TIngredient) => comp._id === item._id ? ++sum : sum, 0)
       }
     }, [constructorIngredients.ingredients, constructorIngredients.bun]
   );

@@ -1,10 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react';
-import PropTypes from 'prop-types';
 import styles from './burger-constructor-list-component.module.css';
 import { DragIcon, ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components';
-import { useDispatch, useSelector } from 'react-redux';
 import { useDrop, useDrag } from 'react-dnd';
-//import {  DELETE_CONSTRUCTOR_INGREDIENT, UPDATE_CONSTRUCTOR_INGREDIENTS } from '../../redux/actions/ingredients';
 import {
  
   deleteConstructorIngredient,
@@ -12,7 +9,7 @@ import {
  
 } from '../../redux/actions/ingredients';
 
-import { TIngredient } from '../../redux/action-types/data';
+import { TIngredient } from '../../types/data';
 import { RootState }  from '../../redux/store';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';

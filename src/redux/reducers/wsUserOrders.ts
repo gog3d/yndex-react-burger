@@ -6,8 +6,9 @@ import {
   wsUserGetMessage
 } from '../actions/wsUserAction';
 
+import { TWsUserOrdersState } from '../../types/data';
 
-const initialState = { 
+const initialState: TWsUserOrdersState = { 
   wsUserError: undefined,
   wsUserConnected: false, 
   wsUserOrders: [],

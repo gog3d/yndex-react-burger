@@ -1,3 +1,4 @@
+import React, {useEffect } from 'react';
 import styles from './order-information.module.css';
 import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
@@ -5,15 +6,12 @@ import {
   useParams
 } from "react-router-dom";
 
-//import { TWsState, TWsDataType, TOrders }  from '../../redux/action-types';
-//import { TIngredient}  from '../../redux/action-types/data';
-//import { Location } from 'history';
-
+import { TOrders, TUserOrders }  from '../../types/data';
 
 import OrderInformationComponent from '../order-information-component/order-information-component';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
-const OrderInformation = () => {
+const OrderInformation: React.FC = () => {
   
   const { 
     wsUserError, 
@@ -31,12 +29,12 @@ const OrderInformation = () => {
     wsOrdersTotalToday 
   } = useAppSelector((store) => store.wsOrders);
 
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const order = useMemo(() => {
     if(wsOrders) {
-      const userOrders = wsUserOrders.find((order) => order._id === id);
-      const orders = wsOrders.find((order) => order._id === id);
+      const userOrders = wsUserOrders.find((order: TUserOrders) => order._id === id);
+      const orders = wsOrders.find((order: TOrders) => order._id === id);
       if(orders) {
         return orders;
       } else if(userOrders) {

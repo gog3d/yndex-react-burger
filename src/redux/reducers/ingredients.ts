@@ -24,7 +24,9 @@ import {
 
 } from '../actions/ingredients';
 
-const initialState = {
+import { TIngredientsState } from '../../types/data';
+
+const initialState: TIngredientsState = {
     burgerIngredients: [],
     burgerIngredientsRequest: false,
     burgerIngredientsFailed: false,

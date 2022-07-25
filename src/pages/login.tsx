@@ -1,14 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { Link, useLocation, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import styles from './login.module.css';
 
 import { getLogin } from '../redux/actions/auth';
-//import { setCookie } from '../redux/utils.js';
 import { Logo, EmailInput, PasswordInput, Button, Input } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import { RootState }  from '../redux/store';
-import { TIngredient}  from '../redux/action-types/data';
 import { Location } from 'history';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -19,7 +16,7 @@ interface LocationState {
   };
 }
 
-export const  LoginPage = () => {
+export const  LoginPage: React.FC = () => {
   const location = useLocation<Location & LocationState>();
   const { from } = location.state || { from: { pathname: '/' }};
   const [email, setEmail] = useState('');

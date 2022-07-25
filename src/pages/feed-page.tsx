@@ -1,6 +1,6 @@
 import styles from './feed-page.module.css';
 import { v4 as uuidv4 } from 'uuid';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import {
   BrowserRouter as Router,
   useHistory,
@@ -10,35 +10,31 @@ import {
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-///!!!!
-//import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
+import { TOrders }  from '../types/data';
+import { RootState }  from '../redux/store';
+import { Location } from 'history';
 
-//import { TIngredient}  from '../redux/action-types/data';
-//import { Location } from 'history';
-
-export const FeedPage = () => {
-  const location = useLocation();
+export const FeedPage: React.FC = () => {
+  const location = useLocation<Location>();
   const history = useHistory();
   
-  //const { orders, total, totalToday } = useSelector((store: TOrders) => store.orders.orders);
-
-  const { 
+    const { 
     wsError, 
     wsConnected, 
     wsOrders, 
     wsOrdersTotal, 
     wsOrdersTotalToday 
-  } = useAppSelector((store) => store.wsOrders);
+  } = useAppSelector((store: RootState) => store.wsOrders);
 
   const doneOrders = useMemo(() => {
     if(wsOrders) {
-      return wsOrders.filter((order) => order.status === 'done')
+      return wsOrders.filter((order:TOrders) => order.status === 'done')
     }
   }, [wsOrders]);
 
   const inWorkOrders = useMemo(() => {
     if(wsOrders) {
-      return wsOrders.filter((order) => order.status === 'inwork')
+      return wsOrders.filter((order: TOrders) => order.status === 'inwork')
     }
   }, [wsOrders]);
 
@@ -46,7 +42,7 @@ export const FeedPage = () => {
     return null
   }
 
-  const onClickItem = (item, location) => {
+  const onClickItem = (item: TOrders, location: Location) => {
     history.push({
       pathname: `/feed/${item._id}`,
       state: {background: location},
@@ -63,7 +59,7 @@ export const FeedPage = () => {
         </p>
         <div className={styles['feed-orders']}>
           <div className={styles['feed-orders-sheet']}>
-          { wsOrders.map((order, index) => { return (
+          { wsOrders.map((order: TOrders, index: number) => { return (
             <div key={uuidv4()} className={styles['feed-orders-item']} onClick={() => onClickItem(order, location)}>
               <OrderSheetComponent order={ order } />
             </div> )}) }
@@ -87,7 +83,7 @@ export const FeedPage = () => {
             </div>
             <div className={styles['feed-orders-orders-list']}>
               <div className={styles['feed-orders-ready']}>
-                { doneOrders.map((item, index) => {return(
+                { doneOrders.map((item: TOrders, index: number) => {return(
                   <p  key={uuidv4()} className={styles['feed-orders-text']}>
                     <span className="text text_type_digits-default">
                     {`${item.number}`}
@@ -95,7 +91,7 @@ export const FeedPage = () => {
                   </p>  )}) }
               </div>
               <div className={styles['feed-orders-in-work']}>
-                { inWorkOrders.map((item, index) => {return(
+                { inWorkOrders.map((item: TOrders, index: number) => {return(
                   <p  key={uuidv4()} className={styles['feed-orders-text']}>
                     <span className="text text_type_digits-default">
                     {`${item}`}

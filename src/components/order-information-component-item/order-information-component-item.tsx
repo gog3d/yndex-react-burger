@@ -1,11 +1,8 @@
+import React from 'react';
 import styles from './order-information-component-item.module.css';
 
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-
-import { TWsState, TWsDataType, TOrders, RootState }  from '../../redux/action-types';
-import { TIngredient}  from '../../redux/action-types/data';
-import { Location } from 'history';
-
+import { TIngredient}  from '../../types/data';
 
 const OrderInformationComponentItem: React.FC<{ item: TIngredient, equal: number }> = ({ item, equal}) => {
 

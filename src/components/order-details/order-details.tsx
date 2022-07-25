@@ -1,9 +1,9 @@
+import React from 'react';
 import styles from './order-details.module.css';
 import image from '../../image/7d9fa34b16200edb585c8855f1699057.gif';
-import { useSelector } from 'react-redux';
 
 import { RootState }  from '../../redux/store';
-import { TIngredient}  from '../../redux/action-types/data';
+import { TIngredient}  from '../../types/data';
 import { Location } from 'history';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';

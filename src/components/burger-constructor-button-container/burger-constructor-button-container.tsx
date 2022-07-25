@@ -6,15 +6,23 @@ import {
 
 import styles from './burger-constructor-button-container.module.css';
 import { CurrencyIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components';
+// Fix ошибки ts для компонентов yandex
+/*declare module 'react' {
+  interface FunctionComponent<P = {}> {
+      (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+*/
+
 import Modal from '../modal/modal';
 import OrderDetails from '../order-details/order-details';
-import { useDispatch, useSelector } from 'react-redux';
 import { getOrderDetails } from '../../redux/actions/ingredients';
 import { RootState }  from '../../redux/store';
+import { TIngredient } from '../../types/data';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
-const BurgerConstructorButtonContainer = () => {
+const BurgerConstructorButtonContainer: React.FC = () => {
   const { 
     orderDetailsItems, 
     orderDetails,
@@ -42,14 +50,16 @@ const BurgerConstructorButtonContainer = () => {
   );
   
   const onClickButton =  () => {
-    if (orderDetailsItems.find(item => item.type === 'bun')) {
-    if(!authFailed) {
-        setOpen(true);
-        dispatch(getOrderDetails(orderDetailsItems));
-      } else {
-        history.push({
-          pathname: '/login',
-        });
+    if(orderDetailsItems !== null) {
+      if (orderDetailsItems.find((item: TIngredient ) => item.type === 'bun')) {
+        if(!authFailed) {
+          setOpen(true);
+          dispatch(getOrderDetails(orderDetailsItems));
+        } else {
+          history.push({
+            pathname: '/login',
+          });
+        }
       }
     }
   };

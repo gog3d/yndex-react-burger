@@ -1,7 +1,6 @@
 import { createAction } from "@reduxjs/toolkit";
 import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
-//import { getResetPasswordRequestApi } from '../fakeApiAuth';
 
 import {
   GET_RESET_PASSWORD_REQUEST,
@@ -9,12 +8,17 @@ import {
   GET_RESET_PASSWORD_FAILED,
 } from '../action-types';
 
+import { AppDispatch, AppThunk } from '../store';
+
 export const getResetPasswordRequest = createAction(GET_RESET_PASSWORD_REQUEST);
 export const getResetPasswordSuccess = createAction(GET_RESET_PASSWORD_SUCCESS);
 export const getResetPasswordFailed = createAction(GET_RESET_PASSWORD_FAILED);
 
+export type TResetPassword = ReturnType<typeof getResetPasswordRequest>
+                            | ReturnType<typeof getResetPasswordSuccess>
+                            | ReturnType<typeof getResetPasswordFailed>;
 
-export const getResetPassword = (body = null) => (dispatch) => {
+export const getResetPassword = (body = null) => (dispatch: AppDispatch) => {
   dispatch({ type: getResetPasswordRequest });
   fetch(baseURL + 'password-reset/reset', {
     method: 'POST',

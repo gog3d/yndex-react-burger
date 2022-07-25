@@ -32,7 +32,10 @@ import {
 
 //import { getTokenRequestApi } from '../fakeApiAuth';
 
-const authState = {
+import { TAuthState } from '../../types/data';
+
+
+const authState: TAuthState = {
     login: {},
     loginRequest: false,
     loginFailed: false,

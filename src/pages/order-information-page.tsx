@@ -1,14 +1,13 @@
 import styles from './order-information-page.module.css';
 import { useMemo } from 'react'
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import {
-  /*useHistory,
-  useLocation,*/
   useParams
 } from "react-router-dom";
 
 import OrderInformationComponent from '../components/order-information-component/order-information-component';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
+import { RootState }  from '../redux/store';
+import { TOrders } from '../types/data';
 
 import { wsUserConnectionStart } from '../redux/actions/wsUserAction';
 import { getCookie } from '../redux/utils';
@@ -26,7 +25,7 @@ export const OrderInformationPage: React.FC = () => {
     wsUserOrders, 
     wsUserOrdersTotal, 
     wsUserOrdersTotalToday 
-  } = useAppSelector((store: TOrders) => store.wsUserOrders);
+  } = useAppSelector((store: RootState) => store.wsUserOrders);
 
   const { 
     wsError, 
@@ -34,7 +33,7 @@ export const OrderInformationPage: React.FC = () => {
     wsOrders, 
     wsOrdersTotal, 
     wsOrdersTotalToday 
-  } = useAppSelector((store: TOrders) => store.wsOrders);
+  } = useAppSelector((store: RootState) => store.wsOrders);
 
 
   useEffect(() => {

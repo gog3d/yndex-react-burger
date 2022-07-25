@@ -9,8 +9,8 @@ import { getLogout, getUser } from '../redux/actions/auth';
 import styles from './orders-page.module.css';
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
-import { TIngredient}  from '../redux/action-types/data';
+import { RootState }  from '../redux/store';
+import { TOrders }  from '../types/data';
 import { Location } from 'history';
 import { wsUserConnectionStart } from '../redux/actions/wsUserAction';
 import { getCookie } from '../redux/utils';
@@ -52,7 +52,7 @@ export const  OrdersPage: React.FC = () => {
     wsUserOrders, 
     wsUserOrdersTotal, 
     wsUserOrdersTotalToday 
-  } = useAppSelector((store: TOrders) => store.wsUserOrders);
+  } = useAppSelector((store: RootState) => store.wsUserOrders);
   
   useEffect(() => {
     const accessToken = getCookie('accessToken')
@@ -70,7 +70,7 @@ export const  OrdersPage: React.FC = () => {
   }, [user]);
 
   const onCancel =  useCallback(
-    (e) => {
+    (e: React.FormEvent) => {
       e.preventDefault();
       setName(user.user ? user.user.name : '');
       setEmail(user.user ? user.user.email : '');

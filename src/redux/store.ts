@@ -1,7 +1,9 @@
-
+import { AnyAction } from 'redux'
 import { configureStore, getDefaultMiddleware  } from '@reduxjs/toolkit';
 import { rootReducer } from './reducers';
 import { createWsMiddleware } from './middleware';
+import { ThunkAction } from 'redux-thunk'
+
 import {  
   wsConnectionStart, 
   wsConnectionSuccess, 
@@ -17,6 +19,8 @@ import {
   wsUserConnectionClosed, 
   wsUserGetMessage,
 } from './actions/wsUserAction';
+
+import { TwsActionTypes } from '../redux/middleware/index';
 
 const url = 'wss://norma.nomoreparties.space/orders';
 //const url = 'ws://localhost';
@@ -36,7 +40,6 @@ const wsActions = {
   onClose: wsConnectionClosed,
 }
 
-
 const wsUserMiddleware = createWsMiddleware(url, wsUserActions);
 const wsMiddleware = createWsMiddleware(url, wsActions);
 
@@ -51,3 +54,10 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof rootReducer>;
 
 export type AppDispatch = typeof store.dispatch;
+
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  AnyAction
+>

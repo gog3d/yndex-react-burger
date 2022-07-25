@@ -21,7 +21,7 @@ import ModalIngredient from '../modal-ingredient/modal-ingredient';
 import IngredientDetails from '../ingredient-details/ingredient-details';
 import OrderInformation from '../order-information/order-information';
 import ProtectedRoute from '../protected-route';
-import  Location  from 'react-router-dom';
+import  { Location }  from 'history';
 
 const AppConstructor: React.FC = () => {
 
@@ -34,7 +34,7 @@ const AppConstructor: React.FC = () => {
 
   return (
       <div>
-        <Switch location={background || location}>
+        <Switch location = { background || location }>
           <Route path='/' exact={true}>
             <ConstructorPage />
           </Route>

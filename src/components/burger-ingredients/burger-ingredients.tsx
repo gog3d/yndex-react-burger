@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import styles from './burger-ingredients.module.css';
 import BurgerIngredientsList from '../burger-ingredients-list/burger-ingredients-list';
 import BurgerIngredientsHeader from '../burger-ingredients-header/burger-ingredients-header';
@@ -12,10 +12,11 @@ import {
 
 } from '../../redux/actions/ingredients';
 
-import { RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const BurgerIngredients: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const bunsRef = useRef<HTMLDivElement>(null);
   const saucesRef = useRef<HTMLDivElement>(null);
   const mainsRef = useRef<HTMLDivElement>(null);
@@ -36,7 +37,7 @@ const BurgerIngredients: React.FC = () => {
     }
   };
 
-  const { bunsScroll, saucesScroll, mainsScroll } = useSelector((store: RootState) => store.ingredients);
+  //const { bunsScroll, saucesScroll, mainsScroll } = useAppSelector((store: RootState) => store.ingredients);
   return (
     <div className={styles['burger-ingredients']}>
        <BurgerIngredientsHeader  />

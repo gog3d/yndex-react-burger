@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useContext, useMemo } from 'react';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { useSelector, useDispatch } from 'react-redux';
 import styles from './constructor-page.module.css';
 
 import BurgerConstructor from '../components/burger-constructor/burger-constructor';
@@ -10,9 +9,7 @@ import {
   refreshOrderdetailsItems,
 } from '../redux/actions/ingredients';
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/store';
-import { TIngredient}  from '../redux/action-types/data';
-import { Location } from 'history';
+import { RootState }  from '../redux/store';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 

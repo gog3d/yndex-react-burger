@@ -42,10 +42,4 @@ const Modal: React.FC<ModalProps> = (props) => {
     , document.getElementById('modals'));
 }
 
-Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
-};
-
 export default Modal;

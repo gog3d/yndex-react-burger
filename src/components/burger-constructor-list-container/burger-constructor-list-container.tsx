@@ -2,13 +2,8 @@
 import React, { useMemo } from 'react';
 import styles from './burger-constructor-list-container.module.css';
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-
 import BurgerConstructorListComponent from '../burger-constructor-list-component/burger-constructor-list-component';
-
-import { useDispatch, useSelector } from 'react-redux';
 import { useDrop } from 'react-dnd';
-
-//import { ADD_CONSTRUCTOR_INGREDIENT } from '../../redux/actions/ingredients';
 
 import {
   addConstructorIngredient,

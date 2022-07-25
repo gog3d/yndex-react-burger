@@ -7,7 +7,7 @@ import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components
 import OrderInformationComponentItem from '../order-information-component-item/order-information-component-item';
 
 import { RootState }  from '../../redux/store';
-import { TIngredient}  from '../../redux/action-types/data';
+import { TIngredient, TOrders}  from '../../types/data';
 import { Location } from 'history';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -27,7 +27,7 @@ const OrderInformationComponent: React.FC<{ order: TOrders}> = (props) => {
 
   const today: Date = new Date();
   const orderDate: Date = new Date(order.createdAt);
-  const day: number = Math.floor((today - orderDate)/(1000*3600*24));
+  const day: number = Math.floor((Number(today) - Number(orderDate))/(1000*3600*24));
 
   const date = {
     status: '',

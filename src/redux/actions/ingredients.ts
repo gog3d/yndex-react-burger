@@ -1,7 +1,7 @@
 import { createAction } from "@reduxjs/toolkit";
 import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
-//import { getItemsRequest, getOrderDetailsRequest } from '../fakeApi';
+
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
 
 import {
@@ -29,6 +29,7 @@ import {
 
 } from '../action-types';
 
+import { AppDispatch, AppThunk } from '../store';
 
 export const addConstructorIngredient = createAction(ADD_CONSTRUCTOR_INGREDIENT);
 export const deleteConstructorIngredient = createAction(DELETE_CONSTRUCTOR_INGREDIENT);
@@ -51,7 +52,23 @@ export const refreshBunsScroll = createAction(REFRESH_BUNS_SCROLL);
 export const refreshSaucesScroll = createAction(REFRESH_SAUCES_SCROLL);
 export const refreshMainsScroll = createAction(REFRESH_MAINS_SCROLL);
 
-export const getIngredients =  () => (dispatch) => {
+export type TIngredientsAction = ReturnType<typeof addConstructorIngredient>
+                                | ReturnType<typeof deleteConstructorIngredient>
+                                | ReturnType<typeof updateConstructorIngredients>
+                                | ReturnType<typeof addModalIngredients>
+                                | ReturnType<typeof deleteModalIngredients>
+                                | ReturnType<typeof refreshOrderdetailsItems>
+                                | ReturnType<typeof getIngredientsRequest>
+                                | ReturnType<typeof getIngredientsSuccess>
+                                | ReturnType<typeof getIngredientsFailed>
+                                | ReturnType<typeof getOrderdetailsRequest>
+                                | ReturnType<typeof getOrderdetailsSuccess>
+                                | ReturnType<typeof getOrderdetailsFailed>
+                                | ReturnType<typeof refreshBunsScroll>
+                                | ReturnType<typeof refreshSaucesScroll>
+                                | ReturnType<typeof refreshMainsScroll>;
+
+export const getIngredients =  () => (dispatch: AppDispatch) => {
   dispatch({ type: getIngredientsRequest });
   fetch(baseURL + 'ingredients').then(checkResponse).then(obj => {
   //getItemsRequest().then(obj => {
@@ -66,8 +83,7 @@ export const getIngredients =  () => (dispatch) => {
     });
 };
 
-
-export const getOrderDetails = (body = null) => (dispatch) => {
+export const getOrderDetails = (body = null) => (dispatch: AppDispatch) => {
   const idsComponents = {ingredients: body.map((comp)=>comp._id)};
   const accessToken = getCookie('accessToken');
   dispatch({ type: getOrderdetailsRequest });

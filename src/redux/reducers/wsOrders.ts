@@ -6,8 +6,9 @@ import {
   wsGetMessage
 } from '../actions/wsAction';
 
+import { TWsOrdersState } from '../../types/data';
 
-const initialState = { 
+const initialState: TWsOrdersState = { 
   wsError: undefined,
   wsConnected: false, 
   wsOrders: [],

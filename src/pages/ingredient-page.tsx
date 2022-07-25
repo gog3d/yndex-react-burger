@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './ingredient-page.module.css';
 import image from '../image/7d9fa34b16200edb585c8855f1699057.gif';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,16 +8,15 @@ import {
 } from "react-router-dom";
 
 import { RootState }  from '../redux/store';
-import { TIngredient}  from '../redux/action-types/data';
-import { Location } from 'history';
+import { TIngredient } from '../types/data';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
-export const IngredientPage = () => {
+export const IngredientPage: React.FC = () => {
   const items = useAppSelector((store: RootState) => store.ingredients.burgerIngredients);
   const { ingredientId } = useParams<{ ingredientId: string }>();
 
-  const item = items.find(e => e._id === ingredientId);
+  const item = items.find((e: TIngredient) => e._id === ingredientId);
 
   if (!item) return null;
 

@@ -1,8 +1,6 @@
+import React from 'react';
 import styles from './order-information-item.module.css';
-
-
-import { TWsState, TWsDataType, TOrders, RootState }  from '../../redux/action-types';
-import { TIngredient}  from '../../redux/action-types/data';
+import { TIngredient}  from '../../types/data';
 import { Location } from 'history';
 
 

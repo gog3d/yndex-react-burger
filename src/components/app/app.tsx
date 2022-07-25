@@ -1,5 +1,5 @@
 //import styles from './app.module.css';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -12,7 +12,7 @@ import AppConstructor from '../app-constructor/app-constructor';
 import { wsConnectionStart } from '../../redux/actions/wsAction';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
-const App = () => {
+const App: React.FC = () => {
   
   const dispatch = useAppDispatch();
 
@@ -25,7 +25,7 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-   //dispatch({ type: wsConnectionStart, payload: ':3001' });
+    //dispatch({ type: wsConnectionStart, payload: ':3001' });
     dispatch({ type: wsConnectionStart, payload: '/all' });
   }, [dispatch]);
 

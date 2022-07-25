@@ -12,3 +12,9 @@ export const wsUserConnectionSuccess = createAction(WS_USER_CONNECTION_SUCCESS);
 export const wsUserConnectionError = createAction(WS_USER_CONNECTION_ERROR);
 export const wsUserConnectionClosed = createAction(WS_USER_CONNECTION_CLOSED);
 export const wsUserGetMessage = createAction(WS_USER_GET_MESSAGE);
+
+export type TWsUserAction = ReturnType<typeof wsUserConnectionStart>
+                            | ReturnType<typeof wsUserConnectionSuccess>
+                            | ReturnType<typeof wsUserConnectionError>
+                            | ReturnType<typeof wsUserConnectionClosed>
+                            | ReturnType<typeof wsUserGetMessage>;

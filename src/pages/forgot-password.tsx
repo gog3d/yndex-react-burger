@@ -7,8 +7,6 @@ import styles from './forgot-password.module.css';
 import { getForgotPassword } from '../redux/actions/forgot-password';
 
 import { RootState }  from '../redux/store';
-import { TIngredient}  from '../redux/action-types/data';
-import { Location } from 'history';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
@@ -17,8 +15,8 @@ export const  ForgotPasswordPage: React.FC = () => {
 
   const {
     forgotPassword,
-    /*forgotPasswordRequest,
-    forgotPasswordFailed,*/
+    forgotPasswordRequest,
+    forgotPasswordFailed,
   } = useAppSelector((store: RootState)=> store.forgotPassword);
 
   const dispatch = useAppDispatch();

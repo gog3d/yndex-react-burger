@@ -3,21 +3,10 @@ import { useHistory } from 'react-router-dom';
 import styles from './profile.module.css';
 
 import { getLogout, getUser, getRefreshUser } from '../redux/actions/auth';
-import { getCookie } from '../redux/utils';
-
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 
-import { TWsState, TWsDataType, TOrders, RootState }  from '../redux/action-types';
-import { TIngredient}  from '../redux/action-types/data';
-import { Location } from 'history';
-
+import { RootState }  from '../redux/store';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-
-interface LocationState {
-  from: {
-    pathname: string;
-  };
-}
 
 export const  ProfilePage: React.FC = () => {
   const history = useHistory(); 
@@ -45,8 +34,6 @@ export const  ProfilePage: React.FC = () => {
   const onSave =  useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-//      console.log( getCookie('accessToken'));
-      //console.dir({email, password});
       dispatch(getRefreshUser({ 
         'email': email,
         'password': password }));

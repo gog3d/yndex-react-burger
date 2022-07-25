@@ -1,11 +1,11 @@
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './order-sheet-component.module.css';
 
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import { RootState }  from '../../redux/store';
-import { TIngredient}  from '../../redux/action-types/data';
-import { Location } from 'history';
+import { TIngredient, TOrders}  from '../../types/data';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
@@ -20,9 +20,9 @@ const OrderSheetComponent: React.FC<{ order: TOrders }> = ({ order }) => {
     burgerIngredients,
   } = useAppSelector((store: RootState) => store.ingredients);
 
-  const today = new Date();
-  const orderDate = new Date(order.createdAt);
-  const day = Math.floor((today - orderDate)/(1000*3600*24));
+  const today: Date = new Date();
+  const orderDate: Date = new Date(order.createdAt);
+  const day = Math.floor((Number(today) - Number(orderDate))/(1000*3600*24));
 
   const date = {
     status: '',
@@ -49,7 +49,7 @@ const OrderSheetComponent: React.FC<{ order: TOrders }> = ({ order }) => {
 
 
   const items: Array<TIngredient> = [];
-  burgerIngredients.map((item) => {
+  burgerIngredients.map((item: TIngredient) => {
     order.ingredients.map((ingredient) => {
       if(ingredient === item._id) {
         items.push(item);

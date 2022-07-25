@@ -1,8 +1,9 @@
+import React from 'react';
 import styles from './ingredient-details.module.css';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 
-import { RootState }  from '../../redux/action-types';
+import { RootState }  from '../../redux/store';
 import { TIngredient}  from '../../redux/action-types/data';
 import { Location } from 'history';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';

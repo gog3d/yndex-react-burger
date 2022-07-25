@@ -2,16 +2,6 @@ import { createAction } from "@reduxjs/toolkit";
 //import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
-/*
-import { 
-  getLoginRequestApi,  
-  getLogoutRequestApi, 
-  getTokenRequestApi, 
-  getRegisterRequestApi, 
-  getUserRequestApi, 
-  getRefreshUserRequestApi
-  } from '../fakeApiAuth';
-*/
 
 import {
   GET_LOGIN_REQUEST,
@@ -43,6 +33,7 @@ import {
   GET_TOKEN_FAILED,
 
 } from '../action-types';
+
 export const getLoginRequest = createAction(GET_LOGIN_REQUEST);
 export const getLoginSuccess = createAction(GET_LOGIN_SUCCESS);
 export const getLoginFailed = createAction(GET_LOGIN_FAILED);
@@ -71,7 +62,31 @@ export const getTokenRequest = createAction(GET_TOKEN_REQUEST);
 export const getTokenSuccess = createAction(GET_TOKEN_SUCCESS);
 export const getTokenFailed = createAction(GET_TOKEN_FAILED);
 
-export const getLogin = (body = null) => async (dispatch) => {
+import { AppDispatch, AppThunk } from '../store';
+
+export type TAuthAction = ReturnType<typeof getLoginRequest>
+                          | ReturnType<typeof getLoginSuccess>
+                          | ReturnType<typeof getLoginFailed>
+                          | ReturnType<typeof getRegisterRequest>
+                          | ReturnType<typeof getRegisterSuccess>
+                          | ReturnType<typeof getRegisterFailed>
+                          | ReturnType<typeof getLogoutRequest>
+                          | ReturnType<typeof getLogoutSuccess>
+                          | ReturnType<typeof getLogoutFailed>
+                          | ReturnType<typeof getUserRequest>
+                          | ReturnType<typeof getUserSuccess>
+                          | ReturnType<typeof getUserFailed>
+                          | ReturnType<typeof getRefreshUserRequest>
+                          | ReturnType<typeof getRefreshUserSuccess>
+                          | ReturnType<typeof getRefreshUserFailed>
+                          | ReturnType<typeof getAuthRequest>
+                          | ReturnType<typeof getAuthSuccess>
+                          | ReturnType<typeof getAuthFailed>
+                          | ReturnType<typeof getTokenRequest>
+                          | ReturnType<typeof getTokenSuccess>
+                          | ReturnType<typeof getTokenFailed>;
+
+export const getLogin = (body = null) => async (dispatch: AppDispatch) => {
   dispatch({ type: getLoginRequest });
   try {
     const res = await fetchRequest.post('auth/login', body);
@@ -98,7 +113,7 @@ export const getLogin = (body = null) => async (dispatch) => {
   };
 };
 
-export const getAuth = () => async (dispatch) => {
+export const getAuth = () => async (dispatch: AppDispatch) => {
   dispatch({ type: getAuthRequest });
   const refreshToken = getCookie('refreshToken');
   if (refreshToken) {
@@ -128,7 +143,7 @@ export const getAuth = () => async (dispatch) => {
   }
 };
 
-export const getUser =  () => async (dispatch) => {
+export const getUser =  () => async (dispatch: AppDispatch) => {
   dispatch({ type: getUserRequest });
   await getAuth();
   const accessToken = getCookie('accessToken');
@@ -151,7 +166,7 @@ export const getUser =  () => async (dispatch) => {
   }
 };
 
-export const getRegister = (body = null) => async (dispatch) => {
+export const getRegister = (body = null) => async (dispatch: AppDispatch) => {
   dispatch({ type: getRegisterRequest });
   try {
     const res = await fetchRequest.post('auth/register', body);
@@ -175,7 +190,7 @@ export const getRegister = (body = null) => async (dispatch) => {
   };
 };
 
-export const getLogout = () => async (dispatch) => {
+export const getLogout = () => async (dispatch: AppDispatch) => {
   dispatch({ type: getLogoutRequest });
   const refreshToken = getCookie('refreshToken');
   if (refreshToken) {
@@ -210,7 +225,7 @@ export const getLogout = () => async (dispatch) => {
   }
 };
 
-export const getRefreshUser = (body = null) => async (dispatch) => {
+export const getRefreshUser = (body = null) => async (dispatch: AppDispatch) => {
   dispatch({ type: getRefreshUserRequest });
   const accessToken = getCookie('accessToken');
   if(accessToken) {
