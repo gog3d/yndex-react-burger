@@ -4,8 +4,6 @@ import styles from './reset-password.module.css';
 
 import {Logo, PasswordInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { getResetPassword } from '../redux/actions/reset-password';
-import { RootState }  from '../redux/store';
-
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 interface LocationState {
   from: {
@@ -19,11 +17,11 @@ export const ResetPasswordPage: React.FC<{ state: LocationState }> = ({ state })
 
   const {
     resetPassword,
-  } = useAppSelector((store: RootState) => store.resetPassword);
+  } = useAppSelector((store) => store.resetPassword);
 
   const {
     forgotPassword,
-  } = useAppSelector((store: RootState) => store.forgotPassword);
+  } = useAppSelector((store) => store.forgotPassword);
 
   const dispatch = useAppDispatch();
 

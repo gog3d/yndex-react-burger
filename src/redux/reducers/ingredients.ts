@@ -85,7 +85,7 @@ export const ingredientsReducer = createReducer(initialState, (builder) => {
       }
     })
     .addCase(updateConstructorIngredients, (state, action) => {
-      state.constructorIngredients = [...action.ingredients];
+      state.constructorIngredients.ingredients = [...action.ingredients];
     })
     .addCase(deleteConstructorIngredient, (state, action) => {
       state.constructorIngredients.ingredients.splice(action.index, 1);

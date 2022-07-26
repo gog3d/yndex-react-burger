@@ -3,15 +3,14 @@ import React from 'react';
 import {
   useLocation,
 } from "react-router-dom";
-import { RootState } from '../redux/store';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { useAppSelector } from '../redux/hooks';
 
 
 const ProtectedRoute: React.FC<{ children:React.ReactNode, rest: any}> = (props) => {
   const { children, rest } = props;
   const {
     authFailed,
-  } = useAppSelector((store: RootState) => store.auth);
+  } = useAppSelector((store) => store.auth);
   
   const location = useLocation();
 

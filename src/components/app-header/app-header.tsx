@@ -8,7 +8,6 @@ const AppHeader: React.FC = () => {
   const { search, pathname } = useLocation();
   const history = useHistory();
 
-
   useEffect(
     () => {
       if(pathname === '/') {

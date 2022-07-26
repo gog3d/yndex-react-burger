@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './order-information-item.module.css';
 import { TIngredient}  from '../../types/data';
-import { Location } from 'history';
-
 
 const OrderInformationItem: React.FC<{ item: TIngredient }> = ({ item }) => {
 

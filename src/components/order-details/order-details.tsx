@@ -1,16 +1,11 @@
 import React from 'react';
 import styles from './order-details.module.css';
 import image from '../../image/7d9fa34b16200edb585c8855f1699057.gif';
-
-import { RootState }  from '../../redux/store';
-import { TIngredient}  from '../../types/data';
-import { Location } from 'history';
-
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
 
 const OrderDetails: React.FC = () => {
 
-  const { orderDetails } = useAppSelector((store: RootState) => store.ingredients);
+  const { orderDetails } = useAppSelector((store) => store.ingredients);
 
     return (
     <div className={styles['order-details']} >

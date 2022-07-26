@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { Logo, EmailInput, Button, Input } from '@ya.praktikum/react-developer-burger-ui-components';
 import styles from './forgot-password.module.css';
 import { getForgotPassword } from '../redux/actions/forgot-password';
-
-import { RootState }  from '../redux/store';
-
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export const  ForgotPasswordPage: React.FC = () => {
@@ -17,7 +13,7 @@ export const  ForgotPasswordPage: React.FC = () => {
     forgotPassword,
     forgotPasswordRequest,
     forgotPasswordFailed,
-  } = useAppSelector((store: RootState)=> store.forgotPassword);
+  } = useAppSelector((store)=> store.forgotPassword);
 
   const dispatch = useAppDispatch();
 
@@ -29,7 +25,6 @@ export const  ForgotPasswordPage: React.FC = () => {
   ) 
 
   if(forgotPassword.success) {
-    //console.log(forgotPassword);
     return (
       <Redirect
         to={{

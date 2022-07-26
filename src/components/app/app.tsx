@@ -9,8 +9,7 @@ import { getAuth } from '../../redux/actions/auth';
 import AppHeader from '../app-header/app-header';
 import AppConstructor from '../app-constructor/app-constructor';
 
-import { wsConnectionStart } from '../../redux/actions/wsAction';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch } from '../../redux/hooks';
 
 const App: React.FC = () => {
   
@@ -22,11 +21,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     dispatch(getAuth());
-  }, [dispatch]);
-
-  useEffect(() => {
-    //dispatch({ type: wsConnectionStart, payload: ':3001' });
-    dispatch({ type: wsConnectionStart, payload: '/all' });
   }, [dispatch]);
 
   return (

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list.module.css';
 import BurgerIngredientsListComponent from '../burger-ingredients-list-component/burger-ingredients-list-component';
 

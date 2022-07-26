@@ -2,13 +2,8 @@ import React, { useState, useCallback } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import styles from './register.module.css';
-
-import { getRegister } from '../redux/actions/auth';
-//import { setCookie } from '../redux/utils.js';
-
+import { getRegister } from '../redux/actions/auth'
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
-import { RootState }  from '../redux/store';
-
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 interface LocationState {
@@ -25,7 +20,7 @@ export const  RegisterPage: React.FC<{ state: LocationState }> = ({ state }) => 
   const {
     authFailed,
     register,
-  } = useAppSelector((store: RootState) => store.auth);
+  } = useAppSelector((store) => store.auth);
 
   const dispatch = useAppDispatch();
 

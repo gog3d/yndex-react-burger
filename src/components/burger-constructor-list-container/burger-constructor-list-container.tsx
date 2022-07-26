@@ -9,13 +9,11 @@ import {
   addConstructorIngredient,
 } from '../../redux/actions/ingredients';
 
-import { RootState }  from '../../redux/store';
-
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const BurgerConstructorListContainer: React.FC = () => {
   const dispatch = useAppDispatch();
-  const constructorIngredients = useAppSelector((store: RootState) => store.ingredients.constructorIngredients);
+  const constructorIngredients = useAppSelector((store) => store.ingredients.constructorIngredients);
 
   const bun = useMemo(
     () => {

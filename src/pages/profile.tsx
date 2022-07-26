@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './profile.module.css';
-
 import { getLogout, getUser, getRefreshUser } from '../redux/actions/auth';
-import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
-
-import { RootState }  from '../redux/store';
+import { PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export const  ProfilePage: React.FC = () => {
@@ -15,7 +12,7 @@ export const  ProfilePage: React.FC = () => {
     user, 
     userRequest,
     userFailed,
-  } = useAppSelector((store: RootState) => store.auth);
+  } = useAppSelector((store) => store.auth);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

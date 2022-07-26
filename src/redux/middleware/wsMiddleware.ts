@@ -4,7 +4,7 @@ import { RootState } from '../store';
 
 export type TwsActionTypes = {
   wsStart: ActionCreatorWithPayload<string>,
-  //wsDisconnect: ActionCreatorWithoutPayload,
+  wsDisconnect: ActionCreatorWithoutPayload,
   //wsSendMessage?: ActionCreatorWithPayload<any>,
   //wsConnecting: ActionCreatorWithoutPayload,
   onOpen: ActionCreatorWithoutPayload,
@@ -20,6 +20,7 @@ export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Mi
       const { type, payload } = action;
       const {
         wsStart,
+        wsDisconnect,
         onOpen,
         onError,
         onMessage,
@@ -44,6 +45,12 @@ export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Mi
         socket.close = event => {
            dispatch({type: onClose});
         };
+        
+        if (type === wsDisconnect) {
+          console.log('disconnect');
+          socket.close();
+          dispatch(onClose());
+        }
       }
       next(action);
     }

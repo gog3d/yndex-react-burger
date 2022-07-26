@@ -6,10 +6,8 @@ import {
 } from "react-router-dom";
 
 import OrderInformationComponent from '../components/order-information-component/order-information-component';
-import { RootState }  from '../redux/store';
-import { TOrders } from '../types/data';
-
-import { wsUserConnectionStart } from '../redux/actions/wsUserAction';
+import { wsUserConnectionStart, wsUserDisconnect } from '../redux/actions/wsUserAction';
+import { wsConnectionStart, wsDisconnect } from '../redux/actions/wsAction';
 import { getCookie } from '../redux/utils';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -25,7 +23,7 @@ export const OrderInformationPage: React.FC = () => {
     wsUserOrders, 
     wsUserOrdersTotal, 
     wsUserOrdersTotalToday 
-  } = useAppSelector((store: RootState) => store.wsUserOrders);
+  } = useAppSelector((store) => store.wsUserOrders);
 
   const { 
     wsError, 
@@ -33,22 +31,26 @@ export const OrderInformationPage: React.FC = () => {
     wsOrders, 
     wsOrdersTotal, 
     wsOrdersTotalToday 
-  } = useAppSelector((store: RootState) => store.wsOrders);
-
+  } = useAppSelector((store) => store.wsOrders);
 
   useEffect(() => {
+    dispatch({ type: wsConnectionStart, payload: '/all' });
     const accessToken = getCookie('accessToken')
     dispatch({ type: wsUserConnectionStart, payload: `?token=${accessToken}` });
     //dispatch({ type: wsUserConnectionStart, payload: ':3002' });
+    return () => {
+      dispatch({type: wsUserDisconnect});
+      dispatch({type: wsDisconnect});
+    }
   }, [dispatch]);
   
   const order = useMemo(() => {
       if(wsOrders) {
-        const allOrders = wsOrders.find((order: TOrders) => order._id === id);
+        const allOrders = wsOrders.find((order) => order._id === id);
         if (allOrders) return allOrders;
       } 
       if(wsUserOrders) {
-        const userOrders = wsUserOrders.find((order: TOrders) => order._id === id);
+        const userOrders = wsUserOrders.find((order) => order._id === id);
         if (userOrders) {
           return userOrders;
         } else{

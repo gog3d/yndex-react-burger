@@ -1,15 +1,11 @@
 import React, {useEffect } from 'react';
 import styles from './order-information.module.css';
-import { useSelector } from 'react-redux';
-import { useMemo } from 'react';
+import { useMemo } from 'react';import { useSelector } from 'react-redux';
 import {
   useParams
 } from "react-router-dom";
-
-import { TOrders, TUserOrders }  from '../../types/data';
-
 import OrderInformationComponent from '../order-information-component/order-information-component';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
 
 const OrderInformation: React.FC = () => {
   
@@ -33,8 +29,8 @@ const OrderInformation: React.FC = () => {
 
   const order = useMemo(() => {
     if(wsOrders) {
-      const userOrders = wsUserOrders.find((order: TUserOrders) => order._id === id);
-      const orders = wsOrders.find((order: TOrders) => order._id === id);
+      const userOrders = wsUserOrders.find((order) => order._id === id);
+      const orders = wsOrders.find((order) => order._id === id);
       if(orders) {
         return orders;
       } else if(userOrders) {

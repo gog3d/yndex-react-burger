@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import styles from './burger-ingredients.module.css';
 import BurgerIngredientsList from '../burger-ingredients-list/burger-ingredients-list';
 import BurgerIngredientsHeader from '../burger-ingredients-header/burger-ingredients-header';
-import { useDispatch, useSelector } from 'react-redux';
-
 import {
   
   refreshBunsScroll,
@@ -11,9 +9,7 @@ import {
   refreshMainsScroll,
 
 } from '../../redux/actions/ingredients';
-
-import { RootState }  from '../../redux/store';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch } from '../../redux/hooks';
 
 const BurgerIngredients: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -37,7 +33,6 @@ const BurgerIngredients: React.FC = () => {
     }
   };
 
-  //const { bunsScroll, saucesScroll, mainsScroll } = useAppSelector((store: RootState) => store.ingredients);
   return (
     <div className={styles['burger-ingredients']}>
        <BurgerIngredientsHeader  />

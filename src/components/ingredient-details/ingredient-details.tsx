@@ -1,15 +1,10 @@
 import React from 'react';
 import styles from './ingredient-details.module.css';
-import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
-
-import { RootState }  from '../../redux/store';
-import { TIngredient}  from '../../redux/action-types/data';
-import { Location } from 'history';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
 
 const IngredientDetails: React.FC = () => {
-  const items = useAppSelector((store: RootState) => store.ingredients.burgerIngredients);
+  const items = useAppSelector((store) => store.ingredients.burgerIngredients);
   const { ingredientId } = useParams<{ ingredientId: string }>();
 
   const item = items.find(e => e._id === ingredientId);

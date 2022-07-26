@@ -1,11 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { Link, useLocation, Redirect } from 'react-router-dom';
 import styles from './login.module.css';
-
 import { getLogin } from '../redux/actions/auth';
-import { Logo, EmailInput, PasswordInput, Button, Input } from '@ya.praktikum/react-developer-burger-ui-components';
-
-import { RootState }  from '../redux/store';
+import { Logo, EmailInput, PasswordInput, Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Location } from 'history';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -24,7 +21,7 @@ export const  LoginPage: React.FC = () => {
 
  const {
     authFailed,
-  } = useAppSelector((store: RootState) => store.auth);
+  } = useAppSelector((store) => store.auth);
 
   const dispatch = useAppDispatch();
 

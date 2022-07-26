@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styles from './burger-ingredients-list-component.module.css';
 import BurgerIngredientsListComponentItem from '../burger-ingredients-list-component-item/burger-ingredients-list-component-item';
 import {
@@ -6,11 +5,10 @@ import {
   useHistory,
   useLocation,
 } from "react-router-dom";
-import { RootState }  from '../../redux/store';
 import { TIngredient}  from '../../redux/action-types/data';
 import { Location } from 'history';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
 
 interface BurgerIngredientsListComponentProps {
   type: string,
@@ -21,7 +19,7 @@ const BurgerIngredientsListComponent: React.FC<BurgerIngredientsListComponentPro
   const location = useLocation<Location>();
 
   const history = useHistory();
-  const items = useAppSelector((store: RootState) => store.ingredients.burgerIngredients).
+  const items = useAppSelector((store) => store.ingredients.burgerIngredients).
     filter((item) => item.type === type);
   const onClickItem = (
     item: TIngredient, location: Location

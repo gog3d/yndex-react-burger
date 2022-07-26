@@ -10,8 +10,6 @@ import {
 } from '../../redux/actions/ingredients';
 
 import { TIngredient } from '../../types/data';
-import { RootState }  from '../../redux/store';
-
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 interface BurgerConstructorListComponentProps {
@@ -23,7 +21,7 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
   const dispatch = useAppDispatch();
   const { item, index } = props;
 
-  const ingredients = useAppSelector((store: RootState) => store.ingredients.constructorIngredients.ingredients);
+  const ingredients = useAppSelector((store) => store.ingredients.constructorIngredients.ingredients);
 
   const [locked, setIsLocked] =useState(false);
   const [type, setType] = useState('primary')

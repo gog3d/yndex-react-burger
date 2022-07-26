@@ -29,7 +29,7 @@ import {
 
 } from '../action-types';
 
-import { AppDispatch, AppThunk } from '../store';
+import { AppDispatch } from '../store';
 
 export const addConstructorIngredient = createAction(ADD_CONSTRUCTOR_INGREDIENT);
 export const deleteConstructorIngredient = createAction(DELETE_CONSTRUCTOR_INGREDIENT);

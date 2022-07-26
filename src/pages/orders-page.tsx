@@ -9,10 +9,9 @@ import { getLogout, getUser } from '../redux/actions/auth';
 import styles from './orders-page.module.css';
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
-import { RootState }  from '../redux/store';
 import { TOrders }  from '../types/data';
 import { Location } from 'history';
-import { wsUserConnectionStart } from '../redux/actions/wsUserAction';
+import { wsUserConnectionStart, wsUserDisconnect } from '../redux/actions/wsUserAction';
 import { getCookie } from '../redux/utils';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -39,7 +38,7 @@ export const  OrdersPage: React.FC = () => {
     user, 
     userRequest,
     userFailed,
-  } = useAppSelector((store: RootState) => store.auth);
+  } = useAppSelector((store) => store.auth);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -52,12 +51,15 @@ export const  OrdersPage: React.FC = () => {
     wsUserOrders, 
     wsUserOrdersTotal, 
     wsUserOrdersTotalToday 
-  } = useAppSelector((store: RootState) => store.wsUserOrders);
+  } = useAppSelector((store) => store.wsUserOrders);
   
   useEffect(() => {
     const accessToken = getCookie('accessToken')
     dispatch({ type: wsUserConnectionStart, payload: `?token=${accessToken}` });
     //dispatch({ type: wsUserConnectionStart, payload: ':3002' });
+    return () => {
+      dispatch({type: wsUserDisconnect});
+    }
   }, [dispatch]);
 
   useEffect(() => {

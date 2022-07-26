@@ -6,13 +6,6 @@ import {
 
 import styles from './burger-constructor-button-container.module.css';
 import { CurrencyIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components';
-// Fix ошибки ts для компонентов yandex
-/*declare module 'react' {
-  interface FunctionComponent<P = {}> {
-      (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
-  }
-}
-*/
 
 import Modal from '../modal/modal';
 import OrderDetails from '../order-details/order-details';
@@ -28,15 +21,15 @@ const BurgerConstructorButtonContainer: React.FC = () => {
     orderDetails,
     orderDetailsRequest,
     orderDetailsFailed,
-    } = useAppSelector((store: RootState) => store.ingredients);
+    } = useAppSelector((store) => store.ingredients);
 
   const {
     authFailed,
-  } = useAppSelector((store: RootState) => store.auth);
+  } = useAppSelector((store) => store.auth);
 
   const history = useHistory();
 
-  const constructorIngredients = useAppSelector((store: RootState) => store.ingredients.constructorIngredients);
+  const constructorIngredients = useAppSelector((store) => store.ingredients.constructorIngredients);
   
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);

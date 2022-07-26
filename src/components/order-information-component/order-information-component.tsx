@@ -1,16 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import styles from './order-information-component.module.css';
-
-import { useSelector } from 'react-redux';
-
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import OrderInformationComponentItem from '../order-information-component-item/order-information-component-item';
 
 import { RootState }  from '../../redux/store';
 import { TIngredient, TOrders}  from '../../types/data';
-import { Location } from 'history';
-
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
 
 export interface TTotal {
   bun: TIngredient | null,

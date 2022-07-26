@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useRef, useContext, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import styles from './constructor-page.module.css';
-
 import BurgerConstructor from '../components/burger-constructor/burger-constructor';
 import BurgerIngredients from '../components/burger-ingredients/burger-ingredients';
 import {
   refreshOrderdetailsItems,
 } from '../redux/actions/ingredients';
-
-import { RootState }  from '../redux/store';
-
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 export const ConstructorPage: React.FC = () => {
@@ -19,7 +15,7 @@ export const ConstructorPage: React.FC = () => {
     burgerIngredients,
     burgerIngredientsRequest,
     burgerIngredientsFailed
-    } = useAppSelector((store: RootState) => store.ingredients);
+    } = useAppSelector((store) => store.ingredients);
 
   const dispatch = useAppDispatch();
 
