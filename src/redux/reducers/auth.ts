@@ -35,7 +35,7 @@ import {
 import { TAuthState } from '../../types/data';
 
 
-const authState: TAuthState = {
+export const authState: TAuthState = {
     login: {},
     loginRequest: false,
     loginFailed: false,
@@ -67,42 +67,42 @@ const authState: TAuthState = {
   
 export const authReducer = createReducer(authState, (builder) => {
   builder
-  .addCase(getLoginRequest, (state, action)=>{
+  .addCase(getLoginRequest, (state, action) => {
       state.loginRequest = true;
     })  
-    .addCase(getLoginSuccess, (state, action)=>{
+    .addCase(getLoginSuccess, (state, action) => {
       state.loginFailed = false; 
       state.login = action.login; 
       state.register = action.login; 
       state.loginRequest = false;
     })
 
-    .addCase(getLoginFailed, (state, action)=>{
+    .addCase(getLoginFailed, (state, action) => {
       state.loginFailed = true; 
       state.loginRequest = false;
     })
     
-    .addCase(getRegisterRequest, (state, action)=>{
+    .addCase(getRegisterRequest, (state, action) => {
       state.registerRequest = true;
     })
-    .addCase(getRegisterSuccess, (state, action)=>{
+    .addCase(getRegisterSuccess, (state, action) => {
       state.registerFailed = false;
       state.register = action.register;
       state.registerRequest = false;
     })
-    .addCase(getRegisterFailed, (state, action)=>{
+    .addCase(getRegisterFailed, (state, action) => {
       state.registerFailed = true; 
       state.registerRequest = false;
     })
-    .addCase(getLogoutRequest, (state, action)=>{
+    .addCase(getLogoutRequest, (state, action) => {
       state.logoutRequest = true;
     })
-    .addCase(getLogoutSuccess, (state, action)=>{
+    .addCase(getLogoutSuccess, (state, action) => {
       state.logoutFailed = false;
       state.logout = action.logout; 
       state.logoutRequest = false;
     })
-    .addCase(getLogoutFailed, (state, action)=>{
+    .addCase(getLogoutFailed, (state, action) => {
       state.logoutFailed = true;
       state.logoutRequest = false;
     })

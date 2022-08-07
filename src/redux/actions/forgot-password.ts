@@ -1,3 +1,4 @@
+import { AppDispatch, AppThunk } from '../store';
 import { createAction } from "@reduxjs/toolkit";
 import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
@@ -14,7 +15,7 @@ export const getForgotPasswordRequest = createAction(GET_FORGOT_PASSWORD_REQUEST
 export const getForgotPasswordSuccess = createAction(GET_FORGOT_PASSWORD_SUCCESS);
 export const getForgotPasswordFailed = createAction(GET_FORGOT_PASSWORD_FAILED);
 
-import { AppDispatch, AppThunk } from '../store';
+
 
 export type TForgotPasswordAction = ReturnType<typeof getForgotPasswordRequest>
                                     | ReturnType<typeof getForgotPasswordSuccess>

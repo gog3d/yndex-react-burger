@@ -7,7 +7,7 @@ import {
 
 import { TResetPasswordState } from '../../types/data';
 
-const resetPasswordState: TResetPasswordState = {
+export const resetPasswordState: TResetPasswordState = {
   resetPassword: {},
   resetPasswordRequest: false,
   resetPasswordFailed: false,

@@ -26,7 +26,7 @@ import {
 
 import { TIngredientsState } from '../../types/data';
 
-const initialState: TIngredientsState = {
+export const initialState: TIngredientsState = {
     burgerIngredients: [],
     burgerIngredientsRequest: false,
     burgerIngredientsFailed: false,
@@ -92,10 +92,10 @@ export const ingredientsReducer = createReducer(initialState, (builder) => {
       //...state, constructorIngredients: {...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients]
     })
     .addCase(deleteModalIngredients, (state, action) => {
-      state.modalIngredients = {};
+      state.modalIngredient = {};
     })
     .addCase(addModalIngredients, (state, action) => {
-      state.modalIngredients = action.item;
+      state.modalIngredient = action.item;
     })
     .addCase(refreshBunsScroll, (state, action) => {
       state.bunsScroll = true;

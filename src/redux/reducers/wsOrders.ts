@@ -8,7 +8,7 @@ import {
 
 import { TWsOrdersState } from '../../types/data';
 
-const initialState: TWsOrdersState = { 
+export const initialState: TWsOrdersState = { 
   wsError: undefined,
   wsConnected: false, 
   wsOrders: [],

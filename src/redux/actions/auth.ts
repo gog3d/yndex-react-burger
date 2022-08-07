@@ -1,3 +1,4 @@
+import { AppDispatch, AppThunk } from '../store';
 import { createAction } from "@reduxjs/toolkit";
 //import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
@@ -61,8 +62,6 @@ export const getAuthFailed = createAction(GET_AUTH_FAILED);
 export const getTokenRequest = createAction(GET_TOKEN_REQUEST);
 export const getTokenSuccess = createAction(GET_TOKEN_SUCCESS);
 export const getTokenFailed = createAction(GET_TOKEN_FAILED);
-
-import { AppDispatch, AppThunk } from '../store';
 
 export type TAuthAction = ReturnType<typeof getLoginRequest>
                           | ReturnType<typeof getLoginSuccess>

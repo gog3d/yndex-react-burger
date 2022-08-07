@@ -8,7 +8,7 @@ import {
 
 import { TForgotPasswordState } from '../../types/data';
 
-const forgotPasswordState: TForgotPasswordState = {
+export const forgotPasswordState: TForgotPasswordState = {
   forgotPassword: {},
   forgotPasswordRequest: false,
   forgotPasswordFailed: false,
