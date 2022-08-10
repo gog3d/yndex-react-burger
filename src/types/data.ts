@@ -79,7 +79,7 @@ export type TAuthState = {
   loginRequest: boolean,
   loginFailed: boolean,
   
-  register: TRegister | null,
+  register: null | TRegister,
   registerRequest: boolean,
   registerFailed: boolean,
   
@@ -91,7 +91,7 @@ export type TAuthState = {
   tokenRequest: boolean,
   tokenFailed: boolean,
 
-  user: TLogin | TUser| null,
+  user: TLogin | null,
   userRequest: boolean,
   userFailed: boolean,
 
@@ -160,3 +160,20 @@ export type TForgotPasswordState = {
       wsUserOrdersTotal: number | null,
       wsUserOrdersTotalToday: number | null,
     };
+    
+    export interface Location<S = unknown> {
+      pathname: string;
+      search: string;
+      state: S;
+      hash: string;
+      key?: string | undefined;
+    }
+  
+    export interface TLocationState {
+      background?: Location<TLocationState>
+      from?: Location<TLocationState>
+    }
+  export type TRefreshUser = {
+    email: string,
+    password: string
+  }

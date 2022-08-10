@@ -83,7 +83,7 @@ export const fetchRequest = {
   patch: async (path: string = '', body: any = null, headers: any = {}) => {
     return new Promise((resolve, reject) => {
       fetch(baseURL + path, {
-        method: 'GET',
+        method: 'PATCH',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',

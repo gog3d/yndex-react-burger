@@ -22,11 +22,17 @@ export const  ProfilePage: React.FC = () => {
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-
+/*
   useEffect(()=>{
     setName(user.user ? user.user.name : '');
     setEmail(user.user ? user.user.email : '');
   }, [user]);
+*/
+
+useEffect(()=>{
+  setName(user === null ? '' : user.user.name);
+  setEmail(user === null ? '' : user.user.email);
+}, [user]);
 
   const onSave =  useCallback(
     (e: React.FormEvent) => {
@@ -40,8 +46,10 @@ export const  ProfilePage: React.FC = () => {
   const onCancel = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      setName(user.user ? user.user.name : '');
-      setEmail(user.user ? user.user.email : '');
+//      setName(user.user ? user.user.name : '');
+//      setEmail(user.user ? user.user.email : '');
+      setName(user === null ? '' : user.user.name);
+      setEmail(user === null ? '' : user.user.email);
       setPassword('');
     }, [email, password, name]
   );

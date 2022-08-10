@@ -2,6 +2,7 @@ import { AppDispatch, AppThunk } from '../store';
 import { createAction } from "@reduxjs/toolkit";
 //import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
+import { TRefreshUser } from '../../types/data';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
 
 import {
@@ -224,14 +225,17 @@ export const getLogout = () => async (dispatch: AppDispatch) => {
   }
 };
 
-export const getRefreshUser = (body = null) => async (dispatch: AppDispatch) => {
+export const getRefreshUser = (body: (TRefreshUser | null) = null) => async (dispatch: AppDispatch) => {
   dispatch({ type: getRefreshUserRequest });
   const accessToken = getCookie('accessToken');
   if(accessToken) {
     try {
-      const res = await fetchRequest.patch('auth/user', body, 
-        { 'Authorization': 'Token '+ accessToken });
-      const obj = await checkResponse(res);
+      const obj = undefined;  
+      if (body !== null) {
+        const res = await fetchRequest.patch('auth/user', body, 
+          { 'Authorization': 'Token '+ accessToken });
+        const obj = await checkResponse(res);
+      }
       if (obj) {
         dispatch({ type: getRefreshUserSuccess, refreshUser: obj});
         dispatch({ type: getUserSuccess, user: obj});

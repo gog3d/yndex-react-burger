@@ -32,35 +32,35 @@ import {
 
 //import { getTokenRequestApi } from '../fakeApiAuth';
 
-import { TAuthState } from '../../types/data';
+import { TAuthState, TRegister, TLogin, TUser, TLogout, TToken } from '../../types/data';
 
 
 export const authState: TAuthState = {
-    login: {},
+    login: null as (null | TLogin),
     loginRequest: false,
     loginFailed: false,
     
-    register: {},
+    register: null as (null | TRegister),
     registerRequest: false,
     registerFailed: false,
     
-    logout: {},
+    logout: null as (null | TLogout),
     logoutRequest: false,
     logoutFailed: false,
     
-    token: {},
+    token: null as (null | TToken),
     tokenRequest: false,
     tokenFailed: false,
 
-    user: {},
+    user: null as (null | TLogin),
     userRequest: false,
     userFailed: false,
 
-    refreshUser: {},
+    refreshUser: null as (null | TUser),
     refreshUserRequest: false,
     refreshUserFailed: false,
     
-    auth: {},
+    auth: null as (null | TToken),
     authRequest: false,
     authFailed: false
   };
