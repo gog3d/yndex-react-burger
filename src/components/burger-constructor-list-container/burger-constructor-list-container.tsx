@@ -35,7 +35,7 @@ const BurgerConstructorListContainer: React.FC = () => {
   });
 
   return (
-    <div ref={dropTarget} className={styles["burger-constructor-list"]}>
+    <div data-testid = 'constructor_list_container' ref={dropTarget} className={styles["burger-constructor-list"]}>
       <div className={styles["burger-constructor-list-component-top"]}>
         {
           bun ? ( 

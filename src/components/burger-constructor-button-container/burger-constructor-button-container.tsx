@@ -73,7 +73,7 @@ const BurgerConstructorButtonContainer: React.FC = () => {
   );
 
   return (
-    <div className={styles["burger-constructor-button-container"]} >
+    <div data-testid='order_button' className={styles["burger-constructor-button-container"]} >
       <span className={styles['burger-constructor-button-container-span']}>
         {count}
       </span>
