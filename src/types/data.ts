@@ -177,3 +177,7 @@ export type TForgotPasswordState = {
     email: string,
     password: string
   }
+  export type TResetPassword = {
+    password: string,
+    token: string
+  }

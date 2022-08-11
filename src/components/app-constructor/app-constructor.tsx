@@ -52,7 +52,7 @@ const AppConstructor: React.FC = () => {
           <Route path="/ingredients/:ingredientId">
             <IngredientPage />
           </Route>
-          <Route path='/feed'  exact={true}>
+          <Route path='/feed' exact={true}>
             <FeedPage />
           </Route>
           <Route path='/profile/orders'  exact={true}>

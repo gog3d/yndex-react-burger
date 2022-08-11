@@ -5,10 +5,10 @@ import {
   getResetPasswordFailed,
 } from '../actions/reset-password';
 
-import { TResetPasswordState } from '../../types/data';
+import { TResetPasswordState, TResetPasswordType } from '../../types/data';
 
 export const resetPasswordState: TResetPasswordState = {
-  resetPassword: {},
+  resetPassword: null as (null | TResetPasswordType),
   resetPasswordRequest: false,
   resetPasswordFailed: false,
   };

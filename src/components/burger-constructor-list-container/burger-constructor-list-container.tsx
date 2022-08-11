@@ -52,6 +52,7 @@ const BurgerConstructorListContainer: React.FC = () => {
               isLocked={true}
               text={'добавьте булку'}
               thumbnail={''}
+              price={0}
             />
             )
         }
@@ -71,11 +72,12 @@ const BurgerConstructorListContainer: React.FC = () => {
             })
           ) : (
             <div className={styles["burger-constructor-list-component-midle"]}>
-                <DragIcon className={styles['dragon-icon']} type={'secondary'} />
+                <DragIcon type={'secondary'} />
                 <ConstructorElement
-                type={'midle'}
                 isLocked={true}
                 text={`добавьте ингредиент`}
+                price={0}
+                thumbnail={''}
               />
             </div>
           )
@@ -96,6 +98,8 @@ const BurgerConstructorListContainer: React.FC = () => {
             type={'bottom'}
             isLocked={true}
             text={`добавьте булку`}
+            price={0}
+            thumbnail={''}
           />
         )
         }

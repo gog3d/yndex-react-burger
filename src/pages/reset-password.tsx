@@ -1,19 +1,24 @@
 import React, { useState, useCallback } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useLocation } from 'react-router-dom';
 import styles from './reset-password.module.css';
 
 import {Logo, PasswordInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { getResetPassword } from '../redux/actions/reset-password';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-interface LocationState {
+
+import { TLocationState } from '../types/data';
+
+/*interface LocationState {
   from: {
     pathname: string;
   };
 }
+*/
 
-export const ResetPasswordPage: React.FC<{ state: LocationState }> = ({ state }) => {
+export const ResetPasswordPage: React.FC = () => {
   const [token, setToken] = useState('');
   const [password, setPassword] = useState('');
+  const location = useLocation<TLocationState>()
 
   const {
     resetPassword,
@@ -26,14 +31,14 @@ export const ResetPasswordPage: React.FC<{ state: LocationState }> = ({ state })
   const dispatch = useAppDispatch();
 
   const onSubmit = useCallback(
-    (e) => {
+    (e: React.FormEvent) => {
       e.preventDefault();
       dispatch(getResetPassword({ 'password': password, 'token': token }));
     }, [password, token]
   )
 
-    if(forgotPassword.success) {
-      if(resetPassword.success) {
+    if(forgotPassword !== null && forgotPassword.success) {
+      if(resetPassword !== null && resetPassword.success) {
         //console.log(resetPassword);
         return (
           <Redirect
@@ -46,7 +51,8 @@ export const ResetPasswordPage: React.FC<{ state: LocationState }> = ({ state })
     } else {
      return (
        <Redirect
-         to={ state?.from || '/' }
+        to={ location?.state?.from || {pathname: '/'} }
+       //to={ state?.from || '/' }
         />
       )
     }

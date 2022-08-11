@@ -10,7 +10,7 @@ import styles from './orders-page.module.css';
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
 import { TOrders }  from '../types/data';
-import { Location } from 'history';
+//import { Location } from 'history';
 import { wsUserConnectionStart, wsUserDisconnect } from '../redux/actions/wsUserAction';
 import { getCookie } from '../redux/utils';
 
@@ -67,15 +67,19 @@ export const  OrdersPage: React.FC = () => {
   }, [dispatch]);
 
   useEffect(()=>{
-    setName(user.user ? user.user.name : '');
-    setEmail(user.user ? user.user.email : '');
+    //setName(user.user ? user.user.name : '');
+    //setEmail(user.user ? user.user.email : '');
+    setName(user === null ? '' : user.user.name);
+    setEmail(user === null ? '' : user.user.email);
   }, [user]);
 
   const onCancel =  useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      setName(user.user ? user.user.name : '');
-      setEmail(user.user ? user.user.email : '');
+      //setName(user.user ? user.user.name : '');
+      //setEmail(user.user ? user.user.email : '');
+      setName(user === null ? '' : user.user.name);
+      setEmail(user === null ? '' : user.user.email);
       setPassword('');
     }, [email, password, name]
   );

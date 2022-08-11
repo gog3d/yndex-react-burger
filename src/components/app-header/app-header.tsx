@@ -47,7 +47,8 @@ const AppHeader: React.FC = () => {
   return (
     <header className={styles['header']}>
       <nav className={styles['nav-bar']}>
-        <div href='#' className={styles['nav-bar-constructor']} onClick={constructorOnClick}>
+        {/*<div href='#' className={styles['nav-bar-constructor']} onClick={constructorOnClick}>*/}
+        <div className={styles['nav-bar-constructor']} onClick={constructorOnClick}>
           <BurgerIcon type={
             current === 'Конструктор' 
             ? 

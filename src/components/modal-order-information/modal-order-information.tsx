@@ -12,6 +12,8 @@ interface ModalIngredientProps {
   children: React.ReactNode;
 };
 
+const modals = document.getElementById('modals')
+
 const ModalOrderInformation: React.FC<ModalIngredientProps> = (props) => {
   const  { children } = props;
   const history = useHistory();
@@ -29,21 +31,21 @@ const ModalOrderInformation: React.FC<ModalIngredientProps> = (props) => {
     return () => document.removeEventListener('keydown', closeByEscape);
   }, []);
 
-  return ReactDOM.createPortal (
+  return modals ? ReactDOM.createPortal (
     <>
       <div className={styles['modal-overlay']}>
         <ModalOverlay onClick={onClose} />
       </div>
       <div className={styles['modal']}>
         <div className={styles['modal-icon']} >
-          <CloseIcon onClick={onClose}/>
+          <CloseIcon onClick={()=>onClose()}/>
         </div>
         <div className={styles['modal-children']}>
           {children}
         </div>
       </div>
     </>
-    , document.getElementById('modals'));
+    , modals) : null;
 }
 
 

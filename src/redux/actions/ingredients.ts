@@ -3,6 +3,8 @@ import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
 
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
+//import { getItemsRequest, getOrderDetailsRequest } from './fakeApi';
+import { TIngredient } from '../../types/data';
 
 import {
   ADD_CONSTRUCTOR_INGREDIENT,
@@ -83,7 +85,7 @@ export const getIngredients =  () => (dispatch: AppDispatch) => {
     });
 };
 
-export const getOrderDetails = (body = null) => (dispatch: AppDispatch) => {
+export const getOrderDetails = (body: (null | Array<TIngredient>) = null) => (dispatch: AppDispatch) => {
   const idsComponents = {ingredients: body.map((comp)=>comp._id)};
   const accessToken = getCookie('accessToken');
   dispatch({ type: getOrderdetailsRequest });

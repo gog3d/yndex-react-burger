@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   useHistory,
@@ -42,7 +42,7 @@ const BurgerConstructorButtonContainer: React.FC = () => {
     }, [constructorIngredients.ingredients, constructorIngredients.bun]
   );
   
-  const onClickButton =  () => {
+  const onClickButton = useCallback(() => {
     if(orderDetailsItems !== null) {
       if (orderDetailsItems.find((item: TIngredient ) => item.type === 'bun')) {
         if(!authFailed) {
@@ -55,7 +55,7 @@ const BurgerConstructorButtonContainer: React.FC = () => {
         }
       }
     }
-  };
+  }, [orderDetailsItems, authFailed]);
   
   const orderDetailsStatus = useMemo(
     () => {

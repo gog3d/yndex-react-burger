@@ -11,6 +11,7 @@ import {
 interface ModalIngredientProps {
   children: React.ReactNode;
 };
+const modals = document.getElementById('modals')
 
 const ModalIngredient: React.FC<ModalIngredientProps> = (props) => {
   const  { children } = props;
@@ -29,21 +30,21 @@ const ModalIngredient: React.FC<ModalIngredientProps> = (props) => {
     return () => document.removeEventListener('keydown', closeByEscape);
   }, []);
 
-  return ReactDOM.createPortal (
+  return modals ? ReactDOM.createPortal (
     <>
       <div className={styles['modal-overlay']}>
         <ModalOverlay onClick={onClose} />
       </div>
       <div className={styles['modal']}>
         <div className={styles['modal-icon']} >
-          <CloseIcon onClick={onClose}/>
+          <CloseIcon onClick={()=>onClose()}/>
         </div>
-        <div data-testid= 'modal_children' className={styles['modal-children']}>
+        <div className={styles['modal-children']}>
           {children}
         </div>
       </div>
     </>
-    , document.getElementById('modals'));
+    , modals) : null;
 }
 
 export default ModalIngredient;

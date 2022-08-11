@@ -24,7 +24,7 @@ import {
 
 } from '../actions/ingredients';
 
-import { TIngredientsState } from '../../types/data';
+import { TIngredientsState, TIngredient } from '../../types/data';
 
 export const initialState: TIngredientsState = {
     burgerIngredients: [],
@@ -35,7 +35,7 @@ export const initialState: TIngredientsState = {
       ingredients: [],
     },
     modalIngredient: {},
-    orderDetailsItems: null,
+    orderDetailsItems: null as (null | Array<TIngredient>),
     orderDetails: null,
     orderDetailsRequest: false,
     orderDetailsFailed: false,

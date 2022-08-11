@@ -5,8 +5,7 @@ import {
 } from "react-router-dom";
 import { useAppSelector } from '../redux/hooks';
 
-
-const ProtectedRoute: React.FC<{ children:React.ReactNode, rest: any}> = (props) => {
+const ProtectedRoute = (props) => {
   const { children, rest } = props;
   const {
     authFailed,

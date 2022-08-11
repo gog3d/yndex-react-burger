@@ -30,6 +30,7 @@ export const  ProfilePage: React.FC = () => {
 */
 
 useEffect(()=>{
+  console.log(user);
   setName(user === null ? '' : user.user.name);
   setEmail(user === null ? '' : user.user.email);
 }, [user]);

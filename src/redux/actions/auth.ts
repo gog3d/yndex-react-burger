@@ -1,6 +1,7 @@
 import { AppDispatch, AppThunk } from '../store';
 import { createAction } from "@reduxjs/toolkit";
 //import { baseURL }  from '../../utils/config';
+import { getLoginRequestApi } from './fakeApiAuth';
 import { checkResponse }  from '../utils';
 import { TRefreshUser } from '../../types/data';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
@@ -91,7 +92,8 @@ export const getLogin = (body = null) => async (dispatch: AppDispatch) => {
   try {
     const res = await fetchRequest.post('auth/login', body);
     const obj = await checkResponse(res);
-   // const obj = await getLoginRequestApi({});
+//    const obj = await getLoginRequestApi(body);
+    //console.log(obj)
       if (obj) {
         dispatch({ type: getLoginSuccess, login: obj});
         dispatch({ type: getUserSuccess, user: obj});
@@ -151,7 +153,7 @@ export const getUser =  () => async (dispatch: AppDispatch) => {
     try {
       const res = await fetchRequest.get('auth/user', { 'Authorization': 'Token '+ accessToken });
       const obj = await checkResponse(res);
-      //const obj = await getLoginRequestApi({});
+     // const obj = await getLoginRequestApi({});
       if (obj) {
         dispatch({ type: getUserSuccess, user: obj});
       } else {
