@@ -38,7 +38,7 @@ const ModalOrderInformation: React.FC<ModalIngredientProps> = (props) => {
       </div>
       <div className={styles['modal']}>
         <div className={styles['modal-icon']} >
-          <CloseIcon onClick={()=>onClose()}/>
+          <CloseIcon onClick={()=>onClose()} type="primary"/>
         </div>
         <div className={styles['modal-children']}>
           {children}

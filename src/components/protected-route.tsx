@@ -1,33 +1,31 @@
-import { Redirect, Route } from 'react-router-dom';
-import React from 'react';
-import {
-  useLocation,
-} from "react-router-dom";
-import { useAppSelector } from '../redux/hooks';
+import { Redirect, Route, RouteProps } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { useAppSelector } from "../redux/hooks";
 
-const ProtectedRoute = (props) => {
-  const { children, rest } = props;
-  const {
-    authFailed,
-  } = useAppSelector((store) => store.auth);
-  
+const ProtectedRoute = (props: RouteProps) => {
+  const { children, ...rest } = props;
+  const { authFailed } = useAppSelector((store) => store.auth);
+
   const location = useLocation();
 
   return (
-    <Route {...rest} render={
-      ({ location }) =>
+    <Route
+      {...rest}
+      render={() =>
         authFailed ? (
-              <Redirect to={{
-                pathname: '/login',
-                state: { from: location }
-              }}/>
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
         ) : (
-              children
-            )
+          <>{children}</>
+        )
       }
     />
   );
-
-}
+};
 
 export default ProtectedRoute;

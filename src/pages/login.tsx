@@ -7,6 +7,12 @@ import { Location } from 'history';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 interface LocationState {
   from: {
     pathname: string;

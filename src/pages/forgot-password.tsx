@@ -6,6 +6,12 @@ import styles from './forgot-password.module.css';
 import { getForgotPassword } from '../redux/actions/forgot-password';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 export const  ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState('');
 
@@ -24,7 +30,7 @@ export const  ForgotPasswordPage: React.FC = () => {
     }, [email]
   ) 
 
-  if(forgotPassword.success) {
+  if(forgotPassword && forgotPassword.success) {
     return (
       <Redirect
         to={{

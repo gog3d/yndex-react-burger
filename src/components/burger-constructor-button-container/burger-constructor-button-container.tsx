@@ -15,6 +15,12 @@ import { TIngredient } from '../../types/data';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 const BurgerConstructorButtonContainer: React.FC = () => {
   const { 
     orderDetailsItems, 
@@ -91,7 +97,6 @@ const BurgerConstructorButtonContainer: React.FC = () => {
         </>
       </Modal>
       <Button 
-        className={styles['burger-constructor-button']}
         onClick={()=> onClickButton()}
       > Оформить заказ</Button>
     </div>

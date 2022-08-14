@@ -15,6 +15,12 @@ import { TLocationState } from '../types/data';
 }
 */
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 export const ResetPasswordPage: React.FC = () => {
   const [token, setToken] = useState('');
   const [password, setPassword] = useState('');

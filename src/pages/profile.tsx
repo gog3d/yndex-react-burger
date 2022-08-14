@@ -5,6 +5,12 @@ import { getLogout, getUser, getRefreshUser } from '../redux/actions/auth';
 import { PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 export const  ProfilePage: React.FC = () => {
   const history = useHistory(); 
   const dispatch = useAppDispatch();
@@ -30,7 +36,7 @@ export const  ProfilePage: React.FC = () => {
 */
 
 useEffect(()=>{
-  console.log(user);
+//  console.log(user);
   setName(user === null ? '' : user.user.name);
   setEmail(user === null ? '' : user.user.email);
 }, [user]);

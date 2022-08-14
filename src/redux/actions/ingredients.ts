@@ -85,7 +85,7 @@ export const getIngredients =  () => (dispatch: AppDispatch) => {
     });
 };
 
-export const getOrderDetails = (body: (null | Array<TIngredient>) = null) => (dispatch: AppDispatch) => {
+export const getOrderDetails = (body: Array<TIngredient>) => (dispatch: AppDispatch) => {
   const idsComponents = {ingredients: body.map((comp)=>comp._id)};
   const accessToken = getCookie('accessToken');
   dispatch({ type: getOrderdetailsRequest });

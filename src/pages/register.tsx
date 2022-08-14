@@ -14,6 +14,12 @@ interface LocationState {
 }
 */
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 export const  RegisterPage: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -42,7 +48,7 @@ export const  RegisterPage: React.FC = () => {
     );
   }
 
-  if(register.success) {
+  if(register && register.success) {
     return (
       <Redirect
         to={{

@@ -95,7 +95,7 @@ export type TAuthState = {
   userRequest: boolean,
   userFailed: boolean,
 
-  refreshUser: TUser| null,
+  refreshUser: TLogin| null,
   refreshUserRequest: boolean,
   refreshUserFailed: boolean,
   

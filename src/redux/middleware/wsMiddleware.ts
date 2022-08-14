@@ -1,6 +1,6 @@
 import { ActionCreatorWithoutPayload, ActionCreatorWithPayload } from '@reduxjs/toolkit';
-import { Middleware } from 'redux';
-import { RootState } from '../store';
+import { Middleware, MiddlewareAPI, AnyAction } from 'redux';
+import { AppDispatch, RootState } from '../store';
 
 export type TwsActionTypes = {
   wsStart: ActionCreatorWithPayload<string>,
@@ -12,10 +12,10 @@ export type TwsActionTypes = {
   onError: ActionCreatorWithPayload<string>,
   onMessage: ActionCreatorWithPayload<any>,
 }
-export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Middleware<{}, RootState>  => {
-  const wsMiddleware = (store) => {
-    let socket: WebSocket | null = null;;
-    return next => (action) => {
+export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Middleware  => {
+  const wsMiddleware = (store: MiddlewareAPI<AppDispatch, RootState>) => {
+    let socket: WebSocket | null = null;
+    return (next:AppDispatch) => (action: AnyAction) => {
       const { dispatch } = store;
       const { type, payload } = action;
       const {

@@ -32,7 +32,7 @@ import {
 
 //import { getTokenRequestApi } from '../fakeApiAuth';
 
-import { TAuthState, TRegister, TLogin, TUser, TLogout, TToken } from '../../types/data';
+import { TAuthState, TRegister, TLogin, TLogout, TToken } from '../../types/data';
 
 
 export const authState: TAuthState = {
@@ -40,7 +40,8 @@ export const authState: TAuthState = {
     loginRequest: false,
     loginFailed: false,
     
-    register: null as (null | TRegister),
+//    register: null as (null | TRegister),
+    register: null as (null | TLogin),
     registerRequest: false,
     registerFailed: false,
     
@@ -56,7 +57,8 @@ export const authState: TAuthState = {
     userRequest: false,
     userFailed: false,
 
-    refreshUser: null as (null | TUser),
+    refreshUser: null as (null | TLogin),
+//    refreshUser:  any,
     refreshUserRequest: false,
     refreshUserFailed: false,
     
@@ -72,8 +74,8 @@ export const authReducer = createReducer(authState, (builder) => {
     })  
     .addCase(getLoginSuccess, (state, action) => {
       state.loginFailed = false; 
-      state.login = action.login; 
-      state.register = action.login; 
+      state.login = action.payload; 
+      state.register = action.payload; 
       state.loginRequest = false;
     })
 
@@ -87,7 +89,7 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getRegisterSuccess, (state, action) => {
       state.registerFailed = false;
-      state.register = action.register;
+      state.register = action.payload;
       state.registerRequest = false;
     })
     .addCase(getRegisterFailed, (state, action) => {
@@ -99,7 +101,7 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getLogoutSuccess, (state, action) => {
       state.logoutFailed = false;
-      state.logout = action.logout; 
+      state.logout = action.payload; 
       state.logoutRequest = false;
     })
     .addCase(getLogoutFailed, (state, action) => {
@@ -111,7 +113,7 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getTokenSuccess, (state, action)=>{
       state.tokenFailed = false; 
-      state.token = action.token;
+      state.token = action.payload;
       state.tokenRequest = false;
     })
     .addCase(getTokenFailed, (state, action)=>{
@@ -123,8 +125,8 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getUserSuccess, (state, action)=>{
       state.userFailed = false; 
-      state.user = action.user; 
-      state.login = action.user;
+      state.user = action.payload; 
+      state.login = action.payload;
       state.userRequest =  false;
     })
     .addCase(getUserFailed, (state, action)=>{
@@ -136,9 +138,10 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getRefreshUserSuccess, (state, action)=>{
       state.refreshUserFailed = false; 
-      state.refreshUser = action.refreshUser; 
+      state.refreshUser = action.payload; 
       state.refreshUserRequest = false; 
-      state.login.user = action.refreshUser;
+//      if(state.login) state.login.user = action.payload;
+      state.login = action.payload;
     })
     .addCase(getRefreshUserFailed, (state, action)=>{
       state.refreshUserFailed = true; 
@@ -149,7 +152,7 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getAuthSuccess, (state, action)=>{
       state.authFailed = false; 
-      state.auth = action.auth; 
+      state.auth = action.payload; 
       state.authRequest = false;
     })
     .addCase(getAuthFailed, (state, action)=>{

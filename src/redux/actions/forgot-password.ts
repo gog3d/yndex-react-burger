@@ -21,7 +21,11 @@ export type TForgotPasswordAction = ReturnType<typeof getForgotPasswordRequest>
                                     | ReturnType<typeof getForgotPasswordSuccess>
                                     | ReturnType<typeof getForgotPasswordFailed>;
 
-export const getForgotPassword = (body = null) => (dispatch: AppDispatch) => {
+export type TForgotPasswordBody = {
+  email: string
+}
+
+export const getForgotPassword = (body: TForgotPasswordBody) => (dispatch: AppDispatch) => {
   dispatch({ type: getForgotPasswordRequest });
   fetch(baseURL + 'password-reset', {
     method: 'POST',

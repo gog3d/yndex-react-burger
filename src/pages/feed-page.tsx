@@ -69,11 +69,11 @@ export const FeedPage: React.FC = () => {
         </p>
         <div className={styles['feed-orders']}>
           <div className={styles['feed-orders-sheet']}>
-          { wsOrders.map((order: TOrders, index: number) => { return (
+          { wsOrders ? wsOrders.map((order: TOrders, index: number) => { return (
             //<div key={uuidv4()} className={styles['feed-orders-item']} onClick={() => onClickItem(order, location)}>
             <div key={uuidv4()} className={styles['feed-orders-item']} onClick={() => onClickItem(order)}>
               <OrderSheetComponent order={ order } />
-            </div> )}) }
+            </div> )}): null }
           </div>
           <div className={styles['feed-orders-state']}>
             <div className={styles['feed-orders-orders-list-header']}>
@@ -94,20 +94,20 @@ export const FeedPage: React.FC = () => {
             </div>
             <div className={styles['feed-orders-orders-list']}>
               <div className={styles['feed-orders-ready']}>
-                { doneOrders.map((item: TOrders, index: Number) => {return(
+                { doneOrders ? doneOrders.map((item: TOrders, index: Number) => {return(
                   <p  key={uuidv4()} className={styles['feed-orders-text']}>
                     <span className="text text_type_digits-default">
                     {`${item.number}`}
                     </span>
-                  </p>  )}) }
+                  </p>  )}) : null }
               </div>
               <div className={styles['feed-orders-in-work']}>
-                { inWorkOrders.map((item: TOrders, index: Number) => {return(
+                { inWorkOrders ? inWorkOrders.map((item: TOrders, index: Number) => {return(
                   <p  key={uuidv4()} className={styles['feed-orders-text']}>
                     <span className="text text_type_digits-default">
                     {`${item}`}
                     </span>
-                  </p>  )}) }
+                  </p>  )}) : null}
 
               </div>
             </div>

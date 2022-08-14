@@ -15,24 +15,22 @@ import { wsUserConnectionStart, wsUserDisconnect } from '../redux/actions/wsUser
 import { getCookie } from '../redux/utils';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { TLocationState } from '../types/data';
 
-interface LocationState {
-  from: {
-    pathname: string;
-  };
-}
 export const  OrdersPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const location = useLocation<Location & LocationState>();
-
+  //const location = useLocation<Location & LocationState>();
+  const location = useLocation<TLocationState>()
   const history = useHistory();
 
-  const onClickItem = (item: TOrders, location: Location) => {
-    history.push({
-      pathname: `/profile/orders/${item._id}`,
-      state: {background: location},
+  const onClickItem = useCallback(
+    //(item: TOrders, location: TLocationState) => {
+    (item: TOrders) => {
+      return history.push({
+        pathname: `/profile/orders/${item._id}`,
+        state: {background: location},
     });
-  };
+  }, [location]);
 
   const {
     user, 
@@ -160,7 +158,7 @@ export const  OrdersPage: React.FC = () => {
       <div className={styles['sheet-container']}>
         { wsUserOrders.map((order: TOrders, index: number) => { 
           return (
-          <div key={uuidv4()} className={styles['orders-item']} onClick={() => onClickItem(order, location)}>
+          <div key={uuidv4()} className={styles['orders-item']} onClick={() => onClickItem(order)}>
             <OrderSheetComponent order={ order } />
           </div> )}) }
       </div>
