@@ -1,3 +1,7 @@
+#build project page
+
+https://gog3d.github.io/yndex-react-burger/index.html
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
