@@ -1,7 +1,7 @@
 import { AppDispatch, AppThunk } from '../store';
 import { createAction } from "@reduxjs/toolkit";
 //import { baseURL }  from '../../utils/config';
-//import { getLoginRequestApi } from './fakeApiAuth';
+//import { getLoginRequestApi, getLogoutRequestApi } from './fakeApiAuth';
 import { checkResponse }  from '../utils';
 import { TRefreshUser } from '../../types/data';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
@@ -135,6 +135,7 @@ export const getAuth = () => async (dispatch: AppDispatch) => {
 //  console.log('getAuth')
   dispatch(getAuthRequest());
   const refreshToken = getCookie('refreshToken');
+//  console.log(refreshToken)
   if (refreshToken) {
     try {
       const res = await fetchRequest.post('auth/token', { 'token' : refreshToken });

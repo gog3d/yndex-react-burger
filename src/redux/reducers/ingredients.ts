@@ -31,10 +31,12 @@ export const initialState: TIngredientsState = {
     burgerIngredientsRequest: false,
     burgerIngredientsFailed: false,
     constructorIngredients: {
-      bun: {},
+      bun: null as (null | TIngredient),
       ingredients: [],
+//        ingredients: null as (null | Array<TIngredient>),
     },
-    modalIngredient: {},
+    modalIngredient: null as (TIngredient | null),
+    //orderDetailsItems: [],
     orderDetailsItems: null as (null | Array<TIngredient>),
     orderDetails: null,
     orderDetailsRequest: false,
@@ -43,9 +45,9 @@ export const initialState: TIngredientsState = {
     saucesScroll: false,
     mainsScroll: false,
     
-    restorePassword: {},
-    restorePasswordRequest: false,
-    restorePasswordFailed: false,
+//    restorePassword: {},
+//    restorePasswordRequest: false,
+//    restorePasswordFailed: false,
   };
 
 export const ingredientsReducer = createReducer(initialState, (builder) => {
@@ -55,7 +57,7 @@ export const ingredientsReducer = createReducer(initialState, (builder) => {
   })
   .addCase(getIngredientsSuccess, (state, action) => {
     state.burgerIngredientsFailed = false;
-    state.burgerIngredients = action.burgerIngredients;
+    state.burgerIngredients = action.payload;
     state.burgerIngredientsRequest = false;
   })
     .addCase(getIngredientsFailed, (state, action) => {
@@ -67,7 +69,7 @@ export const ingredientsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(getOrderdetailsSuccess, (state, action) => {
       state.orderDetailsFailed = false; 
-      state.orderDetails = action.orderDetails;
+      state.orderDetails = action.payload;
       state.orderDetailsRequest = false;
     })
     .addCase(getOrderdetailsFailed, (state, action) => {
@@ -75,27 +77,36 @@ export const ingredientsReducer = createReducer(initialState, (builder) => {
       state.orderDetailsRequest = false;
     })
     .addCase(refreshOrderdetailsItems, (state, action) => {
-      state.orderDetailsItems = action.orderDetailsItems;
+//      console.log('state.orderDetailsItems',  action.payload)
+//      state.orderDetailsItems = action.orderDetailsItems;
+        state.orderDetailsItems = action.payload;
     })
     .addCase(addConstructorIngredient, (state, action) => {
-      if (action.constructorIngredient.type === 'bun') {
-        state.constructorIngredients.bun = action.constructorIngredient;
+      //if (action.constructorIngredient.type === 'bun') {
+        if (action.payload.type === 'bun') {
+        state.constructorIngredients.bun = action.payload;
+        //state.constructorIngredients.bun = action.constructorIngredient;
       } else {
-        state.constructorIngredients.ingredients.push({...action.constructorIngredient, uuid: uuidv4()});
+        //state.constructorIngredients.ingredients.push({...action.constructorIngredient, uuid: uuidv4()});
+        state.constructorIngredients.ingredients.push({...action.payload, uuid: uuidv4()});
       }
     })
     .addCase(updateConstructorIngredients, (state, action) => {
-      state.constructorIngredients.ingredients = [...action.ingredients];
+      //state.constructorIngredients.ingredients = [...action.ingredients];
+      state.constructorIngredients.ingredients = [...action.payload];
     })
     .addCase(deleteConstructorIngredient, (state, action) => {
-      state.constructorIngredients.ingredients.splice(action.index, 1);
+      //state.constructorIngredients.ingredients.splice(action.index, 1);
+      state.constructorIngredients.ingredients.splice(action.payload, 1);
       //...state, constructorIngredients: {...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients]
     })
     .addCase(deleteModalIngredients, (state, action) => {
-      state.modalIngredient = {};
+      //state.modalIngredient = {};
+      state.modalIngredient = null;
     })
     .addCase(addModalIngredients, (state, action) => {
-      state.modalIngredient = action.item;
+      //state.modalIngredient = action.item;
+      state.modalIngredient = action.payload;
     })
     .addCase(refreshBunsScroll, (state, action) => {
       state.bunsScroll = true;

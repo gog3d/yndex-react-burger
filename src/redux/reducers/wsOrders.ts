@@ -18,15 +18,15 @@ export const initialState: TWsOrdersState = {
 
 export const wsOrders = createReducer(initialState, (builder) => {
   builder
-    .addCase(wsConnectionSuccess, (state) => {
+    .addCase(wsConnectionSuccess, (state, action) => {
       state.wsError = undefined;
       state.wsConnected = true;
     })
-    .addCase(wsConnectionError, (state) => {
+    .addCase(wsConnectionError, (state, action) => {
       state.wsError = true;
       state.wsConnected = false;
     })
-    .addCase(wsConnectionClosed, (state) => {
+    .addCase(wsConnectionClosed, (state, action) => {
       state.wsError = undefined;
       state.wsConnected = false;
       state.wsOrders = [];

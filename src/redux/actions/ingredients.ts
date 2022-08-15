@@ -4,7 +4,6 @@ import { checkResponse }  from '../utils';
 
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
 //import { getItemsRequest, getOrderDetailsRequest } from './fakeApi';
-import { TIngredient } from '../../types/data';
 
 import {
   ADD_CONSTRUCTOR_INGREDIENT,
@@ -33,21 +32,23 @@ import {
 
 import { AppDispatch } from '../store';
 
-export const addConstructorIngredient = createAction(ADD_CONSTRUCTOR_INGREDIENT);
-export const deleteConstructorIngredient = createAction(DELETE_CONSTRUCTOR_INGREDIENT);
-export const updateConstructorIngredients = createAction(UPDATE_CONSTRUCTOR_INGREDIENTS);
+import { TIngredient } from '../../types/data';
 
-export const addModalIngredients = createAction(ADD_MODAL_INGREDIENTS);
+export const addConstructorIngredient = createAction<TIngredient>(ADD_CONSTRUCTOR_INGREDIENT);
+export const deleteConstructorIngredient = createAction<number>(DELETE_CONSTRUCTOR_INGREDIENT);
+export const updateConstructorIngredients = createAction<Array<TIngredient>>(UPDATE_CONSTRUCTOR_INGREDIENTS);
+
+export const addModalIngredients = createAction<TIngredient>(ADD_MODAL_INGREDIENTS);
 export const deleteModalIngredients = createAction(DELETE_MODAL_INGREDIENTS);
 
-export const refreshOrderdetailsItems = createAction(REFRESH_ORDERDETAILS_ITEMS);
+export const refreshOrderdetailsItems = createAction<any>(REFRESH_ORDERDETAILS_ITEMS);
 
 export const getIngredientsRequest = createAction(GET_INGREDIENTS_REQUEST);
-export const getIngredientsSuccess = createAction(GET_INGREDIENTS_SUCCESS);
+export const getIngredientsSuccess = createAction<Array<TIngredient>>(GET_INGREDIENTS_SUCCESS);
 export const getIngredientsFailed = createAction(GET_INGREDIENTS_FAILED);
 
 export const getOrderdetailsRequest = createAction(GET_ORDERDETAILS_REQUEST);
-export const getOrderdetailsSuccess = createAction(GET_ORDERDETAILS_SUCCESS);
+export const getOrderdetailsSuccess = createAction<number>(GET_ORDERDETAILS_SUCCESS);
 export const getOrderdetailsFailed = createAction(GET_ORDERDETAILS_FAILED)
 
 export const refreshBunsScroll = createAction(REFRESH_BUNS_SCROLL);
@@ -71,24 +72,24 @@ export type TIngredientsAction = ReturnType<typeof addConstructorIngredient>
                                 | ReturnType<typeof refreshMainsScroll>;
 
 export const getIngredients =  () => (dispatch: AppDispatch) => {
-  dispatch({ type: getIngredientsRequest });
+  dispatch(getIngredientsRequest());
   fetch(baseURL + 'ingredients').then(checkResponse).then(obj => {
   //getItemsRequest().then(obj => {
     if (obj && obj.success) {
-      dispatch({ type: getIngredientsSuccess, burgerIngredients: obj.data });
+      dispatch(getIngredientsSuccess(obj.data));
 
       } else {
-        dispatch({ type: getIngredientsFailed });
+        dispatch(getIngredientsFailed());
       }
     }).catch((error) => {
-      dispatch({ type: getIngredientsFailed });
+      dispatch(getIngredientsFailed());
     });
 };
 
 export const getOrderDetails = (body: Array<TIngredient>) => (dispatch: AppDispatch) => {
   const idsComponents = {ingredients: body.map((comp)=>comp._id)};
   const accessToken = getCookie('accessToken');
-  dispatch({ type: getOrderdetailsRequest });
+  dispatch(getOrderdetailsRequest());
   fetch(baseURL + 'orders', {
     method: 'POST',
     mode: 'cors',
@@ -102,13 +103,15 @@ export const getOrderDetails = (body: Array<TIngredient>) => (dispatch: AppDispa
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(idsComponents),
   }).then(checkResponse).then(obj => {
-    console.log(obj)
+//    console.log(baseURL + 'orders')
+//  getOrderDetailsRequest().then(obj => {
     if (obj) {
-      dispatch({ type: getOrderdetailsSuccess, orderDetails: obj.order.number});
+//      console.log({obj});
+      dispatch(getOrderdetailsSuccess(obj.order.number));
     } else {
-      dispatch({ type: getOrderdetailsFailed });
+      dispatch(getOrderdetailsFailed());
     }
   }).catch((error) => {
-    dispatch({ type: getOrderdetailsFailed });
+    dispatch(getOrderdetailsFailed());
   });
 };

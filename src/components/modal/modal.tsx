@@ -32,7 +32,7 @@ const Modal: React.FC<ModalProps> = (props) => {
         <ModalOverlay onClick={onClose} />
       </div>
       <div className={styles['modal']}>
-        <div className={styles['modal-icon']} >
+        <div data-testid = 'modal_close_button' className={styles['modal-icon']} >
           <CloseIcon onClick={()=>onClose()} type="primary"/>
         </div>
         <div className={styles['modal-children']}>

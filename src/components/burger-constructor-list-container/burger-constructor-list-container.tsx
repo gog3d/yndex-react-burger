@@ -10,6 +10,7 @@ import {
 } from '../../redux/actions/ingredients';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { TIngredient } from '../../types/data';
 
 const BurgerConstructorListContainer: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -29,8 +30,8 @@ const BurgerConstructorListContainer: React.FC = () => {
 
   const [, dropTarget] = useDrop({
     accept: "ingredients",
-    drop(item) {
-      dispatch({ type: addConstructorIngredient, constructorIngredient: item });
+    drop(item: TIngredient) {
+      dispatch(addConstructorIngredient(item));
     },
   });
 

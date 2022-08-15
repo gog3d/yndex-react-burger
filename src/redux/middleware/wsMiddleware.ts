@@ -1,7 +1,7 @@
 import { ActionCreatorWithoutPayload, ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { Middleware, MiddlewareAPI, AnyAction } from 'redux';
 import { AppDispatch, RootState } from '../store';
-
+/*
 export type TwsActionTypes = {
   wsStart: ActionCreatorWithPayload<string>,
   wsDisconnect: ActionCreatorWithoutPayload,
@@ -12,6 +12,17 @@ export type TwsActionTypes = {
   onError: ActionCreatorWithPayload<string>,
   onMessage: ActionCreatorWithPayload<any>,
 }
+*/
+
+export type TwsActionTypes = {
+  wsStart: ActionCreatorWithoutPayload,
+  wsDisconnect: ActionCreatorWithoutPayload,
+  onOpen: ActionCreatorWithoutPayload,
+  onClose: ActionCreatorWithoutPayload,
+  onError: ActionCreatorWithoutPayload,
+  onMessage: ActionCreatorWithPayload<any>,
+}
+
 export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Middleware  => {
   const wsMiddleware = (store: MiddlewareAPI<AppDispatch, RootState>) => {
     let socket: WebSocket | null = null;
@@ -27,7 +38,7 @@ export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Mi
         onClose
       } = wsActions;
       if (type === wsStart) {
-        console.log(`${wsUrl}${payload}`);
+//        console.log(`${wsUrl}${payload}`);
         socket = new WebSocket(`${wsUrl}${payload}`);
       }
       if (socket) {
@@ -37,17 +48,21 @@ export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Mi
         socket.onerror = event => {
           console.log(`ws error: ${event}`);
           dispatch({type: onError});
+          //dispatch(onError());
+          
         };
         socket.onmessage = event => {
           const { data } = event;
-          dispatch({type: onMessage, payload: JSON.parse(data)});
+          //dispatch({type: onMessage, payload: JSON.parse(data)});
+          dispatch(onMessage(JSON.parse(data)));
         };
         socket.close = event => {
-           dispatch({type: onClose});
+           //dispatch({type: onClose});
+           dispatch(onClose());
         };
         
         if (type === wsDisconnect) {
-          console.log('disconnect');
+//          console.log('disconnect');
           socket.close();
           dispatch(onClose());
         }

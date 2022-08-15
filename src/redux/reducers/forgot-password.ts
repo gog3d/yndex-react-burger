@@ -21,7 +21,7 @@ export const forgotPasswordReducer = createReducer(forgotPasswordState, (builder
   })
   .addCase(getForgotPasswordSuccess, (state, action) => {
     state.forgotPasswordFailed = false; 
-    state.forgotPassword = action.restorePassword; 
+    state.forgotPassword = action.payload; 
     state.forgotPasswordRequest = false;
   })
   .addCase(getForgotPasswordFailed, (state, action) => {

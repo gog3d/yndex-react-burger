@@ -26,7 +26,8 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
   const [locked, setIsLocked] =useState(false);
 
   const onClickBurgerConstructorListComponent = () => {
-    dispatch({ type: deleteConstructorIngredient, index: index });
+//    dispatch({ type: deleteConstructorIngredient, index: index });
+    dispatch(deleteConstructorIngredient(index));
   };
 
   const moveIngredients = useCallback(
@@ -36,7 +37,8 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
       const updatedIngredients = [...ingredients];
       updatedIngredients[dragIndex] = hoverItem;
       updatedIngredients[hoverIndex] = dragItem;
-      dispatch({ type: updateConstructorIngredients, ingredients: updatedIngredients });
+      //dispatch({ type: updateConstructorIngredients, ingredients: updatedIngredients });
+      dispatch(updateConstructorIngredients(updatedIngredients));
     },
     [ingredients]
   )

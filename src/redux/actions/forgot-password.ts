@@ -11,8 +11,10 @@ import {
 
 } from '../action-types';
 
+import { TForgotPasswordType } from '../../types/data';
+
 export const getForgotPasswordRequest = createAction(GET_FORGOT_PASSWORD_REQUEST);
-export const getForgotPasswordSuccess = createAction(GET_FORGOT_PASSWORD_SUCCESS);
+export const getForgotPasswordSuccess = createAction<TForgotPasswordType>(GET_FORGOT_PASSWORD_SUCCESS);
 export const getForgotPasswordFailed = createAction(GET_FORGOT_PASSWORD_FAILED);
 
 
@@ -26,7 +28,7 @@ export type TForgotPasswordBody = {
 }
 
 export const getForgotPassword = (body: TForgotPasswordBody) => (dispatch: AppDispatch) => {
-  dispatch({ type: getForgotPasswordRequest });
+  dispatch(getForgotPasswordRequest());
   fetch(baseURL + 'password-reset', {
     method: 'POST',
     mode: 'cors',
@@ -42,13 +44,13 @@ export const getForgotPassword = (body: TForgotPasswordBody) => (dispatch: AppDi
 //    getForgotPasswordRequest(body).then(obj => {
   if (obj) {
     console.log(obj)
-    dispatch({ type: getForgotPasswordSuccess, restorePassword: obj});
+    dispatch(getForgotPasswordSuccess(obj));
   } else {
 //    console.log('fail');
-    dispatch({ type: getForgotPasswordFailed });
+    dispatch(getForgotPasswordFailed());
   }
   }).catch((error) => {
 //    console.log(error);
-    dispatch({ type: getForgotPasswordFailed });
+    dispatch(getForgotPasswordFailed());
   });
 };

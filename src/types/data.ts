@@ -19,11 +19,11 @@ export type TIngredientsState = {
   burgerIngredientsRequest: boolean,
   burgerIngredientsFailed: boolean,
   constructorIngredients: {
-    bun: TIngredient | null,
+    bun: null | TIngredient,
     ingredients: Array<TIngredient>,
   },
   modalIngredient: TIngredient | null,
-  orderDetailsItems: Array<TIngredient> | null,
+  orderDetailsItems: null | Array<TIngredient>,
   orderDetails: number | null,
 
   orderDetailsRequest: boolean,
@@ -134,7 +134,7 @@ export type TForgotPasswordState = {
       updatedAt: string,
       name: string,
     }
-    export type TUserOrders = {
+ /*   export type TUserOrders = {
       ingredients: Array<string>,
       _id: string,
       status: string,
@@ -144,8 +144,16 @@ export type TForgotPasswordState = {
       name: string,
     }
 
+*/
+    export type TWsOrdersMessage = {
+      success: boolean,
+      orders: Array<TOrders>,
+      total: number,
+      totalToday: number
+    } 
+
     export type TWsOrdersState = { 
-      wsError: string | undefined,
+      wsError: boolean | undefined,
       wsConnected: boolean, 
       wsOrders: Array<TOrders>,
       wsOrdersTotal: number | null,
@@ -153,12 +161,13 @@ export type TForgotPasswordState = {
     };
 
     export type TWsUserOrdersState = { 
-      wsUserError: string | undefined,
+      wsUserError: boolean | undefined,
       wsUserConnected: boolean, 
-      wsUserOrders: Array<TUserOrders>,
+      wsUserOrders: Array<TOrders>,
       wsUserOrdersTotal: number | null,
       wsUserOrdersTotalToday: number | null,
     };
+
     
     export interface Location<S = unknown> {
       pathname: string;

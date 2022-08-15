@@ -49,8 +49,13 @@ const BurgerConstructorButtonContainer: React.FC = () => {
   );
   
   const onClickButton = useCallback(() => {
+    //console.log({orderDetailsItems})
     if(orderDetailsItems !== null) {
-      if (orderDetailsItems.find((item: TIngredient ) => item.type === 'bun')) {
+      if (orderDetailsItems.find((item: any) => {
+        if(item === null) return false;
+        if(item.type === 'bun') return true;
+      })
+      ) {
         if(!authFailed) {
           setOpen(true);
           dispatch(getOrderDetails(orderDetailsItems));

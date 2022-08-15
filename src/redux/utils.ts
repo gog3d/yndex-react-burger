@@ -61,7 +61,9 @@ export const fetchRequest = {
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(body),
-      }).then(res => resolve(res)).catch((err) => reject(err));
+      }).then(res => { 
+        return  resolve(res)
+      }).catch((err) => reject(err));
     })
   },
   get: async (path: string = '', headers: any = {}) => {
