@@ -36,7 +36,7 @@ const ModalIngredient: React.FC<ModalIngredientProps> = (props) => {
         <ModalOverlay onClick={onClose} />
       </div>
       <div className={styles['modal']}>
-        <div className={styles['modal-icon']} >
+        <div data-testid = 'modal_close_button' className={styles['modal-icon']} >
           <CloseIcon onClick={()=>onClose()} type="primary"/>
         </div>
         <div data-testid='modal_children' className={styles['modal-children']}>

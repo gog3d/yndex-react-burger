@@ -12,7 +12,7 @@ describe("Application", () => {
     cy.get('[data-testid=ingredient_list]').contains('Флюоресцентная булка').click();
     cy.get('[data-testid=modal_children]').should('be.visible');
     cy.get('[data-testid=modal_children]').contains('Флюоресцентная булка');
-    cy.get('.modal-ingredient_modal-icon__1CFX8 > svg > path').click();
+    cy.get('[data-testid = modal_close_button]').click();
     cy.get('[data-testid=modal_children]').should('not.exist');
   });
 
@@ -25,7 +25,7 @@ describe("Application", () => {
     cy.get('[data-testid=ingredient_list]').contains('Соус Spicy-X').click();
     cy.get('[data-testid=modal_children]').should('be.visible');
     cy.get('[data-testid=modal_children]').contains('Соус Spicy-X');
-    cy.get('.modal-ingredient_modal-icon__1CFX8 > svg > path').click();
+    cy.get('[data-testid = modal_close_button]').click();
     cy.get('[data-testid=modal_children]').should('not.exist');
   });
   
@@ -38,8 +38,7 @@ describe("Application", () => {
     cy.get('[data-testid=ingredient_list]').contains('Говяжий метеорит (отбивная)').click();
     cy.get('[data-testid=modal_children]').should('be.visible');
     cy.get('[data-testid=modal_children]').contains('Говяжий метеорит (отбивная)');
-    cy.get('.modal-ingredient_modal-icon__1CFX8 > svg > path').click();
+    cy.get('[data-testid = modal_close_button]').click();
     cy.get('[data-testid=modal_children]').should('not.exist');
   });
-
 });

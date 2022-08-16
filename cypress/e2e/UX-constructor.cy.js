@@ -23,7 +23,7 @@ describe("Application", () => {
     cy.get('[data-testid=ingredient_list]').contains('Флюоресцентная булка').click();
     cy.get('[data-testid=modal_children]').should('be.visible');
     cy.get('[data-testid=modal_children]').contains('Флюоресцентная булка');
-    cy.get('[data-testid=modal_overlay]').click( {force: true});
+    cy.get('[data-testid = modal_close_button]').click();
     cy.get('[data-testid=modal_children]').should('not.exist');
   });
 
@@ -45,7 +45,7 @@ describe("Application", () => {
     cy.get('[data-testid=ingredient_list]').contains('Краторная булка').click();
     cy.get('[data-testid=modal_children]').should('be.visible');
     cy.get('[data-testid=modal_children]').contains('Краторная булка');
-    cy.get('.modal-ingredient_modal-icon__1CFX8 > svg > path').click();
+    cy.get('[data-testid = modal_close_button]').click();
     cy.get('[data-testid=modal_children]').should('not.exist');
   });
 
