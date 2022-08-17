@@ -1,6 +1,6 @@
 #build project page
 
-## DEMO: You can find the demo [HERE]https://gog3d.github.io/yndex-react-burger/index.html
+## DEMO: You can find the demo [HERE](https://gog3d.github.io/yndex-react-burger/index.html)
 
 ### Testing:
 
