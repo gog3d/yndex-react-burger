@@ -6,13 +6,6 @@ import { getRegister } from '../redux/actions/auth'
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { TLocationState } from '../types/data';
-/*
-interface LocationState {
-  from: {
-    pathname: string;
-  };
-}
-*/
 
 declare module 'react' {
   interface FunctionComponent<P = {}> {

@@ -26,7 +26,6 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
   const [locked, setIsLocked] =useState(false);
 
   const onClickBurgerConstructorListComponent = () => {
-//    dispatch({ type: deleteConstructorIngredient, index: index });
     dispatch(deleteConstructorIngredient(index));
   };
 

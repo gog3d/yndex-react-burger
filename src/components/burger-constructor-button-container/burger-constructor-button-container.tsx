@@ -29,6 +29,8 @@ const BurgerConstructorButtonContainer: React.FC = () => {
     orderDetailsFailed,
     } = useAppSelector((store) => store.ingredients);
 
+//  const constructorIngredients = useAppSelector((store) => store.ingredients.constructorIngredients);
+
   const {
     authFailed,
   } = useAppSelector((store) => store.auth);
@@ -49,7 +51,6 @@ const BurgerConstructorButtonContainer: React.FC = () => {
   );
   
   const onClickButton = useCallback(() => {
-    //console.log({orderDetailsItems})
     if(orderDetailsItems !== null) {
       if (orderDetailsItems.find((item: any) => {
         if(item === null) return false;

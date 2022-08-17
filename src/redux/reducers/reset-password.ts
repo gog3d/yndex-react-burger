@@ -20,7 +20,6 @@ export const resetPasswordReducer = createReducer(resetPasswordState, (builder)=
     })
     .addCase(getResetPasswordSuccess, (state, action)=>{
       state.resetPasswordFailed = false;
-      //state.resetPassword = action.resetPassword;
       state.resetPassword = action.payload;
       state.resetPasswordRequest = false;
     })

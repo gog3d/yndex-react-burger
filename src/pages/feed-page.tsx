@@ -35,7 +35,6 @@ export const FeedPage: React.FC = () => {
   }, [dispatch]);
 
   const onClickItem = useCallback(
-    //(item: TOrders, location: TLocationState) => {
     (item: TOrders) => {
       return history.push({
         pathname: `/feed/${item._id}`,

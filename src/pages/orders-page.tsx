@@ -10,7 +10,6 @@ import styles from './orders-page.module.css';
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
 import { TOrders }  from '../types/data';
-//import { Location } from 'history';
 import { wsUserConnectionStart, wsUserDisconnect } from '../redux/actions/wsUserAction';
 import { getCookie } from '../redux/utils';
 
@@ -19,12 +18,10 @@ import { TLocationState } from '../types/data';
 
 export const  OrdersPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  //const location = useLocation<Location & LocationState>();
   const location = useLocation<TLocationState>()
   const history = useHistory();
 
   const onClickItem = useCallback(
-    //(item: TOrders, location: TLocationState) => {
     (item: TOrders) => {
       return history.push({
         pathname: `/profile/orders/${item._id}`,
@@ -74,8 +71,6 @@ export const  OrdersPage: React.FC = () => {
   const onCancel =  useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      //setName(user.user ? user.user.name : '');
-      //setEmail(user.user ? user.user.email : '');
       setName(user === null ? '' : user.user.name);
       setEmail(user === null ? '' : user.user.email);
       setPassword('');
@@ -102,7 +97,6 @@ export const  OrdersPage: React.FC = () => {
     () => {
       setCurrent('История заказов');
       dispatch(getLogout());
-      //dispatch({ type: WS_USER_CONNECTION_CLOSED });
       history.replace({ pathname: '/login' });
     },
     [history]

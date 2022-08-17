@@ -8,13 +8,6 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
 import { TLocationState } from '../types/data';
 
-/*interface LocationState {
-  from: {
-    pathname: string;
-  };
-}
-*/
-
 declare module 'react' {
   interface FunctionComponent<P = {}> {
     (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
@@ -45,7 +38,6 @@ export const ResetPasswordPage: React.FC = () => {
 
     if(forgotPassword !== null && forgotPassword.success) {
       if(resetPassword !== null && resetPassword.success) {
-        //console.log(resetPassword);
         return (
           <Redirect
             to={{
@@ -58,7 +50,6 @@ export const ResetPasswordPage: React.FC = () => {
      return (
        <Redirect
         to={ location?.state?.from || {pathname: '/'} }
-       //to={ state?.from || '/' }
         />
       )
     }

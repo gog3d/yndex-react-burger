@@ -103,10 +103,8 @@ export const getOrderDetails = (body: Array<TIngredient>) => (dispatch: AppDispa
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(idsComponents),
   }).then(checkResponse).then(obj => {
-//    console.log(baseURL + 'orders')
 //  getOrderDetailsRequest().then(obj => {
     if (obj) {
-//      console.log({obj});
       dispatch(getOrderdetailsSuccess(obj.order.number));
     } else {
       dispatch(getOrderdetailsFailed());

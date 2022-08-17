@@ -38,7 +38,6 @@ export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Mi
         onClose
       } = wsActions;
       if (type === wsStart) {
-//        console.log(`${wsUrl}${payload}`);
         socket = new WebSocket(`${wsUrl}${payload}`);
       }
       if (socket) {
@@ -47,22 +46,19 @@ export const createWsMiddleware = (wsUrl: string, wsActions: TwsActionTypes): Mi
         };
         socket.onerror = event => {
           console.log(`ws error: ${event}`);
-          dispatch({type: onError});
-          //dispatch(onError());
+//          dispatch({type: onError});
+          dispatch(onError());
           
         };
         socket.onmessage = event => {
           const { data } = event;
-          //dispatch({type: onMessage, payload: JSON.parse(data)});
           dispatch(onMessage(JSON.parse(data)));
         };
         socket.close = event => {
-           //dispatch({type: onClose});
            dispatch(onClose());
         };
         
         if (type === wsDisconnect) {
-//          console.log('disconnect');
           socket.close();
           dispatch(onClose());
         }

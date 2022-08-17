@@ -46,11 +46,9 @@ export const getForgotPassword = (body: TForgotPasswordBody) => (dispatch: AppDi
     console.log(obj)
     dispatch(getForgotPasswordSuccess(obj));
   } else {
-//    console.log('fail');
     dispatch(getForgotPasswordFailed());
   }
   }).catch((error) => {
-//    console.log(error);
     dispatch(getForgotPasswordFailed());
   });
 };

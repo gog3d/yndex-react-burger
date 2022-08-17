@@ -28,15 +28,8 @@ export const  ProfilePage: React.FC = () => {
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-/*
-  useEffect(()=>{
-    setName(user.user ? user.user.name : '');
-    setEmail(user.user ? user.user.email : '');
-  }, [user]);
-*/
 
 useEffect(()=>{
-//  console.log(user);
   setName(user === null ? '' : user.user.name);
   setEmail(user === null ? '' : user.user.email);
 }, [user]);
@@ -53,8 +46,6 @@ useEffect(()=>{
   const onCancel = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-//      setName(user.user ? user.user.name : '');
-//      setEmail(user.user ? user.user.email : '');
       setName(user === null ? '' : user.user.name);
       setEmail(user === null ? '' : user.user.email);
       setPassword('');

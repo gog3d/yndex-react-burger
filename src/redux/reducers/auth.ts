@@ -40,7 +40,6 @@ export const authState: TAuthState = {
     loginRequest: false,
     loginFailed: false,
     
-//    register: null as (null | TRegister),
     register: null as (null | TLogin),
     registerRequest: false,
     registerFailed: false,
@@ -58,7 +57,6 @@ export const authState: TAuthState = {
     userFailed: false,
 
     refreshUser: null as (null | TLogin),
-//    refreshUser:  any,
     refreshUserRequest: false,
     refreshUserFailed: false,
     
@@ -140,7 +138,6 @@ export const authReducer = createReducer(authState, (builder) => {
       state.refreshUserFailed = false; 
       state.refreshUser = action.payload; 
       state.refreshUserRequest = false; 
-//      if(state.login) state.login.user = action.payload;
       state.login = action.payload;
     })
     .addCase(getRefreshUserFailed, (state, action)=>{

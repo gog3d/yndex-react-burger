@@ -33,10 +33,8 @@ export const initialState: TIngredientsState = {
     constructorIngredients: {
       bun: null as (null | TIngredient),
       ingredients: [],
-//        ingredients: null as (null | Array<TIngredient>),
     },
     modalIngredient: null as (TIngredient | null),
-    //orderDetailsItems: [],
     orderDetailsItems: null as (null | Array<TIngredient>),
     orderDetails: null,
     orderDetailsRequest: false,
@@ -45,9 +43,6 @@ export const initialState: TIngredientsState = {
     saucesScroll: false,
     mainsScroll: false,
     
-//    restorePassword: {},
-//    restorePasswordRequest: false,
-//    restorePasswordFailed: false,
   };
 
 export const ingredientsReducer = createReducer(initialState, (builder) => {
@@ -77,35 +72,25 @@ export const ingredientsReducer = createReducer(initialState, (builder) => {
       state.orderDetailsRequest = false;
     })
     .addCase(refreshOrderdetailsItems, (state, action) => {
-//      console.log('state.orderDetailsItems',  action.payload)
-//      state.orderDetailsItems = action.orderDetailsItems;
         state.orderDetailsItems = action.payload;
     })
     .addCase(addConstructorIngredient, (state, action) => {
-      //if (action.constructorIngredient.type === 'bun') {
         if (action.payload.type === 'bun') {
         state.constructorIngredients.bun = action.payload;
-        //state.constructorIngredients.bun = action.constructorIngredient;
       } else {
-        //state.constructorIngredients.ingredients.push({...action.constructorIngredient, uuid: uuidv4()});
         state.constructorIngredients.ingredients.push({...action.payload, uuid: uuidv4()});
       }
     })
     .addCase(updateConstructorIngredients, (state, action) => {
-      //state.constructorIngredients.ingredients = [...action.ingredients];
       state.constructorIngredients.ingredients = [...action.payload];
     })
     .addCase(deleteConstructorIngredient, (state, action) => {
-      //state.constructorIngredients.ingredients.splice(action.index, 1);
       state.constructorIngredients.ingredients.splice(action.payload, 1);
-      //...state, constructorIngredients: {...state.constructorIngredients, ingredients: [...state.constructorIngredients.ingredients]
     })
     .addCase(deleteModalIngredients, (state, action) => {
-      //state.modalIngredient = {};
       state.modalIngredient = null;
     })
     .addCase(addModalIngredients, (state, action) => {
-      //state.modalIngredient = action.item;
       state.modalIngredient = action.payload;
     })
     .addCase(refreshBunsScroll, (state, action) => {

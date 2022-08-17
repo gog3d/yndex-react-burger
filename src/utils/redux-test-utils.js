@@ -360,4 +360,3 @@ export const ingredientsWithMain = [
     "__v":0
  }
 ];
-

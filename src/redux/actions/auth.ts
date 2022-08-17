@@ -1,7 +1,5 @@
 import { AppDispatch, AppThunk } from '../store';
 import { createAction } from "@reduxjs/toolkit";
-//import { baseURL }  from '../../utils/config';
-//import { getLoginRequestApi, getLogoutRequestApi } from './fakeApiAuth';
 import { checkResponse }  from '../utils';
 import { TRefreshUser } from '../../types/data';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
@@ -106,14 +104,10 @@ export const getLogin = (body: TLoginPostBody) => async (dispatch: AppDispatch) 
   try {
     const res = await fetchRequest.post('auth/login', body);
     const obj = await checkResponse(res);
-    //const obj = await getLoginRequestApi(body);
-    //console.log(obj)
       if (obj) {
         dispatch(getLoginSuccess(obj));
         dispatch(getUserSuccess(obj));
-        //
-        dispatch({ type: getAuthSuccess, auth: obj});
-        //
+        dispatch(getAuthSuccess(obj));
         const  accessToken = obj.accessToken.split('Bearer ')[1];
         const  refreshToken = obj.refreshToken;
         if (refreshToken) {
@@ -132,10 +126,8 @@ export const getLogin = (body: TLoginPostBody) => async (dispatch: AppDispatch) 
 };
 
 export const getAuth = () => async (dispatch: AppDispatch) => {
-//  console.log('getAuth')
   dispatch(getAuthRequest());
   const refreshToken = getCookie('refreshToken');
-//  console.log(refreshToken)
   if (refreshToken) {
     try {
       const res = await fetchRequest.post('auth/token', { 'token' : refreshToken });

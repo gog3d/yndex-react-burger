@@ -1,4 +1,3 @@
-//import img  from '../../utils/config.js';
 import React, { useMemo } from 'react';
 import styles from './burger-constructor-list-container.module.css';
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';

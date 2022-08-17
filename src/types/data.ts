@@ -125,62 +125,50 @@ export type TForgotPasswordState = {
     resetPasswordFailed: boolean,
     };
 
-    export type TOrders = {
-      ingredients: Array<string>,
-      _id: string,
-      status: string,
-      number: number,
-      createdAt: string,
-      updatedAt: string,
-      name: string,
-    }
- /*   export type TUserOrders = {
-      ingredients: Array<string>,
-      _id: string,
-      status: string,
-      number: number,
-      createdAt: string,
-      updatedAt: string,
-      name: string,
-    }
+  export type TOrders = {
+    ingredients: Array<string>,
+    _id: string,
+    status: string,
+    number: number,
+    createdAt: string,
+    updatedAt: string,
+    name: string,
+  }
 
-*/
-    export type TWsOrdersMessage = {
-      success: boolean,
-      orders: Array<TOrders>,
-      total: number,
-      totalToday: number
-    } 
+  export type TWsOrdersMessage = {
+    success: boolean,
+    orders: Array<TOrders>,
+    total: number,
+    totalToday: number
+  } 
 
-    export type TWsOrdersState = { 
-      wsError: boolean | undefined,
-      wsConnected: boolean, 
-      wsOrders: Array<TOrders>,
-      wsOrdersTotal: number | null,
-      wsOrdersTotalToday: number | null,
-    };
+  export type TWsOrdersState = { 
+    wsError: boolean | undefined,
+    wsConnected: boolean, 
+    wsOrders: Array<TOrders>,
+    wsOrdersTotal: number | null,
+    wsOrdersTotalToday: number | null,
+  };
 
-    export type TWsUserOrdersState = { 
-      wsUserError: boolean | undefined,
-      wsUserConnected: boolean, 
-      wsUserOrders: Array<TOrders>,
-      wsUserOrdersTotal: number | null,
-      wsUserOrdersTotalToday: number | null,
-    };
+  export type TWsUserOrdersState = { 
+    wsUserError: boolean | undefined,
+    wsUserConnected: boolean, 
+    wsUserOrders: Array<TOrders>,
+    wsUserOrdersTotal: number | null,
+    wsUserOrdersTotalToday: number | null,
+  };
 
-    
-    export interface Location<S = unknown> {
-      pathname: string;
-      search: string;
-      state: S;
-      hash: string;
-      key?: string | undefined;
-    }
-  
-    export interface TLocationState {
-      background?: Location<TLocationState>
-      from?: Location<TLocationState>
-    }
+  export interface Location<S = unknown> {
+    pathname: string;
+    search: string;
+    state: S;
+    hash: string;
+    key?: string | undefined;
+  }
+  export interface TLocationState {
+    background?: Location<TLocationState>
+    from?: Location<TLocationState>
+  }
   export type TRefreshUser = {
     email: string,
     password: string
