@@ -32,8 +32,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "cypress": "cypress open cache clear"
-}
+    "cypress": "cypress open cache clear",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -60,5 +59,6 @@
     "gh-pages": "^4.0.0",
     "redux-mock-store": "^1.5.4"
   },
-  "homepage": "./",
+  "homepage": "./"
+}
 
