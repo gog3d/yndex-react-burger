@@ -1,7 +1,7 @@
 //import styles from './app.module.css';
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-//import { useDispatch } from 'react-redux';
+//import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import { getIngredients } from '../../redux/actions/ingredients';
 import { getAuth } from '../../redux/actions/auth';
