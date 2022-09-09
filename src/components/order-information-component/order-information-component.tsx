@@ -6,10 +6,20 @@ import OrderInformationComponentItem from '../order-information-component-item/o
 import { RootState }  from '../../redux/store';
 import { TIngredient, TOrders}  from '../../types/data';
 import { useAppSelector } from '../../redux/hooks';
+import { useMemo } from 'react';
+import { useEffect } from 'react';
 
 export interface TTotal {
   bun: TIngredient | null,
   ingredients: Array<TIngredient>,
+}
+
+export interface TItemsObj {
+  [key: string]: {
+    type: string,
+    item: TIngredient,
+    equal: number
+  }
 }
 
 const OrderInformationComponent: React.FC<{ order: TOrders}> = (props) => {
@@ -18,28 +28,27 @@ const OrderInformationComponent: React.FC<{ order: TOrders}> = (props) => {
     burgerIngredients,
   } = useAppSelector((store: RootState) => store.ingredients);
 
-  if(!order) return null;
-
+ 
   const today: Date = new Date();
   const orderDate: Date = new Date(order.createdAt);
   const day: number = Math.floor((Number(today) - Number(orderDate))/(1000*3600*24));
 
-  const date = {
-    status: '',
-  };
-  if(day === 0) {
-     date.status = 'Сегодня';
-  } else if (day === 1) {
-    date.status = 'Вчера';
-  } else if (5 > day > 1) {
-    date.status = `${day} дня назад`;
-  } else {
-    date.status = `${day} дней назад`;
-  }
+  const dateStatus = useMemo(() => {
+    if(day === 0) {
+      return 'Сегодня';
+    } else if (day === 1) {
+      return 'Вчера';
+    } else if (5 - day >= 1) {
+      return `${day} дня назад`;
+    } else {
+      return `${day} дней назад`;
+    }
+  }, []);
   
   const orderStatus = {
     status: '',
   }
+  
   if(order.status === 'done') {
     orderStatus.status = 'Выполнен';
   } else if(order.status === 'inwork') {
@@ -76,6 +85,7 @@ const OrderInformationComponent: React.FC<{ order: TOrders}> = (props) => {
   const count = bunPrice + ingredientsPrice;
 
   const itemsObj: any = {};
+
   for(const ingredient of ingredients) {
     const name = ingredient.name;
     if(itemsObj[name] === undefined){
@@ -95,6 +105,8 @@ const OrderInformationComponent: React.FC<{ order: TOrders}> = (props) => {
   for(const item in itemsObj){
     items.push(itemsObj[item]);
   }
+
+  if(!order) return null;
 
   return (
     <div className={styles['order-informations-component']} >
@@ -136,7 +148,7 @@ const OrderInformationComponent: React.FC<{ order: TOrders}> = (props) => {
       <div className={styles['order-footer']}>
         <p className={styles['order-date']}>
           <span className="text text_type_main-smalle">
-            {`${date.status} ${orderDate.getUTCHours()}:${orderDate.getUTCMinutes()}`}
+            {`${dateStatus} ${orderDate.getUTCHours()}:${orderDate.getUTCMinutes()}`}
           </span>
         </p>
         <div className={styles['order-total-container']}>

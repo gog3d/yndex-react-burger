@@ -5,10 +5,10 @@ import {
   getResetPasswordFailed,
 } from '../actions/reset-password';
 
-import { TResetPasswordState } from '../../types/data';
+import { TResetPasswordState, TResetPasswordType } from '../../types/data';
 
-const resetPasswordState: TResetPasswordState = {
-  resetPassword: {},
+export const resetPasswordState: TResetPasswordState = {
+  resetPassword: null as (null | TResetPasswordType),
   resetPasswordRequest: false,
   resetPasswordFailed: false,
   };
@@ -20,7 +20,7 @@ export const resetPasswordReducer = createReducer(resetPasswordState, (builder)=
     })
     .addCase(getResetPasswordSuccess, (state, action)=>{
       state.resetPasswordFailed = false;
-      state.resetPassword = action.resetPassword;
+      state.resetPassword = action.payload;
       state.resetPasswordRequest = false;
     })
     .addCase(getResetPasswordFailed, (state, action)=>{

@@ -1,4 +1,3 @@
-
 export type TIngredient = {
   _id: string,
   name: string,
@@ -20,11 +19,11 @@ export type TIngredientsState = {
   burgerIngredientsRequest: boolean,
   burgerIngredientsFailed: boolean,
   constructorIngredients: {
-    bun: TIngredient | null,
+    bun: null | TIngredient,
     ingredients: Array<TIngredient>,
   },
   modalIngredient: TIngredient | null,
-  orderDetailsItems: Array<TIngredient> | null,
+  orderDetailsItems: null | Array<TIngredient>,
   orderDetails: number | null,
 
   orderDetailsRequest: boolean,
@@ -79,7 +78,7 @@ export type TAuthState = {
   loginRequest: boolean,
   loginFailed: boolean,
   
-  register: TRegister | null,
+  register: null | TRegister,
   registerRequest: boolean,
   registerFailed: boolean,
   
@@ -91,11 +90,11 @@ export type TAuthState = {
   tokenRequest: boolean,
   tokenFailed: boolean,
 
-  user: TLogin | TUser| null,
+  user: TLogin | null,
   userRequest: boolean,
   userFailed: boolean,
 
-  refreshUser: TUser| null,
+  refreshUser: TLogin| null,
   refreshUserRequest: boolean,
   refreshUserFailed: boolean,
   
@@ -126,37 +125,55 @@ export type TForgotPasswordState = {
     resetPasswordFailed: boolean,
     };
 
-    export type TOrders = {
-      ingredients: Array<string>,
-      _id: string,
-      status: string,
-      number: number,
-      createdAt: string,
-      updatedAt: string,
-      name: string,
-    }
-    export type TUserOrders = {
-      ingredients: Array<string>,
-      _id: string,
-      status: string,
-      number: number,
-      createdAt: string,
-      updatedAt: string,
-      name: string,
-    }
+  export type TOrders = {
+    ingredients: Array<string>,
+    _id: string,
+    status: string,
+    number: number,
+    createdAt: string,
+    updatedAt: string,
+    name: string,
+  }
 
-    export type TWsOrdersState = { 
-      wsError: string | undefined,
-      wsConnected: boolean, 
-      wsOrders: Array<TOrders>,
-      wsOrdersTotal: number | null,
-      wsOrdersTotalToday: number | null,
-    };
+  export type TWsOrdersMessage = {
+    success: boolean,
+    orders: Array<TOrders>,
+    total: number,
+    totalToday: number
+  } 
 
-    export type TWsUserOrdersState = { 
-      wsUserError: string | undefined,
-      wsUserConnected: boolean, 
-      wsUserOrders: Array<TUserOrders>,
-      wsUserOrdersTotal: number | null,
-      wsUserOrdersTotalToday: number | null,
-    };
+  export type TWsOrdersState = { 
+    wsError: boolean | undefined,
+    wsConnected: boolean, 
+    wsOrders: Array<TOrders>,
+    wsOrdersTotal: number | null,
+    wsOrdersTotalToday: number | null,
+  };
+
+  export type TWsUserOrdersState = { 
+    wsUserError: boolean | undefined,
+    wsUserConnected: boolean, 
+    wsUserOrders: Array<TOrders>,
+    wsUserOrdersTotal: number | null,
+    wsUserOrdersTotalToday: number | null,
+  };
+
+  export interface Location<S = unknown> {
+    pathname: string;
+    search: string;
+    state: S;
+    hash: string;
+    key?: string | undefined;
+  }
+  export interface TLocationState {
+    background?: Location<TLocationState>
+    from?: Location<TLocationState>
+  }
+  export type TRefreshUser = {
+    email: string,
+    password: string
+  }
+  export type TResetPassword = {
+    password: string,
+    token: string
+  }

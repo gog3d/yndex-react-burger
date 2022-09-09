@@ -5,6 +5,12 @@ import { getLogout, getUser, getRefreshUser } from '../redux/actions/auth';
 import { PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 export const  ProfilePage: React.FC = () => {
   const history = useHistory(); 
   const dispatch = useAppDispatch();
@@ -23,10 +29,10 @@ export const  ProfilePage: React.FC = () => {
     dispatch(getUser());
   }, [dispatch]);
 
-  useEffect(()=>{
-    setName(user.user ? user.user.name : '');
-    setEmail(user.user ? user.user.email : '');
-  }, [user]);
+useEffect(()=>{
+  setName(user === null ? '' : user.user.name);
+  setEmail(user === null ? '' : user.user.email);
+}, [user]);
 
   const onSave =  useCallback(
     (e: React.FormEvent) => {
@@ -40,8 +46,8 @@ export const  ProfilePage: React.FC = () => {
   const onCancel = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      setName(user.user ? user.user.name : '');
-      setEmail(user.user ? user.user.email : '');
+      setName(user === null ? '' : user.user.name);
+      setEmail(user === null ? '' : user.user.email);
       setPassword('');
     }, [email, password, name]
   );

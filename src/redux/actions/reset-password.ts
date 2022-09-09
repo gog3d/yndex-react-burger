@@ -9,16 +9,22 @@ import {
 } from '../action-types';
 
 import { AppDispatch, AppThunk } from '../store';
+import { TResetPasswordType } from '../../types/data';
 
 export const getResetPasswordRequest = createAction(GET_RESET_PASSWORD_REQUEST);
-export const getResetPasswordSuccess = createAction(GET_RESET_PASSWORD_SUCCESS);
+export const getResetPasswordSuccess = createAction<TResetPasswordType>(GET_RESET_PASSWORD_SUCCESS);
 export const getResetPasswordFailed = createAction(GET_RESET_PASSWORD_FAILED);
 
 export type TResetPassword = ReturnType<typeof getResetPasswordRequest>
                             | ReturnType<typeof getResetPasswordSuccess>
                             | ReturnType<typeof getResetPasswordFailed>;
 
-export const getResetPassword = (body = null) => (dispatch: AppDispatch) => {
+export type TResetPasswordBody = { 
+  password: string,
+  token: string
+ }                            
+
+export const getResetPassword = (body: TResetPasswordBody) => (dispatch: AppDispatch) => {
   dispatch({ type: getResetPasswordRequest });
   fetch(baseURL + 'password-reset/reset', {
     method: 'POST',

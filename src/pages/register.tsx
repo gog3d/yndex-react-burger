@@ -1,21 +1,23 @@
 import React, { useState, useCallback } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useLocation } from 'react-router-dom';
 
 import styles from './register.module.css';
 import { getRegister } from '../redux/actions/auth'
 import {Logo, PasswordInput, EmailInput, Button, Input} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { TLocationState } from '../types/data';
 
-interface LocationState {
-  from: {
-    pathname: string;
-  };
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
 }
 
-export const  RegisterPage: React.FC<{ state: LocationState }> = ({ state }) => {
+export const  RegisterPage: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const location = useLocation<TLocationState>()
 
   const {
     authFailed,
@@ -34,12 +36,12 @@ export const  RegisterPage: React.FC<{ state: LocationState }> = ({ state }) => 
   if (!authFailed) {
     return (
       <Redirect
-        to={ state?.from || '/' }
+        to={ location?.state?.from || {pathname: '/'} }
       />
     );
   }
 
-  if(register.success) {
+  if(register && register.success) {
     return (
       <Redirect
         to={{

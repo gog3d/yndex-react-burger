@@ -12,7 +12,7 @@ interface BurgerIngredientsListProps {
 const BurgerIngredientsList: React.FC<BurgerIngredientsListProps> = (props) => {
   const {scrollEvent, listRef, bunsRef, saucesRef, mainsRef } = props;
     return (
-      <div onScroll={scrollEvent} ref={listRef} className={styles["burger-ingredients-list"]}>
+      <div data-testid = 'ingredient_list' onScroll={scrollEvent} ref={listRef} className={styles["burger-ingredients-list"]}>
         <div  ref={bunsRef} className={styles["burger-ingredients-list-type"]}>
            <span className="text text_type_main-medium">Булки</span>
         </div>

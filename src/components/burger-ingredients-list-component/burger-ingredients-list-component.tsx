@@ -5,7 +5,8 @@ import {
   useHistory,
   useLocation,
 } from "react-router-dom";
-import { TIngredient}  from '../../redux/action-types/data';
+
+import { TIngredient}  from '../../types/data';
 import { Location } from 'history';
 
 import { useAppSelector } from '../../redux/hooks';

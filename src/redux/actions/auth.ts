@@ -1,6 +1,7 @@
+import { AppDispatch, AppThunk } from '../store';
 import { createAction } from "@reduxjs/toolkit";
-//import { baseURL }  from '../../utils/config';
 import { checkResponse }  from '../utils';
+import { TRefreshUser } from '../../types/data';
 import { setCookie, getCookie, deleteCookie, fetchRequest } from '../utils';
 
 import {
@@ -34,35 +35,35 @@ import {
 
 } from '../action-types';
 
+import { TRegister, TLogin, TUser, TLogout, TToken } from '../../types/data';
+
 export const getLoginRequest = createAction(GET_LOGIN_REQUEST);
-export const getLoginSuccess = createAction(GET_LOGIN_SUCCESS);
+export const getLoginSuccess = createAction<TLogin>(GET_LOGIN_SUCCESS);
 export const getLoginFailed = createAction(GET_LOGIN_FAILED);
 
 export const getRegisterRequest = createAction(GET_REGISTER_REQUEST);
-export const getRegisterSuccess = createAction(GET_REGISTER_SUCCESS);
+export const getRegisterSuccess = createAction<TRegister>(GET_REGISTER_SUCCESS);
 export const getRegisterFailed = createAction(GET_REGISTER_FAILED);
 
 export const getLogoutRequest = createAction(GET_LOGOUT_REQUEST);
-export const getLogoutSuccess = createAction(GET_LOGOUT_SUCCESS);
+export const getLogoutSuccess = createAction<TLogout>(GET_LOGOUT_SUCCESS);
 export const getLogoutFailed = createAction(GET_LOGOUT_FAILED);
  
 export const getUserRequest = createAction(GET_USER_REQUEST);
-export const getUserSuccess = createAction(GET_USER_SUCCESS);
+export const getUserSuccess = createAction<TLogin | null>(GET_USER_SUCCESS);
 export const getUserFailed = createAction(GET_USER_FAILED);
 
 export const getRefreshUserRequest = createAction(GET_REFRESH_USER_REQUEST);
-export const getRefreshUserSuccess = createAction(GET_REFRESH_USER_SUCCESS);
+export const getRefreshUserSuccess = createAction<TLogin>(GET_REFRESH_USER_SUCCESS);
 export const getRefreshUserFailed = createAction(GET_REFRESH_USER_FAILED);
 
 export const getAuthRequest = createAction(GET_AUTH_REQUEST);
-export const getAuthSuccess = createAction(GET_AUTH_SUCCESS);
+export const getAuthSuccess = createAction<TToken>(GET_AUTH_SUCCESS);
 export const getAuthFailed = createAction(GET_AUTH_FAILED);
 
 export const getTokenRequest = createAction(GET_TOKEN_REQUEST);
-export const getTokenSuccess = createAction(GET_TOKEN_SUCCESS);
+export const getTokenSuccess = createAction<TToken>(GET_TOKEN_SUCCESS);
 export const getTokenFailed = createAction(GET_TOKEN_FAILED);
-
-import { AppDispatch, AppThunk } from '../store';
 
 export type TAuthAction = ReturnType<typeof getLoginRequest>
                           | ReturnType<typeof getLoginSuccess>
@@ -85,17 +86,28 @@ export type TAuthAction = ReturnType<typeof getLoginRequest>
                           | ReturnType<typeof getTokenRequest>
                           | ReturnType<typeof getTokenSuccess>
                           | ReturnType<typeof getTokenFailed>;
+                          
+export type TLoginPostBody = {
+  email:string,
+  password: string
+}
+export type TAuthPostBody = {
+  token: string
+}
+export type TRefreshUserPatchBody =  {
+  email: string,
+  password: string
+}
 
-export const getLogin = (body = null) => async (dispatch: AppDispatch) => {
-  dispatch({ type: getLoginRequest });
+export const getLogin = (body: TLoginPostBody) => async (dispatch: AppDispatch) => {
+  dispatch(getLoginRequest());
   try {
     const res = await fetchRequest.post('auth/login', body);
     const obj = await checkResponse(res);
-   // const obj = await getLoginRequestApi({});
       if (obj) {
-        dispatch({ type: getLoginSuccess, login: obj});
-        dispatch({ type: getUserSuccess, user: obj});
-        dispatch({ type: getAuthSuccess, auth: obj});
+        dispatch(getLoginSuccess(obj));
+        dispatch(getUserSuccess(obj));
+        dispatch(getAuthSuccess(obj));
         const  accessToken = obj.accessToken.split('Bearer ')[1];
         const  refreshToken = obj.refreshToken;
         if (refreshToken) {
@@ -105,16 +117,16 @@ export const getLogin = (body = null) => async (dispatch: AppDispatch) => {
           setCookie('accessToken', accessToken);
         }
       } else {
-        dispatch({ type: getLoginFailed });
+        dispatch(getLoginFailed());
       }
   } catch(error) {
     console.log(error);
-    dispatch({ type: getLoginFailed });
+    dispatch(getLoginFailed());
   };
 };
 
 export const getAuth = () => async (dispatch: AppDispatch) => {
-  dispatch({ type: getAuthRequest });
+  dispatch(getAuthRequest());
   const refreshToken = getCookie('refreshToken');
   if (refreshToken) {
     try {
@@ -122,7 +134,7 @@ export const getAuth = () => async (dispatch: AppDispatch) => {
       const obj = await checkResponse(res);
       //const obj = await getLoginRequestApi(body);
         if (obj) {
-          dispatch({ type: getAuthSuccess, auth: obj});
+          dispatch(getAuthSuccess(obj));
           const  accessToken = obj.accessToken.split('Bearer ')[1];
           const  refreshToken = obj.refreshToken;
           if (refreshToken) {
@@ -132,47 +144,53 @@ export const getAuth = () => async (dispatch: AppDispatch) => {
             setCookie('accessToken', accessToken);
           }
         } else {
-          dispatch({ type: getAuthFailed });
+          dispatch(getAuthFailed());
         }
     } catch(error) {
       console.log(error);
-      dispatch({ type: getAuthFailed });
+      dispatch(getAuthFailed());
     }
   } else {
-    dispatch({ type: getAuthFailed });
+    dispatch(getAuthFailed());
   }
 };
 
 export const getUser =  () => async (dispatch: AppDispatch) => {
-  dispatch({ type: getUserRequest });
+  dispatch(getUserRequest());
   await getAuth();
   const accessToken = getCookie('accessToken');
   if(accessToken) {
     try {
       const res = await fetchRequest.get('auth/user', { 'Authorization': 'Token '+ accessToken });
       const obj = await checkResponse(res);
-      //const obj = await getLoginRequestApi({});
+     // const obj = await getLoginRequestApi({});
       if (obj) {
-        dispatch({ type: getUserSuccess, user: obj});
+        dispatch(getUserSuccess(obj));
       } else {
-        dispatch({ type: getUserFailed });
+        dispatch(getUserFailed());
       }
     } catch(error){
         console.log(error)
-        dispatch({ type: getUserFailed });
+        dispatch(getUserFailed());
     }
   } else {
-    dispatch({ type: getUserFailed });
+    dispatch(getUserFailed());
   }
 };
 
-export const getRegister = (body = null) => async (dispatch: AppDispatch) => {
-  dispatch({ type: getRegisterRequest });
+export type TRegisterBody = { 
+  email: string, 
+  password: string, 
+  name: string
+ }
+
+export const getRegister = (body: TRegisterBody) => async (dispatch: AppDispatch) => {
+  dispatch(getRegisterRequest());
   try {
     const res = await fetchRequest.post('auth/register', body);
     const obj = await checkResponse(res);
       if (obj) {
-        dispatch({ type: getRegisterSuccess, register: obj});
+        dispatch(getRegisterSuccess(obj));
         const  accessToken = obj.accessToken.split('Bearer ')[1];
         const  refreshToken = obj.refreshToken;
         if (refreshToken) {
@@ -182,16 +200,16 @@ export const getRegister = (body = null) => async (dispatch: AppDispatch) => {
           setCookie('accessToken', accessToken);
         }
       } else {
-        dispatch({ type: getRegisterFailed });
+        dispatch(getRegisterFailed());
       }
   } catch(error) {
     console.log(error);
-    dispatch({ type: getRegisterFailed });
+    dispatch(getRegisterFailed());
   };
 };
 
 export const getLogout = () => async (dispatch: AppDispatch) => {
-  dispatch({ type: getLogoutRequest });
+  dispatch(getLogoutRequest());
   const refreshToken = getCookie('refreshToken');
   if (refreshToken) {
     try {
@@ -199,8 +217,8 @@ export const getLogout = () => async (dispatch: AppDispatch) => {
     const obj = await checkResponse(res);
     //const obj = await getLogoutRequestApi();
       if (obj) {
-        dispatch({ type: getLogoutSuccess, logout: obj});
-        dispatch({ type: getUserSuccess, user: {}});
+        dispatch(getLogoutSuccess(obj));
+        dispatch(getUserSuccess(null));
         dispatch({ type: getUserFailed });
         dispatch({ type: getAuthSuccess, auth: {}});
         dispatch({ type: getAuthFailed });
@@ -213,37 +231,40 @@ export const getLogout = () => async (dispatch: AppDispatch) => {
           deleteCookie('accessToken');
         }
       } else {
-        dispatch({ type: getLogoutFailed });
+        dispatch(getLogoutFailed());
       }
   } catch(error) {
     console.log(error);
-    dispatch({ type: getLogoutFailed });
+    dispatch(getLogoutFailed());
   };
   } else {
-    dispatch({ type: getLogoutFailed });
+    dispatch(getLogoutFailed());
   
   }
 };
 
-export const getRefreshUser = (body = null) => async (dispatch: AppDispatch) => {
-  dispatch({ type: getRefreshUserRequest });
+export const getRefreshUser = (body: TRefreshUserPatchBody) => async (dispatch: AppDispatch) => {
+  dispatch(getRefreshUserRequest());
   const accessToken = getCookie('accessToken');
   if(accessToken) {
     try {
-      const res = await fetchRequest.patch('auth/user', body, 
-        { 'Authorization': 'Token '+ accessToken });
-      const obj = await checkResponse(res);
+      const obj = undefined;
+      if (body !== null) {
+        const res = await fetchRequest.patch('auth/user', body, 
+          { 'Authorization': 'Token '+ accessToken });
+        const obj = await checkResponse(res);
+      }
       if (obj) {
-        dispatch({ type: getRefreshUserSuccess, refreshUser: obj});
-        dispatch({ type: getUserSuccess, user: obj});
+        dispatch(getRefreshUserSuccess(obj));
+        dispatch(getUserSuccess(obj));
       } else {
-        dispatch({ type: getRefreshUserFailed });
+        dispatch(getRefreshUserFailed());
       }
     } catch(error){
         console.log(error)
-        dispatch({ type: getRefreshUserFailed });
+        dispatch(getRefreshUserFailed());
     }
   } else {
-    dispatch({ type: getRefreshUserFailed });
+    dispatch(getRefreshUserFailed());
   }
 };

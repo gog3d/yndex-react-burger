@@ -24,10 +24,9 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
   const ingredients = useAppSelector((store) => store.ingredients.constructorIngredients.ingredients);
 
   const [locked, setIsLocked] =useState(false);
-  const [type, setType] = useState('primary')
 
   const onClickBurgerConstructorListComponent = () => {
-    dispatch({ type: deleteConstructorIngredient, index: index });
+    dispatch(deleteConstructorIngredient(index));
   };
 
   const moveIngredients = useCallback(
@@ -37,7 +36,8 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
       const updatedIngredients = [...ingredients];
       updatedIngredients[dragIndex] = hoverItem;
       updatedIngredients[hoverIndex] = dragItem;
-      dispatch({ type: updateConstructorIngredients, ingredients: updatedIngredients });
+      //dispatch({ type: updateConstructorIngredients, ingredients: updatedIngredients });
+      dispatch(updateConstructorIngredients(updatedIngredients));
     },
     [ingredients]
   )
@@ -53,29 +53,32 @@ const BurgerConstructorListComponent: React.FC<BurgerConstructorListComponentPro
   const [, dropRef] = useDrop({
     accept: 'item',
     hover: (item: {index: number}, monitor) => {
+      if(!ref.current) return;
       const dragIndex = item.index;
       const hoverIndex = index;
-      const hoverBoundingRect = ref.current.getBoundingClientRect();
+      const hoverBoundingRect = ref.current?.getBoundingClientRect();
       const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-      const hoverActualY = monitor.getClientOffset().y - hoverBoundingRect.top;
-        if (dragIndex < hoverIndex && hoverActualY < hoverMiddleY) return;
-        if (dragIndex > hoverIndex && hoverActualY > hoverMiddleY) return;
-          moveIngredients(dragIndex, hoverIndex);
-            item.index = hoverIndex;
+      const clientOffset = monitor.getClientOffset();
+      if (clientOffset === null) return; 
+      const hoverActualY = clientOffset.y - hoverBoundingRect.top;
+      if (dragIndex < hoverIndex && hoverActualY < hoverMiddleY) return;
+      if (dragIndex > hoverIndex && hoverActualY > hoverMiddleY) return;
+      moveIngredients(dragIndex, hoverIndex);
+      item.index = hoverIndex;
     },
   })
 
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const dragDropRef = dragRef(dropRef(ref))
   const opacity = isDragging ? 0 : 1
 
   return (
           <div 
-            ref={dragDropRef} 
+            ref={ref} 
             className={styles["burger-constructor-list-component"]} 
             style={{opacity}} 
             >
-            <DragIcon className={styles['dragon-icon']} type={type} />
+            <DragIcon type='primary' />
             <ConstructorElement
               handleClose={onClickBurgerConstructorListComponent}
               isLocked={locked}

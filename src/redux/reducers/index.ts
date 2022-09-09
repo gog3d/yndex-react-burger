@@ -1,5 +1,3 @@
-//export * from './rootReducer';
-
 import { combineReducers } from 'redux';
 
 import { ingredientsReducer } from './ingredients';

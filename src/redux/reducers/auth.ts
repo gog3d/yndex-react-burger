@@ -32,77 +32,77 @@ import {
 
 //import { getTokenRequestApi } from '../fakeApiAuth';
 
-import { TAuthState } from '../../types/data';
+import { TAuthState, TRegister, TLogin, TLogout, TToken } from '../../types/data';
 
 
-const authState: TAuthState = {
-    login: {},
+export const authState: TAuthState = {
+    login: null as (null | TLogin),
     loginRequest: false,
     loginFailed: false,
     
-    register: {},
+    register: null as (null | TLogin),
     registerRequest: false,
     registerFailed: false,
     
-    logout: {},
+    logout: null as (null | TLogout),
     logoutRequest: false,
     logoutFailed: false,
     
-    token: {},
+    token: null as (null | TToken),
     tokenRequest: false,
     tokenFailed: false,
 
-    user: {},
+    user: null as (null | TLogin),
     userRequest: false,
     userFailed: false,
 
-    refreshUser: {},
+    refreshUser: null as (null | TLogin),
     refreshUserRequest: false,
     refreshUserFailed: false,
     
-    auth: {},
+    auth: null as (null | TToken),
     authRequest: false,
     authFailed: false
   };
   
 export const authReducer = createReducer(authState, (builder) => {
   builder
-  .addCase(getLoginRequest, (state, action)=>{
+  .addCase(getLoginRequest, (state, action) => {
       state.loginRequest = true;
     })  
-    .addCase(getLoginSuccess, (state, action)=>{
+    .addCase(getLoginSuccess, (state, action) => {
       state.loginFailed = false; 
-      state.login = action.login; 
-      state.register = action.login; 
+      state.login = action.payload; 
+      state.register = action.payload; 
       state.loginRequest = false;
     })
 
-    .addCase(getLoginFailed, (state, action)=>{
+    .addCase(getLoginFailed, (state, action) => {
       state.loginFailed = true; 
       state.loginRequest = false;
     })
     
-    .addCase(getRegisterRequest, (state, action)=>{
+    .addCase(getRegisterRequest, (state, action) => {
       state.registerRequest = true;
     })
-    .addCase(getRegisterSuccess, (state, action)=>{
+    .addCase(getRegisterSuccess, (state, action) => {
       state.registerFailed = false;
-      state.register = action.register;
+      state.register = action.payload;
       state.registerRequest = false;
     })
-    .addCase(getRegisterFailed, (state, action)=>{
+    .addCase(getRegisterFailed, (state, action) => {
       state.registerFailed = true; 
       state.registerRequest = false;
     })
-    .addCase(getLogoutRequest, (state, action)=>{
+    .addCase(getLogoutRequest, (state, action) => {
       state.logoutRequest = true;
     })
-    .addCase(getLogoutSuccess, (state, action)=>{
+    .addCase(getLogoutSuccess, (state, action) => {
       state.logoutFailed = false;
-      state.logout = action.logout; 
+      state.logout = action.payload; 
       state.logoutRequest = false;
     })
-    .addCase(getLogoutFailed, (state, action)=>{
+    .addCase(getLogoutFailed, (state, action) => {
       state.logoutFailed = true;
       state.logoutRequest = false;
     })
@@ -111,7 +111,7 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getTokenSuccess, (state, action)=>{
       state.tokenFailed = false; 
-      state.token = action.token;
+      state.token = action.payload;
       state.tokenRequest = false;
     })
     .addCase(getTokenFailed, (state, action)=>{
@@ -123,8 +123,8 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getUserSuccess, (state, action)=>{
       state.userFailed = false; 
-      state.user = action.user; 
-      state.login = action.user;
+      state.user = action.payload; 
+      state.login = action.payload;
       state.userRequest =  false;
     })
     .addCase(getUserFailed, (state, action)=>{
@@ -136,9 +136,9 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getRefreshUserSuccess, (state, action)=>{
       state.refreshUserFailed = false; 
-      state.refreshUser = action.refreshUser; 
+      state.refreshUser = action.payload; 
       state.refreshUserRequest = false; 
-      state.login.user = action.refreshUser;
+      state.login = action.payload;
     })
     .addCase(getRefreshUserFailed, (state, action)=>{
       state.refreshUserFailed = true; 
@@ -149,7 +149,7 @@ export const authReducer = createReducer(authState, (builder) => {
     })
     .addCase(getAuthSuccess, (state, action)=>{
       state.authFailed = false; 
-      state.auth = action.auth; 
+      state.auth = action.payload; 
       state.authRequest = false;
     })
     .addCase(getAuthFailed, (state, action)=>{

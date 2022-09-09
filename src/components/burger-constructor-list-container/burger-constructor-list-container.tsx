@@ -1,4 +1,3 @@
-//import img  from '../../utils/config.js';
 import React, { useMemo } from 'react';
 import styles from './burger-constructor-list-container.module.css';
 import { ConstructorElement, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components';
@@ -10,6 +9,7 @@ import {
 } from '../../redux/actions/ingredients';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { TIngredient } from '../../types/data';
 
 const BurgerConstructorListContainer: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -29,13 +29,13 @@ const BurgerConstructorListContainer: React.FC = () => {
 
   const [, dropTarget] = useDrop({
     accept: "ingredients",
-    drop(item) {
-      dispatch({ type: addConstructorIngredient, constructorIngredient: item });
+    drop(item: TIngredient) {
+      dispatch(addConstructorIngredient(item));
     },
   });
 
   return (
-    <div ref={dropTarget} className={styles["burger-constructor-list"]}>
+    <div data-testid = 'constructor_list_container' ref={dropTarget} className={styles["burger-constructor-list"]}>
       <div className={styles["burger-constructor-list-component-top"]}>
         {
           bun ? ( 
@@ -52,6 +52,7 @@ const BurgerConstructorListContainer: React.FC = () => {
               isLocked={true}
               text={'добавьте булку'}
               thumbnail={''}
+              price={0}
             />
             )
         }
@@ -71,11 +72,12 @@ const BurgerConstructorListContainer: React.FC = () => {
             })
           ) : (
             <div className={styles["burger-constructor-list-component-midle"]}>
-                <DragIcon className={styles['dragon-icon']} type={'secondary'} />
+                <DragIcon type={'secondary'} />
                 <ConstructorElement
-                type={'midle'}
                 isLocked={true}
                 text={`добавьте ингредиент`}
+                price={0}
+                thumbnail={''}
               />
             </div>
           )
@@ -96,6 +98,8 @@ const BurgerConstructorListContainer: React.FC = () => {
             type={'bottom'}
             isLocked={true}
             text={`добавьте булку`}
+            price={0}
+            thumbnail={''}
           />
         )
         }

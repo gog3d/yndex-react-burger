@@ -6,10 +6,10 @@ import {
   getForgotPasswordFailed,
 } from '../actions/forgot-password';
 
-import { TForgotPasswordState } from '../../types/data';
+import { TForgotPasswordState,TForgotPasswordType } from '../../types/data';
 
-const forgotPasswordState: TForgotPasswordState = {
-  forgotPassword: {},
+export const forgotPasswordState: TForgotPasswordState = {
+  forgotPassword: null as (null | TForgotPasswordType),
   forgotPasswordRequest: false,
   forgotPasswordFailed: false,
   };
@@ -21,7 +21,7 @@ export const forgotPasswordReducer = createReducer(forgotPasswordState, (builder
   })
   .addCase(getForgotPasswordSuccess, (state, action) => {
     state.forgotPasswordFailed = false; 
-    state.forgotPassword = action.restorePassword; 
+    state.forgotPassword = action.payload; 
     state.forgotPasswordRequest = false;
   })
   .addCase(getForgotPasswordFailed, (state, action) => {

@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   useHistory,
@@ -15,6 +15,12 @@ import { TIngredient } from '../../types/data';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
+declare module 'react' {
+  interface FunctionComponent<P = {}> {
+    (props: PropsWithChildren<P>, context?: any): ReactElement<any, any> | null;
+  }
+}
+
 const BurgerConstructorButtonContainer: React.FC = () => {
   const { 
     orderDetailsItems, 
@@ -22,6 +28,8 @@ const BurgerConstructorButtonContainer: React.FC = () => {
     orderDetailsRequest,
     orderDetailsFailed,
     } = useAppSelector((store) => store.ingredients);
+
+//  const constructorIngredients = useAppSelector((store) => store.ingredients.constructorIngredients);
 
   const {
     authFailed,
@@ -42,9 +50,13 @@ const BurgerConstructorButtonContainer: React.FC = () => {
     }, [constructorIngredients.ingredients, constructorIngredients.bun]
   );
   
-  const onClickButton =  () => {
+  const onClickButton = useCallback(() => {
     if(orderDetailsItems !== null) {
-      if (orderDetailsItems.find((item: TIngredient ) => item.type === 'bun')) {
+      if (orderDetailsItems.find((item: any) => {
+        if(item === null) return false;
+        if(item.type === 'bun') return true;
+      })
+      ) {
         if(!authFailed) {
           setOpen(true);
           dispatch(getOrderDetails(orderDetailsItems));
@@ -55,7 +67,7 @@ const BurgerConstructorButtonContainer: React.FC = () => {
         }
       }
     }
-  };
+  }, [orderDetailsItems, authFailed]);
   
   const orderDetailsStatus = useMemo(
     () => {
@@ -73,7 +85,7 @@ const BurgerConstructorButtonContainer: React.FC = () => {
   );
 
   return (
-    <div className={styles["burger-constructor-button-container"]} >
+    <div data-testid='order_button' className={styles["burger-constructor-button-container"]} >
       <span className={styles['burger-constructor-button-container-span']}>
         {count}
       </span>
@@ -91,7 +103,6 @@ const BurgerConstructorButtonContainer: React.FC = () => {
         </>
       </Modal>
       <Button 
-        className={styles['burger-constructor-button']}
         onClick={()=> onClickButton()}
       > Оформить заказ</Button>
     </div>

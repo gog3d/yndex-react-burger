@@ -10,29 +10,24 @@ import styles from './orders-page.module.css';
 
 import OrderSheetComponent from '../components/order-sheet-component/order-sheet-component';
 import { TOrders }  from '../types/data';
-import { Location } from 'history';
 import { wsUserConnectionStart, wsUserDisconnect } from '../redux/actions/wsUserAction';
 import { getCookie } from '../redux/utils';
 
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { TLocationState } from '../types/data';
 
-interface LocationState {
-  from: {
-    pathname: string;
-  };
-}
 export const  OrdersPage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const location = useLocation<Location & LocationState>();
-
+  const location = useLocation<TLocationState>()
   const history = useHistory();
 
-  const onClickItem = (item: TOrders, location: Location) => {
-    history.push({
-      pathname: `/profile/orders/${item._id}`,
-      state: {background: location},
+  const onClickItem = useCallback(
+    (item: TOrders) => {
+      return history.push({
+        pathname: `/profile/orders/${item._id}`,
+        state: {background: location},
     });
-  };
+  }, [location]);
 
   const {
     user, 
@@ -67,15 +62,17 @@ export const  OrdersPage: React.FC = () => {
   }, [dispatch]);
 
   useEffect(()=>{
-    setName(user.user ? user.user.name : '');
-    setEmail(user.user ? user.user.email : '');
+    //setName(user.user ? user.user.name : '');
+    //setEmail(user.user ? user.user.email : '');
+    setName(user === null ? '' : user.user.name);
+    setEmail(user === null ? '' : user.user.email);
   }, [user]);
 
   const onCancel =  useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      setName(user.user ? user.user.name : '');
-      setEmail(user.user ? user.user.email : '');
+      setName(user === null ? '' : user.user.name);
+      setEmail(user === null ? '' : user.user.email);
       setPassword('');
     }, [email, password, name]
   );
@@ -100,7 +97,6 @@ export const  OrdersPage: React.FC = () => {
     () => {
       setCurrent('История заказов');
       dispatch(getLogout());
-      //dispatch({ type: WS_USER_CONNECTION_CLOSED });
       history.replace({ pathname: '/login' });
     },
     [history]
@@ -156,7 +152,7 @@ export const  OrdersPage: React.FC = () => {
       <div className={styles['sheet-container']}>
         { wsUserOrders.map((order: TOrders, index: number) => { 
           return (
-          <div key={uuidv4()} className={styles['orders-item']} onClick={() => onClickItem(order, location)}>
+          <div key={uuidv4()} className={styles['orders-item']} onClick={() => onClickItem(order)}>
             <OrderSheetComponent order={ order } />
           </div> )}) }
       </div>

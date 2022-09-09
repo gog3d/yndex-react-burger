@@ -4,7 +4,8 @@ import styles from './order-sheet-component.module.css';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { TIngredient, TOrders}  from '../../types/data';
 import { useAppSelector } from '../../redux/hooks';
-
+import { useMemo } from 'react'
+ 
 export interface TTotal {
   bun: TIngredient | null,
   ingredients: Array<TIngredient>,
@@ -19,18 +20,18 @@ const OrderSheetComponent: React.FC<{ order: TOrders }> = ({ order }) => {
   const orderDate: Date = new Date(order.createdAt);
   const day = Math.floor((Number(today) - Number(orderDate))/(1000*3600*24));
 
-  const date = {
-    status: '',
-  };
-  if(day === 0) {
-     date.status = 'Сегодня';
-  } else if (day === 1) {
-    date.status = 'Вчера';
-  } else if (5 > day > 1) {
-    date.status = `${day} дня назад`;
-  } else {
-    date.status = `${day} дней назад`;
-  }
+  const dateStatus = useMemo(() => {
+    if(day === 0) {
+      return 'Сегодня';
+    } else if (day === 1) {
+      return 'Вчера';
+    } else if (5 - day >= 1) {
+      return `${day} дня назад`;
+    } else {
+      return `${day} дней назад`;
+    }
+  }, []);
+
   const orderStatus = {
     status: '',
   }
@@ -80,7 +81,7 @@ const OrderSheetComponent: React.FC<{ order: TOrders }> = ({ order }) => {
         </p>
         <p className={styles['order-sheet-component-text']}>
           <span className="text text_type_main-small">
-            {`${date.status} ${orderDate.getUTCHours()}:${orderDate.getUTCMinutes()}`}
+            {`${dateStatus} ${orderDate.getUTCHours()}:${orderDate.getUTCMinutes()}`}
           </span>
         </p>
       </div>

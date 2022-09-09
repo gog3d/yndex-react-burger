@@ -8,7 +8,7 @@ import {
 
 import { TWsUserOrdersState } from '../../types/data';
 
-const initialState: TWsUserOrdersState = { 
+export const initialState: TWsUserOrdersState = { 
   wsUserError: undefined,
   wsUserConnected: false, 
   wsUserOrders: [],
@@ -18,15 +18,15 @@ const initialState: TWsUserOrdersState = {
 
 export const wsUserOrders = createReducer(initialState, (builder) => {
   builder
-    .addCase(wsUserConnectionSuccess, (state) => {
+    .addCase(wsUserConnectionSuccess, (state, action) => {
       state.wsUserError = undefined;
       state.wsUserConnected = true;
     })
-    .addCase(wsUserConnectionError, (state) => {
+    .addCase(wsUserConnectionError, (state, action) => {
       state.wsUserError = true;
       state.wsUserConnected = false;
     })
-    .addCase(wsUserConnectionClosed, (state) => {
+    .addCase(wsUserConnectionClosed, (state, action) => {
       state.wsUserError = undefined;
       state.wsUserConnected = false;
       state.wsUserOrders = [];

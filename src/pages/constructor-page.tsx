@@ -21,7 +21,7 @@ export const ConstructorPage: React.FC = () => {
 
   useEffect(() => {
     const items = [...constructorIngredients.ingredients, constructorIngredients.bun];
-    dispatch({ type: refreshOrderdetailsItems, orderDetailsItems: items });
+    dispatch(refreshOrderdetailsItems(items));
   }, [constructorIngredients.bun, constructorIngredients.ingredients]);
 
   const burgerIngredientsStatus = useMemo(

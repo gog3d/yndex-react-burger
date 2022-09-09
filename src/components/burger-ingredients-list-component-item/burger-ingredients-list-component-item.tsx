@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import styles from './burger-ingredients-list-component-item.module.css';
 import {CurrencyIcon, Counter} from '@ya.praktikum/react-developer-burger-ui-components';
 import { useDrag } from "react-dnd";
-import { TIngredient}  from '../../redux/action-types/data';
+import { TIngredient}  from '../../types/data';
 
 import { useAppSelector } from '../../redux/hooks';
 

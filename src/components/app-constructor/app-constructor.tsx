@@ -21,14 +21,10 @@ import ModalIngredient from '../modal-ingredient/modal-ingredient';
 import IngredientDetails from '../ingredient-details/ingredient-details';
 import OrderInformation from '../order-information/order-information';
 import ProtectedRoute from '../protected-route';
-import  { Location }  from 'history';
+import  { TLocationState }  from '../../types/data';
 
 const AppConstructor: React.FC = () => {
-
-  type TLocationState = Location & {
-    background: string;
-  }
-  
+ 
   const location = useLocation<TLocationState>();
   const background = location.state && location.state.background;
 
@@ -56,7 +52,7 @@ const AppConstructor: React.FC = () => {
           <Route path="/ingredients/:ingredientId">
             <IngredientPage />
           </Route>
-          <Route path='/feed'  exact={true}>
+          <Route path='/feed' exact={true}>
             <FeedPage />
           </Route>
           <Route path='/profile/orders'  exact={true}>

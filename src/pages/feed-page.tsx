@@ -1,6 +1,6 @@
 import styles from './feed-page.module.css';
 import { v4 as uuidv4 } from 'uuid';
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   useHistory,
@@ -12,10 +12,10 @@ import OrderSheetComponent from '../components/order-sheet-component/order-sheet
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { wsConnectionStart, wsDisconnect } from '../redux/actions/wsAction';
 import { TOrders }  from '../types/data';
-import { Location } from 'history';
+import { TLocationState } from '../types/data';
 
 export const FeedPage: React.FC = () => {
-  const location = useLocation<Location>();
+  const location = useLocation<TLocationState>()
   const history = useHistory();
   const dispatch = useAppDispatch()
     const { 
@@ -34,29 +34,29 @@ export const FeedPage: React.FC = () => {
     }
   }, [dispatch]);
 
+  const onClickItem = useCallback(
+    (item: TOrders) => {
+      return history.push({
+        pathname: `/feed/${item._id}`,
+        state: {background: location},
+    });
+  }, [location]);
 
   const doneOrders = useMemo(() => {
     if(wsOrders) {
-      return wsOrders.filter((order) => order.status === 'done')
+      return wsOrders.filter((order: TOrders) => order.status === 'done')
     }
   }, [wsOrders]);
 
   const inWorkOrders = useMemo(() => {
     if(wsOrders) {
-      return wsOrders.filter((order) => order.status === 'inwork')
+      return wsOrders.filter((order: TOrders) => order.status === 'inwork')
     }
   }, [wsOrders]);
 
   if(!wsOrders) {
     return null
   }
-
-  const onClickItem = (item: TOrders, location: Location) => {
-    history.push({
-      pathname: `/feed/${item._id}`,
-      state: {background: location},
-    });
-  };
   
   return(
     <div className={styles["page__content"]}>
@@ -68,10 +68,11 @@ export const FeedPage: React.FC = () => {
         </p>
         <div className={styles['feed-orders']}>
           <div className={styles['feed-orders-sheet']}>
-          { wsOrders.map((order, index) => { return (
-            <div key={uuidv4()} className={styles['feed-orders-item']} onClick={() => onClickItem(order, location)}>
+          { wsOrders ? wsOrders.map((order: TOrders, index: number) => { return (
+            //<div key={uuidv4()} className={styles['feed-orders-item']} onClick={() => onClickItem(order, location)}>
+            <div key={uuidv4()} className={styles['feed-orders-item']} onClick={() => onClickItem(order)}>
               <OrderSheetComponent order={ order } />
-            </div> )}) }
+            </div> )}): null }
           </div>
           <div className={styles['feed-orders-state']}>
             <div className={styles['feed-orders-orders-list-header']}>
@@ -92,20 +93,20 @@ export const FeedPage: React.FC = () => {
             </div>
             <div className={styles['feed-orders-orders-list']}>
               <div className={styles['feed-orders-ready']}>
-                { doneOrders.map((item, index) => {return(
+                { doneOrders ? doneOrders.map((item: TOrders, index: Number) => {return(
                   <p  key={uuidv4()} className={styles['feed-orders-text']}>
                     <span className="text text_type_digits-default">
                     {`${item.number}`}
                     </span>
-                  </p>  )}) }
+                  </p>  )}) : null }
               </div>
               <div className={styles['feed-orders-in-work']}>
-                { inWorkOrders.map((item, index) => {return(
+                { inWorkOrders ? inWorkOrders.map((item: TOrders, index: Number) => {return(
                   <p  key={uuidv4()} className={styles['feed-orders-text']}>
                     <span className="text text_type_digits-default">
                     {`${item}`}
                     </span>
-                  </p>  )}) }
+                  </p>  )}) : null}
 
               </div>
             </div>

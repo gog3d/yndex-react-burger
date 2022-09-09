@@ -33,7 +33,6 @@ export function setCookie(name: string, value: string, props: any = {}) {
 }
 
 export function deleteCookie(name: string) {
-  //setCookie(name, null, { expires: -1 });
   setCookie(name, '', { expires: -1 });
 }
 
@@ -61,7 +60,9 @@ export const fetchRequest = {
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(body),
-      }).then(res => resolve(res)).catch((err) => reject(err));
+      }).then(res => { 
+        return  resolve(res)
+      }).catch((err) => reject(err));
     })
   },
   get: async (path: string = '', headers: any = {}) => {
@@ -83,7 +84,7 @@ export const fetchRequest = {
   patch: async (path: string = '', body: any = null, headers: any = {}) => {
     return new Promise((resolve, reject) => {
       fetch(baseURL + path, {
-        method: 'GET',
+        method: 'PATCH',
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',

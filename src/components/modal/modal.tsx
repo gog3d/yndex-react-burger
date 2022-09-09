@@ -10,6 +10,8 @@ interface ModalProps {
   children: React.ReactNode;
 };
 
+const modals = document.getElementById('modals')
+
 const Modal: React.FC<ModalProps> = (props) => {
   const  { isOpen, onClose, children } = props;
 
@@ -24,21 +26,21 @@ const Modal: React.FC<ModalProps> = (props) => {
   }, []);
 
   if(!isOpen) return null;
-  return ReactDOM.createPortal (
+  return modals ? ReactDOM.createPortal (
     <>
       <div className={styles['modal-overlay']}>
         <ModalOverlay onClick={onClose} />
       </div>
       <div className={styles['modal']}>
-        <div className={styles['modal-icon']} >
-          <CloseIcon onClick={()=>onClose()}/>
+        <div data-testid = 'modal_close_button' className={styles['modal-icon']} >
+          <CloseIcon onClick={()=>onClose()} type="primary"/>
         </div>
         <div className={styles['modal-children']}>
           {children}
         </div>
       </div>
     </>
-    , document.getElementById('modals'));
-}
+    , modals) : null;
+};
 
 export default Modal;
