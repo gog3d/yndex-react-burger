@@ -1,0 +1,20 @@
+.burger-constructor-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 20px;
+  align-items: center;
+  row-gap: 40px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.burger-constructor-button {
+  padding: 20px;
+}
+
+.burger-constructor-button-container-span {
+  background-color: transparent;
+  padding: 20px;
+}
