@@ -1,7 +1,7 @@
 #build project page
 
 ## DEMO: You can find the demo [HERE](https://gog3d.github.io/yndex-react-burger/index.html)
-## DEMO : [HERE](http://51.250.73.207/#/)
+## DEMO : [HERE](http://51.250.83.254/#/)
 ### Testing:
 
 - Jest
